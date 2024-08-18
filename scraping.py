@@ -63,6 +63,7 @@ for i in range(1, num_paginas + 1):
             for article in articles:
                 data_element_id = article.get('data-element-id')
                 if data_element_id:
+                    data_element_id = int(data_element_id)
                     if int(data_element_id) in df["ID Inmueble"].values:
                         print(f"ID {data_element_id} ya existe. Saltando...")
                         continue  # Saltar al siguiente inmueble si el ID ya existe
