@@ -90,6 +90,12 @@ for i in range(1, num_paginas + 1):
                             # Extract the discounted price if available
                             discounted_price_info = soup.find("span", {"class": "pricedown"})
                             discounted_price_text = discounted_price_info.get_text(strip=True) if discounted_price_info else "Sin rebaja"
+                            
+                            # Extract meter price
+                            meter_price = soup.find("section", {"class" : "flex-features__container"}).find("p", {"class" : "flex-feature squaredmeterprice"})
+                            
+                            # Extract community expenses
+                            community = soup.find("section", {"class" : "flex-features__container"}).find("p", {"class" : "flex-feature-details"})
 
                             # Extract reference
                             reference_container = soup.find("div", {"class": "ad-reference-container"})
@@ -148,6 +154,7 @@ for i in range(1, num_paginas + 1):
 
                             df = df._append({
                             "ID Inmueble": data_element_id,
+                            "Tipo" : "venta",
                             "Título": titulo_text,
                             "Subtítulo": subtitle_text,
                             "Precio": price_text,
