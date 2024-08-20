@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-excel_file = "inmuebles.xlsx"
+excel_file = "ventas.xlsx"
 
 # Leer el archivo Excel si existe, si no, crear un DataFrame vacío
 if os.path.exists(excel_file):
