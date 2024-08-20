@@ -91,6 +91,12 @@ for i in range(1, num_paginas + 1):
                             # Extract the discounted price if available
                             discounted_price_info = soup.find("span", {"class": "pricedown"})
                             discounted_price_text = discounted_price_info.get_text(strip=True) if discounted_price_info else "Sin rebaja"
+                            
+                            # Extract meter price
+                            # meter_price = soup.find("section", {"class" : "flex-features__container"}).find("p", {"class" : "flex-feature squaredmeterprice"})
+                            
+                            # Extract community expenses
+                            community = soup.find("section", {"class" : "flex-features__container"}).find("p", {"class" : "flex-feature-details"})
 
                             # Extract reference
                             reference_container = soup.find("div", {"class": "ad-reference-container"})
@@ -135,11 +141,13 @@ for i in range(1, num_paginas + 1):
                                 telefono_res = res_phone.json()
                                 if ('phone1' in telefono_res and telefono_res['phone1'] and 'number' in telefono_res['phone1']):
                                     telefono = telefono_res['phone1']['number']
+                                    
                             # Print extracted information
                             print(f"Title: {titulo_text}")
                             print(f"Subtitle: {subtitle_text}")
                             print(f"Price: {price_text}")
                             print(f"Discounted Price: {discounted_price_text}")
+                            # print(f"€/m²: {meter_price}")
                             print(basics)
                             print(mas)
                             print(ref_num)
@@ -149,10 +157,12 @@ for i in range(1, num_paginas + 1):
 
                             df = df._append({
                             "ID Inmueble": data_element_id,
+                            "Tipo" : "venta",
                             "Título": titulo_text,
                             "Subtítulo": subtitle_text,
                             "Precio": price_text,
                             "Precio con Descuento": discounted_price_text,
+                            # "Precio por m²": meter_price,
                             "Características Básicas": basics,
                             "Más Características": mas,
                             "Referencia": ref_num,
