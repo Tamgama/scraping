@@ -2,16 +2,72 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visor de Excel Bonito</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Betterplace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>Betterplace</h1>
+        </div>
+    </header>
+
     <div class="container">
-        <h1>Visualización excel</h1>
-        <div id="output"></div>
+        <!-- Input para subir CSV -->
+        <input type="file" id="csvFileInput" accept=".csv" />
+
+        <!-- Barra de filtros -->
+        <div class="filter-bar">
+            <select id="property-type" class="filter-select">
+                <option value="all">Viviendas</option>
+                <option value="house">Casa</option>
+                <option value="apartment">Apartamento</option>
+            </select>
+
+            <select id="operation-type" class="filter-select">
+                <option value="all">Todos</option>
+                <option value="buy">Compra</option>
+                <option value="rent">Alquiler</option>
+            </select>
+
+            <select id="zone" class="filter-select">
+                <option value="all">Todas las zonas</option>
+                <option value="murcia">Murcia Capital</option>
+                <option value="cartagena">Cartagena</option>
+            </select>
+
+            <select id="bedrooms" class="filter-select">
+                <option value="all">Cualquier número de habitaciones</option>
+                <option value="1">1 habitación</option>
+                <option value="2">2 habitaciones</option>
+                <option value="3">3 habitaciones</option>
+                <option value="4">4 habitaciones o más</option>
+            </select>
+
+            <select id="publication-date" class="filter-select">
+                <option value="all">Cualquier fecha</option>
+                <option value="last-24h">Últimas 24h</option>
+                <option value="last-week">Última semana</option>
+                <option value="last-month">Último mes</option>
+            </select>
+        </div>
+
+        <div class="results-info">
+            <span id="results-count">0 resultados obtenidos</span>
+        </div>
+
+        <!-- Contenido filtrable -->
+        <div class="content" id="content">
+            <!-- Los elementos se generarán dinámicamente desde el CSV -->
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>Betterplace &copy; 2024</p>
+    </footer>
 </body>
 </html>
