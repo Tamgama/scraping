@@ -6,16 +6,16 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-excel_file = "ventas.xlsx"
+csv_file = "ventas.csv"
 
-# Leer el archivo Excel si existe, si no, crear un DataFrame vacío
-if os.path.exists(excel_file):
-    df = pd.read_excel(excel_file)
+# Leer el archivo CSV si existe, si no, crear un DataFrame vacío
+if os.path.exists(csv_file):
+    df = pd.read_csv(csv_file)
 else:
     df = pd.DataFrame(columns=[
-        "ID Inmueble", "Título", "Subtítulo", "Precio", "Precio con Descuento", 
-        "Características Básicas", "Más Características", "Referencia", 
-        "Anunciante", "Nombre Anunciante", "Teléfono"
+        "ID Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", 
+        "Área", "Precio", "Comunidad", "Precio/m²", "Características", "Habitaciones", "Baños",
+        "Referencia", "Anunciante", "Nombre Anunciante", "Última Actualización", "Teléfono", "URL"
     ])
 
 headers = {
@@ -24,7 +24,7 @@ headers = {
     "Accept-Language": "es-ES,es;q=0.9",
     "Cache-Control": "max-age=0",
     "cookie":
-    "userUUID=c7889446-ae97-4455-9845-6ca26cb28ea2; _pprv=eyJjb25zZW50Ijp7IjAiOnsibW9kZSI6Im9wdC1pbiJ9LCIxIjp7Im1vZGUiOiJvcHQtaW4ifSwiMiI6eyJtb2RlIjoib3B0LWluIn0sIjMiOnsibW9kZSI6Im9wdC1pbiJ9LCI0Ijp7Im1vZGUiOiJvcHQtaW4ifSwiNSI6eyJtb2RlIjoib3B0LWluIn0sIjYiOnsibW9kZSI6Im9wdC1pbiJ9LCI3Ijp7Im1vZGUiOiJvcHQtaW4ifX0sInB1cnBvc2VzIjpudWxsLCJfdCI6Im1ma3h5eXAzfGx6d2oxaGQzIn0%3D; _pcid=%7B%22browserId%22%3A%22lzwj1hczfkdi5ptf%22%2C%22_t%22%3A%22mfkxyyq9%7Clzwj1he9%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAGYBrAB4BPcQEcARgB9UALwDuAKwCMACygyQAXyA; __rtbh.uid=%7B%22eventType%22%3A%22uid%22%2C%22id%22%3A%22unknown%22%7D; __rtbh.lid=%7B%22eventType%22%3A%22lid%22%2C%22id%22%3A%22D1wXAFBUdY3QkESsiDYK%22%7D; didomi_token=eyJ1c2VyX2lkIjoiMTkxNWE5NmUtZjVmYi02NWUxLThlY2EtMTYzMjcxNzAwYzI3IiwiY3JlYXRlZCI6IjIwMjQtMDgtMTZUMDk6NDg6NDYuODE1WiIsInVwZGF0ZWQiOiIyMDI0LTA4LTE2VDA5OjQ4OjUwLjU0NFoiLCJ2ZW5kb3JzIjp7ImRpc2FibGVkIjpbImdvb2dsZSIsImM6bGlua2VkaW4tbWFya2V0aW5nLXNvbHV0aW9ucyIsImM6bWl4cGFuZWwiLCJjOmFidGFzdHktTExrRUNDajgiLCJjOmhvdGphciIsImM6YmVhbWVyLUg3dHI3SGl4IiwiYzp0ZWFsaXVtY28tRFZEQ2Q4WlAiLCJjOnRpa3Rvay1LWkFVUUxaOSIsImM6Z29vZ2xlYW5hLTRUWG5KaWdSIiwiYzppZGVhbGlzdGEtTHp0QmVxRTMiLCJjOmlkZWFsaXN0YS1mZVJFamUyYyIsImM6Y29udGVudHNxdWFyZSIsImM6bWljcm9zb2Z0Il19LCJwdXJwb3NlcyI6eyJkaXNhYmxlZCI6WyJnZW9sb2NhdGlvbl9kYXRhIiwiZGV2aWNlX2NoYXJhY3RlcmlzdGljcyJdfSwidmVyc2lvbiI6MiwiYWMiOiJBQUFBLkFBQUEifQ==; euconsent-v2=CQDceEAQDceEAAHABBENBBFgAAAAAAAAAAAAAAAAAACkoAMAAQUxKQAYAAgpiQgAwABBTEdABgACCmISADAAEFMQ.YAAAAAAAAAAA; _last_search=officialZone; smc=\"{}\"; galleryHasBeenBoosted=true; contact5b9f309c-f3ee-4bc3-ac61-abc676f62437=\"{'maxNumberContactsAllow':10}\"; send5b9f309c-f3ee-4bc3-ac61-abc676f62437=\"{}\"; SESSION=d7ab6b509870942b~5b9f309c-f3ee-4bc3-ac61-abc676f62437; utag_main__sn=2; utag_main_ses_id=1723825693684%3Bexp-session; utag_main__prevVtUrl=https%3A%2F%2Fwww.idealista.com%2Finmueble%2F105236581%2F%3Bexp-1723829293854; utag_main__prevVtUrlReferrer=https://www.idealista.com/venta-viviendas/murcia-murcia/%3Bexp-1723829293854; utag_main__prevVtSource=Portal sites%3Bexp-1723829293854; utag_main__prevVtCampaignName=organicWeb%3Bexp-1723829293854; utag_main__prevVtCampaignCode=%3Bexp-1723829293854; utag_main__prevVtCampaignLinkName=%3Bexp-1723829293854; utag_main__prevVtRecipientId=%3Bexp-1723829293854; utag_main__prevVtProvider=%3Bexp-1723829293854; utag_main__ss=0%3Bexp-session; dicbo_id=%7B%22dicbo_fetch%22%3A1723825695890%7D; utag_main__prevCompleteClickName=; cookieSearch-1=\"/venta-viviendas/murcia-murcia/:1723825777039\"; utag_main__pn=5%3Bexp-session; utag_main__se=11%3Bexp-session; utag_main__st=1723827579518%3Bexp-session; utag_main__prevCompletePageName=005-idealista/portal > portal > viewResults%3Bexp-1723829379535; utag_main__prevLevel2=005-idealista/portal%3Bexp-1723829379535; datadome=uD1DSM_QCag0XgpTMm_I8zAG81yninS6LLxrFWB8g0xBF1WU3~MJUDyjVGBAtojjt~d1GkypWFfoJsz7HyJfo3VlCbaFupShQ2DPFdHj7Z1XFIRhNmlRAPQyquRjfDuQ",
+    "userUUID=e422d466-febb-41b8-bfce-91b7746ca9a4; _pprv=eyJjb25zZW50Ijp7IjAiOnsibW9kZSI6Im9wdC1pbiJ9LCIxIjp7Im1vZGUiOiJvcHQtaW4ifSwiMiI6eyJtb2RlIjoib3B0LWluIn0sIjMiOnsibW9kZSI6Im9wdC1pbiJ9LCI0Ijp7Im1vZGUiOiJvcHQtaW4ifSwiNSI6eyJtb2RlIjoib3B0LWluIn0sIjYiOnsibW9kZSI6Im9wdC1pbiJ9LCI3Ijp7Im1vZGUiOiJvcHQtaW4ifX0sInB1cnBvc2VzIjpudWxsLCJfdCI6Im1mdGRudWxzfG0wNHlxZDlzIn0%3D; _pcid=%7B%22browserId%22%3A%22m04yqd9nqilrs7m0%22%2C%22_t%22%3A%22mftdnv5k%7Cm04yqdtk%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAGb5WSAG4BWfgB9%2BABgAsATwCOrfPxABfIA; didomi_token=eyJ1c2VyX2lkIjoiMTkxNzhmZTMtMzhiMS02NGRjLWIyODAtNDMzYzZiMDM1Y2M4IiwiY3JlYXRlZCI6IjIwMjQtMDgtMjJUMDc6MzA6MTAuOTU1WiIsInVwZGF0ZWQiOiIyMDI0LTA4LTIyVDA3OjMwOjIzLjI4OFoiLCJ2ZW5kb3JzIjp7ImRpc2FibGVkIjpbImdvb2dsZSIsImM6bGlua2VkaW4tbWFya2V0aW5nLXNvbHV0aW9ucyIsImM6bWl4cGFuZWwiLCJjOmFidGFzdHktTExrRUNDajgiLCJjOmhvdGphciIsImM6YmVhbWVyLUg3dHI3SGl4IiwiYzp0ZWFsaXVtY28tRFZEQ2Q4WlAiLCJjOnRpa3Rvay1LWkFVUUxaOSIsImM6Z29vZ2xlYW5hLTRUWG5KaWdSIiwiYzppZGVhbGlzdGEtTHp0QmVxRTMiLCJjOmlkZWFsaXN0YS1mZVJFamUyYyIsImM6Y29udGVudHNxdWFyZSIsImM6bWljcm9zb2Z0Il19LCJwdXJwb3NlcyI6eyJkaXNhYmxlZCI6WyJnZW9sb2NhdGlvbl9kYXRhIiwiZGV2aWNlX2NoYXJhY3RlcmlzdGljcyJdfSwidmVyc2lvbiI6MiwiYWMiOiJBQUFBLkFBQUEifQ==; euconsent-v2=CQDwPsAQDwPsAAHABBENBCFgAAAAAAAAAAAAAAAAAACkoAMAAQUxKQAYAAgpiQgAwABBTEdABgACCmISADAAEFMQ.YAAAAAAAAAAA; __rtbh.uid=%7B%22eventType%22%3A%22uid%22%2C%22id%22%3A%22unknown%22%7D; __rtbh.lid=%7B%22eventType%22%3A%22lid%22%2C%22id%22%3A%22VGLuhkDkzeXqiHVZToIo%22%7D; _last_search=officialZone; send3173737a-ec63-437e-889c-0b98ec436821=\"{}\"; utag_main__sn=2; utag_main_ses_id=1724334229587%3Bexp-session; utag_main__prevVtUrl=https%3A%2F%2Fwww.idealista.com%2Finmueble%2F105788245%2F%3Bexp-1724337829619; utag_main__prevVtUrlReferrer=https://www.idealista.com/alquiler-viviendas/murcia-murcia/%3Bexp-1724337829619; utag_main__prevVtSource=Portal sites%3Bexp-1724337829619; utag_main__prevVtCampaignName=organicWeb%3Bexp-1724337829619; utag_main__prevVtCampaignCode=%3Bexp-1724337829619; utag_main__prevVtCampaignLinkName=%3Bexp-1724337829619; utag_main__prevVtRecipientId=%3Bexp-1724337829619; utag_main__prevVtProvider=%3Bexp-1724337829619; contactf9024cd9-6555-4a1a-afa2-ac7ea8f9386f=\"{'maxNumberContactsAllow':10}\"; SESSION=b736c720ecc0095b~f9024cd9-6555-4a1a-afa2-ac7ea8f9386f; utag_main__ss=0%3Bexp-session; utag_main__prevCompleteClickName=; cookieSearch-1=\"/venta-viviendas/murcia-murcia/:1724334231826\"; utag_main__pn=3%3Bexp-session; utag_main__se=4%3Bexp-session; utag_main__st=1724336033917%3Bexp-session; utag_main__prevCompletePageName=005-idealista/portal > portal > viewResults%3Bexp-1724337833926; utag_main__prevLevel2=005-idealista/portal%3Bexp-1724337833926; dicbo_id=%7B%22dicbo_fetch%22%3A1724334234793%7D; datadome=E~X55HdA9tYtB_IG4WxsRcIUshvZ5xYkK_RbSfJpMGw622f8httf~ythKF_G2vXgqA6I3R~KUBc20B2jnxYEvTTxKHefvdstS2ydkx3wSbcmtz4XOySUfb020LPK26g0",
     "Priority": "u=0, i",
     "Referer": "https://www.idealista.com/venta-viviendas/murcia-murcia/",
     "Sec-Ch-Device-Memory": "8",
@@ -93,8 +93,10 @@ for i in range(1, num_paginas + 1):
                             discounted_price_text = discounted_price_info.get_text(strip=True) if discounted_price_info else "Sin rebaja"
                             
                             # Extract meter price
-                            # meter_price = soup.find("section", {"class" : "flex-features__container"}).find("p", {"class" : "flex-feature squaredmeterprice"})
-                            
+                            meter_container = soup.find("p", {"class" :"flex-feature squaredmeterprice"})
+                            meter = [me.text for me in meter_container.find_all("span")]
+                            meter_price = meter[1] if len(meter) > 1 else "N/A"
+
                             # Extract community expenses
                             community = soup.find("section", {"class" : "flex-features__container"}).find("p", {"class" : "flex-feature-details"})
 
@@ -118,6 +120,17 @@ for i in range(1, num_paginas + 1):
 
                                 nombre_anun = anun_container.find("span").get_text(strip=True) if anun else "N/A"
 
+                            # Extract location list
+                            location = soup.find("div", {"id": "headerMap"})
+                            if location:
+                                loc = [lo.text for lo in location.find_all("li")]
+                                street = loc[0] if len(loc) > 0 else "N/A"
+                                neighborhood = loc[1] if len(loc) > 1 else "N/A"
+                                district = loc[2] if len(loc) > 2 else "N/A"
+                                city = loc[3] if len(loc) > 3 else "N/A"
+                                area = loc[4] if len(loc) > 4 else "N/A"
+                            else:
+                                street = neighborhood = district = city = area = "N/A"
 
                             # Extract property details
 
@@ -130,6 +143,11 @@ for i in range(1, num_paginas + 1):
                             c3 = soup.find("section", {"id": "details"}).find("div", {"class": "details-property-feature-three"})
 
                             basics = [caract.text for caract in c1.find_all("li")]
+                            if basics:
+                                metros = basics[0] if len(basics) > 0 else "N/A"
+                                habitaciones = basics[1] if len(basics) > 1 else "N/A"
+                                baños = basics[2] if len(basics) > 2 else "N/A"
+
 
                             phone_url = f"https://www.idealista.com/es/ajax/ads/{data_element_id}/contact-phones"
 
@@ -144,40 +162,55 @@ for i in range(1, num_paginas + 1):
                                     
                             # Print extracted information
                             print(f"Title: {titulo_text}")
-                            print(f"Subtitle: {subtitle_text}")
+                            print(f"Street: {street}")
+                            print(f"Neighborhood: {neighborhood}")
+                            print(f"District: {district}")
+                            print(f"City: {city}")
+                            print(f"Area: {area}")
                             print(f"Price: {price_text}")
-                            print(f"Discounted Price: {discounted_price_text}")
-                            # print(f"€/m²: {meter_price}")
-                            print(basics)
-                            print(mas)
-                            print(ref_num)
-                            print(anunciante)
-                            print(nombre_anun)
-                            print(telefono)
+                            print(f"Comunidad: {community}")
+                            print(f"€/m²: {meter_price}")
+                            print(f"Caracteristicas: {basics}")
+                            print(f"Metros construidos: {metros}")
+                            print(f"habitaciones: {habitaciones}")
+                            print(f"baños: {baños}")
+                            # print(f"otras caracteristicas: {mas}")
+                            print(f"referencia: {ref_num}")
+                            print(f"anunciante: {anunciante}")
+                            print(f"nombre anunciante: {nombre_anun}")
+                            print(f"tlf: {telefono}")
+                            print(f"URL: {inmueble_url}")
 
                             df = df._append({
                             "ID Inmueble": data_element_id,
                             "Tipo" : "venta",
                             "Título": titulo_text,
-                            "Subtítulo": subtitle_text,
+                            "Calle": street,
+                            "Barrio": neighborhood,
+                            "Distrito": district,
+                            "Ciudad": city,
+                            "Área": area,
                             "Precio": price_text,
-                            "Precio con Descuento": discounted_price_text,
-                            # "Precio por m²": meter_price,
-                            "Características Básicas": basics,
-                            "Más Características": mas,
+                            "Comunidad": community,
+                            "Características": basics,
+                            "m construidos": metros,
+                            "Habitaciones": habitaciones,
+                            "Baños": baños,
+                            # "Más Características": mas,
                             "Referencia": ref_num,
                             "Anunciante": anunciante,
                             "Nombre Anunciante": nombre_anun,
                             "Última Actualización": actual,
-                            "Teléfono": telefono
+                            "Teléfono": telefono,
+                            "URL": inmueble_url
                         }, ignore_index=True)
-                        df.to_excel(excel_file, index=False)
-                        print(f"ID {data_element_id} guardado en el Excel.")
+                        df.to_csv(csv_file, index=False)
+                        print(f"ID {data_element_id} guardado en el CSV.")
                         time.sleep(random.uniform(1, 3))  # Añadir un retraso
                     except Exception:
                         pass
     except Exception:
         pass
-# Guardar el DataFrame actualizado en el archivo Excel
-df.to_excel(excel_file, index=False)
-print(f"Datos guardados en {excel_file}.")
+# Guardar el DataFrame actualizado en el archivo CSV
+df.to_csv(csv_file, index=False)
+print(f"Datos guardados en {csv_file}.")

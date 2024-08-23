@@ -12,9 +12,9 @@ if os.path.exists(csv_file):
     df = pd.read_csv(csv_file)
 else:
     df = pd.DataFrame(columns=[
-        "ID Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", 
-        "Área", "Precio", "Fianza", "Precio/m²", "Características", "Habitaciones", "Baños",
-        "Referencia", "Anunciante", "Nombre Anunciante", "Última Actualización", "Teléfono", "URL"
+        "ID_Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", "Área", 
+        "Precio", "Fianza", "Precio_por_metro", "Características", "Habitaciones", "Metros_construidos", "Metros_utiles"
+        "Baños", "Referencia", "Anunciante", "Nombre_Anunciante", "Última_Actualización", "Teléfono", "URL"
     ])
 
 headers = {
@@ -22,7 +22,7 @@ headers = {
     "Accept-Encoding": "gzip, deflate, br, zstd",
     "Accept-Language": "es-ES,es;q=0.9",
     "Cache-Control": "no-store,max-age=0",
-    "cookie": "userUUID=e422d466-febb-41b8-bfce-91b7746ca9a4; SESSION=b736c720ecc0095b~3173737a-ec63-437e-889c-0b98ec436821; utag_main__sn=1; _pprv=eyJjb25zZW50Ijp7IjAiOnsibW9kZSI6Im9wdC1pbiJ9LCIxIjp7Im1vZGUiOiJvcHQtaW4ifSwiMiI6eyJtb2RlIjoib3B0LWluIn0sIjMiOnsibW9kZSI6Im9wdC1pbiJ9LCI0Ijp7Im1vZGUiOiJvcHQtaW4ifSwiNSI6eyJtb2RlIjoib3B0LWluIn0sIjYiOnsibW9kZSI6Im9wdC1pbiJ9LCI3Ijp7Im1vZGUiOiJvcHQtaW4ifX0sInB1cnBvc2VzIjpudWxsLCJfdCI6Im1mdGRudWxzfG0wNHlxZDlzIn0%3D; _pcid=%7B%22browserId%22%3A%22m04yqd9nqilrs7m0%22%2C%22_t%22%3A%22mftdnv5k%7Cm04yqdtk%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAGb5WSAG4BWfgB9%2BABgAsATwCOrfPxABfIA; didomi_token=eyJ1c2VyX2lkIjoiMTkxNzhmZTMtMzhiMS02NGRjLWIyODAtNDMzYzZiMDM1Y2M4IiwiY3JlYXRlZCI6IjIwMjQtMDgtMjJUMDc6MzA6MTAuOTU1WiIsInVwZGF0ZWQiOiIyMDI0LTA4LTIyVDA3OjMwOjIzLjI4OFoiLCJ2ZW5kb3JzIjp7ImRpc2FibGVkIjpbImdvb2dsZSIsImM6bGlua2VkaW4tbWFya2V0aW5nLXNvbHV0aW9ucyIsImM6bWl4cGFuZWwiLCJjOmFidGFzdHktTExrRUNDajgiLCJjOmhvdGphciIsImM6YmVhbWVyLUg3dHI3SGl4IiwiYzp0ZWFsaXVtY28tRFZEQ2Q4WlAiLCJjOnRpa3Rvay1LWkFVUUxaOSIsImM6Z29vZ2xlYW5hLTRUWG5KaWdSIiwiYzppZGVhbGlzdGEtTHp0QmVxRTMiLCJjOmlkZWFsaXN0YS1mZVJFamUyYyIsImM6Y29udGVudHNxdWFyZSIsImM6bWljcm9zb2Z0Il19LCJwdXJwb3NlcyI6eyJkaXNhYmxlZCI6WyJnZW9sb2NhdGlvbl9kYXRhIiwiZGV2aWNlX2NoYXJhY3RlcmlzdGljcyJdfSwidmVyc2lvbiI6MiwiYWMiOiJBQUFBLkFBQUEifQ==; euconsent-v2=CQDwPsAQDwPsAAHABBENBCFgAAAAAAAAAAAAAAAAAACkoAMAAQUxKQAYAAgpiQgAwABBTEdABgACCmISADAAEFMQ.YAAAAAAAAAAA; __rtbh.uid=%7B%22eventType%22%3A%22uid%22%2C%22id%22%3A%22unknown%22%7D; __rtbh.lid=%7B%22eventType%22%3A%22lid%22%2C%22id%22%3A%22VGLuhkDkzeXqiHVZToIo%22%7D; contact3173737a-ec63-437e-889c-0b98ec436821=\"{'maxNumberContactsAllow':10}\"; _last_search=officialZone; utag_main__prevCompleteClickName=; send3173737a-ec63-437e-889c-0b98ec436821=\"{}\"; cookieSearch-1=\"/alquiler-viviendas/murcia-murcia/:1724312755408\"; datadome=eDYCX7XHZNwZg~MvNbMEgw_B~~3t7N6f7g5BQtJL5RFUkDzwTAYBo9~umAyf6oA9lszhVtxQUwQMgE2x6vLL1EPDxVHX92NbYgDu4X7LkHy8QB~JCOjaNvERUs0H4zIc",
+    "cookie": "didomi_token=eyJ1c2VyX2lkIjoiMTkwYTY0NjAtNGU2Yy02NjAyLWIzYjctZjY5ZTMwODYyZWJmIiwiY3JlYXRlZCI6IjIwMjQtMDctMTJUMDk6Mjg6NDUuMDMwWiIsInVwZGF0ZWQiOiIyMDI0LTA3LTEyVDA5OjI4OjQ2LjI1MVoiLCJ2ZW5kb3JzIjp7ImVuYWJsZWQiOlsiZ29vZ2xlIiwiYzpsaW5rZWRpbi1tYXJrZXRpbmctc29sdXRpb25zIiwiYzptaXhwYW5lbCIsImM6YWJ0YXN0eS1MTGtFQ0NqOCIsImM6aG90amFyIiwiYzpiZWFtZXItSDd0cjdIaXgiLCJjOnRlYWxpdW1jby1EVkRDZDhaUCIsImM6dGlrdG9rLUtaQVVRTFo5IiwiYzpnb29nbGVhbmEtNFRYbkppZ1IiLCJjOmlkZWFsaXN0YS1MenRCZXFFMyIsImM6aWRlYWxpc3RhLWZlUkVqZTJjIiwiYzpjb250ZW50c3F1YXJlIiwiYzptaWNyb3NvZnQiXX0sInB1cnBvc2VzIjp7ImVuYWJsZWQiOlsiZ2VvbG9jYXRpb25fZGF0YSIsImRldmljZV9jaGFyYWN0ZXJpc3RpY3MiXX0sInZlcnNpb24iOjIsImFjIjoiQ2hHQUVBRmtGQ0lBLkFBQUEifQ==; euconsent-v2=CQBpHQAQBpHQAAHABBENA8EsAP_gAAAAAAAAHXwBwAIAAqABaAFsAUgC8wHXgAAAFJQAYAAgpWUgAwABBSshABgACClY6ADAAEFKwkAGAAIKVgAA.f_wAAAAAAAAA; galleryHasBeenBoosted=true; utag_main__prevCompleteClickName=; askToSaveAlertPopUp=true; userUUID=81a9d829-9997-4fec-89e6-bf0b8c2128a4; _last_search=officialZone; utag_main__sn=10; contact680171ec-c274-49db-b0ba-b7a1529af96d=\"{'maxNumberContactsAllow':10}\"; cookieSearch-1=\"/alquiler-viviendas/murcia-murcia/:1724401634229\"; SESSION=bc6d9a078ed995d1~257190ce-021e-4fa6-9ffb-2db47d58033a; datadome=OhpzvtwflwQBNdGmUZbqfd~kIOMa2~BbWQ1yYr7BHoyb0DP9QCZ_ZYTBNsnEeGQm10wyBfBH2QoNDNheHJtfPvf~KnjWtNc8rCLr7PoL50imY2d8wlJGgwkaDLGIAHcl",
     "Referer": "https://www.idealista.com/alquiler-viviendas/murcia-murcia/",
     "Sec-Ch-Device-Memory": "4",
     "Sec-Ch-Ua": '"Not)A;Brand";v="99", "Google Chrome";v="127", "Chromium";v="127"',
@@ -61,7 +61,7 @@ for i in range(1, num_paginas + 1):
             if not data_element_id:
                 print(f"Artículo en la página {i} no tiene 'data-element-id'.")
                 continue
-            if int(data_element_id) in df["ID Inmueble"].values:
+            if int(data_element_id) in df["ID_Inmueble"].values:
                 print(f"ID {data_element_id} ya existe. Saltando...")
                 continue
             print(f"Página {i} - data-element-id: {data_element_id}")
@@ -113,6 +113,7 @@ for i in range(1, num_paginas + 1):
             else:
                 anunciante = "N/A"
                 nombre_anun = "N/A"
+                
             # Extract location list
             location = soup.find("div", {"id": "headerMap"})
             if location:
@@ -132,6 +133,9 @@ for i in range(1, num_paginas + 1):
             basics = [caract.text.strip() for caract in c1.find_all("li")] if c1 else []
             if basics:
                 metros = basics[0] if len(basics) > 0 else "N/A"
+                # if metros:
+                    # construidos = metros[0] if len(metros) > 0 else "N/A"
+                    # utiles = metros[1] if len(metros) > 0 else "N/A"
                 habitaciones = basics[1] if len(basics) > 1 else "N/A"
                 baños = basics[2] if len(basics) > 2 else "N/A"
 
@@ -150,17 +154,17 @@ for i in range(1, num_paginas + 1):
                 print(f"Error al intentar acceder al teléfono para {data_element_id}: {e}")
 
             # Print extracted information
-            print(f"Title: {titulo_text}")
-            print(f"Street: {street}")
-            print(f"Neighborhood: {neighborhood}")
-            print(f"District: {district}")
-            print(f"City: {city}")
-            print(f"Area: {area}")
-            print(f"Price: {price_text}")
-            print(f"Deposit: {deposit}")
-            print(f"€/m²: {meter_price}")
+            print(f"Título: {titulo_text}")
+            print(f"Calle: {street}")
+            print(f"Barrio: {neighborhood}")
+            print(f"Distrito: {district}")
+            print(f"Ciudad: {city}")
+            print(f"Área: {area}")
+            print(f"Precio: {price_text}")
+            print(f"Fianza: {deposit}")
+            print(f"Precio_por_metro: {meter_price}")
             print(f"Caracteristicas: {basics}")
-            print(f"Metros construidos: {metros}")
+            print(f"Metros_construidos: {metros}")
             print(f"habitaciones: {habitaciones}")
             print(f"baños: {baños}")
             # print(f"otras caracteristicas: {mas}")
@@ -171,7 +175,7 @@ for i in range(1, num_paginas + 1):
             print(f"URL: {inmueble_url}")
 
             df = df._append({
-                "ID Inmueble": data_element_id,
+                "ID_Inmueble": data_element_id,
                 "Tipo" : "Alquiler",
                 "Título": titulo_text,
                 "Calle": street,
@@ -181,8 +185,10 @@ for i in range(1, num_paginas + 1):
                 "Área": area,
                 "Precio": price_text,
                 "Fianza": deposit,
-                "Características Básicas": basics,
-                "m construidos": metros,
+                "Precio_por_metro": meter_price,
+                "Características": basics,
+                # "Metros_construidos": construidos,
+                # "Metros_utiles": utiles,
                 "Habitaciones": habitaciones,
                 "Baños": baños,
                 # "Más Características": mas,
