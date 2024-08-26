@@ -4,7 +4,7 @@ import random
 import os
 from bs4 import BeautifulSoup
 import pandas as pd
-
+import traceback
 
 csv_file = "ventas.csv"
 
@@ -63,17 +63,15 @@ for i in range(1, num_paginas + 1):
                 data_element_id = article.get('data-element-id')
                 if data_element_id:
                     data_element_id = int(data_element_id)
-                    if int(data_element_id) in df["ID Inmueble"].values:
+                    if data_element_id in df["ID Inmueble"].values:
                         print(f"ID {data_element_id} ya existe. Saltando...")
                         continue  # Saltar al siguiente inmueble si el ID ya existe
                     print(f"Página {i} - data-element-id: {data_element_id}")
-                    time.sleep(random.uniform(1, 3))  # Add a delay
+                    time.sleep(random.uniform(1, 3))  # Añadir un retraso
                     inmueble_url = f"https://www.idealista.com/inmueble/{data_element_id}/"
                     try:
                         r = session.get(inmueble_url)
-                        if r.status_code != 200:
-                            print(f"Failed to retrieve the webpage. Status code: {r.status_code}")
-                        else:
+                        if r.status_code == 200:
                             soup = BeautifulSoup(r.text, 'lxml')
 
                             # Extract the title
@@ -90,16 +88,20 @@ for i in range(1, num_paginas + 1):
                             # Extract the discounted price if available
                             discounted_price_info = soup.find("span", {"class": "pricedown"})
                             discounted_price_text = discounted_price_info.get_text(strip=True) if discounted_price_info else "Sin rebaja"
-                            
                             # Extract meter price
-                            meter_container = soup.find("p", {"class" :"flex-feature squaredmeterprice"})
-                            meter = [me.text for me in meter_container.find_all("span")]
-                            meter_price = meter[1] if len(meter) > 1 else "N/A"
-
+                            meter_container = soup.find("p", {"class": "flex-feature squaredmeterprice"})
+                            if meter_container:
+                                meter = [me.text for me in meter_container.find_all("span")]
+                                meter_price = meter[1] if len(meter) > 1 else "N/A"
+                            else:
+                                meter_price = "N/A"
                             # Extract community expenses
-                            community = soup.find("section", {"class" : "flex-features__container"}).find("p", {"class" : "flex-feature-details"})
+                            community_section = soup.find("section", {"class": "flex-features__container"})
+                            if community_section:
+                                community = community_section.find("p", {"class": "flex-feature-details"}).get_text(strip=True)
+                            else:
+                                community = "N/A"
 
-                            # Extract reference
                             reference_container = soup.find("div", {"class": "ad-reference-container"})
                             if reference_container:
                                 reference = reference_container.find("p", {"class": "txt-ref"})
@@ -107,19 +109,17 @@ for i in range(1, num_paginas + 1):
                             else:
                                 ref_num = "N/A"
 
-                            actual_container = soup.find("div", {"id" : "stats"})
-                            if actual_container:
-                                actual = actual_container.find("p").get_text(strip=True)
+                            actual_container = soup.find("div", {"id": "stats"})
+                            actual = actual_container.find("p").get_text(strip=True) if actual_container else "N/A"
 
-                            # Extract anunciante
                             anun_container = soup.find("div", {"class": "professional-name"})
                             if anun_container:
                                 anun = anun_container.find("div", {"class": "name"})
                                 anunciante = anun.get_text(strip=True) if anun else "N/A"
-
                                 nombre_anun = anun_container.find("span").get_text(strip=True) if anun else "N/A"
+                            else:
+                                anunciante = nombre_anun = "N/A"
 
-                            # Extract location list
                             location = soup.find("div", {"id": "headerMap"})
                             if location:
                                 loc = [lo.text for lo in location.find_all("li")]
@@ -132,34 +132,24 @@ for i in range(1, num_paginas + 1):
                                 street = neighborhood = district = city = area = "N/A"
 
                             # Extract property details
-
-                            c1 = soup.find("section", {"id": "details"}).find("div", {"class": "details-property-feature-one"})
-
-                            c2 = soup.find("section", {"id": "details"}).find("div", {"class": "details-property-feature-two"})
-
-                            mas = [caract.text.strip() for caract in c2.find_all("li")]
-
-                            c3 = soup.find("section", {"id": "details"}).find("div", {"class": "details-property-feature-three"})
-
-                            basics = [caract.text for caract in c1.find_all("li")]
-                            if basics:
+                            details_section = soup.find("section", {"id": "details"})
+                            if details_section:
+                                c1 = details_section.find("div", {"class": "details-property-feature-one"})
+                                basics = [caract.text for caract in c1.find_all("li")] if c1 else []
                                 metros = basics[0] if len(basics) > 0 else "N/A"
                                 habitaciones = basics[1] if len(basics) > 1 else "N/A"
                                 baños = basics[2] if len(basics) > 2 else "N/A"
-
+                            else:
+                                metros = habitaciones = baños = "N/A"
 
                             phone_url = f"https://www.idealista.com/es/ajax/ads/{data_element_id}/contact-phones"
-
                             res_phone = session.get(phone_url)
                             telefono = 'N/A'
-                            if res_phone.status_code != 200:
-                                print('f')
-                            else:
+                            if res_phone.status_code == 200:
                                 telefono_res = res_phone.json()
                                 if ('phone1' in telefono_res and telefono_res['phone1'] and 'number' in telefono_res['phone1']):
                                     telefono = telefono_res['phone1']['number']
-                                    
-                            # Print extracted information
+
                             print(f"Title: {titulo_text}")
                             print(f"Street: {street}")
                             print(f"Neighborhood: {neighborhood}")
@@ -171,45 +161,53 @@ for i in range(1, num_paginas + 1):
                             print(f"€/m²: {meter_price}")
                             print(f"Caracteristicas: {basics}")
                             print(f"Metros construidos: {metros}")
-                            print(f"habitaciones: {habitaciones}")
-                            print(f"baños: {baños}")
-                            # print(f"otras caracteristicas: {mas}")
-                            print(f"referencia: {ref_num}")
-                            print(f"anunciante: {anunciante}")
-                            print(f"nombre anunciante: {nombre_anun}")
-                            print(f"tlf: {telefono}")
+                            print(f"Habitaciones: {habitaciones}")
+                            print(f"Baños: {baños}")
+                            print(f"Referencia: {ref_num}")
+                            print(f"Anunciante: {anunciante}")
+                            print(f"Nombre Anunciante: {nombre_anun}")
+                            print(f"Teléfono: {telefono}")
                             print(f"URL: {inmueble_url}")
 
                             df = df._append({
-                            "ID Inmueble": data_element_id,
-                            "Tipo" : "venta",
-                            "Título": titulo_text,
-                            "Calle": street,
-                            "Barrio": neighborhood,
-                            "Distrito": district,
-                            "Ciudad": city,
-                            "Área": area,
-                            "Precio": price_text,
-                            "Comunidad": community,
-                            "Características": basics,
-                            "m construidos": metros,
-                            "Habitaciones": habitaciones,
-                            "Baños": baños,
-                            # "Más Características": mas,
-                            "Referencia": ref_num,
-                            "Anunciante": anunciante,
-                            "Nombre Anunciante": nombre_anun,
-                            "Última Actualización": actual,
-                            "Teléfono": telefono,
-                            "URL": inmueble_url
-                        }, ignore_index=True)
-                        df.to_csv(csv_file, index=False)
-                        print(f"ID {data_element_id} guardado en el CSV.")
-                        time.sleep(random.uniform(1, 3))  # Añadir un retraso
-                    except Exception:
-                        pass
-    except Exception:
-        pass
+                                "ID Inmueble": data_element_id,
+                                "Tipo": "venta",
+                                "Título": titulo_text,
+                                "Calle": street,
+                                "Barrio": neighborhood,
+                                "Distrito": district,
+                                "Ciudad": city,
+                                "Área": area,
+                                "Precio": price_text,
+                                "Comunidad": community,
+                                "Precio/m²": meter_price,
+                                "Características": basics,
+                                "Habitaciones": habitaciones,
+                                "Baños": baños,
+                                "Referencia": ref_num,
+                                "Anunciante": anunciante,
+                                "Nombre Anunciante": nombre_anun,
+                                "Última Actualización": actual,
+                                "Teléfono": telefono,
+                                "URL": inmueble_url
+                            }, ignore_index=True)
+
+                            df.to_csv(csv_file, index=False)
+                            print(f"ID {data_element_id} guardado en el CSV.")
+                            time.sleep(random.uniform(1, 3))  # Añadir un retraso
+                        else:
+                            print(f"Failed to retrieve the webpage for {inmueble_url}. Status code: {r.status_code}")
+                    except Exception as e:
+                        print(f"Error en la página del inmueble {inmueble_url}: {str(e)}")
+                        traceback.print_exc()
+                else:
+                    print(f"No se encontró 'data-element-id' en la página {i}.")
+        else:
+            print(f"Failed to retrieve the main page {url}. Status code: {r.status_code}")
+    except Exception as e:
+        print(f"Error al procesar la página {url}: {str(e)}")
+        traceback.print_exc()
+
 # Guardar el DataFrame actualizado en el archivo CSV
 df.to_csv(csv_file, index=False)
 print(f"Datos guardados en {csv_file}.")
