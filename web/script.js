@@ -1,89 +1,65 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const propertyTypeSelect = document.getElementById('property-type');
-    const operationTypeSelect = document.getElementById('operation-type');
-    const zoneSelect = document.getElementById('zone');
-    const bedroomsSelect = document.getElementById('bedrooms');
-    const publicationDateSelect = document.getElementById('publication-date');
-    const contentDiv = document.getElementById('content');
+    const contentContainer = document.getElementById('content');
     const resultsCount = document.getElementById('results-count');
-    const csvFileInput = document.getElementById('csvFileInput');
+    const filterButton = document.getElementById('filter-button');
 
-    let allItems = [];
+    // Función para crear un item HTML basado en los datos del CSV
+    function createItem(property) {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        item.setAttribute('data-property-type', property.Tipo.toLowerCase());
+        item.setAttribute('data-operation-type', property.Tipo.toLowerCase()); // Ajusta según tu operación (compra/alquiler)
 
+        item.innerHTML = `
+            <h3>${property.Título}</h3>
+            <p>Calle: ${property.Calle}</p>
+            <p>Barrio: ${property.Barrio}, Distrito: ${property.Distrito}, Ciudad: ${property.Ciudad}</p>
+            <p>Área: ${property.Área} m²</p>
+            <p>Precio: ${property.Precio}€</p>
+            <p>Precio por m²: ${property.Precio_por_metro}€/m²</p>
+            <p>Características: ${property.Características}</p>
+            <p>Habitaciones: ${property.Habitaciones}, Baños: ${property.Baños}</p>
+            <p>Metros construidos: ${property.Metros_construidos} m², Metros útiles: ${property.Metros_utiles} m²</p>
+            <p>Anunciante: ${property.Anunciante} (${property.Nombre_Anunciante}), Teléfono: ${property.Teléfono}</p>
+            <p>Última Actualización: ${property.Última_Actualización}</p>
+            <a href="${property.URL}" target="_blank">Ver más detalles</a>
+        `;
+
+        contentContainer.appendChild(item);
+    }
+
+    // Función para filtrar los items
     function filterItems() {
-        const propertyType = propertyTypeSelect.value;
-        const operationType = operationTypeSelect.value;
-        const zone = zoneSelect.value;
-        const bedrooms = bedroomsSelect.value;
-        const publicationDate = publicationDateSelect.value;
+        const propertyType = document.getElementById('property-type').value;
+        const items = document.querySelectorAll('.content .item');
         let visibleItems = 0;
 
-        // Limpiar contenido
-        contentDiv.innerHTML = '';
+        items.forEach(item => {
+            const itemPropertyType = item.getAttribute('data-property-type');
 
-        allItems.forEach(item => {
-            const itemPropertyType = item.propertyType;
-            const itemOperationType = item.operationType;
-            const itemZone = item.zone;
-            const itemBedrooms = item.bedrooms;
-            const itemPublicationDate = item.publicationDate;
-
-            if (
-                (propertyType === 'all' || itemPropertyType === propertyType) &&
-                (operationType === 'all' || itemOperationType === operationType) &&
-                (zone === 'all' || itemZone === zone) &&
-                (bedrooms === 'all' || parseInt(itemBedrooms) >= parseInt(bedrooms)) &&
-                (publicationDate === 'all' || itemPublicationDate === publicationDate)
-            ) {
-                const itemDiv = document.createElement('div');
-                itemDiv.classList.add('item');
-                itemDiv.innerHTML = `
-                    <h3>${item.title}</h3>
-                    <p>Precio: ${item.price}€</p>
-                    <p>Superficie: ${item.surface}m²</p>
-                    <p>Precio m²: ${item.pricePerM2}€/m²</p>
-                    <p>Fecha: ${item.publicationDate}</p>
-                `;
-                contentDiv.appendChild(itemDiv);
+            if (propertyType === 'all' || itemPropertyType === propertyType) {
+                item.classList.remove('hidden');
                 visibleItems++;
+            } else {
+                item.classList.add('hidden');
             }
         });
 
-        // Actualiza el texto del contador de resultados
+        // Actualiza el contador de resultados
         resultsCount.textContent = visibleItems + " resultados obtenidos";
     }
 
-    // Evento para cargar el archivo CSV
-    csvFileInput.addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            Papa.parse(file, {
-                header: true,
-                dynamicTyping: true,
-                complete: function(results) {
-                    allItems = results.data.map(row => ({
-                        propertyType: row["Tipo Propiedad"],
-                        operationType: row["Tipo Operación"],
-                        zone: row["Zona"],
-                        bedrooms: row["Habitaciones"],
-                        publicationDate: row["Fecha Publicación"],
-                        title: row["Título"],
-                        price: row["Precio"],
-                        surface: row["Superficie"],
-                        pricePerM2: row["Precio m²"]
-                    }));
+    // Cargar y procesar CSV
+    Papa.parse('scraping/alquileres.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            const properties = results.data;
+            properties.forEach(property => createItem(property));
+            resultsCount.textContent = properties.length + " resultados obtenidos"; // Mostrar total antes de filtrar
 
-                    // Filtrar los elementos al cargar el CSV
-                    filterItems();
-                }
-            });
+            // Agregar funcionalidad de filtrado
+            filterButton.addEventListener('click', filterItems);
         }
     });
-
-    // Añade el evento 'change' a los selectores para aplicar filtros
-    propertyTypeSelect.addEventListener('change', filterItems);
-    operationTypeSelect.addEventListener('change', filterItems);
-    zoneSelect.addEventListener('change', filterItems);
-    bedroomsSelect.addEventListener('change', filterItems);
-    publicationDateSelect.addEventListener('change', filterItems);
 });
