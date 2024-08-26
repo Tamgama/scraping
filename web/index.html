@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualización de datos</title>
+    <title>Betterplace</title>
     <link rel="stylesheet" href="style.css">
-    <script src="papaparse.min.js"></script> <!-- Incluye PapaParse -->
+    <script src="https://unpkg.com/papaparse@5.3.0/papaparse.min.js"></script>
     <script src="script.js" defer></script>
+
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Visualización de datos</h1>
+            <h1>Betterplace</h1>
         </div>
     </header>
 
@@ -20,14 +21,9 @@
         <!-- Barra de filtros -->
         <div class="filter-bar">
             <select id="property-type" class="filter-select">
-                <option value="all">Viviendas</option>
+                <option value="all">Todos</option>
                 <option value="house">Casa</option>
                 <option value="apartment">Apartamento</option>
-            </select>
-            <select id="operation-type" class="filter-select">
-                <option value="all">Todos</option>
-                <option value="buy">Compra</option>
-                <option value="rent">Alquiler</option>
             </select>
             <button id="filter-button" class="filter-button">Filtrar</button>
         </div>
@@ -43,7 +39,7 @@
     </div>
 
     <footer>
-        <p>Visualización &copy; 2024</p>
+        <p>Betterplace &copy; 2024</p>
     </footer>
 </body>
 </html>

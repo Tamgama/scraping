@@ -1,3 +1,6 @@
+
+console.log(Papa); // Esto debería mostrar el objeto Papa en la consola
+
 document.addEventListener("DOMContentLoaded", function() {
     const contentContainer = document.getElementById('content');
     const resultsCount = document.getElementById('results-count');
@@ -8,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const item = document.createElement('div');
         item.classList.add('item');
         item.setAttribute('data-property-type', property.Tipo.toLowerCase());
-        item.setAttribute('data-operation-type', property.Tipo.toLowerCase()); // Ajusta según tu operación (compra/alquiler)
+        // No hay `operation-type` en tu estructura, así que se elimina o se ajusta según el campo adecuado
 
         item.innerHTML = `
             <h3>${property.Título}</h3>
@@ -50,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Cargar y procesar CSV
-    Papa.parse('scraping/alquileres.csv', {
+    Papa.parse('/data/alquileres.csv', {
         download: true,
         header: true,
         complete: function(results) {
@@ -60,6 +63,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Agregar funcionalidad de filtrado
             filterButton.addEventListener('click', filterItems);
+        },
+        error: function(err) {
+            console.error("Error al cargar el archivo CSV:", err);
+            resultsCount.textContent = "Error al cargar los resultados.";
         }
     });
 });
