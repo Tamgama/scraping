@@ -3,66 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador de CSV con Paginación y Formato Personalizado</title>
+    <title>Visualizador de CSV con Paginación y Carga Automática</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Fondo general de la página */
+        body {
+            background-color: #f8f9fa; /* Color gris claro para el fondo general */
+        }
+
+        /* Estilo general de las tarjetas */
         .card-custom {
             width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            margin-bottom: 20px; /* Espacio inferior entre las tarjetas */
+            border: 1px solid #dee2e6; /* Borde gris claro alrededor de la tarjeta */
+            border-radius: 8px; /* Bordes redondeados para las tarjetas */
             padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de relieve */
+            background-color: #ffffff; /* Fondo blanco de la tarjeta */
+            transition: transform 0.2s ease-in-out; /* Efecto de transición al hacer hover */
         }
+
+        /* Efecto de hover en las tarjetas */
+        .card-custom:hover {
+            transform: translateY(-5px); /* Mover hacia arriba al hacer hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumentar sombra al hacer hover */
+        }
+
+        /* Estilo del título en las tarjetas */
         .card-custom h4 {
             margin-bottom: 10px;
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* Tamaño de la fuente del título */
+            color: #343a40; /* Color gris oscuro para el título */
         }
+
+        /* Separador en las tarjetas */
         .separator {
             height: 1px;
-            background-color: #ddd;
+            background-color: #dee2e6; /* Color gris claro para el separador */
             margin: 10px 0;
         }
+
+        /* Estilo de las filas dentro de las tarjetas */
         .row-custom {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Espacio inferior entre las filas */
         }
+
+        /* Estilo de las columnas dentro de las tarjetas */
         .row-custom .col-custom {
-            flex: 1 1 45%; /* Se adapta mejor en pantallas pequeñas */
-            margin-bottom: 10px;
+            flex: 1 1 45%; /* Cada columna ocupa 45% del ancho disponible */
+            margin-bottom: 10px; /* Espacio inferior entre las columnas */
+            color: #495057; /* Color gris oscuro para el texto */
         }
+
+        /* Estilo del botón en las tarjetas */
         .btn-custom {
             margin-top: 10px;
-            width: 100%;
+            width: 100%; /* El botón ocupa todo el ancho disponible */
+            background-color: #007bff; /* Fondo azul para el botón */
+            color: #ffffff; /* Color blanco para el texto del botón */
+            border: none; /* Sin bordes */
+            border-radius: 4px; /* Bordes redondeados */
+            padding: 10px 20px; /* Padding del botón */
+            transition: background-color 0.2s ease-in-out; /* Efecto de transición para el hover */
         }
+
+        /* Efecto de hover en el botón */
+        .btn-custom:hover {
+            background-color: #0056b3; /* Fondo azul más oscuro al hacer hover */
+        }
+
+        /* Estilo del contenedor de badges */
         .badge-container {
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Espacio inferior entre el contenedor de badges y el siguiente elemento */
         }
+
+        /* Estilo de los badges dentro de las tarjetas */
         .badge-custom {
-            background-color: #007bff;
-            color: white;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            font-size: 0.75rem; /* Tamaño de texto reducido */
-            padding: 3px 7px;    /* Tamaño del padding reducido */
-            border-radius: 4px;
-            display: inline-block;
+            background-color: #007bff; /* Fondo azul para los badges */
+            color: white; /* Color blanco para el texto de los badges */
+            margin-right: 5px; /* Espacio derecho entre los badges */
+            margin-bottom: 5px; /* Espacio inferior entre los badges cuando se envuelven */
+            font-size: 0.75rem; /* Tamaño de texto reducido para los badges */
+            padding: 3px 7px; /* Padding interno de los badges */
+            border-radius: 4px; /* Bordes redondeados para los badges */
+            display: inline-block; /* Los badges se muestran en línea */
         }
-        .form-control-custom {
-            margin-bottom: 20px;
+
+        /* Estilo del fondo de la página */
+        body {
+            background-color: #f0f0f0; /* Color gris claro para el fondo de la página */
+        }
+
+        /* Posicionamiento y estilo del indicador de carga */
+        .spinner-border {
+            margin-left: 10px; /* Espacio izquierdo para separar el spinner del título */
+            vertical-align: middle; /* Alinear el spinner verticalmente con el texto */
+        }
+
+        /* Estilos para el contenedor del indicador de carga */
+        #loadingIndicator {
+            display: none; /* Oculto por defecto */
+        }
+
+        /* Estilo para agrupar filtros en bloques de dos */
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Espacio entre filtros */
+            margin-bottom: 20px; /* Espacio inferior después de los filtros */
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column; /* Mostrar etiqueta y filtro en columna */
+            flex: 1 1 48%; /* Cada grupo de filtros ocupa 48% del ancho disponible */
+            gap: 5px; /* Espacio entre la etiqueta y el filtro */
+        }
+
+        /* Paginación tanto arriba como abajo */
+        #paginationControlsTop, #paginationControlsBottom {
+            margin-top: 20px; /* Espacio superior para separar de las tarjetas */
+            margin-bottom: 20px; /* Espacio inferior de 20px */
+            text-align: center; /* Centrar los botones de paginación */
         }
 
         @media (max-width: 576px) {
             .row-custom .col-custom {
-                flex: 1 1 100%; /* En móviles ocupa el 100% del ancho */
-                margin-bottom: 5px;
+                flex: 1 1 100%; /* En móviles, las columnas ocupan el 100% del ancho */
+                margin-bottom: 5px; /* Reducir el espacio inferior en pantallas pequeñas */
             }
             .card-custom h4 {
-                font-size: 1.2rem; /* Ajuste del tamaño de fuente en móviles */
+                font-size: 1.2rem; /* Ajustar el tamaño de la fuente del título en móviles */
+            }
+
+            .filters-container {
+                flex-direction: column; /* En móviles, los filtros se muestran en columna */
+            }
+
+            .filter-group {
+                flex-direction: column; /* Filtros en bloque se muestran en columna en móviles */
             }
         }
     </style>
@@ -70,44 +154,64 @@
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Visualizador de CSV con Paginación</h1>
-
-    <div class="form-group">
-        <label for="csvFileInput">Cargar archivo CSV</label>
-        <input type="file" class="form-control-file" id="csvFileInput" accept=".csv">
+    <div class="d-flex justify-content-center align-items-center">
+        <h1>Visualizador de CSV con Paginación</h1>
+        <div id="loadingIndicator" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Cargando...</span>
+            </div>
+        </div>
     </div>
 
-<<<<<<< HEAD
-    <!-- Barra de filtros -->
-    <div class="filter-bar">
-        <select id="property-type" class="filter-select">
-            <option value="all">Todos</option>
-            <option value="house">Casa</option>
-            <option value="apartment">Piso</option>
-        </select>
-        <select id="Anunciante" class="filter-select">
-            <option value="all">Todos</option>
-            <option value="house">Particular</option>
-            <option value="apartment">Profesional</option>
-        </select>
-
-        <button id="filter-button" class="filter-button">Filtrar</button>
-=======
-    <!-- Campo de búsqueda -->
-    <div class="form-group">
-        <input type="text" id="searchTitle" class="form-control form-control-custom" placeholder="Buscar por título...">
->>>>>>> f825c1ae79af470bdd14714d125a86703a65cb6b
+    <!-- Contenedor de filtros -->
+    <div class="filters-container">
+        <div class="filter-group">
+            <label for="searchTitle">Filtrar por título:</label>
+            <input type="text" id="searchTitle" class="form-control form-control-custom" placeholder="Buscar por título...">
+        </div>
+        <div class="filter-group">
+            <label for="filterAnunciante">Filtrar por anunciante:</label>
+            <select id="filterAnunciante" class="form-control form-control-custom">
+                <option value="Cualquiera">Cualquiera</option>
+                <!-- Opciones dinámicas serán insertadas aquí -->
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filterTipo">Filtrar por tipo:</label>
+            <select id="filterTipo" class="form-control form-control-custom">
+                <option value="Cualquiera">Cualquiera</option>
+                <!-- Opciones dinámicas serán insertadas aquí -->
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filterBarrio">Filtrar por barrio:</label>
+            <select id="filterBarrio" class="form-control form-control-custom">
+                <option value="Cualquiera">Cualquiera</option>
+                <!-- Opciones dinámicas serán insertadas aquí -->
+            </select>
+        </div>
     </div>
 
-    <!-- Contenedor para paginación -->
-    <div id="paginationControls" class="mb-3">
-        <button id="prevPage" class="btn btn-primary" disabled>Anterior</button>
-        <span id="pageInfo" class="mx-2">Página 1</span>
-        <button id="nextPage" class="btn btn-primary" disabled>Siguiente</button>
+    <!-- Paginación en la parte superior -->
+    <div id="paginationControlsTop">
+        <button id="prevPageTop" class="btn btn-primary" disabled>Anterior</button>
+        <span id="pageInfoTop" class="mx-2">Página 1</span>
+        <button id="nextPageTop" class="btn btn-primary" disabled>Siguiente</button>
     </div>
 
     <div id="cardsContainer" class="row">
         <!-- Contenedor para las cards -->
+    </div>
+
+    <!-- Paginación en la parte inferior -->
+    <div id="paginationControlsBottom">
+        <button id="prevPageBottom" class="btn btn-primary" disabled>Anterior</button>
+        <span id="pageInfoBottom" class="mx-2">Página 1</span>
+        <button id="nextPageBottom" class="btn btn-primary" disabled>Siguiente</button>
+    </div>
+
+    <div id="newDataAlert" class="alert alert-info alert-fixed" style="display: none;">
+        ¡Nuevos datos disponibles! La página se ha actualizado.
     </div>
 </div>
 
@@ -119,6 +223,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 <!-- Lodash JS -->
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<!-- SHA-256 JS para calcular hash -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -127,52 +233,157 @@
         var pageSize = 10;
         var currentPage = 1;
         var totalPages = 0;
+        var lastHash = "";
 
-        // Cargar el archivo CSV
-        $('#csvFileInput').on('change', function (event) {
-            var file = event.target.files[0];
+        // Mostrar el indicador de carga
+        function showLoading() {
+            $('#loadingIndicator').show();
+        }
 
-            if (file) {
-                Papa.parse(file, {
-                    header: true,
-                    dynamicTyping: true,
-                    complete: function (results) {
-                        data = results.data;
-                        filteredData = data; // Inicialmente, sin filtrar
-                        totalPages = Math.ceil(filteredData.length / pageSize);
-                        renderPage(currentPage);
-                        updatePaginationControls();
+        // Ocultar el indicador de carga
+        function hideLoading() {
+            $('#loadingIndicator').hide();
+        }
+
+        // Cargar el archivo CSV automáticamente
+        function loadCSV() {
+            showLoading();
+            $.ajax({
+                url: './data/inmuebles.csv',
+                dataType: 'text',
+                success: function (csvData) {
+                    var currentHash = sha256(csvData);
+                    if (currentHash !== lastHash) {
+                        lastHash = currentHash;
+                        Papa.parse(csvData, {
+                            header: true,
+                            dynamicTyping: true,
+                            complete: function (results) {
+                                data = results.data;
+                                filteredData = data; // Inicialmente, sin filtrar
+                                updateAnuncianteFilter(data);
+                                updateTipoFilter(data);
+                                updateBarrioFilter(data);
+                                applyFilters(); // Aplicar filtros al cargar nuevos datos
+                                $('#newDataAlert').fadeIn().delay(2000).fadeOut(); // Mostrar alerta
+                                hideLoading(); // Ocultar el indicador de carga
+                            }
+                        });
+                    } else {
+                        hideLoading(); // Ocultar el indicador de carga
                     }
-                });
-            }
-        });
+                },
+                error: function() {
+                    hideLoading(); // Ocultar el indicador de carga en caso de error
+                }
+            });
+        }
+
+        // Verificar cambios en el archivo cada 5 segundos
+        setInterval(loadCSV, 5000);
+
+        // Cargar el CSV al iniciar la página
+        loadCSV();
 
         // Filtro por título
         $('#searchTitle').on('input', function () {
-            var searchTerm = $(this).val().toLowerCase();
-            filteredData = data.filter(function (row) {
-                return row['Título'] && row['Título'].toLowerCase().includes(searchTerm);
+            applyFilters();
+        });
+
+        // Filtro por anunciante
+        $('#filterAnunciante').on('change', function () {
+            applyFilters();
+        });
+
+        // Filtro por tipo
+        $('#filterTipo').on('change', function () {
+            applyFilters();
+        });
+
+        // Filtro por barrio
+        $('#filterBarrio').on('change', function () {
+            applyFilters();
+        });
+
+        // Actualizar el filtro de anunciante con los valores únicos del CSV
+        function updateAnuncianteFilter(data) {
+            var uniqueAnunciantes = _.uniq(data.map(function(row) {
+                return row['Anunciante'];
+            }).filter(Boolean));
+
+            var $filter = $('#filterAnunciante');
+            $filter.empty();
+            $filter.append('<option value="Cualquiera">Cualquiera</option>');
+            uniqueAnunciantes.forEach(function(anunciante) {
+                $filter.append('<option value="' + anunciante + '">' + anunciante + '</option>');
             });
+        }
+
+        // Actualizar el filtro de tipo con los valores únicos del CSV
+        function updateTipoFilter(data) {
+            var uniqueTipos = _.uniq(data.map(function(row) {
+                return row['Tipo'];
+            }).filter(Boolean));
+
+            var $filter = $('#filterTipo');
+            $filter.empty();
+            $filter.append('<option value="Cualquiera">Cualquiera</option>');
+            uniqueTipos.forEach(function(tipo) {
+                $filter.append('<option value="' + tipo + '">' + tipo + '</option>');
+            });
+        }
+
+        // Actualizar el filtro de barrio con los valores únicos del CSV
+        function updateBarrioFilter(data) {
+            var uniqueBarrios = _.uniq(data.map(function(row) {
+                return row['Barrio'];
+            }).filter(Boolean));
+
+            var $filter = $('#filterBarrio');
+            $filter.empty();
+            $filter.append('<option value="Cualquiera">Cualquiera</option>');
+            uniqueBarrios.forEach(function(barrio) {
+                $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
+            });
+        }
+
+        // Aplicar los filtros de búsqueda
+        function applyFilters() {
+            var searchTerm = $('#searchTitle').val().toLowerCase();
+            var selectedAnunciante = $('#filterAnunciante').val();
+            var selectedTipo = $('#filterTipo').val();
+            var selectedBarrio = $('#filterBarrio').val();
+
+            filteredData = data.filter(function (row) {
+                var matchesTitle = row['Título'] && row['Título'].toLowerCase().includes(searchTerm);
+                var matchesAnunciante = selectedAnunciante === "Cualquiera" || row['Anunciante'] === selectedAnunciante;
+                var matchesTipo = selectedTipo === "Cualquiera" || row['Tipo'] === selectedTipo;
+                var matchesBarrio = selectedBarrio === "Cualquiera" || row['Barrio'] === selectedBarrio;
+                return matchesTitle && matchesAnunciante && matchesTipo && matchesBarrio;
+            });
+
             currentPage = 1;
             totalPages = Math.ceil(filteredData.length / pageSize);
             renderPage(currentPage);
             updatePaginationControls();
-        });
+        }
 
         // Paginación
-        $('#prevPage').on('click', function () {
+        $('#prevPageTop, #prevPageBottom').on('click', function () {
             if (currentPage > 1) {
                 currentPage--;
                 renderPage(currentPage);
                 updatePaginationControls();
+                scrollToTop(); // Volver a la parte superior
             }
         });
 
-        $('#nextPage').on('click', function () {
+        $('#nextPageTop, #nextPageBottom').on('click', function () {
             if (currentPage < totalPages) {
                 currentPage++;
                 renderPage(currentPage);
                 updatePaginationControls();
+                scrollToTop(); // Volver a la parte superior
             }
         });
 
@@ -197,6 +408,22 @@
                 cardContent += '<div class="row-custom">';
                 cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row['Superficie'] || 'N/A') + '</div>';
                 cardContent += '<div class="col-custom"><strong>Última Actualización:</strong> ' + (row['Última Actualización'] || 'N/A') + '</div>';
+                cardContent += '</div>';
+
+                // Añadir Nombre Anunciante y Teléfono
+                cardContent += '<div class="row-custom">';
+                cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row['Nombre Anunciante'] || 'N/A') + '</div>';
+
+                // Enlace telefónico seguro
+                var telefono = row['Teléfono'] ? String(row['Teléfono']) : '';
+                if (telefono && telefono.length > 2) {
+                    var prefijo = telefono.slice(0, 2);
+                    var numero = telefono.slice(2);
+                    cardContent += '<div class="col-custom"><strong>Teléfono:</strong> <a href="tel:+' + prefijo + numero + '">' + numero + '</a></div>';
+                } else {
+                    cardContent += '<div class="col-custom"><strong>Teléfono:</strong> N/A</div>';
+                }
+
                 cardContent += '</div>';
 
                 // Añadir características como badges
@@ -228,9 +455,14 @@
         }
 
         function updatePaginationControls() {
-            $('#pageInfo').text('Página ' + currentPage + ' de ' + totalPages);
-            $('#prevPage').prop('disabled', currentPage === 1);
-            $('#nextPage').prop('disabled', currentPage === totalPages);
+            $('#pageInfoTop, #pageInfoBottom').text('Página ' + currentPage + ' de ' + totalPages);
+            $('#prevPageTop, #prevPageBottom').prop('disabled', currentPage === 1);
+            $('#nextPageTop, #nextPageBottom').prop('disabled', currentPage === totalPages);
+        }
+
+        // Función para volver a la parte superior de la página
+        function scrollToTop() {
+            $('html, body').animate({ scrollTop: 0 }, 'fast');
         }
     });
 </script>
