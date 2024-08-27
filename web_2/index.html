@@ -74,6 +74,22 @@
         <input type="file" class="form-control-file" id="csvFileInput" accept=".csv">
     </div>
 
+    <!-- Barra de filtros -->
+    <div class="filter-bar">
+        <select id="property-type" class="filter-select">
+            <option value="all">Todos</option>
+            <option value="house">Casa</option>
+            <option value="apartment">Piso</option>
+        </select>
+        <select id="Anunciante" class="filter-select">
+            <option value="all">Todos</option>
+            <option value="house">Particular</option>
+            <option value="apartment">Profesional</option>
+        </select>
+
+        <button id="filter-button" class="filter-button">Filtrar</button>
+    </div>
+
     <!-- Contenedor para paginación -->
     <div id="paginationControls" class="mb-3">
         <button id="prevPage" class="btn btn-primary" disabled>Anterior</button>
