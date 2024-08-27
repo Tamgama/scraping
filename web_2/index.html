@@ -52,6 +52,9 @@
             border-radius: 4px;
             display: inline-block;
         }
+        .form-control-custom {
+            margin-bottom: 20px;
+        }
 
         @media (max-width: 576px) {
             .row-custom .col-custom {
@@ -72,6 +75,11 @@
     <div class="form-group">
         <label for="csvFileInput">Cargar archivo CSV</label>
         <input type="file" class="form-control-file" id="csvFileInput" accept=".csv">
+    </div>
+
+    <!-- Campo de búsqueda -->
+    <div class="form-group">
+        <input type="text" id="searchTitle" class="form-control form-control-custom" placeholder="Buscar por título...">
     </div>
 
     <!-- Contenedor para paginación -->
@@ -98,6 +106,7 @@
 <script>
     $(document).ready(function () {
         var data = [];
+        var filteredData = [];
         var pageSize = 10;
         var currentPage = 1;
         var totalPages = 0;
@@ -112,12 +121,25 @@
                     dynamicTyping: true,
                     complete: function (results) {
                         data = results.data;
-                        totalPages = Math.ceil(data.length / pageSize);
+                        filteredData = data; // Inicialmente, sin filtrar
+                        totalPages = Math.ceil(filteredData.length / pageSize);
                         renderPage(currentPage);
                         updatePaginationControls();
                     }
                 });
             }
+        });
+
+        // Filtro por título
+        $('#searchTitle').on('input', function () {
+            var searchTerm = $(this).val().toLowerCase();
+            filteredData = data.filter(function (row) {
+                return row['Título'] && row['Título'].toLowerCase().includes(searchTerm);
+            });
+            currentPage = 1;
+            totalPages = Math.ceil(filteredData.length / pageSize);
+            renderPage(currentPage);
+            updatePaginationControls();
         });
 
         // Paginación
@@ -141,7 +163,7 @@
             $('#cardsContainer').empty();
             var start = (page - 1) * pageSize;
             var end = start + pageSize;
-            var pageData = _.slice(data, start, end);
+            var pageData = _.slice(filteredData, start, end);
 
             pageData.forEach(function (row) {
                 var card = $('<div class="col-12 mb-4"></div>');
