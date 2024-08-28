@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Introduzca sus datos de acceso"
+AuthUserFile /kunden/homepages/35/d484808560/htdocs/security/.htpasswd
+require user promurcia
