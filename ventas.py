@@ -44,9 +44,9 @@ headers = {
 session = requests.Session()
 session.headers.update(headers)
 
-payload = { 'api_key': '98018a479f6fa03d99c74e4ad03fe46b', 'url': 'https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-{}.htm' }
-r = requests.get('https://api.scraperapi.com/', params=payload)
-print(r.text)
+# payload = { 'api_key': '98018a479f6fa03d99c74e4ad03fe46b', 'url': 'https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-{}.htm' }
+# r = requests.get('https://api.scraperapi.com/', params=payload)
+# print(r.text)
 
 # Definir el rango de páginas que quieres recorrer
 num_paginas = 162  # Cambia este número según la cantidad de páginas que quieras recorrer
@@ -75,7 +75,7 @@ for i in range(1, num_paginas + 1):
                     time.sleep(random.uniform(1, 3))  # Añadir un retraso
                     inmueble_url = f"https://www.idealista.com/inmueble/{data_element_id}/"
                     try:
-                        r = session.get('https://api.scraperapi.com', params={'api_key': '98018a479f6fa03d99c74e4ad03fe46b', 'url': inmueble_url})
+                        r = session.get(inmueble_url) #('https://api.scraperapi.com', params={'api_key': '98018a479f6fa03d99c74e4ad03fe46b', 'url': inmueble_url})
                         if r.status_code == 200:
                             soup = BeautifulSoup(r.text, 'lxml')
 
@@ -148,7 +148,7 @@ for i in range(1, num_paginas + 1):
                                 metros = habitaciones = baños = "N/A"
 
                             phone_url = f"https://www.idealista.com/es/ajax/ads/{data_element_id}/contact-phones"
-                            res_phone = session.get('https://api.scraperapi.com', params={'api_key': '98018a479f6fa03d99c74e4ad03fe46b', 'url': phone_url})
+                            res_phone = session.get(phone_url) #('https://api.scraperapi.com', params={'api_key': '98018a479f6fa03d99c74e4ad03fe46b', 'url': phone_url})
                             telefono = 'N/A'
                             if res_phone.status_code == 200:
                                 telefono_res = res_phone.json()
