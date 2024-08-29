@@ -155,7 +155,7 @@
 
 <div class="container mt-5">
     <div class="d-flex justify-content-center align-items-center">
-        <h1>Visualizador de CSV con Paginación</h1>
+        <h1>Visualizador de datos</h1>
         <div id="loadingIndicator" style="display: none;">
             <div class="spinner-border text-primary" role="status">
                 <span class="sr-only">Cargando...</span>
@@ -308,12 +308,12 @@
         // Actualizar el filtro de anunciante con los valores únicos del CSV
         function updateAnuncianteFilter(data) {
             var uniqueAnunciantes = _.uniq(data.map(function(row) {
-                return row['Anunciante'];
+                return row['anunciante'];
             }).filter(Boolean));
 
             var $filter = $('#filterAnunciante');
             $filter.empty();
-            $filter.append('<option value="Cualquiera">Cualquiera</option>');
+            $filter.append('<option value="Todos">Todos</option>');
             uniqueAnunciantes.forEach(function(anunciante) {
                 $filter.append('<option value="' + anunciante + '">' + anunciante + '</option>');
             });
@@ -322,12 +322,12 @@
         // Actualizar el filtro de tipo con los valores únicos del CSV
         function updateTipoFilter(data) {
             var uniqueTipos = _.uniq(data.map(function(row) {
-                return row['Tipo'];
+                return row['tipo'];
             }).filter(Boolean));
 
             var $filter = $('#filterTipo');
             $filter.empty();
-            $filter.append('<option value="Cualquiera">Cualquiera</option>');
+            $filter.append('<option value="Todos">Todos</option>');
             uniqueTipos.forEach(function(tipo) {
                 $filter.append('<option value="' + tipo + '">' + tipo + '</option>');
             });
@@ -336,12 +336,12 @@
         // Actualizar el filtro de barrio con los valores únicos del CSV
         function updateBarrioFilter(data) {
             var uniqueBarrios = _.uniq(data.map(function(row) {
-                return row['Barrio'];
+                return row['barrio'];
             }).filter(Boolean));
 
             var $filter = $('#filterBarrio');
             $filter.empty();
-            $filter.append('<option value="Cualquiera">Cualquiera</option>');
+            $filter.append('<option value="Todos">Todos</option>');
             uniqueBarrios.forEach(function(barrio) {
                 $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
             });
@@ -355,10 +355,10 @@
             var selectedBarrio = $('#filterBarrio').val();
 
             filteredData = data.filter(function (row) {
-                var matchesTitle = row['Título'] && row['Título'].toLowerCase().includes(searchTerm);
-                var matchesAnunciante = selectedAnunciante === "Cualquiera" || row['Anunciante'] === selectedAnunciante;
-                var matchesTipo = selectedTipo === "Cualquiera" || row['Tipo'] === selectedTipo;
-                var matchesBarrio = selectedBarrio === "Cualquiera" || row['Barrio'] === selectedBarrio;
+                var matchesTitle = row['titulo'] && row['titulo'].toLowerCase().includes(searchTerm);
+                var matchesAnunciante = selectedAnunciante === "Todos" || row['anunciante'] === selectedAnunciante;
+                var matchesTipo = selectedTipo === "Todos" || row['tipo'] === selectedTipo;
+                var matchesBarrio = selectedBarrio === "Todos" || row['barrio'] === selectedBarrio;
                 return matchesTitle && matchesAnunciante && matchesTipo && matchesBarrio;
             });
 
@@ -396,40 +396,40 @@
             pageData.forEach(function (row) {
                 var card = $('<div class="col-12 mb-4"></div>');
                 var cardContent = '<div class="card-custom">';
-                cardContent += '<h4>' + (row['Título'] || 'Título desconocido') + '</h4>'; // Título en la parte superior
+                cardContent += '<h4>' + (row['titulo'] || 'Título desconocido') + '</h4>'; // Título en la parte superior
 
                 cardContent += '<div class="separator"></div>';
 
                 cardContent += '<div class="row-custom">';
-                cardContent += '<div class="col-custom"><strong>Precio:</strong> ' + (row['Precio'] || 'N/A') + '</div>';
-                cardContent += '<div class="col-custom"><strong>Precio/m²:</strong> ' + (row['Precio/m²'] || 'N/A') + '</div>';
+                cardContent += '<div class="col-custom"><strong>precio:</strong> ' + (row['precio'] || 'N/A') + '</div>';
+                cardContent += '<div class="col-custom"><strong>precio_por_metro:</strong> ' + (row['precio_por_metro'] || 'N/A') + '</div>';
                 cardContent += '</div>';
 
                 cardContent += '<div class="row-custom">';
-                cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row['Superficie'] || 'N/A') + '</div>';
-                cardContent += '<div class="col-custom"><strong>Última Actualización:</strong> ' + (row['Última Actualización'] || 'N/A') + '</div>';
+                cardContent += '<div class="col-custom"><strong>superficie:</strong> ' + (row['superficie'] || 'N/A') + '</div>';
+                cardContent += '<div class="col-custom"><strong>ultima_actualizacion:</strong> ' + (row['ultima_actualizacion'] || 'N/A') + '</div>';
                 cardContent += '</div>';
 
                 // Añadir Nombre Anunciante y Teléfono
                 cardContent += '<div class="row-custom">';
-                cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row['Nombre Anunciante'] || 'N/A') + '</div>';
+                cardContent += '<div class="col-custom"><strong>nombre_anunciante:</strong> ' + (row['nombre_anunciante'] || 'N/A') + '</div>';
 
                 // Enlace telefónico seguro
-                var telefono = row['Teléfono'] ? String(row['Teléfono']) : '';
+                var telefono = row['tlf'] ? String(row['tlf']) : '';
                 if (telefono && telefono.length > 2) {
                     var prefijo = telefono.slice(0, 2);
                     var numero = telefono.slice(2);
-                    cardContent += '<div class="col-custom"><strong>Teléfono:</strong> <a href="tel:+' + prefijo + numero + '">' + numero + '</a></div>';
+                    cardContent += '<div class="col-custom"><strong>tlf:</strong> <a href="tel:+' + prefijo + numero + '">' + numero + '</a></div>';
                 } else {
-                    cardContent += '<div class="col-custom"><strong>Teléfono:</strong> N/A</div>';
+                    cardContent += '<div class="col-custom"><strong>tlf:</strong> N/A</div>';
                 }
 
                 cardContent += '</div>';
 
                 // Añadir características como badges
-                if (row['Características']) {
+                if (row['caracteristicas']) {
                     cardContent += '<div class="badge-container">';
-                    var caracteristicas = row['Características'];
+                    var caracteristicas = row['caracteristicas'];
 
                     // Eliminar corchetes, comillas simples y dividir en elementos separados por comas
                     caracteristicas = caracteristicas.replace(/^\[|\]$/g, '').split(',');
