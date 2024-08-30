@@ -1,104 +1,28 @@
 ID Inmueble,Tipo,Título,Calle,Barrio,Distrito,Ciudad,Área,Precio,Comunidad,Precio/m²,Características,Habitaciones,Baños,Referencia,Anunciante,Nombre_Anunciante,Última Actualización,Teléfono,URL,fecha
-101648979,venta,"Piso en venta en calle Eslavones, 4","
-Calle Eslavones, 4
+105849914,venta,Estudio en venta en calle Trapería,"
+Calle Trapería
 ","
-Barrio Los Ramos
+Barrio Catedral
 ","
-Distrito Pedanías Este
-","
-Murcia
-","
-Área de Murcia, Murcia
-",86.000€,N/A,662 €/m²,"['130 m² construidos, 96 m² útiles', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur', 'Construido en 2008', 'Calefacción individual: Bomba de frío/calor', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,2 baños,101648979,Particular,antonio,Anuncio actualizado el 30 de agosto,+34637187543,https://www.idealista.com/inmueble/101648979/,2024-08-30 11:37:01
-105847334,venta,"Piso en venta en ronda Del Golf, 7 -c","
-Ronda Del Golf, 7 -C
-","
-Urb. CORVERA GOLF COUNTRY CLUB
-","
-Barrio Corvera
-","
-Distrito Campo de Murcia
-","
-Murcia
-",79.000€,N/A,1.113 €/m²,"['71 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Construido en 2009', 'Planta 1ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1657,Profesional,Ática Boreal,Anuncio actualizado el 30 de agosto,+34868350231,https://www.idealista.com/inmueble/105847334/,2024-08-30 11:37:01
-105843799,venta,"Piso en venta en la paz, 33","
-la paz, 33
-","
-Barrio La Ñora
-","
-Distrito Pedanías Oeste
+Distrito Centro
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",123.000€,N/A,1.118 €/m²,"['110 m² construidos, 100 m² útiles', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte', 'Construido en 2010', 'No dispone de calefacción', 'Acceso y vivienda adaptados para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",3 habitaciones,2 baños,105843799,Particular,María vidal,Anuncio actualizado el 30 de agosto,+34669862411,https://www.idealista.com/inmueble/105843799/,2024-08-30 11:37:01
-97870676,venta,Casa o chalet independiente en venta en Jerónimo y Avileses,"
-Barrio Jerónimo y Avileses
+",147.000€,N/A,3.675 €/m²,"['40 m² construidos, 33 m² útiles', 'Sin habitación', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Planta 1ª exterior', 'Con ascensor']",Sin habitación,1 baño,57200,Profesional,The Simple Rent,Anuncio actualizado el 30 de agosto,+34868355585,https://www.idealista.com/inmueble/105849914/,2024-08-30 13:39:58
+105850131,venta,Ático en venta en calle Velázquez,"
+Calle Velázquez
 ","
-Distrito Campo de Murcia
+Barrio Cabezo de Torres
 ","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,125.000€,N/A,1.667 €/m²,"[' Casa o chalet independiente', '75 m² construidos', '2 habitaciones', '2 baños', 'Parcela de 200 m²', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Construido en 2006', 'No dispone de calefacción']",75 m² construidos,2 habitaciones,CHA0016,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,+34868355908,https://www.idealista.com/inmueble/97870676/,2024-08-30 11:37:01
-105847577,venta,Casa o chalet independiente en venta en Sucina,"
-Barrio Sucina
-","
-Distrito Campo de Murcia
+Distrito Pedanías Norte
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",N/A,352.900€,N/A,3.208 €/m²,"[' Casa o chalet independiente', '110 m² construidos, 107 m² útiles', '3 habitaciones', '4 baños', 'Parcela de 210 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Construido en 2024', 'No dispone de calefacción', 'Acceso y vivienda adaptados para personas con movilidad reducida']","110 m² construidos, 107 m² útiles",3 habitaciones,LUX0026,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,+34868355908,https://www.idealista.com/inmueble/105847577/,2024-08-30 11:37:01
-101144180,venta,Casa o chalet independiente en venta en Jerónimo y Avileses,"
-Barrio Jerónimo y Avileses
-","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,149.000€,N/A,2.014 €/m²,"[' Casa o chalet independiente', '74 m² construidos, 65 m² útiles', '2 habitaciones', '2 baños', 'Parcela de 250 m²', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'No dispone de calefacción']","74 m² construidos, 65 m² útiles",2 habitaciones,CHA0025,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,+34868355908,https://www.idealista.com/inmueble/101144180/,2024-08-30 11:37:01
-101613831,venta,Piso en venta en Sucina,"
-Barrio Sucina
-","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,95.000€,N/A,990 €/m²,"['96 m² construidos, 86 m² útiles', '3 habitaciones', '2 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'Calefacción individual: Eléctrica', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,2 baños,AP0043,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,+34868355908,https://www.idealista.com/inmueble/101613831/,2024-08-30 11:37:01
-105847463,venta,Chalet adosado en venta en Jerónimo y Avileses,"
-Barrio Jerónimo y Avileses
-","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,125.000€,N/A,1.603 €/m²,"[' Chalet adosado', '78 m² construidos, 73 m² útiles', '2 habitaciones', '1 baño', 'Parcela de 211 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, oeste', 'Construido en 2006', 'Calefacción individual']","78 m² construidos, 73 m² útiles",2 habitaciones,BNG0011,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,+34868355908,https://www.idealista.com/inmueble/105847463/,2024-08-30 11:37:01
-105847481,venta,Chalet adosado en venta en Jerónimo y Avileses,"
-Barrio Jerónimo y Avileses
-","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,83.000€,N/A,838 €/m²,"[' Chalet adosado', '4 plantas', '99 m² construidos, 90 m² útiles', '2 habitaciones', '2 baños', 'Parcela de 120 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur', 'No dispone de calefacción']",4 plantas,"99 m² construidos, 90 m² útiles",ADO0038,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,+34868355908,https://www.idealista.com/inmueble/105847481/,2024-08-30 11:37:01
-105843464,venta,"Piso en venta en Libra, 4","
-Libra, 4
-","
-Barrio San Ginés
-","
-Distrito Pedanías Oeste
-","
-Murcia
-","
-Área de Murcia, Murcia
-",98.000€,N/A,1.273 €/m²,"['77 m² construidos, 56 m² útiles', '2 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, oeste', 'Construido en 2009', 'Calefacción central', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 3ª exterior', 'Con ascensor']",2 habitaciones,2 baños,LUZ EN SAN GINÉS,Profesional,ANOVA HOMES - Inmobiliaria en Murcia,Anuncio actualizado el 30 de agosto,+34868350600,https://www.idealista.com/inmueble/105843464/,2024-08-30 11:37:01
-105847259,venta,Piso en venta en avenida de la Constitución,"
-Avenida de la Constitución
+",230.000€,N/A,1.474 €/m²,"['156 m² construidos, 107 m² útiles', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte, sur, este', 'Construido en 2008', 'Calefacción central', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 4ª exterior', 'Con ascensor']",3 habitaciones,2 baños,105850131,Profesional,Zara Imbernon,Anuncio actualizado el 30 de agosto,+34868350836,https://www.idealista.com/inmueble/105850131/,2024-08-30 13:39:58
+105849729,venta,Piso en venta en plaza de la Torrecilla,"
+Plaza de la Torrecilla
 ","
 Barrio San Miguel
 ","
@@ -107,18 +31,49 @@ Distrito Centro
 Murcia
 ","
 Área de Murcia, Murcia
-",41.000€,N/A,641 €/m²,"['64 m² construidos, 53 m² útiles', '2 habitaciones', '2 baños', 'Terraza', 'Segunda mano/para reformar', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,2 baños,PERE-005067,Profesional,Manuel Perez,Anuncio actualizado el 30 de agosto,+34984260410,https://www.idealista.com/inmueble/105847259/,2024-08-30 11:37:01
-104248992,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
-Calle Constanza de Avilés, 1
+",850.000€,,5.484 €/m²,"['155 m² construidos, 151 m² útiles', '3 habitaciones', '3 baños', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Planta 11ª exterior', 'Con ascensor']",3 habitaciones,3 baños,57177-,Profesional,The Simple Rent,Anuncio actualizado el 30 de agosto,34868355585.0,https://www.idealista.com/inmueble/105849729/,2024-08-30 12:59:07
+105849548,venta,Piso en venta en calle José María Vela Urrea,"
+Calle José María Vela Urrea
 ","
-Barrio Guadalupe
+Barrio Gea y Truyols
 ","
-Distrito Pedanías Oeste
+Distrito Campo de Murcia
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",334.000€,N/A,2.303 €/m²,"[' Casa o chalet', '145 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación oeste']","145 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0gEMAS,Promotora,AQ Acentor,Anuncio actualizado el 30 de agosto,+34919387183,https://www.idealista.com/inmueble/104248992/,2024-08-30 11:37:01
+",68.800€,,405 €/m²,"['Ocupada ilegalmente', '170 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Bajo exterior', 'Sin ascensor']",170 m² construidos,3 habitaciones,OK1PMURCIA80,Profesional,SA ROQUETA,Anuncio actualizado el 30 de agosto,34871185564.0,https://www.idealista.com/inmueble/105849548/,2024-08-30 12:59:07
+105848732,venta,Piso en venta en ronda Norte,"
+Ronda Norte
+","
+Barrio Santa María de Gracia
+","
+Distrito Norte
+","
+Murcia
+","
+Área de Murcia, Murcia
+",149.900€,,1.647 €/m²,"['91 m² construidos, 74 m² útiles', '3 habitaciones', '1 baño', 'Terraza y balcón', 'Segunda mano/para reformar', 'Orientación norte', 'Construido en 1969', 'No dispone de calefacción', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 3ª exterior', 'Con ascensor']",3 habitaciones,1 baño,PGI07369,Profesional,Proyecto Grupo Inmobiliario,Anuncio actualizado el 30 de agosto,34868350406.0,https://www.idealista.com/inmueble/105848732/,2024-08-30 12:59:07
+105849626,venta,Chalet adosado en venta en plaza Iglesia,"
+Plaza Iglesia
+","
+Barrio Cabezo de Torres
+","
+Distrito Pedanías Norte
+","
+Murcia
+","
+Área de Murcia, Murcia
+",41.000€,,366 €/m²,"['Ocupada ilegalmente', ' Chalet adosado', '112 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar']", Chalet adosado,112 m² construidos,OK1PMURCIA81,Profesional,SA ROQUETA,Anuncio actualizado el 30 de agosto,34871185564.0,https://www.idealista.com/inmueble/105849626/,2024-08-30 12:59:07
+105849553,venta,Casa o chalet independiente en venta en El Esparragal,"
+Barrio El Esparragal
+","
+Distrito Pedanías Norte
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,455.000€,,1.149 €/m²,"[' Casa o chalet independiente', '2 plantas', '396 m² construidos, 300 m² útiles', '5 habitaciones', '3 baños', 'Parcela de 717 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Construido en 2000', 'Calefacción individual: Gas natural']",2 plantas,"396 m² construidos, 300 m² útiles",IMT-02289,Profesional,Miguel Angel Rodriguez,Anuncio actualizado el 30 de agosto,34868350377.0,https://www.idealista.com/inmueble/105849553/,2024-08-30 12:59:07
 105846475,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
 Calle Constanza de Avilés, 1
 ","
@@ -129,8 +84,97 @@ Distrito Pedanías Oeste
 Murcia
 ","
 Área de Murcia, Murcia
-",344.000€,N/A,2.356 €/m²,"[' Casa o chalet', '146 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación este']","146 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0g1MAC,Promotora,AQ Acentor,Anuncio actualizado el 30 de agosto,+34919387183,https://www.idealista.com/inmueble/105846475/,2024-08-30 11:37:01
-105846451,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
+",344.000€,,2.356 €/m²,"[' Casa o chalet', '146 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación este']","146 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0g1MAC,Promotora,AQ Acentor,Anuncio actualizado el 30 de agosto,34919387183.0,https://www.idealista.com/inmueble/105846475/,2024-08-30 11:37:01
+101144180,venta,Casa o chalet independiente en venta en Jerónimo y Avileses,"
+Barrio Jerónimo y Avileses
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,149.000€,,2.014 €/m²,"[' Casa o chalet independiente', '74 m² construidos, 65 m² útiles', '2 habitaciones', '2 baños', 'Parcela de 250 m²', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'No dispone de calefacción']","74 m² construidos, 65 m² útiles",2 habitaciones,CHA0025,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,34868355908.0,https://www.idealista.com/inmueble/101144180/,2024-08-30 11:37:01
+105847334,venta,"Piso en venta en ronda Del Golf, 7 -c","
+Ronda Del Golf, 7 -C
+","
+Urb. CORVERA GOLF COUNTRY CLUB
+","
+Barrio Corvera
+","
+Distrito Campo de Murcia
+","
+Murcia
+",79.000€,,1.113 €/m²,"['71 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Construido en 2009', 'Planta 1ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1657,Profesional,Ática Boreal,Anuncio actualizado el 30 de agosto,34868350231.0,https://www.idealista.com/inmueble/105847334/,2024-08-30 11:37:01
+105843464,venta,"Piso en venta en Libra, 4","
+Libra, 4
+","
+Barrio San Ginés
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",98.000€,,1.273 €/m²,"['77 m² construidos, 56 m² útiles', '2 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, oeste', 'Construido en 2009', 'Calefacción central', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 3ª exterior', 'Con ascensor']",2 habitaciones,2 baños,LUZ EN SAN GINÉS,Profesional,ANOVA HOMES - Inmobiliaria en Murcia,Anuncio actualizado el 30 de agosto,34868350600.0,https://www.idealista.com/inmueble/105843464/,2024-08-30 11:37:01
+105847481,venta,Chalet adosado en venta en Jerónimo y Avileses,"
+Barrio Jerónimo y Avileses
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,83.000€,,838 €/m²,"[' Chalet adosado', '4 plantas', '99 m² construidos, 90 m² útiles', '2 habitaciones', '2 baños', 'Parcela de 120 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur', 'No dispone de calefacción']",4 plantas,"99 m² construidos, 90 m² útiles",ADO0038,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,34868355908.0,https://www.idealista.com/inmueble/105847481/,2024-08-30 11:37:01
+105843799,venta,"Piso en venta en la paz, 33","
+la paz, 33
+","
+Barrio La Ñora
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",123.000€,,1.118 €/m²,"['110 m² construidos, 100 m² útiles', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte', 'Construido en 2010', 'No dispone de calefacción', 'Acceso y vivienda adaptados para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",3 habitaciones,2 baños,105843799,Particular,María vidal,Anuncio actualizado el 30 de agosto,34669862411.0,https://www.idealista.com/inmueble/105843799/,2024-08-30 11:37:01
+105847259,venta,Piso en venta en avenida de la Constitución,"
+Avenida de la Constitución
+","
+Barrio San Miguel
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",41.000€,,641 €/m²,"['64 m² construidos, 53 m² útiles', '2 habitaciones', '2 baños', 'Terraza', 'Segunda mano/para reformar', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,2 baños,PERE-005067,Profesional,Manuel Perez,Anuncio actualizado el 30 de agosto,34984260410.0,https://www.idealista.com/inmueble/105847259/,2024-08-30 11:37:01
+105847577,venta,Casa o chalet independiente en venta en Sucina,"
+Barrio Sucina
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,352.900€,,3.208 €/m²,"[' Casa o chalet independiente', '110 m² construidos, 107 m² útiles', '3 habitaciones', '4 baños', 'Parcela de 210 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Construido en 2024', 'No dispone de calefacción', 'Acceso y vivienda adaptados para personas con movilidad reducida']","110 m² construidos, 107 m² útiles",3 habitaciones,LUX0026,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,34868355908.0,https://www.idealista.com/inmueble/105847577/,2024-08-30 11:37:01
+105847463,venta,Chalet adosado en venta en Jerónimo y Avileses,"
+Barrio Jerónimo y Avileses
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,125.000€,,1.603 €/m²,"[' Chalet adosado', '78 m² construidos, 73 m² útiles', '2 habitaciones', '1 baño', 'Parcela de 211 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, oeste', 'Construido en 2006', 'Calefacción individual']","78 m² construidos, 73 m² útiles",2 habitaciones,BNG0011,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,34868355908.0,https://www.idealista.com/inmueble/105847463/,2024-08-30 11:37:01
+101613831,venta,Piso en venta en Sucina,"
+Barrio Sucina
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,95.000€,,990 €/m²,"['96 m² construidos, 86 m² útiles', '3 habitaciones', '2 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'Calefacción individual: Eléctrica', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,2 baños,AP0043,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,34868355908.0,https://www.idealista.com/inmueble/101613831/,2024-08-30 11:37:01
+104248992,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
 Calle Constanza de Avilés, 1
 ","
 Barrio Guadalupe
@@ -140,36 +184,18 @@ Distrito Pedanías Oeste
 Murcia
 ","
 Área de Murcia, Murcia
-",336.000€,N/A,2.317 €/m²,"[' Casa o chalet', '145 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación este']","145 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0ftMAC,Promotora,AQ Acentor,Anuncio actualizado el 30 de agosto,+34919387183,https://www.idealista.com/inmueble/105846451/,2024-08-30 11:37:01
-105846460,venta,Casa o chalet en venta en Baños y Mendigo,"
-Barrio Baños y Mendigo
+",334.000€,,2.303 €/m²,"[' Casa o chalet', '145 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación oeste']","145 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0gEMAS,Promotora,AQ Acentor,Anuncio actualizado el 30 de agosto,34919387183.0,https://www.idealista.com/inmueble/104248992/,2024-08-30 11:37:01
+101648979,venta,"Piso en venta en calle Eslavones, 4","
+Calle Eslavones, 4
 ","
-Distrito Campo de Murcia
+Barrio Los Ramos
 ","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,350.000€,N/A,2.333 €/m²,"[' Casa o chalet', '150 m² construidos', '3 habitaciones', '2 baños', 'Parcela de 700 m²', 'Segunda mano/buen estado']",150 m² construidos,3 habitaciones,700752,Profesional,Sunvilla Murcia,Anuncio actualizado el 30 de agosto,+34868355291,https://www.idealista.com/inmueble/105846460/,2024-08-30 11:37:01
-104248990,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
-Calle Constanza de Avilés, 1
-","
-Barrio Guadalupe
-","
-Distrito Pedanías Oeste
+Distrito Pedanías Este
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",426.000€,N/A,2.731 €/m²,"[' Casa o chalet', '156 m² construidos, 120 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación norte']","156 m² construidos, 120 m² útiles",4 habitaciones,a1QS7000000B0fqMAC,Promotora,AQ Acentor,Anuncio actualizado el 30 de agosto,+34919387183,https://www.idealista.com/inmueble/104248990/,2024-08-30 11:37:01
-105846473,venta,Piso en venta en Baños y Mendigo,"
-Barrio Baños y Mendigo
-","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,178.000€,N/A,913 €/m²,"['195 m² construidos', '2 habitaciones', '3 baños', 'Segunda mano/buen estado']",2 habitaciones,3 baños,700758,Profesional,Sunvilla Murcia,Anuncio actualizado el 30 de agosto,+34868355291,https://www.idealista.com/inmueble/105846473/,2024-08-30 11:37:01
+",86.000€,,662 €/m²,"['130 m² construidos, 96 m² útiles', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur', 'Construido en 2008', 'Calefacción individual: Bomba de frío/calor', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,2 baños,101648979,Particular,antonio,Anuncio actualizado el 30 de agosto,34637187543.0,https://www.idealista.com/inmueble/101648979/,2024-08-30 11:37:01
 105847231,venta,Chalet adosado en venta en calle f,"
 Calle F
 ","
@@ -180,91 +206,56 @@ Distrito Campo de Murcia
 Murcia
 ","
 Área de Murcia, Murcia
-",99.550€,N/A,696 €/m²,"['Alquilada, con inquilinos', ' Chalet adosado', '143 m² construidos', '3 habitaciones', '2 baños', 'Segunda mano/para reformar']", Chalet adosado,143 m² construidos,OK1PMURCIA68,Profesional,SA ROQUETA,Anuncio actualizado el 30 de agosto,+34871185564,https://www.idealista.com/inmueble/105847231/,2024-08-30 11:37:01
-105841369,venta,"Piso en venta en calle Alcacil, 24","
-Calle Alcacil, 24
+",99.550€,,696 €/m²,"['Alquilada, con inquilinos', ' Chalet adosado', '143 m² construidos', '3 habitaciones', '2 baños', 'Segunda mano/para reformar']", Chalet adosado,143 m² construidos,OK1PMURCIA68,Profesional,SA ROQUETA,Anuncio actualizado el 30 de agosto,34871185564.0,https://www.idealista.com/inmueble/105847231/,2024-08-30 11:37:01
+105846451,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
+Calle Constanza de Avilés, 1
 ","
-Barrio Gea y Truyols
+Barrio Guadalupe
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",336.000€,,2.317 €/m²,"[' Casa o chalet', '145 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación este']","145 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0ftMAC,Promotora,AQ Acentor,Anuncio actualizado el 30 de agosto,34919387183.0,https://www.idealista.com/inmueble/105846451/,2024-08-30 11:37:01
+105846460,venta,Casa o chalet en venta en Baños y Mendigo,"
+Barrio Baños y Mendigo
 ","
 Distrito Campo de Murcia
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",89.500€,,895 €/m²,"['100 m² construidos', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,2 baños,1375,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841369/,2024-08-29 22:47:33
-105277201,venta,Piso en venta en calle Rambla,"
-Calle Rambla
+",,350.000€,,2.333 €/m²,"[' Casa o chalet', '150 m² construidos', '3 habitaciones', '2 baños', 'Parcela de 700 m²', 'Segunda mano/buen estado']",150 m² construidos,3 habitaciones,700752,Profesional,Sunvilla Murcia,Anuncio actualizado el 30 de agosto,34868355291.0,https://www.idealista.com/inmueble/105846460/,2024-08-30 11:37:01
+104248990,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
+Calle Constanza de Avilés, 1
 ","
-Barrio Torreagüera
-","
-Distrito Pedanías Este
-","
-Murcia
-","
-Área de Murcia, Murcia
-",82.000€,,485 €/m²,"['169 m² construidos', '3 habitaciones', '1 baño', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'Construido en 2000', ' interior', 'Sin ascensor']",3 habitaciones,1 baño,7033,Profesional,CMS Inmobiliaria Madrid Sur,Anuncio actualizado el 29 de agosto,34919382974.0,https://www.idealista.com/inmueble/105277201/,2024-08-29 22:47:33
-105845749,venta,Casa o chalet en venta en Javalí Nuevo,"
-Barrio Javalí Nuevo
+Barrio Guadalupe
 ","
 Distrito Pedanías Oeste
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",,43.000€,,538 €/m²,"[' Casa o chalet', '80 m² construidos', '1 habitación', 'Sin baños', 'Parcela de 93 m²', 'Terraza', 'Segunda mano/para reformar', 'Trastero', 'Construido en 1955', 'No dispone de calefacción']",80 m² construidos,1 habitación,428,Profesional,info@inmoentrevias.esENTREVÍAS GESTIÓN INMOBILIARIA,Anuncio actualizado el 29 de agosto,34868350028.0,https://www.idealista.com/inmueble/105845749/,2024-08-29 22:47:33
-105842164,venta,Chalet adosado en venta en carril de los Penchos,"
-Carril de los Penchos
+",426.000€,,2.731 €/m²,"[' Casa o chalet', '156 m² construidos, 120 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación norte']","156 m² construidos, 120 m² útiles",4 habitaciones,a1QS7000000B0fqMAC,Promotora,AQ Acentor,Anuncio actualizado el 30 de agosto,34919387183.0,https://www.idealista.com/inmueble/104248990/,2024-08-30 11:37:01
+97870676,venta,Casa o chalet independiente en venta en Jerónimo y Avileses,"
+Barrio Jerónimo y Avileses
 ","
-Barrio Garres y Lages
-","
-Distrito Pedanías Este
+Distrito Campo de Murcia
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",124.000€,,397 €/m²,"['Ocupada ilegalmente', ' Chalet adosado', '312 m² construidos', '8 habitaciones', '3 baños', 'Segunda mano/para reformar']", Chalet adosado,312 m² construidos,OK1PMURCIA66,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105842164/,2024-08-29 22:47:33
-105842121,venta,Piso en venta en calle de la Gloria,"
-Calle de la Gloria
+",,125.000€,,1.667 €/m²,"[' Casa o chalet independiente', '75 m² construidos', '2 habitaciones', '2 baños', 'Parcela de 200 m²', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Construido en 2006', 'No dispone de calefacción']",75 m² construidos,2 habitaciones,CHA0016,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,34868355908.0,https://www.idealista.com/inmueble/97870676/,2024-08-30 11:37:01
+105846473,venta,Piso en venta en Baños y Mendigo,"
+Barrio Baños y Mendigo
 ","
-Barrio Puente Tocinos
-","
-Distrito Pedanías Este
+Distrito Campo de Murcia
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",62.700€,,550 €/m²,"['Ocupada ilegalmente', '114 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Planta 2ª exterior', 'Sin ascensor']",114 m² construidos,3 habitaciones,OK1PMURCIA64,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105842121/,2024-08-29 22:47:33
-105842077,venta,Piso en venta en calle Mayor,"
-Calle Mayor
-","
-Barrio Puente Tocinos
-","
-Distrito Pedanías Este
-","
-Murcia
-","
-Área de Murcia, Murcia
-",104.800€,,628 €/m²,"['Ocupada ilegalmente', '167 m² construidos', '4 habitaciones', '2 baños', 'Segunda mano/para reformar', 'Planta 1ª exterior', 'Sin ascensor']",167 m² construidos,4 habitaciones,OK1PMURCIA63,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105842077/,2024-08-29 22:47:33
-92676952,venta,Casa o chalet independiente en venta en La Raya,"
-Barrio La Raya
-","
-Distrito Pedanías Oeste
-","
-Murcia
-","
-Área de Murcia, Murcia
-",,24.000€,,160 €/m²,"[' Casa o chalet independiente', '150 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar']",150 m² construidos,3 habitaciones,3359-3526,Profesional,Caballero Inmobiliaria,Anuncio actualizado el 29 de agosto,34868350708.0,https://www.idealista.com/inmueble/92676952/,2024-08-29 22:47:33
-105841556,venta,Piso en venta en calle Párroco Pedro Martínez Conesa,"
-Calle Párroco Pedro Martínez Conesa
-","
-Barrio Vistabella
-","
-Distrito Centro
-","
-Murcia
-","
-Área de Murcia, Murcia
-",66.400€,,609 €/m²,"['Ocupada ilegalmente', '109 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Planta 1ª exterior', 'Sin ascensor']",109 m² construidos,3 habitaciones,OK1PMURCIA55,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105841556/,2024-08-29 22:47:33
+",,178.000€,,913 €/m²,"['195 m² construidos', '2 habitaciones', '3 baños', 'Segunda mano/buen estado']",2 habitaciones,3 baños,700758,Profesional,Sunvilla Murcia,Anuncio actualizado el 30 de agosto,34868355291.0,https://www.idealista.com/inmueble/105846473/,2024-08-30 11:37:01
 105841380,venta,"Piso en venta en calle Pino Nuevo, 12","
 Calle Pino Nuevo, 12
 ","
@@ -276,17 +267,6 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",89.500€,,895 €/m²,"['100 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1374,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841380/,2024-08-29 22:47:33
-105841357,venta,"Piso en venta en calle Alcacil, 64","
-Calle Alcacil, 64
-","
-Barrio Gea y Truyols
-","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",79.950€,,999 €/m²,"['80 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1376,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841357/,2024-08-29 22:47:33
 105841352,venta,"Piso en venta en calle Almendros, 3","
 Calle Almendros, 3
 ","
@@ -298,8 +278,8 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",84.500€,,1.056 €/m²,"['80 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1380,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841352/,2024-08-29 22:47:33
-105841314,venta,"Piso en venta en calle Alcacil, 66","
-Calle Alcacil, 66
+105841357,venta,"Piso en venta en calle Alcacil, 64","
+Calle Alcacil, 64
 ","
 Barrio Gea y Truyols
 ","
@@ -308,7 +288,71 @@ Distrito Campo de Murcia
 Murcia
 ","
 Área de Murcia, Murcia
-",69.500€,,1.069 €/m²,"['65 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 4ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1372,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841314/,2024-08-29 22:47:33
+",79.950€,,999 €/m²,"['80 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1376,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841357/,2024-08-29 22:47:33
+105842121,venta,Piso en venta en calle de la Gloria,"
+Calle de la Gloria
+","
+Barrio Puente Tocinos
+","
+Distrito Pedanías Este
+","
+Murcia
+","
+Área de Murcia, Murcia
+",62.700€,,550 €/m²,"['Ocupada ilegalmente', '114 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Planta 2ª exterior', 'Sin ascensor']",114 m² construidos,3 habitaciones,OK1PMURCIA64,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105842121/,2024-08-29 22:47:33
+105841556,venta,Piso en venta en calle Párroco Pedro Martínez Conesa,"
+Calle Párroco Pedro Martínez Conesa
+","
+Barrio Vistabella
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",66.400€,,609 €/m²,"['Ocupada ilegalmente', '109 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Planta 1ª exterior', 'Sin ascensor']",109 m² construidos,3 habitaciones,OK1PMURCIA55,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105841556/,2024-08-29 22:47:33
+92676952,venta,Casa o chalet independiente en venta en La Raya,"
+Barrio La Raya
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,24.000€,,160 €/m²,"[' Casa o chalet independiente', '150 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar']",150 m² construidos,3 habitaciones,3359-3526,Profesional,Caballero Inmobiliaria,Anuncio actualizado el 29 de agosto,34868350708.0,https://www.idealista.com/inmueble/92676952/,2024-08-29 22:47:33
+105842077,venta,Piso en venta en calle Mayor,"
+Calle Mayor
+","
+Barrio Puente Tocinos
+","
+Distrito Pedanías Este
+","
+Murcia
+","
+Área de Murcia, Murcia
+",104.800€,,628 €/m²,"['Ocupada ilegalmente', '167 m² construidos', '4 habitaciones', '2 baños', 'Segunda mano/para reformar', 'Planta 1ª exterior', 'Sin ascensor']",167 m² construidos,4 habitaciones,OK1PMURCIA63,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105842077/,2024-08-29 22:47:33
+105842164,venta,Chalet adosado en venta en carril de los Penchos,"
+Carril de los Penchos
+","
+Barrio Garres y Lages
+","
+Distrito Pedanías Este
+","
+Murcia
+","
+Área de Murcia, Murcia
+",124.000€,,397 €/m²,"['Ocupada ilegalmente', ' Chalet adosado', '312 m² construidos', '8 habitaciones', '3 baños', 'Segunda mano/para reformar']", Chalet adosado,312 m² construidos,OK1PMURCIA66,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105842164/,2024-08-29 22:47:33
+105843588,venta,Piso en venta en calle Capitán Balaca,"
+Calle Capitán Balaca
+","
+Barrio Vistabella
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",59.000€,,663 €/m²,"['89 m² construidos, 80 m² útiles', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Bajo exterior', 'Sin ascensor']",3 habitaciones,1 baño,CHIRE-0329,Profesional,Manuel Perez,Anuncio actualizado el 29 de agosto,34984260410.0,https://www.idealista.com/inmueble/105843588/,2024-08-29 22:47:33
 105841313,venta,"Piso en venta en calle Alcacil, 4","
 Calle Alcacil, 4
 ","
@@ -320,6 +364,15 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",115.000€,,1.150 €/m²,"['100 m² construidos', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",3 habitaciones,2 baños,1382,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841313/,2024-08-29 22:47:33
+105841076,venta,Dúplex en venta en La Ñora,"
+Barrio La Ñora
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,159.900€,,1.269 €/m²,"['126 m² construidos', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Construido en 2008', 'Calefacción individual: Eléctrica', 'Planta 3ª exterior', 'Con ascensor']",3 habitaciones,2 baños,YOU0107,Profesional,Youpiso Real Estate,Anuncio actualizado el 29 de agosto,34868355558.0,https://www.idealista.com/inmueble/105841076/,2024-08-29 22:47:33
 105831945,venta,"Piso en venta en plaza de la Iglesia, 8","
 Plaza de la Iglesia, 8
 ","
@@ -386,17 +439,6 @@ Distrito Campo de Murcia
 ","
 Murcia
 ",285.000€,,2.021 €/m²,"[' Chalet adosado', '3 plantas', '141 m² construidos, 107 m² útiles', '3 habitaciones', '2 baños', 'Parcela de 18 m²', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'Orientación norte, sur', 'Construido en 2024', 'Calefacción individual: Eléctrica']",3 plantas,"141 m² construidos, 107 m² útiles",105837142,Profesional,Xekua-home,Anuncio actualizado el 29 de agosto,34865440050.0,https://www.idealista.com/inmueble/105837142/,2024-08-29 22:47:33
-105834236,venta,"Ático en venta en calle Morera, 3","
-Calle Morera, 3
-","
-Urb. PLAZA CASSOU
-","
-Barrio Santiago el Mayor
-","
-Distrito Sur
-","
-Murcia
-",575.000€,,4.675 €/m²,"['123 m² construidos, 96 m² útiles', '3 habitaciones', '3 baños', 'Terraza', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte', 'Construido en 2023', 'Calefacción individual: Bomba de frío/calor', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 4ª exterior', 'Con ascensor']",3 habitaciones,3 baños,ATICO TIPO D CASSOU,Profesional,IKONIA HOMES,Anuncio actualizado el 29 de agosto,34851813281.0,https://www.idealista.com/inmueble/105834236/,2024-08-29 22:47:33
 105834276,venta,"Piso en venta en calle Castaño, 7","
 Calle Castaño, 7
 ","
@@ -417,15 +459,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",,52.000€,,743 €/m²,"['70 m² construidos, 67 m² útiles', '2 habitaciones', '1 baño', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Orientación norte', 'Construido en 2010', 'Calefacción individual', 'Planta 3ª exterior', 'Con ascensor']",2 habitaciones,1 baño,2dcruz,Profesional,Vivienda Sôlida,Anuncio actualizado el 29 de agosto,34868350404.0,https://www.idealista.com/inmueble/105834813/,2024-08-29 22:47:33
-105841076,venta,Dúplex en venta en La Ñora,"
-Barrio La Ñora
+105277201,venta,Piso en venta en calle Rambla,"
+Calle Rambla
 ","
-Distrito Pedanías Oeste
+Barrio Torreagüera
+","
+Distrito Pedanías Este
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",,159.900€,,1.269 €/m²,"['126 m² construidos', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Construido en 2008', 'Calefacción individual: Eléctrica', 'Planta 3ª exterior', 'Con ascensor']",3 habitaciones,2 baños,YOU0107,Profesional,Youpiso Real Estate,Anuncio actualizado el 29 de agosto,34868355558.0,https://www.idealista.com/inmueble/105841076/,2024-08-29 22:47:33
+",82.000€,,485 €/m²,"['169 m² construidos', '3 habitaciones', '1 baño', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'Construido en 2000', ' interior', 'Sin ascensor']",3 habitaciones,1 baño,7033,Profesional,CMS Inmobiliaria Madrid Sur,Anuncio actualizado el 29 de agosto,34919382974.0,https://www.idealista.com/inmueble/105277201/,2024-08-29 22:47:33
 105835098,venta,Ático en venta en Aljucer,"
 Barrio Aljucer
 ","
@@ -446,61 +490,57 @@ Distrito Campo de Murcia
 ","
 Murcia
 ",70.000€,,583 €/m²,"['120 m² construidos, 110 m² útiles', '2 habitaciones', '1 baño', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte, sur, este, oeste', 'Construido en 2010', 'Calefacción central', 'Solo interior de la vivienda adaptado para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",2 habitaciones,1 baño,HACIENDA,Profesional,Roel Real State,Anuncio actualizado el 28 de agosto,34868355348.0,https://www.idealista.com/inmueble/105836843/,2024-08-29 22:47:33
-105837186,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
-Calle Constanza de Avilés, 1
+105834236,venta,"Ático en venta en calle Morera, 3","
+Calle Morera, 3
 ","
-Barrio Guadalupe
+Urb. PLAZA CASSOU
+","
+Barrio Santiago el Mayor
+","
+Distrito Sur
+","
+Murcia
+",575.000€,,4.675 €/m²,"['123 m² construidos, 96 m² útiles', '3 habitaciones', '3 baños', 'Terraza', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte', 'Construido en 2023', 'Calefacción individual: Bomba de frío/calor', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 4ª exterior', 'Con ascensor']",3 habitaciones,3 baños,ATICO TIPO D CASSOU,Profesional,IKONIA HOMES,Anuncio actualizado el 29 de agosto,34851813281.0,https://www.idealista.com/inmueble/105834236/,2024-08-29 22:47:33
+105845749,venta,Casa o chalet en venta en Javalí Nuevo,"
+Barrio Javalí Nuevo
 ","
 Distrito Pedanías Oeste
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",330.000€,,2.276 €/m²,"[' Casa o chalet', '145 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación oeste']","145 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0gJMAS,Promotora,AQ Acentor,Anuncio actualizado el 29 de agosto,34919387183.0,https://www.idealista.com/inmueble/105837186/,2024-08-29 22:47:33
-105843588,venta,Piso en venta en calle Capitán Balaca,"
-Calle Capitán Balaca
-","
-Barrio Vistabella
-","
-Distrito Centro
-","
-Murcia
-","
-Área de Murcia, Murcia
-",59.000€,,663 €/m²,"['89 m² construidos, 80 m² útiles', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Bajo exterior', 'Sin ascensor']",3 habitaciones,1 baño,CHIRE-0329,Profesional,Manuel Perez,Anuncio actualizado el 29 de agosto,34984260410.0,https://www.idealista.com/inmueble/105843588/,2024-08-29 22:47:33
-104248981,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
-Calle Constanza de Avilés, 1
-","
-Barrio Guadalupe
-","
-Distrito Pedanías Oeste
-","
-Murcia
-","
-Área de Murcia, Murcia
-",343.000€,,2.366 €/m²,"[' Casa o chalet', '145 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación este']","145 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0gMMAS,Promotora,AQ Acentor,Anuncio actualizado el 29 de agosto,34919387183.0,https://www.idealista.com/inmueble/104248981/,2024-08-29 22:47:33
-105837178,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
-Calle Constanza de Avilés, 1
-","
-Barrio Guadalupe
-","
-Distrito Pedanías Oeste
-","
-Murcia
-","
-Área de Murcia, Murcia
-",368.000€,,2.556 €/m²,"[' Casa o chalet', '144 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación este']","144 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0ggMAC,Promotora,AQ Acentor,Anuncio actualizado el 29 de agosto,34919387183.0,https://www.idealista.com/inmueble/105837178/,2024-08-29 22:47:33
-105838864,venta,Estudio en venta en calle Miguel Angel Blanco,"
-Calle Miguel Angel Blanco
-","
-Barrio Garres y Lages
+",,43.000€,,538 €/m²,"[' Casa o chalet', '80 m² construidos', '1 habitación', 'Sin baños', 'Parcela de 93 m²', 'Terraza', 'Segunda mano/para reformar', 'Trastero', 'Construido en 1955', 'No dispone de calefacción']",80 m² construidos,1 habitación,428,Profesional,info@inmoentrevias.esENTREVÍAS GESTIÓN INMOBILIARIA,Anuncio actualizado el 29 de agosto,34868350028.0,https://www.idealista.com/inmueble/105845749/,2024-08-29 22:47:33
+105845222,venta,Piso en venta en Beniaján,"
+Barrio Beniaján
 ","
 Distrito Pedanías Este
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",87.000€,,853 €/m²,"['102 m² construidos', 'Sin habitación', '2 baños', 'Segunda mano/buen estado']",Sin habitación,2 baños,SRB0009003284,Profesional,Aliseda Inmobiliaria,Anuncio actualizado el 29 de agosto,34919381241.0,https://www.idealista.com/inmueble/105838864/,2024-08-29 22:47:33
+",,110.000€,,1.000 €/m²,"['110 m² construidos, 85 m² útiles', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, este', 'Construido en 2002', 'Calefacción central', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",3 habitaciones,2 baños,41596,Profesional,ALQUILOTUCASA MURCIA1,Anuncio actualizado el 29 de agosto,34868350971.0,https://www.idealista.com/inmueble/105845222/,2024-08-29 22:47:33
+105841369,venta,"Piso en venta en calle Alcacil, 24","
+Calle Alcacil, 24
+","
+Barrio Gea y Truyols
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",89.500€,,895 €/m²,"['100 m² construidos', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,2 baños,1375,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841369/,2024-08-29 22:47:33
+105841314,venta,"Piso en venta en calle Alcacil, 66","
+Calle Alcacil, 66
+","
+Barrio Gea y Truyols
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",69.500€,,1.069 €/m²,"['65 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 4ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1372,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841314/,2024-08-29 22:47:33
 105839014,venta,"Casa o chalet independiente en venta en calle Gloria, 99","
 Calle Gloria, 99
 ","
@@ -512,6 +552,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",90.000€,,818 €/m²,"[' Casa o chalet independiente', '1 planta', '110 m² construidos', '3 habitaciones', '1 baño', 'Terraza', 'Segunda mano/para reformar', 'Construido en 1960', 'No dispone de calefacción']",1 planta,110 m² construidos,ELG0108,Profesional,Eva Araceli Lorenzo Galián,Anuncio actualizado el 29 de agosto,34868350284.0,https://www.idealista.com/inmueble/105839014/,2024-08-29 22:47:33
+105789293,venta,"Piso en venta en avenida Ciudad Sanitaria, 3","
+Avenida Ciudad Sanitaria, 3
+","
+Barrio El Palmar
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",312.000€,,2.438 €/m²,"['128 m² construidos, 105 m² útiles', '3 habitaciones', '2 baños', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación este, oeste', 'Construido en 2020', 'Calefacción central', 'Acceso y vivienda adaptados para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",3 habitaciones,2 baños,MUCHA VIDA,Profesional,ANOVA HOMES - Inmobiliaria en Murcia,Anuncio actualizado el 28 de agosto,34868350600.0,https://www.idealista.com/inmueble/105789293/,2024-08-29 22:47:33
 105839366,venta,Casa o chalet independiente en venta en camino de las Casas,"
 Camino de las Casas
 ","
@@ -598,17 +649,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",,81.500€,,1.940 €/m²,"['42 m² construidos, 41 m² útiles', 'Sin habitación', '1 baño', 'Segunda mano/buen estado', 'Orientación norte, sur, este, oeste', 'Construido en 1940', 'No dispone de calefacción', 'Bajo exterior', 'Sin ascensor']",Sin habitación,1 baño,loftespinardo,Profesional,Llavete Gestión Patrimonial,Anuncio actualizado el 28 de agosto,34868350635.0,https://www.idealista.com/inmueble/105833732/,2024-08-29 22:47:33
-105789293,venta,"Piso en venta en avenida Ciudad Sanitaria, 3","
-Avenida Ciudad Sanitaria, 3
+105842148,venta,Piso en venta en carril de los Navarros,"
+Carril de los Navarros
 ","
-Barrio El Palmar
+Barrio Puente Tocinos
 ","
-Distrito Pedanías Oeste
+Distrito Pedanías Este
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",312.000€,,2.438 €/m²,"['128 m² construidos, 105 m² útiles', '3 habitaciones', '2 baños', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación este, oeste', 'Construido en 2020', 'Calefacción central', 'Acceso y vivienda adaptados para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",3 habitaciones,2 baños,MUCHA VIDA,Profesional,ANOVA HOMES - Inmobiliaria en Murcia,Anuncio actualizado el 28 de agosto,34868350600.0,https://www.idealista.com/inmueble/105789293/,2024-08-29 22:47:33
+",26.000€,,211 €/m²,"['Ocupada ilegalmente', '123 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Bajo exterior', 'Sin ascensor']",123 m² construidos,3 habitaciones,OK1PMURCIA65,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105842148/,2024-08-29 22:47:33
 105825769,venta,"Piso en venta en calle Floridablanca, 75","
 Calle Floridablanca, 75
 ","
@@ -642,28 +693,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",59.500€,,1.082 €/m²,"['55 m² construidos, 50 m² útiles', '1 habitación', '1 baño', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Bajo exterior', 'Con ascensor']",1 habitación,1 baño,1385,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841311/,2024-08-29 22:47:33
-105842148,venta,Piso en venta en carril de los Navarros,"
-Carril de los Navarros
+105837178,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
+Calle Constanza de Avilés, 1
 ","
-Barrio Puente Tocinos
+Barrio Guadalupe
 ","
-Distrito Pedanías Este
-","
-Murcia
-","
-Área de Murcia, Murcia
-",26.000€,,211 €/m²,"['Ocupada ilegalmente', '123 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/para reformar', 'Bajo exterior', 'Sin ascensor']",123 m² construidos,3 habitaciones,OK1PMURCIA65,Profesional,SA ROQUETA,Anuncio actualizado el 29 de agosto,34871185564.0,https://www.idealista.com/inmueble/105842148/,2024-08-29 22:47:33
-105841349,venta,"Piso en venta en calle Collado Jerónimos, 13","
-Calle Collado Jerónimos, 13
-","
-Barrio Gea y Truyols
-","
-Distrito Campo de Murcia
+Distrito Pedanías Oeste
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",75.000€,,1.154 €/m²,"['65 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 3ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1383,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841349/,2024-08-29 22:47:33
+",368.000€,,2.556 €/m²,"[' Casa o chalet', '144 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación este']","144 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0ggMAC,Promotora,AQ Acentor,Anuncio actualizado el 29 de agosto,34919387183.0,https://www.idealista.com/inmueble/105837178/,2024-08-29 22:47:33
 97823034,venta,"Piso en venta en calle Valle, 21 n","
 Calle Valle, 21 n
 ","
@@ -675,15 +715,6 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",95.000€,,905 €/m²,"['105 m² construidos, 90 m² útiles', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, oeste', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,2 baños,97823034,Particular,Antonio,Anuncio actualizado el 29 de agosto,34601198070.0,https://www.idealista.com/inmueble/97823034/,2024-08-29 22:47:33
-105845222,venta,Piso en venta en Beniaján,"
-Barrio Beniaján
-","
-Distrito Pedanías Este
-","
-Murcia
-","
-Área de Murcia, Murcia
-",,110.000€,,1.000 €/m²,"['110 m² construidos, 85 m² útiles', '3 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, este', 'Construido en 2002', 'Calefacción central', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 1ª exterior', 'Con ascensor']",3 habitaciones,2 baños,41596,Profesional,ALQUILOTUCASA MURCIA1,Anuncio actualizado el 29 de agosto,34868350971.0,https://www.idealista.com/inmueble/105845222/,2024-08-29 22:47:33
 105844702,venta,Piso en venta en Vistabella,"
 Barrio Vistabella
 ","
@@ -724,6 +755,50 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",97.300€,,743 €/m²,"['131 m² construidos, 100 m² útiles', '3 habitaciones', '2 baños', 'Segunda mano/para reformar', 'Bajo exterior', 'Sin ascensor']",3 habitaciones,2 baños,JARE-1671,Profesional,Manuel Perez,Anuncio actualizado el 29 de agosto,34984260410.0,https://www.idealista.com/inmueble/105843354/,2024-08-29 22:47:33
+105838864,venta,Estudio en venta en calle Miguel Angel Blanco,"
+Calle Miguel Angel Blanco
+","
+Barrio Garres y Lages
+","
+Distrito Pedanías Este
+","
+Murcia
+","
+Área de Murcia, Murcia
+",87.000€,,853 €/m²,"['102 m² construidos', 'Sin habitación', '2 baños', 'Segunda mano/buen estado']",Sin habitación,2 baños,SRB0009003284,Profesional,Aliseda Inmobiliaria,Anuncio actualizado el 29 de agosto,34919381241.0,https://www.idealista.com/inmueble/105838864/,2024-08-29 22:47:33
+105837186,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
+Calle Constanza de Avilés, 1
+","
+Barrio Guadalupe
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",330.000€,,2.276 €/m²,"[' Casa o chalet', '145 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación oeste']","145 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0gJMAS,Promotora,AQ Acentor,Anuncio actualizado el 29 de agosto,34919387183.0,https://www.idealista.com/inmueble/105837186/,2024-08-29 22:47:33
+104248981,venta,"Casa o chalet en venta en calle Constanza de Avilés, 1","
+Calle Constanza de Avilés, 1
+","
+Barrio Guadalupe
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",343.000€,,2.366 €/m²,"[' Casa o chalet', '145 m² construidos, 113 m² útiles', '4 habitaciones', '3 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Promoción de obra nueva', 'Armarios empotrados', 'Trastero', 'Orientación este']","145 m² construidos, 113 m² útiles",4 habitaciones,a1QS7000000B0gMMAS,Promotora,AQ Acentor,Anuncio actualizado el 29 de agosto,34919387183.0,https://www.idealista.com/inmueble/104248981/,2024-08-29 22:47:33
+105841349,venta,"Piso en venta en calle Collado Jerónimos, 13","
+Calle Collado Jerónimos, 13
+","
+Barrio Gea y Truyols
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",75.000€,,1.154 €/m²,"['65 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Calefacción individual: Eléctrica', 'Solo acceso exterior adaptado para personas con movilidad reducida', 'Planta 3ª exterior', 'Con ascensor']",2 habitaciones,2 baños,1383,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841349/,2024-08-29 22:47:33
 105236581,venta,Piso en venta en Santa María de Gracia,"
 Barrio Santa María de Gracia
 ","

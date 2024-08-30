@@ -1,17 +1,28 @@
 ID_Inmueble,Tipo,Título,Calle,Barrio,Distrito,Ciudad,Área,Precio,Fianza,Precio_por_metro,Características,Habitaciones,Metros_construidos,Metros_utilesBaños,Referencia,Anunciante,Nombre_Anunciante,Última_Actualización,Teléfono,URL,Baños,Nombre Anunciante,Última Actualización,fecha
-105846164,Alquiler,Alquiler de Piso en calle Alarilla,"
-Calle Alarilla
+105849938,Alquiler,"Alquiler de Piso en Pimentón, 2","
+Pimentón, 2
 ","
-Barrio El Carmen
+Barrio Espinardo
 ","
-Distrito Sur
+Distrito Pedanías Norte
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",750€/mes,Fianza de 2 meses,"8,82 €/m²","['85 m² construidos', '3 habitaciones', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación este, oeste', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,Piso Renfe,Profesional,Inmobiliaria Eugeniya,Anuncio actualizado el 29 de agosto,+34868350700,https://www.idealista.com/inmueble/105846164/,1 baño,,,2024-08-30 11:38:17
-105846961,Alquiler,"Alquiler de Piso en plaza de la Opinión, 7","
-Plaza de la Opinión, 7
+",550€/mes,Fianza de 2 meses,"8,46 €/m²","['65 m² construidos, 55 m² útiles', '1 habitación', '1 baño', 'Terraza', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte', 'Amueblado y cocina equipada', 'Calefacción central', 'Bajo exterior', 'Con ascensor']",1 habitación,,,105849938,Particular,Pablo,Anuncio actualizado el 30 de agosto,N/A,https://www.idealista.com/inmueble/105849938/,1 baño,,,2024-08-30 13:40:07
+105849538,Alquiler,Alquiler de Piso en plaza San Pedro,"
+Plaza San Pedro
+","
+Barrio San Pedro
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",950€/mes,Fianza de 1 mes,"11,18 €/m²","['85 m² construidos, 80 m² útiles', '2 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,,,57472,Profesional,The Simple Rent,Anuncio actualizado el 30 de agosto,34868350665.0,https://www.idealista.com/inmueble/105849538/,1 baño,,,2024-08-30 12:59:29
+105848713,Alquiler,Alquiler de Piso en calle Abderraman II,"
+Calle Abderraman II
 ","
 Barrio San Antón
 ","
@@ -20,56 +31,18 @@ Distrito Centro
 Murcia
 ","
 Área de Murcia, Murcia
-",800€/mes,N/A,"8,42 €/m²","['95 m² construidos, 80 m² útiles', '2 habitaciones', '2 baños', 'Terraza', 'Plaza de garaje por 80 €/mes adicionales', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Amueblado y cocina equipada', 'Calefacción individual: Eléctrica', 'Bajo exterior', 'Con ascensor']",2 habitaciones,,,105846961,Particular,Multigestion Borbon,Anuncio actualizado el 30 de agosto,+34696914284,https://www.idealista.com/inmueble/105846961/,2 baños,,,2024-08-30 11:38:17
-105847536,Alquiler,Alquiler de Chalet adosado en Sucina,"
-Barrio Sucina
+",1.000€/mes,,"9,35 €/m²","['107 m² construidos, 86 m² útiles', '4 habitaciones', '2 baños', 'Terraza', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Con ascensor']",4 habitaciones,,,RP2542024129782,Profesional,REDPISO MURCIA SAN ANTON,Anuncio actualizado el 30 de agosto,34868355696.0,https://www.idealista.com/inmueble/105848713/,2 baños,,,2024-08-30 12:59:29
+94996326,Alquiler,"Alquiler de Piso en calle Cruz de los Caminos, 14","
+Calle Cruz de los Caminos, 14
 ","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,850€/mes,N/A,"12,69 €/m²","['Chalet adosado', '67 m² construidos, 65 m² útiles', '2 habitaciones', '1 baño', 'Parcela de 110 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, este', 'Cocina equipada y casa sin amueblar', 'Calefacción individual: Gas natural']","67 m² construidos, 65 m² útiles",,,BNG0009,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,+34868355908,https://www.idealista.com/inmueble/105847536/,2 habitaciones,,,2024-08-30 11:38:17
-94310959,Alquiler,"Alquiler de Piso en Colegio, 8","
-COLEGIO, 8
-","
-Barrio El Puntal
+Barrio El Esparragal
 ","
 Distrito Pedanías Norte
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",500€/mes,Fianza de 1 mes,"12,50 €/m²","['40 m² construidos, 37 m² útiles', '1 habitación', '1 baño', 'Segunda mano/buen estado', 'Orientación este', 'Amueblado y cocina equipada', 'Bajo exterior', 'Sin ascensor']",1 habitación,,,94310959,Profesional,INMOAMM *,Anuncio actualizado el 30 de agosto,+34868350946,https://www.idealista.com/inmueble/94310959/,1 baño,,,2024-08-30 11:38:17
-94064277,Alquiler,Alquiler de Estudio en El puntal s/n,"
-El puntal s/n
-","
-Barrio El Puntal
-","
-Distrito Pedanías Norte
-","
-Murcia
-","
-Área de Murcia, Murcia
-",400€/mes,Fianza de 1 mes,"13,33 €/m²","['30 m² construidos, 25 m² útiles', 'Sin habitación', '1 baño', 'Segunda mano/buen estado', 'Orientación norte', 'Construido en 2015', 'Amueblado y cocina equipada', 'Entreplanta exterior', 'Sin ascensor']",Sin habitación,,,94064277,Profesional,INMOAMM *,Anuncio actualizado el 30 de agosto,+34868350946,https://www.idealista.com/inmueble/94064277/,1 baño,,,2024-08-30 11:38:17
-103995931,Alquiler,Alquiler de Chalet adosado en Sucina,"
-Barrio Sucina
-","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,850€/mes,N/A,"9,44 €/m²","['Chalet adosado', '90 m² construidos, 70 m² útiles', '2 habitaciones', '2 baños', 'Parcela de 150 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte, este', 'Construido en 2006', 'Amueblado y cocina equipada', 'No dispone de calefacción']","90 m² construidos, 70 m² útiles",,,ADO0034,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,+34868355908,https://www.idealista.com/inmueble/103995931/,2 habitaciones,,,2024-08-30 11:38:17
-102588160,Alquiler,Alquiler de Piso en San Miguel,"
-Barrio San Miguel
-","
-Distrito Centro
-","
-Murcia
-","
-Área de Murcia, Murcia
-",N/A,1.000€/mes,N/A,"5,41 €/m²","['185 m² construidos, 167 m² útiles', '5 habitaciones', '3 baños', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación este', 'Construido en 1969', 'Amueblado y cocina equipada', 'Calefacción central', 'Planta 6ª exterior', 'Con ascensor']",5 habitaciones,,,814,Profesional,Retamero Servicios Inmobiliarios,Anuncio actualizado el 30 de agosto,+34868350484,https://www.idealista.com/inmueble/102588160/,3 baños,,,2024-08-30 11:38:17
+",600€/mes,Fianza de 1 mes,"7,06 €/m²","['85 m² construidos, 75 m² útiles', '2 habitaciones', '2 baños', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Amueblado y cocina equipada', 'Planta 3ª exterior', 'Con ascensor']",2 habitaciones,,,94996326,Particular,Jose T.,Anuncio actualizado el 30 de agosto,34666925858.0,https://www.idealista.com/inmueble/94996326/,2 baños,,,2024-08-30 12:59:29
 105846810,Alquiler,"Alquiler de Piso en calle Leon, 2","
 Calle Leon, 2
 ","
@@ -80,7 +53,7 @@ Distrito Campo de Murcia
 Murcia
 ","
 Área de Murcia, Murcia
-",450€/mes,Fianza de 2 meses,"8,18 €/m²","['55 m² construidos', '2 habitaciones', '1 baño', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'Orientación sur', 'Cocina equipada y casa sin amueblar', 'Planta 1ª exterior', 'Con ascensor']",2 habitaciones,,,105846810,Particular,Antonio,Anuncio actualizado el 30 de agosto,+34669095651,https://www.idealista.com/inmueble/105846810/,1 baño,,,2024-08-30 11:38:17
+",450€/mes,Fianza de 2 meses,"8,18 €/m²","['55 m² construidos', '2 habitaciones', '1 baño', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'Orientación sur', 'Cocina equipada y casa sin amueblar', 'Planta 1ª exterior', 'Con ascensor']",2 habitaciones,,,105846810,Particular,Antonio,Anuncio actualizado el 30 de agosto,34669095651.0,https://www.idealista.com/inmueble/105846810/,1 baño,,,2024-08-30 11:38:17
 105846201,Alquiler,Alquiler de Piso en plaza de Santoña,"
 Plaza de Santoña
 ","
@@ -91,29 +64,78 @@ Distrito Centro
 Murcia
 ","
 Área de Murcia, Murcia
-",1.100€/mes,Fianza de 1 mes,"11,00 €/m²","['100 m² construidos', '4 habitaciones', '2 baños', 'Terraza y balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur, este, oeste', 'Construido en 1980', 'Cocina equipada y casa sin amueblar', 'Calefacción individual: Eléctrica', 'Planta 6ª exterior', 'Con ascensor']",4 habitaciones,,,Santoña,Profesional,Inmobiliaria Eugeniya,Anuncio actualizado el 30 de agosto,+34868350700,https://www.idealista.com/inmueble/105846201/,2 baños,,,2024-08-30 11:38:17
-96057163,Alquiler,"Alquiler de Piso en calle Obispo Francisco Lerma, 1","
-Calle Obispo Francisco Lerma, 1
+",1.100€/mes,Fianza de 1 mes,"11,00 €/m²","['100 m² construidos', '4 habitaciones', '2 baños', 'Terraza y balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur, este, oeste', 'Construido en 1980', 'Cocina equipada y casa sin amueblar', 'Calefacción individual: Eléctrica', 'Planta 6ª exterior', 'Con ascensor']",4 habitaciones,,,Santoña,Profesional,Inmobiliaria Eugeniya,Anuncio actualizado el 30 de agosto,34868350700.0,https://www.idealista.com/inmueble/105846201/,2 baños,,,2024-08-30 11:38:17
+105846164,Alquiler,Alquiler de Piso en calle Alarilla,"
+Calle Alarilla
 ","
-Barrio El Palmar
+Barrio El Carmen
 ","
-Distrito Pedanías Oeste
+Distrito Sur
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",550€/mes,Fianza de 1 mes,"10,00 €/m²","['55 m² construidos', '1 habitación', '1 baño', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación norte, este', 'Construido en 2010', 'Amueblado y cocina equipada', 'Calefacción individual: Bomba de frío/calor', 'Planta 2ª exterior', 'Con ascensor']",1 habitación,,,ALQ-OFL550,Profesional,Francisco Jodar,Anuncio actualizado el 29 de agosto,34868350476.0,https://www.idealista.com/inmueble/96057163/,1 baño,,,2024-08-29 22:51:32
-105833746,Alquiler,Alquiler de Estudio en calle Platería,"
-Calle Platería
-","
-Barrio Santa Catalina-San Bartolomé
+",750€/mes,Fianza de 2 meses,"8,82 €/m²","['85 m² construidos', '3 habitaciones', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación este, oeste', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,Piso Renfe,Profesional,Inmobiliaria Eugeniya,Anuncio actualizado el 29 de agosto,34868350700.0,https://www.idealista.com/inmueble/105846164/,1 baño,,,2024-08-30 11:38:17
+102588160,Alquiler,Alquiler de Piso en San Miguel,"
+Barrio San Miguel
 ","
 Distrito Centro
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",680€/mes,Fianza de 2 meses,"13,60 €/m²","['50 m² construidos, 40 m² útiles', 'Sin habitación', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Construido en 1975', 'Amueblado y cocina equipada', 'Planta 1ª exterior', 'Con ascensor']",Sin habitación,,,Murkey_31,Profesional,Murkey Real Estate,Anuncio actualizado el 28 de agosto,34868355566.0,https://www.idealista.com/inmueble/105833746/,1 baño,,,2024-08-29 22:51:32
+",,1.000€/mes,,"5,41 €/m²","['185 m² construidos, 167 m² útiles', '5 habitaciones', '3 baños', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación este', 'Construido en 1969', 'Amueblado y cocina equipada', 'Calefacción central', 'Planta 6ª exterior', 'Con ascensor']",5 habitaciones,,,814,Profesional,Retamero Servicios Inmobiliarios,Anuncio actualizado el 30 de agosto,34868350484.0,https://www.idealista.com/inmueble/102588160/,3 baños,,,2024-08-30 11:38:17
+94310959,Alquiler,"Alquiler de Piso en Colegio, 8","
+COLEGIO, 8
+","
+Barrio El Puntal
+","
+Distrito Pedanías Norte
+","
+Murcia
+","
+Área de Murcia, Murcia
+",500€/mes,Fianza de 1 mes,"12,50 €/m²","['40 m² construidos, 37 m² útiles', '1 habitación', '1 baño', 'Segunda mano/buen estado', 'Orientación este', 'Amueblado y cocina equipada', 'Bajo exterior', 'Sin ascensor']",1 habitación,,,94310959,Profesional,INMOAMM *,Anuncio actualizado el 30 de agosto,34868350946.0,https://www.idealista.com/inmueble/94310959/,1 baño,,,2024-08-30 11:38:17
+94064277,Alquiler,Alquiler de Estudio en El puntal s/n,"
+El puntal s/n
+","
+Barrio El Puntal
+","
+Distrito Pedanías Norte
+","
+Murcia
+","
+Área de Murcia, Murcia
+",400€/mes,Fianza de 1 mes,"13,33 €/m²","['30 m² construidos, 25 m² útiles', 'Sin habitación', '1 baño', 'Segunda mano/buen estado', 'Orientación norte', 'Construido en 2015', 'Amueblado y cocina equipada', 'Entreplanta exterior', 'Sin ascensor']",Sin habitación,,,94064277,Profesional,INMOAMM *,Anuncio actualizado el 30 de agosto,34868350946.0,https://www.idealista.com/inmueble/94064277/,1 baño,,,2024-08-30 11:38:17
+103995931,Alquiler,Alquiler de Chalet adosado en Sucina,"
+Barrio Sucina
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,850€/mes,,"9,44 €/m²","['Chalet adosado', '90 m² construidos, 70 m² útiles', '2 habitaciones', '2 baños', 'Parcela de 150 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte, este', 'Construido en 2006', 'Amueblado y cocina equipada', 'No dispone de calefacción']","90 m² construidos, 70 m² útiles",,,ADO0034,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,34868355908.0,https://www.idealista.com/inmueble/103995931/,2 habitaciones,,,2024-08-30 11:38:17
+105847536,Alquiler,Alquiler de Chalet adosado en Sucina,"
+Barrio Sucina
+","
+Distrito Campo de Murcia
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,850€/mes,,"12,69 €/m²","['Chalet adosado', '67 m² construidos, 65 m² útiles', '2 habitaciones', '1 baño', 'Parcela de 110 m²', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur, este', 'Cocina equipada y casa sin amueblar', 'Calefacción individual: Gas natural']","67 m² construidos, 65 m² útiles",,,BNG0009,Profesional,Napavana Properties,Anuncio actualizado el 30 de agosto,34868355908.0,https://www.idealista.com/inmueble/105847536/,2 habitaciones,,,2024-08-30 11:38:17
+105846961,Alquiler,"Alquiler de Piso en plaza de la Opinión, 7","
+Plaza de la Opinión, 7
+","
+Barrio San Antón
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",800€/mes,,"8,42 €/m²","['95 m² construidos, 80 m² útiles', '2 habitaciones', '2 baños', 'Terraza', 'Plaza de garaje por 80 €/mes adicionales', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Amueblado y cocina equipada', 'Calefacción individual: Eléctrica', 'Bajo exterior', 'Con ascensor']",2 habitaciones,,,105846961,Particular,Multigestion Borbon,Anuncio actualizado el 30 de agosto,34696914284.0,https://www.idealista.com/inmueble/105846961/,2 baños,,,2024-08-30 11:38:17
 105838475,Alquiler,Alquiler de Piso en Torreagüera,"
 Barrio Torreagüera
 ","
@@ -123,28 +145,6 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",,550€/mes,Fianza de 1 mes,"5,00 €/m²","['110 m² construidos, 81 m² útiles', '2 habitaciones', '2 baños', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Trastero', 'Amueblado y cocina equipada', 'Planta 1ª interior', 'Con ascensor']",2 habitaciones,,,105838475,Profesional,Ártico Capital,Anuncio actualizado el 29 de agosto,34868355356.0,https://www.idealista.com/inmueble/105838475/,2 baños,,,2024-08-29 22:51:32
-105842988,Alquiler,"Alquiler de Piso en calle Sierra Espuña, 2","
-Calle Sierra Espuña, 2
-","
-Barrio Santa María de Gracia
-","
-Distrito Norte
-","
-Murcia
-","
-Área de Murcia, Murcia
-",780€/mes,Fianza de 1 mes,"9,07 €/m²","['86 m² construidos', '3 habitaciones', '1 baño', 'Terraza', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación este', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Sin ascensor']",3 habitaciones,,,105842988,,Raúl,Anuncio actualizado el 29 de agosto,34665940597.0,https://www.idealista.com/inmueble/105842988/,1 baño,,,2024-08-29 22:51:32
-92201732,Alquiler,"Alquiler de Piso en avenida Fabián Escribano, 88","
-Avenida Fabián Escribano, 88
-","
-Barrio Beniaján
-","
-Distrito Pedanías Este
-","
-Murcia
-","
-Área de Murcia, Murcia
-",490€/mes,Fianza de 1 mes,"4,45 €/m²","['110 m² construidos, 91 m² útiles', '3 habitaciones', '1 baño', 'Terraza y balcón', 'Segunda mano/buen estado', 'Orientación norte', 'Cocina equipada y casa sin amueblar', 'Calefacción individual: Eléctrica', 'Planta 2ª exterior', 'Sin ascensor']",3 habitaciones,,,92201732,Particular,Javier,Anuncio actualizado el 29 de agosto,34669402232.0,https://www.idealista.com/inmueble/92201732/,1 baño,,,2024-08-29 22:51:32
 86434857,Alquiler,"Alquiler de Piso en calle Nuestra Señora de Guadalupe, 50","
 Calle Nuestra Señora de Guadalupe, 50
 ","
@@ -156,17 +156,61 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",650€/mes,Fianza de 1 mes,"8,12 €/m²","['80 m² construidos', '2 habitaciones', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,,,86434857,Particular,Encarni,Anuncio actualizado el 29 de agosto,34626061929.0,https://www.idealista.com/inmueble/86434857/,1 baño,,,2024-08-29 22:51:32
-105844482,Alquiler,Alquiler de Piso en calle Canteras,"
-Calle Canteras
+92201732,Alquiler,"Alquiler de Piso en avenida Fabián Escribano, 88","
+Avenida Fabián Escribano, 88
 ","
-Barrio Javalí Nuevo
+Barrio Beniaján
+","
+Distrito Pedanías Este
+","
+Murcia
+","
+Área de Murcia, Murcia
+",490€/mes,Fianza de 1 mes,"4,45 €/m²","['110 m² construidos, 91 m² útiles', '3 habitaciones', '1 baño', 'Terraza y balcón', 'Segunda mano/buen estado', 'Orientación norte', 'Cocina equipada y casa sin amueblar', 'Calefacción individual: Eléctrica', 'Planta 2ª exterior', 'Sin ascensor']",3 habitaciones,,,92201732,Particular,Javier,Anuncio actualizado el 29 de agosto,34669402232.0,https://www.idealista.com/inmueble/92201732/,1 baño,,,2024-08-29 22:51:32
+105842988,Alquiler,"Alquiler de Piso en calle Sierra Espuña, 2","
+Calle Sierra Espuña, 2
+","
+Barrio Santa María de Gracia
+","
+Distrito Norte
+","
+Murcia
+","
+Área de Murcia, Murcia
+",780€/mes,Fianza de 1 mes,"9,07 €/m²","['86 m² construidos', '3 habitaciones', '1 baño', 'Terraza', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación este', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Sin ascensor']",3 habitaciones,,,105842988,,Raúl,Anuncio actualizado el 29 de agosto,34665940597.0,https://www.idealista.com/inmueble/105842988/,1 baño,,,2024-08-29 22:51:32
+103256956,Alquiler,"Alquiler de Ático en senda de Granada, 131","
+Senda de Granada, 131
+","
+Barrio Zona Juan de Borbón
+","
+Distrito Norte
+","
+Murcia
+","
+Área de Murcia, Murcia
+",780€/mes,Fianza de 1 mes,"8,67 €/m²","['90 m² construidos, 80 m² útiles', '2 habitaciones', '2 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",2 habitaciones,,,103256956,Particular,Elena,Anuncio actualizado el 29 de agosto,34637777696.0,https://www.idealista.com/inmueble/103256956/,2 baños,,,2024-08-29 22:51:32
+105833746,Alquiler,Alquiler de Estudio en calle Platería,"
+Calle Platería
+","
+Barrio Santa Catalina-San Bartolomé
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",680€/mes,Fianza de 2 meses,"13,60 €/m²","['50 m² construidos, 40 m² útiles', 'Sin habitación', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Construido en 1975', 'Amueblado y cocina equipada', 'Planta 1ª exterior', 'Con ascensor']",Sin habitación,,,Murkey_31,Profesional,Murkey Real Estate,Anuncio actualizado el 28 de agosto,34868355566.0,https://www.idealista.com/inmueble/105833746/,1 baño,,,2024-08-29 22:51:32
+96057163,Alquiler,"Alquiler de Piso en calle Obispo Francisco Lerma, 1","
+Calle Obispo Francisco Lerma, 1
+","
+Barrio El Palmar
 ","
 Distrito Pedanías Oeste
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",600€/mes,Fianza de 2 meses,"9,23 €/m²","['65 m² construidos', '2 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Cocina equipada y casa sin amueblar', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,,,105844482,Profesional,Asesoras Patrimoniales del Mediterráneo,Anuncio actualizado el 29 de agosto,34868355928.0,https://www.idealista.com/inmueble/105844482/,1 baño,,,2024-08-29 22:51:32
+",550€/mes,Fianza de 1 mes,"10,00 €/m²","['55 m² construidos', '1 habitación', '1 baño', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación norte, este', 'Construido en 2010', 'Amueblado y cocina equipada', 'Calefacción individual: Bomba de frío/calor', 'Planta 2ª exterior', 'Con ascensor']",1 habitación,,,ALQ-OFL550,Profesional,Francisco Jodar,Anuncio actualizado el 29 de agosto,34868350476.0,https://www.idealista.com/inmueble/96057163/,1 baño,,,2024-08-29 22:51:32
 105844454,Alquiler,Alquiler de Piso en calle Cuartel de Artillería,"
 Calle Cuartel de Artillería
 ","
@@ -178,6 +222,28 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",900€/mes,,"11,11 €/m²","['81 m² construidos', '3 habitaciones', '2 baños', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 5ª exterior', 'Con ascensor']",3 habitaciones,,,RP1742024129758,Profesional,REDPISO MURCIA,Anuncio actualizado el 29 de agosto,34868355607.0,https://www.idealista.com/inmueble/105844454/,2 baños,,,2024-08-29 22:51:32
+105844482,Alquiler,Alquiler de Piso en calle Canteras,"
+Calle Canteras
+","
+Barrio Javalí Nuevo
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",600€/mes,Fianza de 2 meses,"9,23 €/m²","['65 m² construidos', '2 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Cocina equipada y casa sin amueblar', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,,,105844482,Profesional,Asesoras Patrimoniales del Mediterráneo,Anuncio actualizado el 29 de agosto,34868355928.0,https://www.idealista.com/inmueble/105844482/,1 baño,,,2024-08-29 22:51:32
+102462252,Alquiler,Alquiler de Piso en avenida Antonete Gálvez,"
+Avenida Antonete Gálvez
+","
+Barrio La Fama
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",780€/mes,Fianza de 2 meses,"5,23 €/m²","['149 m² construidos, 137 m² útiles', '4 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Orientación sur, este', 'Construido en 1974', 'Amueblado y cocina equipada', 'Calefacción individual: Gas propano/butano', 'Planta 3ª exterior', 'Con ascensor']",4 habitaciones,,,24-07-7984,Profesional,Tuoportunidadinmobiliaria,Anuncio actualizado el 29 de agosto,34868350333.0,https://www.idealista.com/inmueble/102462252/,2 baños,,,2024-08-29 22:51:32
 105043349,Alquiler,"Alquiler de Piso en avenida de la Fama, 12","
 Avenida de la Fama, 12
 ","
@@ -218,17 +284,15 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",500€/mes,Fianza de 1 mes,"6,25 €/m²","['80 m² construidos, 78 m² útiles', 'Sin habitación', '1 baño', 'Terraza', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 5ª exterior', 'Sin ascensor']",Sin habitación,,,1515,Profesional,The Simple Rent,Anuncio actualizado el 29 de agosto,34868350665.0,https://www.idealista.com/inmueble/105843557/,1 baño,,,2024-08-29 22:51:32
-102462252,Alquiler,Alquiler de Piso en avenida Antonete Gálvez,"
-Avenida Antonete Gálvez
-","
-Barrio La Fama
+105831900,Alquiler,Alquiler de Piso en San Pedro,"
+Barrio San Pedro
 ","
 Distrito Centro
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",780€/mes,Fianza de 2 meses,"5,23 €/m²","['149 m² construidos, 137 m² útiles', '4 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Orientación sur, este', 'Construido en 1974', 'Amueblado y cocina equipada', 'Calefacción individual: Gas propano/butano', 'Planta 3ª exterior', 'Con ascensor']",4 habitaciones,,,24-07-7984,Profesional,Tuoportunidadinmobiliaria,Anuncio actualizado el 29 de agosto,34868350333.0,https://www.idealista.com/inmueble/102462252/,2 baños,,,2024-08-29 22:51:32
+",,850€/mes,,"10,62 €/m²","['80 m² construidos, 60 m² útiles', '3 habitaciones', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Construido en 1977', 'Amueblado y cocina equipada', 'No dispone de calefacción', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,11276,Profesional,Inmobiliaria Norman,Anuncio actualizado el 28 de agosto,34868350802.0,https://www.idealista.com/inmueble/105831900/,1 baño,,,2024-08-29 22:51:32
 105135884,Alquiler,Alquiler de Piso en plaza Santo Domingo,"
 Plaza Santo Domingo
 ","
@@ -271,50 +335,6 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",,1.100€/mes,,"10,00 €/m²","['110 m² construidos', '4 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Amueblado y cocina equipada', 'Calefacción individual: Eléctrica', 'Planta 2ª exterior', 'Con ascensor']",4 habitaciones,,,3979-4059,Profesional,Caballero Inmobiliaria,Anuncio actualizado el 29 de agosto,34868350708.0,https://www.idealista.com/inmueble/105842357/,2 baños,,,2024-08-29 22:51:32
-105841367,Alquiler,"Alquiler de Piso en calle Panizal, 15","
-Calle Panizal, 15
-","
-Barrio Gea y Truyols
-","
-Distrito Campo de Murcia
-","
-Murcia
-","
-Área de Murcia, Murcia
-",600€/mes,,"7,50 €/m²","['80 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Amueblado y cocina equipada', 'Calefacción individual: Eléctrica', 'Planta 1ª exterior', 'Sin ascensor']",2 habitaciones,,,1391,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841367/,2 baños,,,2024-08-29 22:51:32
-105834704,Alquiler,Alquiler de Piso en calle Venecia,"
-Calle Venecia
-","
-Barrio Ronda Sur
-","
-Distrito Sur
-","
-Murcia
-","
-Área de Murcia, Murcia
-",650€/mes,,"8,67 €/m²","['75 m² construidos', '2 habitaciones', '2 baños', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,,,3000-000433-02,Profesional,"Alquiler Seguro, S.A.U.",Anuncio actualizado el 29 de agosto,34910775775.0,https://www.idealista.com/inmueble/105834704/,2 baños,,,2024-08-29 22:51:32
-103256956,Alquiler,"Alquiler de Ático en senda de Granada, 131","
-Senda de Granada, 131
-","
-Barrio Zona Juan de Borbón
-","
-Distrito Norte
-","
-Murcia
-","
-Área de Murcia, Murcia
-",780€/mes,Fianza de 1 mes,"8,67 €/m²","['90 m² construidos, 80 m² útiles', '2 habitaciones', '2 baños', 'Terraza', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",2 habitaciones,,,103256956,Particular,Elena,Anuncio actualizado el 29 de agosto,34637777696.0,https://www.idealista.com/inmueble/103256956/,2 baños,,,2024-08-29 22:51:32
-105305492,Alquiler,Alquiler de Piso en calle Virgen de la Soledad,"
-Calle Virgen de la Soledad
-","
-Barrio Vista Alegre
-","
-Distrito Norte
-","
-Murcia
-","
-Área de Murcia, Murcia
-",700€/mes,Fianza de 1 mes,"12,96 €/m²","['54 m² construidos', '2 habitaciones', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",2 habitaciones,,,2023,Profesional,The Simple Rent,Anuncio actualizado el 28 de agosto,34868350665.0,https://www.idealista.com/inmueble/105305492/,1 baño,,,2024-08-29 22:51:32
 105834991,Alquiler,Alquiler de Piso en Zona Juan Carlos I,"
 Barrio Zona Juan Carlos I
 ","
@@ -324,6 +344,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",,650€/mes,,"12,50 €/m²","['52 m² construidos, 50 m² útiles', '1 habitación', '1 baño', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte', 'Construido en 2008', 'Amueblado y cocina equipada', 'No dispone de calefacción', 'Planta 1ª exterior', 'Con ascensor']",1 habitación,,,41595,Profesional,ALQUILOTUCASA MURCIA1,Anuncio actualizado el 28 de agosto,34868350971.0,https://www.idealista.com/inmueble/105834991/,1 baño,,,2024-08-29 22:51:32
+105845575,Alquiler,Alquiler de Casa o chalet independiente en calle Portiguera,"
+Calle Portiguera
+","
+Barrio Aljucer
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",700€/mes,,"5,83 €/m²","['Casa o chalet independiente', '2 plantas', '120 m² construidos', '3 habitaciones', '2 baños', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Amueblado y cocina equipada']",2 plantas,,,3000-000436-02,Profesional,"Alquiler Seguro, S.A.U.",Anuncio actualizado el 29 de agosto,34910775775.0,https://www.idealista.com/inmueble/105845575/,120 m² construidos,,,2024-08-29 22:51:32
 105801021,Alquiler,Alquiler de Piso en calle Arcipreste Mariano Aroca,"
 Calle Arcipreste Mariano Aroca
 ","
@@ -335,6 +366,28 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",1.000€/mes,Fianza de 2 meses,"8,00 €/m²","['125 m² construidos, 120 m² útiles', '4 habitaciones', '1 baño', 'Terraza y balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",4 habitaciones,,,105801021,Profesional,Olga Belmonte,Anuncio actualizado el 28 de agosto,34868350754.0,https://www.idealista.com/inmueble/105801021/,1 baño,,,2024-08-29 22:51:32
+105824056,Alquiler,"Alquiler de Piso en calle Maestro Javier Paulino Torres, 12","
+Calle Maestro Javier Paulino Torres, 12
+","
+Barrio La Fama
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",1.000€/mes,Fianza de 1 mes,"7,69 €/m²","['130 m² construidos', '4 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 3ª exterior', 'Con ascensor']",4 habitaciones,,,105824056,Particular,Jose,Anuncio actualizado el 27 de agosto,34627246747.0,https://www.idealista.com/inmueble/105824056/,1 baño,,,2024-08-29 22:51:32
+105806292,Alquiler,"Alquiler de Piso en calle Mariano Vergara, 3","
+Calle Mariano Vergara, 3
+","
+Barrio Santa Eulalia
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",800€/mes,,"10,67 €/m²","['75 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'Planta 3ª exterior', 'Sin ascensor']",3 habitaciones,,,105806292,Particular,Nuria,Anuncio actualizado el 29 de agosto,34661224228.0,https://www.idealista.com/inmueble/105806292/,1 baño,,,2024-08-29 22:51:32
 105838360,Alquiler,Alquiler de Piso en Torreagüera,"
 Barrio Torreagüera
 ","
@@ -497,17 +550,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",,950€/mes,,"7,31 €/m²","['130 m² construidos, 120 m² útiles', '4 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte, este', 'Construido en 2010', 'Cocina equipada y casa sin amueblar', 'Calefacción central', 'Planta 3ª exterior', 'Con ascensor']",4 habitaciones,,,HB01847,Profesional,Hb Inmobiliarias,Anuncio actualizado el 29 de agosto,34868350186.0,https://www.idealista.com/inmueble/105841336/,2 baños,,,2024-08-29 22:51:32
-105845575,Alquiler,Alquiler de Casa o chalet independiente en calle Portiguera,"
-Calle Portiguera
+105834704,Alquiler,Alquiler de Piso en calle Venecia,"
+Calle Venecia
 ","
-Barrio Aljucer
+Barrio Ronda Sur
 ","
-Distrito Pedanías Oeste
+Distrito Sur
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",700€/mes,,"5,83 €/m²","['Casa o chalet independiente', '2 plantas', '120 m² construidos', '3 habitaciones', '2 baños', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Amueblado y cocina equipada']",2 plantas,,,3000-000436-02,Profesional,"Alquiler Seguro, S.A.U.",Anuncio actualizado el 29 de agosto,34910775775.0,https://www.idealista.com/inmueble/105845575/,120 m² construidos,,,2024-08-29 22:51:32
+",650€/mes,,"8,67 €/m²","['75 m² construidos', '2 habitaciones', '2 baños', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'Planta 2ª exterior', 'Con ascensor']",2 habitaciones,,,3000-000433-02,Profesional,"Alquiler Seguro, S.A.U.",Anuncio actualizado el 29 de agosto,34910775775.0,https://www.idealista.com/inmueble/105834704/,2 baños,,,2024-08-29 22:51:32
 96945086,Alquiler,Alquiler de Estudio en El Puntal,"
 Barrio El Puntal
 ","
@@ -517,57 +570,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",,435€/mes,,"10,88 €/m²","['40 m² construidos, 35 m² útiles', 'Sin habitación', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Construido en 2008', 'Amueblado y cocina equipada', 'Calefacción individual: Bomba de frío/calor', 'Planta 2ª exterior', 'Con ascensor']",Sin habitación,,,SAN PASCUAL 2º i,Profesional,JUAN ANTONIO ALARCON,Anuncio actualizado el 29 de agosto,34868350603.0,https://www.idealista.com/inmueble/96945086/,1 baño,,,2024-08-29 22:51:32
-105806292,Alquiler,"Alquiler de Piso en calle Mariano Vergara, 3","
-Calle Mariano Vergara, 3
+105841367,Alquiler,"Alquiler de Piso en calle Panizal, 15","
+Calle Panizal, 15
 ","
-Barrio Santa Eulalia
+Barrio Gea y Truyols
 ","
-Distrito Centro
-","
-Murcia
-","
-Área de Murcia, Murcia
-",800€/mes,,"10,67 €/m²","['75 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'Planta 3ª exterior', 'Sin ascensor']",3 habitaciones,,,105806292,Particular,Nuria,Anuncio actualizado el 29 de agosto,34661224228.0,https://www.idealista.com/inmueble/105806292/,1 baño,,,2024-08-29 22:51:32
-105824056,Alquiler,"Alquiler de Piso en calle Maestro Javier Paulino Torres, 12","
-Calle Maestro Javier Paulino Torres, 12
-","
-Barrio La Fama
-","
-Distrito Centro
+Distrito Campo de Murcia
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",1.000€/mes,Fianza de 1 mes,"7,69 €/m²","['130 m² construidos', '4 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 3ª exterior', 'Con ascensor']",4 habitaciones,,,105824056,Particular,Jose,Anuncio actualizado el 27 de agosto,34627246747.0,https://www.idealista.com/inmueble/105824056/,1 baño,,,2024-08-29 22:51:32
-105831900,Alquiler,Alquiler de Piso en San Pedro,"
-Barrio San Pedro
-","
-Distrito Centro
-","
-Murcia
-","
-Área de Murcia, Murcia
-",,850€/mes,,"10,62 €/m²","['80 m² construidos, 60 m² útiles', '3 habitaciones', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Construido en 1977', 'Amueblado y cocina equipada', 'No dispone de calefacción', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,11276,Profesional,Inmobiliaria Norman,Anuncio actualizado el 28 de agosto,34868350802.0,https://www.idealista.com/inmueble/105831900/,1 baño,,,2024-08-29 22:51:32
-105825587,Alquiler,Alquiler de Piso en calle Doctor Fleming,"
-Calle Doctor Fleming
-","
-Barrio Guadalupe
-","
-Distrito Pedanías Oeste
-","
-Murcia
-","
-Área de Murcia, Murcia
-",800€/mes,,"6,40 €/m²","['125 m² construidos', '3 habitaciones', '2 baños', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'No dispone de calefacción', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,YOU0105,Profesional,Youpiso Real Estate,Anuncio actualizado el 27 de agosto,34868355558.0,https://www.idealista.com/inmueble/105825587/,2 baños,,,2024-08-29 22:51:32
-105831782,Alquiler,Alquiler de Piso en Zarandona,"
-Barrio Zarandona
-","
-Distrito Pedanías Este
-","
-Murcia
-","
-Área de Murcia, Murcia
-",,750€/mes,Fianza de 1 mes,"9,38 €/m²","['80 m² construidos', '3 habitaciones', '2 baños', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación este, oeste', 'Construido en 2007', 'Amueblado y cocina equipada', 'Calefacción central', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,105831782,Profesional,Ático55 Inmobiliaria,Anuncio actualizado el 29 de agosto,34868355610.0,https://www.idealista.com/inmueble/105831782/,2 baños,,,2024-08-29 22:51:32
+",600€/mes,,"7,50 €/m²","['80 m² construidos', '2 habitaciones', '2 baños', 'Terraza y balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Amueblado y cocina equipada', 'Calefacción individual: Eléctrica', 'Planta 1ª exterior', 'Sin ascensor']",2 habitaciones,,,1391,Profesional,Tadeo Homes,Anuncio actualizado el 29 de agosto,34868355803.0,https://www.idealista.com/inmueble/105841367/,2 baños,,,2024-08-29 22:51:32
 34187601,Alquiler,"Alquiler de Piso en calle aurora, 21","
 Calle aurora, 21
 ","
@@ -579,6 +592,26 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",600€/mes,Fianza de 1 mes,"10,91 €/m²","['55 m² construidos', '1 habitación', '1 baño', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Amueblado y cocina equipada', 'Planta 1ª exterior', 'Con ascensor']",1 habitación,,,34187601,Particular,Jose Luis,Anuncio actualizado el 29 de agosto,34629684337.0,https://www.idealista.com/inmueble/34187601/,1 baño,,,2024-08-29 22:51:32
+105305492,Alquiler,Alquiler de Piso en calle Virgen de la Soledad,"
+Calle Virgen de la Soledad
+","
+Barrio Vista Alegre
+","
+Distrito Norte
+","
+Murcia
+","
+Área de Murcia, Murcia
+",700€/mes,Fianza de 1 mes,"12,96 €/m²","['54 m² construidos', '2 habitaciones', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",2 habitaciones,,,2023,Profesional,The Simple Rent,Anuncio actualizado el 28 de agosto,34868350665.0,https://www.idealista.com/inmueble/105305492/,1 baño,,,2024-08-29 22:51:32
+105831782,Alquiler,Alquiler de Piso en Zarandona,"
+Barrio Zarandona
+","
+Distrito Pedanías Este
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,750€/mes,Fianza de 1 mes,"9,38 €/m²","['80 m² construidos', '3 habitaciones', '2 baños', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación este, oeste', 'Construido en 2007', 'Amueblado y cocina equipada', 'Calefacción central', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,105831782,Profesional,Ático55 Inmobiliaria,Anuncio actualizado el 29 de agosto,34868355610.0,https://www.idealista.com/inmueble/105831782/,2 baños,,,2024-08-29 22:51:32
 105828361,Alquiler,"Alquiler de Piso en calle Doctor Jesús Quesada Sanz, 2","
 Calle Doctor Jesús Quesada Sanz, 2
 ","
@@ -650,6 +683,15 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",,720€/mes,,"11,08 €/m²","['65 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Construido en 1967', 'Amueblado y cocina equipada', 'Calefacción individual', 'Planta 5ª exterior', 'Sin ascensor']",3 habitaciones,,,YOU0103,Profesional,Youpiso Real Estate,Anuncio actualizado el 27 de agosto,34868355558.0,https://www.idealista.com/inmueble/105825494/,1 baño,,,2024-08-29 22:51:32
+105816750,Alquiler,Alquiler de Piso en San Juan,"
+Barrio San Juan
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,1.000€/mes,,"11,11 €/m²","['90 m² construidos', '4 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'No dispone de calefacción', 'Planta 3ª exterior', 'Sin ascensor']",4 habitaciones,,,YOU0101,Profesional,Youpiso Real Estate,Anuncio actualizado el 26 de agosto,34868355558.0,https://www.idealista.com/inmueble/105816750/,2 baños,,,2024-08-29 22:51:32
 105824164,Alquiler,"Alquiler de Piso en avenida General Primo de Rivera, 2","
 Avenida General Primo de Rivera, 2
 ","
@@ -661,17 +703,6 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",1.100€/mes,Fianza de 2 meses,"9,17 €/m²","['120 m² construidos', '3 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 3ª exterior', 'Con ascensor']",3 habitaciones,,,105824164,Profesional,Centronova,Anuncio actualizado el 27 de agosto,34868350101.0,https://www.idealista.com/inmueble/105824164/,1 baño,,,2024-08-29 22:51:32
-105825388,Alquiler,Alquiler de Piso en calle Baraundillo,"
-Calle Baraundillo
-","
-Barrio Catedral
-","
-Distrito Centro
-","
-Murcia
-","
-Área de Murcia, Murcia
-",1.500€/mes,Fianza de 1 mes,"7,32 €/m²","['205 m² construidos, 200 m² útiles', '4 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",4 habitaciones,,,57584,Profesional,The Simple Rent,Anuncio actualizado el 27 de agosto,34868350665.0,https://www.idealista.com/inmueble/105825388/,2 baños,,,2024-08-29 22:51:32
 105825055,Alquiler,Alquiler de Piso en calle Poeta Vicente Medina,"
 Calle Poeta Vicente Medina
 ","
@@ -758,6 +789,26 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",650€/mes,Fianza de 1 mes,"10,83 €/m²","['60 m² construidos', '1 habitación', '1 baño', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Amueblado y cocina equipada', 'Bajo exterior', 'Con ascensor']",1 habitación,,,105823410,Particular,David,Anuncio actualizado el 29 de agosto,34657509418.0,https://www.idealista.com/inmueble/105823410/,1 baño,,,2024-08-29 22:51:32
+105825388,Alquiler,Alquiler de Piso en calle Baraundillo,"
+Calle Baraundillo
+","
+Barrio Catedral
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",1.500€/mes,Fianza de 1 mes,"7,32 €/m²","['205 m² construidos, 200 m² útiles', '4 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",4 habitaciones,,,57584,Profesional,The Simple Rent,Anuncio actualizado el 27 de agosto,34868350665.0,https://www.idealista.com/inmueble/105825388/,2 baños,,,2024-08-29 22:51:32
+105840576,Alquiler,Alquiler de Piso en El Carmen,"
+Barrio El Carmen
+","
+Distrito Sur
+","
+Murcia
+","
+Área de Murcia, Murcia
+",,625€/mes,,"10,08 €/m²","['62 m² construidos, 48 m² útiles', '1 habitación', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación oeste', 'Construido en 1990', 'Amueblado y cocina equipada', 'Calefacción individual', 'Planta 3ª exterior', 'Con ascensor']",1 habitación,,,30-15-15256,Profesional,Comprarcasa Iniesta Inmobiliaria,Anuncio actualizado el 29 de agosto,34868350857.0,https://www.idealista.com/inmueble/105840576/,1 baño,,,2024-08-29 22:51:32
 105823971,Alquiler,"Alquiler de Piso en calle del Pozo, 9 n","
 Calle del Pozo, 9 n
 ","
@@ -769,15 +820,6 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",600€/mes,Fianza de 2 meses,"6,00 €/m²","['100 m² construidos', '2 habitaciones', '1 baño', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'Planta 2ª interior', 'Con ascensor']",2 habitaciones,,,105823971,Particular,Tomás,Anuncio actualizado el 27 de agosto,34633092855.0,https://www.idealista.com/inmueble/105823971/,1 baño,,,2024-08-29 22:51:32
-105816750,Alquiler,Alquiler de Piso en San Juan,"
-Barrio San Juan
-","
-Distrito Centro
-","
-Murcia
-","
-Área de Murcia, Murcia
-",,1.000€/mes,,"11,11 €/m²","['90 m² construidos', '4 habitaciones', '2 baños', 'Balcón', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'No dispone de calefacción', 'Planta 3ª exterior', 'Sin ascensor']",4 habitaciones,,,YOU0101,Profesional,Youpiso Real Estate,Anuncio actualizado el 26 de agosto,34868355558.0,https://www.idealista.com/inmueble/105816750/,2 baños,,,2024-08-29 22:51:32
 105819810,Alquiler,Alquiler de Piso en calle Vista Alegre,"
 Calle Vista Alegre
 ","
@@ -789,6 +831,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",700€/mes,Fianza de 2 meses,"11,67 €/m²","['60 m² construidos, 55 m² útiles', '1 habitación', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte', 'Amueblado y cocina equipada', 'Calefacción individual: Eléctrica', 'Bajo exterior', 'Sin ascensor']",1 habitación,,,OAA-VA26-BC,Profesional,Olga Belmonte,Anuncio actualizado el 28 de agosto,34868350754.0,https://www.idealista.com/inmueble/105819810/,1 baño,,,2024-08-29 22:51:32
+101353634,Alquiler,Alquiler de Piso en Santa Teresa,"
+SANTA TERESA
+","
+Barrio San Miguel
+","
+Distrito Centro
+","
+Murcia
+","
+Área de Murcia, Murcia
+",1.400€/mes,Fianza de 2 meses,"10,77 €/m²","['130 m² construidos', '3 habitaciones', '2 baños', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur', 'Construido en 1970', 'Amueblado y cocina equipada', 'Calefacción central', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,VIVIENDA DE LUJO EN SANTA TERESA,Profesional,Inmobiliaria Nueva Murcia,Anuncio actualizado el 26 de agosto,34868350592.0,https://www.idealista.com/inmueble/101353634/,2 baños,,,2024-08-29 22:51:32
 105843369,Alquiler,Alquiler de Piso en calle Juan Guerrero Ruiz,"
 Calle Juan Guerrero Ruiz
 ","
@@ -800,6 +853,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",1.000€/mes,Fianza de 1 mes,"8,00 €/m²","['125 m² construidos, 120 m² útiles', '4 habitaciones', '2 baños', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 7ª exterior', 'Con ascensor']",4 habitaciones,,,38693,Profesional,The Simple Rent,Anuncio actualizado el 29 de agosto,34868350665.0,https://www.idealista.com/inmueble/105843369/,2 baños,,,2024-08-29 22:51:32
+105825587,Alquiler,Alquiler de Piso en calle Doctor Fleming,"
+Calle Doctor Fleming
+","
+Barrio Guadalupe
+","
+Distrito Pedanías Oeste
+","
+Murcia
+","
+Área de Murcia, Murcia
+",800€/mes,,"6,40 €/m²","['125 m² construidos', '3 habitaciones', '2 baños', 'Segunda mano/buen estado', 'Amueblado y cocina equipada', 'No dispone de calefacción', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,YOU0105,Profesional,Youpiso Real Estate,Anuncio actualizado el 27 de agosto,34868355558.0,https://www.idealista.com/inmueble/105825587/,2 baños,,,2024-08-29 22:51:32
 102363972,Alquiler,Alquiler de Piso en United Golf Resort s/n,"
 United Golf Resort s/n
 ","
@@ -822,17 +886,6 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",675€/mes,Fianza de 1 mes,"6,75 €/m²","['100 m² construidos, 90 m² útiles', '3 habitaciones', '2 baños', 'Balcón', 'Plaza de garaje incluida en el precio', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación sur', 'Amueblado y cocina equipada', 'Calefacción individual: Eléctrica', 'Planta 1ª exterior', 'Con ascensor']",3 habitaciones,,,103634366,Profesional,enrique aragon canovas,Anuncio actualizado el 28 de agosto,34868350118.0,https://www.idealista.com/inmueble/103634366/,2 baños,,,2024-08-29 22:51:32
-102182693,Alquiler,"Alquiler de Piso en calle Salvador rueda, 2","
-Calle Salvador rueda, 2
-","
-Barrio San Lorenzo
-","
-Distrito Centro
-","
-Murcia
-","
-Área de Murcia, Murcia
-",650€/mes,Fianza de 1 mes,"10,00 €/m²","['65 m² construidos, 60 m² útiles', '1 habitación', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",1 habitación,,,Mart600,Profesional,Marta Pujante,Anuncio actualizado el 28 de agosto,34868350423.0,https://www.idealista.com/inmueble/102182693/,1 baño,,,2024-08-29 22:51:32
 105822662,Alquiler,"Alquiler de Piso en calle Mahón, 8","
 Calle Mahón, 8
 ","
@@ -990,26 +1043,17 @@ Murcia
 ","
 Área de Murcia, Murcia
 ",550€/mes,Fianza de 1 mes,"11,00 €/m²","['50 m² construidos, 45 m² útiles', '1 habitación', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Orientación norte, sur', 'Construido en 2008', 'Amueblado y cocina equipada', 'Calefacción individual: Bomba de frío/calor', 'Planta 1ª exterior', 'Con ascensor']",1 habitación,,,AVI58,Profesional,Ricasa Servicios Inmobiliarios,Anuncio actualizado el 26 de agosto,34868350223.0,https://www.idealista.com/inmueble/91683321/,1 baño,,,2024-08-29 22:51:32
-101353634,Alquiler,Alquiler de Piso en Santa Teresa,"
-SANTA TERESA
+102182693,Alquiler,"Alquiler de Piso en calle Salvador rueda, 2","
+Calle Salvador rueda, 2
 ","
-Barrio San Miguel
+Barrio San Lorenzo
 ","
 Distrito Centro
 ","
 Murcia
 ","
 Área de Murcia, Murcia
-",1.400€/mes,Fianza de 2 meses,"10,77 €/m²","['130 m² construidos', '3 habitaciones', '2 baños', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación sur', 'Construido en 1970', 'Amueblado y cocina equipada', 'Calefacción central', 'Planta 2ª exterior', 'Con ascensor']",3 habitaciones,,,VIVIENDA DE LUJO EN SANTA TERESA,Profesional,Inmobiliaria Nueva Murcia,Anuncio actualizado el 26 de agosto,34868350592.0,https://www.idealista.com/inmueble/101353634/,2 baños,,,2024-08-29 22:51:32
-105840576,Alquiler,Alquiler de Piso en El Carmen,"
-Barrio El Carmen
-","
-Distrito Sur
-","
-Murcia
-","
-Área de Murcia, Murcia
-",,625€/mes,,"10,08 €/m²","['62 m² construidos, 48 m² útiles', '1 habitación', '1 baño', 'Balcón', 'Segunda mano/buen estado', 'Armarios empotrados', 'Trastero', 'Orientación oeste', 'Construido en 1990', 'Amueblado y cocina equipada', 'Calefacción individual', 'Planta 3ª exterior', 'Con ascensor']",1 habitación,,,30-15-15256,Profesional,Comprarcasa Iniesta Inmobiliaria,Anuncio actualizado el 29 de agosto,34868350857.0,https://www.idealista.com/inmueble/105840576/,1 baño,,,2024-08-29 22:51:32
+",650€/mes,Fianza de 1 mes,"10,00 €/m²","['65 m² construidos, 60 m² útiles', '1 habitación', '1 baño', 'Segunda mano/buen estado', 'Armarios empotrados', 'Amueblado y cocina equipada', 'Planta 4ª exterior', 'Con ascensor']",1 habitación,,,Mart600,Profesional,Marta Pujante,Anuncio actualizado el 28 de agosto,34868350423.0,https://www.idealista.com/inmueble/102182693/,1 baño,,,2024-08-29 22:51:32
 105791782,Alquiler,"Alquiler de Piso en avenida Juan Carlos I, 92","
 Avenida Juan Carlos I, 92
 ","
