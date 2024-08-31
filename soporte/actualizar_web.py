@@ -35,12 +35,9 @@ def sftp_upload(hostname, port, username, password, local_dir, remote_dir):
             sftp.stat(remote_dir)
         except FileNotFoundError:
             sftp.mkdir(remote_dir)
-
         # Subir la carpeta local al servidor
         upload_directory(sftp, local_dir, remote_dir)
-        
         print(f"La carpeta {local_dir} ha sido subida a {hostname}:{remote_dir} exitosamente.")
-
     except Exception as e:
         print(f"Error durante la transferencia: {e}")
     finally:
