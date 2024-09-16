@@ -1,1 +1,51 @@
 /bin/sh: 1: /root/scraping/scraping_script.sh: not found
+Agent pid 260245
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   32c47c6..7f2bef6  main       -> origin/main
+Updating 32c47c6..7f2bef6
+Fast-forward
+ soporte/proceso_completo.py |    2 +-
+ src/alquileres.csv          | 2323 +++++++++----------
+ src/ventas.csv              | 5312 ++++++++++++++++++++++---------------------
+ web_2/data/inmuebles.csv    | 2663 +++++++++++-----------
+ 4 files changed, 5185 insertions(+), 5115 deletions(-)
+Ejecutando alquileres.py...
+ID 105993785 guardado en el CSV.
+ID 103761529 guardado en el CSV.
+ID 102220478 guardado en el CSV.
+ID 105992854 guardado en el CSV.
+ID 105985388 guardado en el CSV.
+ID 82004473 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105993807/contact-phones
+ID 105993807 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105993558/contact-phones
+ID 105993558 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105993698/contact-phones
+ID 105993698 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105871150/contact-phones
+ID 105871150 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105990959/contact-phones
+ID 105990959 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105993097/contact-phones
+ID 105993097 guardado en el CSV.
+ID 105991937 ya existe. Consecutivos: 1
+ID 105992076 ya existe. Consecutivos: 2
+ID 105991302 ya existe. Consecutivos: 3
+ID 105990837 ya existe. Consecutivos: 4
+ID 105991378 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
