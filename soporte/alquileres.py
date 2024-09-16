@@ -46,7 +46,7 @@ headers = {
 session = requests.Session()
 session.headers.update(headers)
 
-base_url = "https://www.idealista.com/alquiler-viviendas/murcia-murcia/pagina-{}.htm"
+base_url = "https://www.idealista.com/alquiler-viviendas/murcia-murcia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc"
 
 # Definir el rango de páginas que quieres recorrer
 num_paginas = 40  # Cambia este número según la cantidad de páginas que quieras recorrer
