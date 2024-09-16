@@ -9,7 +9,7 @@
     <style>
         /* Fondo general de la página */
         body {
-            background-color: #f8f9fa; /* Color gris claro para el fondo general */
+            background-color: #f0f0f0; /* Color gris claro para el fondo de la página */
         }
 
         /* Estilo general de las tarjetas */
@@ -94,11 +94,6 @@
             display: inline-block; /* Los badges se muestran en línea */
         }
 
-        /* Estilo del fondo de la página */
-        body {
-            background-color: #f0f0f0; /* Color gris claro para el fondo de la página */
-        }
-
         /* Posicionamiento y estilo del indicador de carga */
         .spinner-border {
             margin-left: 10px; /* Espacio izquierdo para separar el spinner del título */
@@ -132,6 +127,7 @@
             text-align: center; /* Centrar los botones de paginación */
         }
 
+        /* Estilos Responsivos */
         @media (max-width: 576px) {
             .row-custom .col-custom {
                 flex: 1 1 100%; /* En móviles, las columnas ocupan el 100% del ancho */
@@ -148,6 +144,14 @@
             .filter-group {
                 flex-direction: column; /* Filtros en bloque se muestran en columna en móviles */
             }
+        }
+
+        /* Estilo para la alerta fija */
+        .alert-fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -172,21 +176,21 @@
         <div class="filter-group">
             <label for="filterAnunciante">Filtrar por anunciante:</label>
             <select id="filterAnunciante" class="form-control form-control-custom">
-                <option value="Cualquiera">Cualquiera</option>
+                <option value="Todos">Todos</option>
                 <!-- Opciones dinámicas serán insertadas aquí -->
             </select>
         </div>
         <div class="filter-group">
             <label for="filterTipo">Filtrar por tipo:</label>
             <select id="filterTipo" class="form-control form-control-custom">
-                <option value="Cualquiera">Cualquiera</option>
+                <option value="Todos">Todos</option>
                 <!-- Opciones dinámicas serán insertadas aquí -->
             </select>
         </div>
         <div class="filter-group">
             <label for="filterBarrio">Filtrar por barrio:</label>
             <select id="filterBarrio" class="form-control form-control-custom">
-                <option value="Cualquiera">Cualquiera</option>
+                <option value="Todos">Todos</option>
                 <!-- Opciones dinámicas serán insertadas aquí -->
             </select>
         </div>
@@ -227,172 +231,178 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
 <script>
-    $(document).ready(function () {
-        var data = [];
-        var filteredData = [];
-        var pageSize = 20;
-        var currentPage = 1;
-        var totalPages = 0;
-        var lastHash = "";
+    var data = [];
+    var filteredData = [];
+    var pageSize = 20;
+    var currentPage = 1;
+    var totalPages = 0;
+    var lastHash = "";
 
-        // Mostrar el indicador de carga
-        function showLoading() {
-            $('#loadingIndicator').show();
-        }
+    // Mostrar el indicador de carga
+    function showLoading() {
+        $('#loadingIndicator').show();
+    }
 
-        // Ocultar el indicador de carga
-        function hideLoading() {
-            $('#loadingIndicator').hide();
-        }
+    // Ocultar el indicador de carga
+    function hideLoading() {
+        $('#loadingIndicator').hide();
+    }
 
-        // Cargar el archivo CSV automáticamente
-        function loadCSV() {
-            showLoading();
-            $.ajax({
-                url: './data/inmuebles.csv',
-                dataType: 'text',
-                success: function (csvData) {
-                    var currentHash = sha256(csvData);
-                    if (currentHash !== lastHash) {
-                        lastHash = currentHash;
-                        Papa.parse(csvData, {
-                            header: true,
-                            dynamicTyping: true,
-                            complete: function (results) {
-                                data = results.data;
-                                filteredData = data; // Inicialmente, sin filtrar
-                                updateAnuncianteFilter(data);
-                                updateTipoFilter(data);
-                                updateBarrioFilter(data);
-                                applyFilters(); // Aplicar filtros al cargar nuevos datos
-                                $('#newDataAlert').fadeIn().delay(2000).fadeOut(); // Mostrar alerta
-                                hideLoading(); // Ocultar el indicador de carga
-                            }
-                        });
-                    } else {
-                        hideLoading(); // Ocultar el indicador de carga
-                    }
-                },
-                error: function() {
-                    hideLoading(); // Ocultar el indicador de carga en caso de error
-                }
-            });
-        }
+    // Función para marcar como No disponible
+    function markAsUnavailable(uniqueId) {
+        // Encontrar el índice en filteredData
+        var index = filteredData.findIndex(item => item.uniqueId === uniqueId);
+        if (index !== -1) {
+            // Marcar el inmueble como "No disponible"
+            filteredData[index]['titulo'] = '[No disponible] ' + filteredData[index]['titulo'];
 
-        // Verificar cambios en el archivo cada 5 segundos
-        setInterval(loadCSV, 5000);
+            // Mover el inmueble al final de la lista
+            var unavailableItem = filteredData.splice(index, 1)[0]; // Remover el inmueble
+            filteredData.push(unavailableItem); // Añadirlo al final de la lista
 
-        // Cargar el CSV al iniciar la página
-        loadCSV();
-
-        // Filtro por título
-        $('#searchTitle').on('input', function () {
-            applyFilters();
-        });
-
-        // Filtro por anunciante
-        $('#filterAnunciante').on('change', function () {
-            applyFilters();
-        });
-
-        // Filtro por tipo
-        $('#filterTipo').on('change', function () {
-            applyFilters();
-        });
-
-        // Filtro por barrio
-        $('#filterBarrio').on('change', function () {
-            applyFilters();
-        });
-
-        // Actualizar el filtro de anunciante con los valores únicos del CSV
-        function updateAnuncianteFilter(data) {
-            var uniqueAnunciantes = _.uniq(data.map(function(row) {
-                return row['anunciante'];
-            }).filter(Boolean));
-
-            var $filter = $('#filterAnunciante');
-            $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
-            uniqueAnunciantes.forEach(function(anunciante) {
-                $filter.append('<option value="' + anunciante + '">' + anunciante + '</option>');
-            });
-        }
-
-        // Actualizar el filtro de tipo con los valores únicos del CSV
-        function updateTipoFilter(data) {
-            var uniqueTipos = _.uniq(data.map(function(row) {
-                return row['tipo'];
-            }).filter(Boolean));
-
-            var $filter = $('#filterTipo');
-            $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
-            uniqueTipos.forEach(function(tipo) {
-                $filter.append('<option value="' + tipo + '">' + tipo + '</option>');
-            });
-        }
-
-        // Actualizar el filtro de barrio con los valores únicos del CSV
-        function updateBarrioFilter(data) {
-            var uniqueBarrios = _.uniq(data.map(function(row) {
-                return row['barrio'];
-            }).filter(Boolean));
-
-            var $filter = $('#filterBarrio');
-            $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
-            uniqueBarrios.forEach(function(barrio) {
-                $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
-            });
-        }
-
-        // Aplicar los filtros de búsqueda
-        function applyFilters() {
-            var searchTerm = $('#searchTitle').val().toLowerCase();
-            var selectedAnunciante = $('#filterAnunciante').val();
-            var selectedTipo = $('#filterTipo').val();
-            var selectedBarrio = $('#filterBarrio').val();
-
-            filteredData = data.filter(function (row) {
-                var matchesTitle = row['titulo'] && row['titulo'].toLowerCase().includes(searchTerm);
-                var matchesAnunciante = selectedAnunciante === "Todos" || row['anunciante'] === selectedAnunciante;
-                var matchesTipo = selectedTipo === "Todos" || row['tipo'] === selectedTipo;
-                var matchesBarrio = selectedBarrio === "Todos" || row['barrio'] === selectedBarrio;
-                return matchesTitle && matchesAnunciante && matchesTipo && matchesBarrio;
-            });
-
-            currentPage = 1;
-            totalPages = Math.ceil(filteredData.length / pageSize);
+            // Renderizar la página nuevamente
             renderPage(currentPage);
             updatePaginationControls();
+
+            // Mover al final de la página actual
+            scrollToBottom();
         }
+    }
 
-        // Paginación
-        $('#prevPageTop, #prevPageBottom').on('click', function () {
-            if (currentPage > 1) {
-                currentPage--;
-                renderPage(currentPage);
-                updatePaginationControls();
-                scrollToTop(); // Volver a la parte superior
+    // Función para cargar el CSV automáticamente
+    function loadCSV() {
+        showLoading();
+        $.ajax({
+            url: './data/inmuebles.csv',
+            dataType: 'text',
+            success: function (csvData) {
+                var currentHash = sha256(csvData);
+                if (currentHash !== lastHash) {
+                    lastHash = currentHash;
+                    Papa.parse(csvData, {
+                        header: true,
+                        dynamicTyping: true,
+                        complete: function (results) {
+                            data = results.data.filter(row => Object.keys(row).length > 1); // Filtrar filas vacías
+                            
+                            // Añadir un ID único a cada fila para identificarla
+                            data = data.map((row, idx) => {
+                                row.uniqueId = idx;
+                                return row;
+                            });
+
+                            filteredData = data; // Inicialmente, sin filtrar
+                            updateAnuncianteFilter(data);
+                            updateTipoFilter(data);
+                            updateBarrioFilter(data);
+                            applyFilters(); // Aplicar filtros al cargar nuevos datos
+                            $('#newDataAlert').fadeIn().delay(2000).fadeOut(); // Mostrar alerta
+                            hideLoading(); // Ocultar el indicador de carga
+                        }
+                    });
+                } else {
+                    hideLoading(); // Ocultar el indicador de carga
+                }
+            },
+            error: function() {
+                console.error("Error al cargar el CSV");
+                hideLoading(); // Ocultar el indicador de carga en caso de error
             }
         });
+    }
 
-        $('#nextPageTop, #nextPageBottom').on('click', function () {
-            if (currentPage < totalPages) {
-                currentPage++;
-                renderPage(currentPage);
-                updatePaginationControls();
-                scrollToTop(); // Volver a la parte superior
-            }
+    // Función para actualizar el filtro de anunciante con los valores únicos del CSV
+    function updateAnuncianteFilter(data) {
+        var uniqueAnunciantes = _.uniq(data.map(function(row) {
+            return row['anunciante'];
+        }).filter(Boolean));
+
+        var $filter = $('#filterAnunciante');
+        $filter.empty();
+        $filter.append('<option value="Todos">Todos</option>');
+        uniqueAnunciantes.forEach(function(anunciante) {
+            $filter.append('<option value="' + anunciante + '">' + anunciante + '</option>');
+        });
+    }
+
+    // Función para actualizar el filtro de tipo con los valores únicos del CSV
+    function updateTipoFilter(data) {
+        var uniqueTipos = _.uniq(data.map(function(row) {
+            return row['tipo'];
+        }).filter(Boolean));
+
+        var $filter = $('#filterTipo');
+        $filter.empty();
+        $filter.append('<option value="Todos">Todos</option>');
+        uniqueTipos.forEach(function(tipo) {
+            $filter.append('<option value="' + tipo + '">' + tipo + '</option>');
+        });
+    }
+
+    // Función para actualizar el filtro de barrio con los valores únicos del CSV
+    function updateBarrioFilter(data) {
+        var uniqueBarrios = _.uniq(data.map(function(row) {
+            return row['barrio'];
+        }).filter(Boolean));
+
+        var $filter = $('#filterBarrio');
+        $filter.empty();
+        $filter.append('<option value="Todos">Todos</option>');
+        uniqueBarrios.forEach(function(barrio) {
+            $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
+        });
+    }
+
+    // Aplicar los filtros de búsqueda
+    function applyFilters() {
+        var searchTerm = $('#searchTitle').val().toLowerCase();
+        var selectedAnunciante = $('#filterAnunciante').val();
+        var selectedTipo = $('#filterTipo').val();
+        var selectedBarrio = $('#filterBarrio').val();
+
+        filteredData = data.filter(function (row) {
+            var matchesTitle = row['titulo'] && row['titulo'].toLowerCase().includes(searchTerm);
+            var matchesAnunciante = selectedAnunciante === "Todos" || row['anunciante'] === selectedAnunciante;
+            var matchesTipo = selectedTipo === "Todos" || row['tipo'] === selectedTipo;
+            var matchesBarrio = selectedBarrio === "Todos" || row['barrio'] === selectedBarrio;
+            return matchesTitle && matchesAnunciante && matchesTipo && matchesBarrio;
         });
 
-        function renderPage(page) {
-            $('#cardsContainer').empty();
-            var start = (page - 1) * pageSize;
-            var end = start + pageSize;
-            var pageData = _.slice(filteredData, start, end);
+        currentPage = 1;
+        totalPages = Math.ceil(filteredData.length / pageSize);
+        renderPage(currentPage);
+        updatePaginationControls();
+    }
 
+    // Paginación
+    $('#prevPageTop, #prevPageBottom').on('click', function () {
+        if (currentPage > 1) {
+            currentPage--;
+            renderPage(currentPage);
+            updatePaginationControls();
+            scrollToTop(); // Volver a la parte superior
+        }
+    });
+
+    $('#nextPageTop, #nextPageBottom').on('click', function () {
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderPage(currentPage);
+            updatePaginationControls();
+            scrollToTop(); // Volver a la parte superior
+        }
+    });
+
+    // Función para renderizar la página actual
+    function renderPage(page) {
+        $('#cardsContainer').empty();
+        var start = (page - 1) * pageSize;
+        var end = start + pageSize;
+        var pageData = _.slice(filteredData, start, end);
+
+        if (pageData.length === 0) {
+            $('#cardsContainer').append('<p>No se encontraron resultados</p>');
+        } else {
             pageData.forEach(function (row) {
                 var card = $('<div class="col-12 mb-4"></div>');
                 var cardContent = '<div class="card-custom">';
@@ -447,23 +457,68 @@
                     cardContent += '<a href="' + row['url'] + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
                 }
 
+                // Añadir el botón rojo "No disponible" con data-unique-id
+                cardContent += '<button class="btn btn-danger btn-custom mt-2 mark-unavailable-btn" data-unique-id="' + row['uniqueId'] + '">Marcar como No disponible</button>';
+
                 cardContent += '</div>';
                 card.append(cardContent);
 
                 $('#cardsContainer').append(card);
             });
         }
+    }
 
-        function updatePaginationControls() {
-            $('#pageInfoTop, #pageInfoBottom').text('Página ' + currentPage + ' de ' + totalPages);
-            $('#prevPageTop, #prevPageBottom').prop('disabled', currentPage === 1);
-            $('#nextPageTop, #nextPageBottom').prop('disabled', currentPage === totalPages);
-        }
+    // Función para actualizar los controles de paginación
+    function updatePaginationControls() {
+        $('#pageInfoTop, #pageInfoBottom').text('Página ' + currentPage + ' de ' + totalPages);
+        $('#prevPageTop, #prevPageBottom').prop('disabled', currentPage === 1);
+        $('#nextPageTop, #nextPageBottom').prop('disabled', currentPage === totalPages);
+    }
 
-        // Función para volver a la parte superior de la página
-        function scrollToTop() {
-            $('html, body').animate({ scrollTop: 0 }, 'fast');
-        }
+    // Función para volver a la parte superior de la página
+    function scrollToTop() {
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+    }
+
+    // Función para moverse al final de la página
+    function scrollToBottom() {
+        $('html, body').animate({ scrollTop: $(document).height() }, 'fast');
+    }
+
+    // Delegación de eventos para los botones "Marcar como No disponible"
+    $(document).on('click', '.mark-unavailable-btn', function () {
+        var uniqueId = $(this).data('unique-id');
+        markAsUnavailable(uniqueId);
+    });
+
+    $(document).ready(function () {
+        console.log("Página cargada correctamente");
+
+        // Cargar el CSV al iniciar la página
+        loadCSV();
+
+        // Verificar cambios en el archivo cada 5 segundos
+        setInterval(loadCSV, 5000);
+
+        // Filtro por título
+        $('#searchTitle').on('input', function () {
+            applyFilters();
+        });
+
+        // Filtro por anunciante
+        $('#filterAnunciante').on('change', function () {
+            applyFilters();
+        });
+
+        // Filtro por tipo
+        $('#filterTipo').on('change', function () {
+            applyFilters();
+        });
+
+        // Filtro por barrio
+        $('#filterBarrio').on('change', function () {
+            applyFilters();
+        });
     });
 </script>
 
