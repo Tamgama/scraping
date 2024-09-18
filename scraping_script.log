@@ -610,3 +610,72 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 817cfee] [UPD] data_updated: 2024-09-18 12:01
+ 4 files changed, 5505 insertions(+), 5148 deletions(-)
+To github.com:Tamgama/scraping.git
+   3ae89f2..817cfee  main -> main
+Agent pid 276782
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106017858: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106017858/contact-phones
+ID 106017858 guardado en el CSV.
+Error al intentar acceder al teléfono para 106017773: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106017773/contact-phones
+ID 106017773 guardado en el CSV.
+Error al intentar acceder al teléfono para 106017740: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106017740/contact-phones
+ID 106017740 guardado en el CSV.
+Error al intentar acceder al teléfono para 106017767: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106017767/contact-phones
+ID 106017767 guardado en el CSV.
+Error al intentar acceder al teléfono para 105060314: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/105060314/contact-phones
+ID 105060314 guardado en el CSV.
+Error al intentar acceder al teléfono para 106017367: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106017367/contact-phones
+ID 106017367 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106017966/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106017966
+ID 106017966 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106017834/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106017834
+ID 106017834 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106016633/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106016633
+ID 106016633 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106015513/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106015513
+ID 106015513 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106015291/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106015291
+ID 106015291 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106014664/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106014664
+ID 106014664 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106012362/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106012362
+ID 106012362 guardado en el CSV.
+ID 106014917 ya existe. Consecutivos: 1
+ID 106013163 ya existe. Consecutivos: 2
+ID 106014683 ya existe. Consecutivos: 3
+ID 103014328 ya existe. Consecutivos: 4
+ID 106014534 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
