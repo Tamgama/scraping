@@ -772,3 +772,46 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 5485be4] [UPD] data_updated: 2024-09-18 20:01
+ 4 files changed, 5702 insertions(+), 5355 deletions(-)
+To github.com:Tamgama/scraping.git
+   96277fe..5485be4  main -> main
+Agent pid 283057
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106021390: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106021390/contact-phones
+ID 106021390 guardado en el CSV.
+Error al intentar acceder al teléfono para 98718727: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/98718727/contact-phones
+ID 98718727 guardado en el CSV.
+Error al intentar acceder al teléfono para 106020904: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106020904/contact-phones
+ID 106020904 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/103003340/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 103003340
+ID 103003340 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/103825367/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 103825367
+ID 103825367 guardado en el CSV.
+ID 106020002 ya existe. Consecutivos: 1
+ID 106019836 ya existe. Consecutivos: 2
+ID 106019862 ya existe. Consecutivos: 3
+ID 106019590 ya existe. Consecutivos: 4
+ID 106019142 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
