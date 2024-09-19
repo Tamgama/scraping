@@ -1115,3 +1115,66 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 933d312] [UPD] data_updated: 2024-09-19 12:02
+ 4 files changed, 5944 insertions(+), 5275 deletions(-)
+To github.com:Tamgama/scraping.git
+   9c2fbb6..933d312  main -> main
+Agent pid 301987
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 104010835: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/104010835/contact-phones
+ID 104010835 guardado en el CSV.
+Error al intentar acceder al teléfono para 2166404: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/2166404/contact-phones
+ID 2166404 guardado en el CSV.
+Error al intentar acceder al teléfono para 106030235: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106030235/contact-phones
+ID 106030235 guardado en el CSV.
+Error al intentar acceder al teléfono para 105989010: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/105989010/contact-phones
+ID 105989010 guardado en el CSV.
+Error al intentar acceder al teléfono para 106022867: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106022867/contact-phones
+ID 106022867 guardado en el CSV.
+Error al intentar acceder al teléfono para 106028737: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106028737/contact-phones
+ID 106028737 guardado en el CSV.
+Error al intentar acceder al teléfono para 106027762: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106027762/contact-phones
+ID 106027762 guardado en el CSV.
+Error al intentar acceder al teléfono para 106027678: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106027678/contact-phones
+ID 106027678 guardado en el CSV.
+Error al intentar acceder al teléfono para 106025272: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106025272/contact-phones
+ID 106025272 guardado en el CSV.
+Error al intentar acceder al teléfono para 106027460: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106027460/contact-phones
+ID 106027460 guardado en el CSV.
+Error al intentar acceder al teléfono para 106027422: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106027422/contact-phones
+ID 106027422 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106026472/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106026472
+ID 106026472 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106029223/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106029223
+ID 106029223 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106029097/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106029097
+ID 106029097 guardado en el CSV.
+ID 106027047 ya existe. Consecutivos: 1
+ID 106026960 ya existe. Consecutivos: 2
+ID 106026626 ya existe. Consecutivos: 3
+ID 106026515 ya existe. Consecutivos: 4
+ID 106026380 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
