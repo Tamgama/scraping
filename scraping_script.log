@@ -1798,3 +1798,62 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 953337a] [UPD] data_updated: 2024-09-21 08:00
+ 4 files changed, 6331 insertions(+), 6284 deletions(-)
+To github.com:Tamgama/scraping.git
+   10a8885..953337a  main -> main
+Agent pid 315955
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106046644: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106046644/contact-phones
+ID 106046644 guardado en el CSV.
+Error al intentar acceder al teléfono para 105241550: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/105241550/contact-phones
+ID 105241550 guardado en el CSV.
+Error al intentar acceder al teléfono para 106044470: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106044470/contact-phones
+ID 106044470 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/103965709/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 103965709
+ID 103965709 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/96897106/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 96897106
+ID 96897106 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106046687/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106046687
+ID 106046687 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106046420/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106046420
+ID 106046420 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106045771/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106045771
+ID 106045771 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106045805/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106045805
+ID 106045805 guardado en el CSV.
+ID 106045228 ya existe. Consecutivos: 1
+ID 106044663 ya existe. Consecutivos: 2
+ID 106043949 ya existe. Consecutivos: 3
+ID 106043874 ya existe. Consecutivos: 4
+ID 102828374 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
