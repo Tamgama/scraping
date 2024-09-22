@@ -2001,3 +2001,36 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main add11a3] [UPD] data_updated: 2024-09-22 04:00
+ 4 files changed, 6496 insertions(+), 6467 deletions(-)
+To github.com:Tamgama/scraping.git
+   ef68c11..add11a3  main -> main
+Agent pid 320653
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106048459/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106048459
+ID 106048459 guardado en el CSV.
+ID 106047525 ya existe. Consecutivos: 1
+ID 106045759 ya existe. Consecutivos: 2
+ID 101308016 ya existe. Consecutivos: 3
+ID 98838824 ya existe. Consecutivos: 4
+ID 105536101 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
