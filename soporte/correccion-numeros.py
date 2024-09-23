@@ -3,6 +3,7 @@ import requests
 import time
 import random
 
+# Headers para las solicitudes
 headers = {
     "authority": "www.idealista.com",
     "method": "GET",
@@ -16,10 +17,7 @@ headers = {
     "priority": "u=0, i",
     "sec-ch-device-memory": "8",
     "sec-ch-ua": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\"",
-    "sec-ch-ua-arch": "\"x86\"",
-    "sec-ch-ua-full-version-list": "\"Not)A;Brand\";v=\"99.0.0.0\", \"Google Chrome\";v=\"127.0.6533.88\", \"Chromium\";v=\"127.0.6533.88\"",
     "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-model": "\"\"",
     "sec-ch-ua-platform": "\"Linux\"",
     "sec-fetch-dest": "document",
     "sec-fetch-mode": "navigate",
@@ -35,41 +33,69 @@ session = requests.Session()
 session.headers.update(headers)
 
 # Leer el archivo CSV
-df = pd.read_csv("scraping/src/data.csv")
+csv_path = "/home/unbuntu/workspace/scraping/src/data.csv"
+try:
+    print(f"Intentando leer el archivo CSV en la ruta: {csv_path}")
+    df = pd.read_csv(csv_path)
+    print("Archivo CSV leído correctamente.")
+
+except FileNotFoundError:
+    print(f"Error: No se encontró el archivo CSV en la ruta {csv_path}")
+    exit()
+
+# Validar que las columnas 'tlf' e 'id' existen
+if 'tlf' not in df.columns or 'id' not in df.columns:
+    print("Error: Las columnas 'tlf' o 'id' no se encontraron en el archivo CSV.")
+    exit()
 
 # Definir la URL base para obtener el número de teléfono
 url_base = "https://www.idealista.com/es/ajax/ads/{}/contact-phones"
 
+# Definir el número máximo de reintentos por inmueble
+MAX_RETRIES = 3
+
 # Iterar sobre las filas del DataFrame
 for index, row in df.iterrows():
     # Verificar si falta el número de teléfono (vacío o N/A)
-    if pd.isna(row['tlf']) or row['tlf'] == 'N/A':
+    if pd.isna(row['tlf']) or row['tlf'] == 'N/A' or row['tlf'] == 0:
         id_inmueble = int(row['id'])
-        url = url_base.format(id_inmueble)   
+        url = url_base.format(id_inmueble)
         
-        # Hacer la solicitud para obtener el número de teléfono
         print(f"Procesando ID: {id_inmueble} - URL: {url}")
-        response = session.get(url)
         
-        # Introducir un retraso aleatorio entre solicitudes para evitar bloqueos
-        time.sleep(random.uniform(1, 5))  
-        
-        if response.status_code == 200:
-            try:
-                # Intentar obtener y parsear los datos JSON
-                data = response.json()
-                # Verificar si los datos del teléfono están presentes
-                if 'phone1' in data and data['phone1'] and 'number' in data['phone1']:
-                    phone_number = data['phone1']['number']
-                    df.at[index, 'tlf'] = phone_number  # Actualizar en el DataFrame
-                    print(f"Teléfono {phone_number} asignado para el ID de inmueble: {id_inmueble}")
-                else:
-                    print(f"No se encontró el número de teléfono para el ID de inmueble: {id_inmueble}")
-            except ValueError:
-                print(f"Error al parsear la respuesta JSON para el ID de inmueble: {id_inmueble}")
+        # Realizar reintentos si hay fallos en la solicitud
+        for attempt in range(MAX_RETRIES):
+            print(f"Intento {attempt + 1} para el ID: {id_inmueble}")
+            response = session.get(url)
+            print(f"{response}")
+            
+            # Introducir un retraso aleatorio entre solicitudes para evitar bloqueos
+            time.sleep(random.uniform(1, 5))  
+
+            if response.status_code == 200:
+
+                try:
+                    # Verificar si la respuesta es JSON válida
+                    if 'application/json' in response.headers.get('Content-Type', ''):
+                        data = response.json()
+                        
+                        # Verificar si los datos del teléfono están presentes
+                        if 'phone1' in data and data['phone1'] and 'number' in data['phone1']:
+                            phone_number = data['phone1']['number']
+                            df.at[index, 'tlf'] = phone_number  # Actualizar en el DataFrame
+                            print(f"Teléfono {phone_number} asignado para el ID de inmueble: {id_inmueble}")
+                        else:
+                            print(f"No se encontró el número de teléfono para el ID de inmueble: {id_inmueble}")
+                    else:
+                        print(f"Recibido HTML en lugar de JSON para el ID: {id_inmueble}")
+                except ValueError:
+                    print(f"Error al parsear la respuesta JSON para el ID de inmueble: {id_inmueble}")
+                break  # Salir del bucle si la solicitud fue exitosa
+            else:
+                print(f"Error {response.status_code} al obtener los datos para el ID de inmueble: {id_inmueble}. Reintentando...")
         else:
-            print(f"Error {response.status_code} al obtener los datos para el ID de inmueble: {id_inmueble}")
+            print(f"Error persistente al obtener datos para el ID de inmueble: {id_inmueble} después de {MAX_RETRIES} intentos.")
 
 # Guardar el archivo CSV actualizado solo una vez después de procesar todos los inmuebles
-df.to_csv('scraping/src/data.csv', index=False)
+df.to_csv("/home/unbuntu/workspace/scraping/src/data.csv", index=False)
 print("Archivo CSV actualizado guardado correctamente.")
