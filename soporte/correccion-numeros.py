@@ -33,7 +33,7 @@ session = requests.Session()
 session.headers.update(headers)
 
 # Leer el archivo CSV
-csv_path = "/home/unbuntu/workspace/scraping/src/data.csv"
+csv_path = "/home/unbuntu/workspace/scraping/src/alquileres.csv"
 try:
     print(f"Intentando leer el archivo CSV en la ruta: {csv_path}")
     df = pd.read_csv(csv_path)
@@ -43,9 +43,9 @@ except FileNotFoundError:
     print(f"Error: No se encontró el archivo CSV en la ruta {csv_path}")
     exit()
 
-# Validar que las columnas 'tlf' e 'id' existen
-if 'tlf' not in df.columns or 'id' not in df.columns:
-    print("Error: Las columnas 'tlf' o 'id' no se encontraron en el archivo CSV.")
+# Validar que las columnas 'Teléfono' e 'ID_Inmueble' existen
+if 'Teléfono' not in df.columns or 'ID_Inmueble' not in df.columns:
+    print("Error: Las columnas 'Teléfono' o 'ID_Inmueble' no se encontraron en el archivo CSV.")
     exit()
 
 # Definir la URL base para obtener el número de teléfono
@@ -57,8 +57,8 @@ MAX_RETRIES = 3
 # Iterar sobre las filas del DataFrame
 for index, row in df.iterrows():
     # Verificar si falta el número de teléfono (vacío o N/A)
-    if pd.isna(row['tlf']) or row['tlf'] == 'N/A' or row['tlf'] == 0:
-        id_inmueble = int(row['id'])
+    if pd.isna(row['Teléfono']) or row['Teléfono'] == 'N/A' or row['Teléfono'] == 0:
+        id_inmueble = int(row['ID_Inmueble'])
         url = url_base.format(id_inmueble)
         
         print(f"Procesando ID: {id_inmueble} - URL: {url}")
@@ -82,7 +82,7 @@ for index, row in df.iterrows():
                         # Verificar si los datos del teléfono están presentes
                         if 'phone1' in data and data['phone1'] and 'number' in data['phone1']:
                             phone_number = data['phone1']['number']
-                            df.at[index, 'tlf'] = phone_number  # Actualizar en el DataFrame
+                            df.at[index, 'Teléfono'] = phone_number  # Actualizar en el DataFrame
                             print(f"Teléfono {phone_number} asignado para el ID de inmueble: {id_inmueble}")
                         else:
                             print(f"No se encontró el número de teléfono para el ID de inmueble: {id_inmueble}")
@@ -97,5 +97,5 @@ for index, row in df.iterrows():
             print(f"Error persistente al obtener datos para el ID de inmueble: {id_inmueble} después de {MAX_RETRIES} intentos.")
 
 # Guardar el archivo CSV actualizado solo una vez después de procesar todos los inmuebles
-df.to_csv("/home/unbuntu/workspace/scraping/src/data.csv", index=False)
+df.to_csv("/home/unbuntu/workspace/scraping/src/alquileres.csv", index=False)
 print("Archivo CSV actualizado guardado correctamente.")
