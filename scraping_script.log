@@ -2198,3 +2198,32 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main d5532cc] [UPD] data_updated: 2024-09-23 00:00
+ 4 files changed, 6483 insertions(+), 6406 deletions(-)
+To github.com:Tamgama/scraping.git
+   19c69ea..d5532cc  main -> main
+Agent pid 329453
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106051327 ya existe. Consecutivos: 1
+ID 106051314 ya existe. Consecutivos: 2
+ID 106050967 ya existe. Consecutivos: 3
+ID 105951975 ya existe. Consecutivos: 4
+ID 106050281 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
