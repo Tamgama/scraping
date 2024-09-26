@@ -14,7 +14,7 @@ alquileres = pd.read_csv("../src/alquileres.csv")
 alquileres.drop(['Metros_construidos', 'Metros_utilesBaños'], axis=1, inplace=True)
 
 # Renombrar columnas en el dataframe de ventas para asegurar consistencia en los nombres
-ventas.rename(columns={"ID Inmueble": "ID_Inmueble", "Precio/m²": "Precio_por_metro"}, inplace=True)
+ventas.rename(columns={"Precio/m²": "Precio_por_metro"}, inplace=True)
 
 # Definir el orden de las columnas deseado para ambos dataframes
 ventas_order = [

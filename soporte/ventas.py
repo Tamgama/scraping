@@ -17,7 +17,7 @@ if os.path.exists(csv_file):
     df = pd.read_csv(csv_file)
 else:
     df = pd.DataFrame(columns=[
-        "ID Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", 
+        "ID_Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", 
         "Área", "Precio", "Comunidad", "Precio/m²", "Características", "Habitaciones", "Baños",
         "Referencia", "Anunciante", "Nombre_Anunciante", "Última Actualización", "Teléfono", "URL", "fecha"
     ])
