@@ -94,10 +94,10 @@ patterns = {
 def extract_data(row, patterns):
     data = {col: np.nan for col in patterns.keys()}
     data['exterior_interior'] = np.nan  # Columna adicional para almacenar si es exterior/interior
-    
     if isinstance(row, str):
         row = [row]
-        
+    if isinstance(row, float):
+        row = []
     for item in row:
         for key, pattern in patterns.items():
             match = pattern.search(item)

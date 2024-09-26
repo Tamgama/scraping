@@ -195,7 +195,7 @@ for i in range(1, num_paginas + 1):
                 data_element_id = int(data_element_id)
 
                 # Comprobar si el ID ya existe
-                if data_element_id in df["ID Inmueble"].values:
+                if data_element_id in df["ID_Inmueble"].values:
                     id_consecutivos += 1
                     print(f"ID {data_element_id} ya existe. Consecutivos: {id_consecutivos}")
 
@@ -292,7 +292,7 @@ for i in range(1, num_paginas + 1):
 
                         # Agregar el inmueble al DataFrame
                         df = df._append({
-                            "ID Inmueble": data_element_id,
+                            "ID_Inmueble": data_element_id,
                             "Tipo": "venta",
                             "Título": titulo_text,
                             "Calle": street,
