@@ -4018,3 +4018,50 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main cb3f619] [UPD] data_updated: 2024-09-27 04:00
+ 4 files changed, 8120 insertions(+), 8049 deletions(-)
+To github.com:Tamgama/scraping.git
+   c0245e0..cb3f619  main -> main
+Agent pid 376955
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   cb3f619..bed5e0f  main       -> origin/main
+Updating cb3f619..bed5e0f
+Fast-forward
+ soporte/cookie.json      |    2 +-
+ src/alquileres.csv       | 2008 +++++++++++------------
+ src/ventas.csv           | 3964 +++++++++++++++++++++++-----------------------
+ web_2/data/inmuebles.csv | 2330 +++++++++++++--------------
+ 4 files changed, 4152 insertions(+), 4152 deletions(-)
+Ejecutando alquileres.py...
+ID 106100098 guardado en el CSV.
+ID 26109012 guardado en el CSV.
+ID 106099898 guardado en el CSV.
+ID 106091383 guardado en el CSV.
+ID 95185606 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106099064/contact-phones
+ID 106099064 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106099914/contact-phones
+ID 106099914 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106099695/contact-phones
+ID 106099695 guardado en el CSV.
+ID 106099072 ya existe. Consecutivos: 1
+ID 106099071 ya existe. Consecutivos: 2
+ID 106099067 ya existe. Consecutivos: 3
+ID 106098539 ya existe. Consecutivos: 4
+ID 106098009 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
