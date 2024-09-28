@@ -4550,3 +4550,36 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 83822bf] [UPD] data_updated: 2024-09-28 16:00
+ 4 files changed, 8554 insertions(+), 8341 deletions(-)
+To github.com:Tamgama/scraping.git
+   eef794a..83822bf  main -> main
+Agent pid 391633
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 25912160: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/25912160/contact-phones
+ID 25912160 guardado en el CSV.
+Error al intentar acceder al teléfono para 106112845: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106112845/contact-phones
+ID 106112845 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106112309 ya existe. Consecutivos: 1
+ID 106112471 ya existe. Consecutivos: 2
+ID 106106904 ya existe. Consecutivos: 3
+ID 106111497 ya existe. Consecutivos: 4
+ID 106112258 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
