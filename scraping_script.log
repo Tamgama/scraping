@@ -4674,3 +4674,42 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main ab4539b] [UPD] data_updated: 2024-09-29 08:00
+ 4 files changed, 8412 insertions(+), 8383 deletions(-)
+To github.com:Tamgama/scraping.git
+   bfd622e..ab4539b  main -> main
+Agent pid 400015
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 101555073: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/101555073/contact-phones
+ID 101555073 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106113510/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106113510
+ID 106113510 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106112767/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106112767
+ID 106112767 guardado en el CSV.
+ID 106113260 ya existe. Consecutivos: 1
+ID 106112309 ya existe. Consecutivos: 2
+ID 106112471 ya existe. Consecutivos: 3
+ID 106106904 ya existe. Consecutivos: 4
+ID 106111497 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
