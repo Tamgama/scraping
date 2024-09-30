@@ -4,6 +4,7 @@ import subprocess
 scripts = [
     'alquileres.py',
     'ventas.py',
+    'correccion-numeros.py',
     'limpieza.py',
     'actualizar_web.py',
 ]
