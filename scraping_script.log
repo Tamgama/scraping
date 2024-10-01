@@ -5526,3 +5526,48 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main a9a7696] [UPD] data_updated: 2024-10-01 16:01
+ 4 files changed, 9241 insertions(+), 8939 deletions(-)
+To github.com:Tamgama/scraping.git
+   fd4af9f..a9a7696  main -> main
+Agent pid 421607
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106140619: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106140619/contact-phones
+ID 106140619 guardado en el CSV.
+Error al intentar acceder al teléfono para 106140481: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106140481/contact-phones
+ID 106140481 guardado en el CSV.
+Error al intentar acceder al teléfono para 106140540: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106140540/contact-phones
+ID 106140540 guardado en el CSV.
+Deteniendo proceso debido a un status_code 403 en la URL del inmueble https://www.idealista.com/inmueble/106140427/
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Normal Requests fallido con status code 403
+ScrapingBee Básico fallido con status code 401
+ScrapingBee Premium Proxy fallido con status code 401
+ScrapingBee Stealth Proxy fallido con status code 401
+Todas las peticiones fallaron
+No se pudo obtener contenido para la página 1.
+ID 104433219 ya existe. Consecutivos: 1
+ID 106123279 ya existe. Consecutivos: 2
+ID 106133226 ya existe. Consecutivos: 3
+ID 106133128 ya existe. Consecutivos: 4
+ID 106120897 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
