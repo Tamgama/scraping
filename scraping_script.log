@@ -6692,3 +6692,79 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 6572810] [UPD] data_updated: 2024-10-04 12:01
+ 4 files changed, 9299 insertions(+), 8913 deletions(-)
+To github.com:Tamgama/scraping.git
+   85ee3c3..6572810  main -> main
+Agent pid 455613
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 103747213: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/103747213/contact-phones
+ID 103747213 guardado en el CSV.
+Error al intentar acceder al teléfono para 106173464: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106173464/contact-phones
+ID 106173464 guardado en el CSV.
+Error al intentar acceder al teléfono para 106172651: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106172651/contact-phones
+ID 106172651 guardado en el CSV.
+Error al intentar acceder al teléfono para 106172193: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106172193/contact-phones
+ID 106172193 guardado en el CSV.
+Error al intentar acceder al teléfono para 106165638: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106165638/contact-phones
+ID 106165638 guardado en el CSV.
+Error al intentar acceder al teléfono para 106169433: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106169433/contact-phones
+ID 106169433 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106174354/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106174354
+ID 106174354 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106174308/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106174308
+ID 106174308 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106173799/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106173799
+ID 106173799 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106173700/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106173700
+ID 106173700 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106173706/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106173706
+ID 106173706 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106173050/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106173050
+ID 106173050 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106172242/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106172242
+ID 106172242 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106128173/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106128173
+ID 106128173 guardado en el CSV.
+ID 106171473 ya existe. Consecutivos: 1
+ID 106171130 ya existe. Consecutivos: 2
+ID 105695688 ya existe. Consecutivos: 3
+ID 106166628 ya existe. Consecutivos: 4
+ID 106170499 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
