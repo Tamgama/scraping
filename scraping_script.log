@@ -6558,3 +6558,55 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 04c2795] [UPD] data_updated: 2024-10-04 04:00
+ 4 files changed, 10167 insertions(+), 10103 deletions(-)
+To github.com:Tamgama/scraping.git
+   77eb383..04c2795  main -> main
+Agent pid 453155
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   04c2795..467ab86  main       -> origin/main
+Updating 04c2795..467ab86
+Fast-forward
+ soporte/cookie.json      |    2 +-
+ src/alquileres.csv       | 2394 +++++++++----------
+ src/ventas.csv           | 5965 +++++++++++++++++++++++-----------------------
+ web_2/data/inmuebles.csv | 3083 ++++++++++++------------
+ 4 files changed, 5729 insertions(+), 5715 deletions(-)
+Ejecutando alquileres.py...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106166647/contact-phones
+ID 106166647 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106166351/contact-phones
+ID 106166351 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105934529/contact-phones
+ID 105934529 guardado en el CSV.
+ID 106166038 ya existe. Consecutivos: 1
+ID 106165531 ya existe. Consecutivos: 2
+ID 106165543 ya existe. Consecutivos: 3
+ID 106165519 ya existe. Consecutivos: 4
+ID 106165035 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+
+Intentando leer el archivo CSV en la ruta: ../src/alquileres.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/alquileres.csv' actualizado y guardado correctamente.
+
+Intentando leer el archivo CSV en la ruta: ../src/ventas.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/ventas.csv' actualizado y guardado correctamente.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
