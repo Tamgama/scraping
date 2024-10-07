@@ -64,8 +64,8 @@
         .btn-custom {
             margin-top: 10px;
             width: 100%; /* El botón ocupa todo el ancho disponible */
-            background-color: #007bff; /* Fondo azul para el botón */
-            color: #ffffff; /* Color blanco para el texto del botón */
+            background-color: #01575a; /* Fondo para el botón */
+            color: #929292; /* Color para el texto del botón */
             border: none; /* Sin bordes */
             border-radius: 4px; /* Bordes redondeados */
             padding: 10px 20px; /* Padding del botón */
@@ -74,7 +74,7 @@
 
         /* Efecto de hover en el botón */
         .btn-custom:hover {
-            background-color: #0056b3; /* Fondo azul más oscuro al hacer hover */
+            background-color: #004d3c; /* Fondo más oscuro al hacer hover */
         }
 
         /* Estilo del contenedor de badges */
@@ -165,31 +165,52 @@
 
     <!-- Contenedor de filtros -->
     <div class="filters-container">
-        <div class="filter-group">
+
+        <!-- <div class="filter-group">
             <label for="searchTitle">Filtrar por título:</label>
             <input type="text" id="searchTitle" class="form-control form-control-custom" placeholder="Buscar por título...">
         </div>
+         -->
         <div class="filter-group">
             <label for="filterAnunciante">Filtrar por anunciante:</label>
             <select id="filterAnunciante" class="form-control form-control-custom">
-                <option value="Cualquiera">Cualquiera</option>
+                <option value="Ver todos">Ver todos</option>
                 <!-- Opciones dinámicas serán insertadas aquí -->
             </select>
         </div>
         <div class="filter-group">
             <label for="filterTipo">Filtrar por tipo:</label>
             <select id="filterTipo" class="form-control form-control-custom">
-                <option value="Cualquiera">Cualquiera</option>
+                <option value="Ver todos">Ver todos</option>
                 <!-- Opciones dinámicas serán insertadas aquí -->
             </select>
         </div>
         <div class="filter-group">
             <label for="filterBarrio">Filtrar por barrio:</label>
             <select id="filterBarrio" class="form-control form-control-custom">
-                <option value="Cualquiera">Cualquiera</option>
+                <option value="Ver todos">Ver todos</option>
                 <!-- Opciones dinámicas serán insertadas aquí -->
             </select>
         </div>
+        <div class="filter-group">
+            <label for="filterDistrito">Filtrar por distrito:</label>
+            <select id="filterDistrito" class="form-control form-control-custom">
+                <option value="Ver todos">Ver todos</option>
+                <!-- Opciones dinámicas serán insertadas aquí -->
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filterHabitaciones">Filtrar por habitaciones:</label>
+            <select id="filterHabitaciones" class="form-control form-control-custom">
+                <option value="Ver todos">Ver todos</option>
+                <!-- Opciones dinámicas serán insertadas aquí -->
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="searchPhone">Filtrar por teléfono:</label>
+            <input type="text" id="searchPhone" class="form-control form-control-custom" placeholder="Buscar por teléfono">
+        </div>
+        
     </div>
 
     <!-- Paginación en la parte superior -->
@@ -285,10 +306,10 @@
         // Cargar el CSV al iniciar la página
         loadCSV();
 
-        // Filtro por título
-        $('#searchTitle').on('input', function () {
-            applyFilters();
-        });
+        // // Filtro por título
+        // $('#searchTitle').on('input', function () {
+        //     applyFilters();
+        // });
 
         // Filtro por anunciante
         $('#filterAnunciante').on('change', function () {
@@ -302,6 +323,21 @@
 
         // Filtro por barrio
         $('#filterBarrio').on('change', function () {
+            applyFilters();
+        });
+
+        // Filtro por distrito
+        $('#filterDistrito').on('change', function () {
+            applyFilters();
+        });
+
+        // Filtro por habitaciones
+        $('#filterHabitaciones').on('change', function () {
+            applyFilters();
+        });
+        
+        // Filtro por precio
+        $('#filterPhone').on('input', function () {
             applyFilters();
         });
 
@@ -347,19 +383,68 @@
             });
         }
 
+        // Actualizar el filtro de distrito con los valores únicos del CSV
+        function updateDistritoFilter(data) {
+            var uniqueDistritos = _.uniq(data.map(function(row) {
+                return row['distrito'];
+            }).filter(Boolean));
+
+            var $filter = $('#filterDistrito');
+            $filter.empty();
+            $filter.append('<option value="Todos">Todos</option>');
+            uniqueDistritos.forEach(function(distrito) {
+                $filter.append('<option value="' + distrito + '">' + distrito + '</option>');
+            });
+        }
+
+        // Actualizar el filtro de habitaciones con los valores únicos del CSV
+        function updateHabitacionesFilter(data) {
+            var uniqueHabitaciones = _.uniq(data.map(function(row) {
+                return row['habitaciones'];
+            }).filter(Boolean));
+
+            var $filter = $('#filterHabitaciones');
+            $filter.empty();
+            $filter.append('<option value="Todos">Todos</option>');
+            uniqueHabitaciones.forEach(function(habitaciones) {
+                $filter.append('<option value="' + habitaciones + '">' + habitaciones + '</option>');
+            });
+        }
+
+        // Actualizar el filtro de tlf con los valores únicos del CSV
+        function updatePhoneFilter(data) {
+            var uniquePhones = _.uniq(data.map(function(row) {
+                return row['tlf'];
+            }).filter(Boolean));
+
+            var $filter = $('#filterPhone');
+            $filter.empty();
+            $filter.append('<option value="Todos">Todos</option>');
+            uniquePrecios.forEach(function(precio) {
+                $filter.append('<option value="' + precio + '">' + precio + '</option>');
+            });
+        }
+
         // Aplicar los filtros de búsqueda
         function applyFilters() {
-            var searchTerm = $('#searchTitle').val().toLowerCase();
+            // var searchTerm = $('#searchTitle').val().toLowerCase();
             var selectedAnunciante = $('#filterAnunciante').val();
             var selectedTipo = $('#filterTipo').val();
             var selectedBarrio = $('#filterBarrio').val();
+            var selectedDistrito = $('#filterDistrito').val();
+            var selectedHabitaciones = $('#filterHabitaciones').val();
+            var selectedPhone = $('#filterPhone').val();
+
 
             filteredData = data.filter(function (row) {
-                var matchesTitle = row['titulo'] && row['titulo'].toLowerCase().includes(searchTerm);
+                // var matchesTitle = row['titulo'] && row['titulo'].toLowerCase().includes(searchTerm);
                 var matchesAnunciante = selectedAnunciante === "Todos" || row['anunciante'] === selectedAnunciante;
                 var matchesTipo = selectedTipo === "Todos" || row['tipo'] === selectedTipo;
                 var matchesBarrio = selectedBarrio === "Todos" || row['barrio'] === selectedBarrio;
-                return matchesTitle && matchesAnunciante && matchesTipo && matchesBarrio;
+                var matchesDistrito = selectedDistrito === "Todos" || row['distrito'] === selectedDistrito;
+                var matchesHabitaciones = selectedHabitaciones === "Todos" || row['habitaciones'] === selectedHabitaciones;
+                var matchesPhone = row['tlf'] && row['tlf'].includes(selectedPhone);
+                return matchesAnunciante && matchesTipo && matchesBarrio && matchesDistrito && matchesHabitaciones && matchesPhone;
             });
 
             currentPage = 1;
