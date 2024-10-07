@@ -207,8 +207,8 @@
             </select>
         </div>
         <div class="filter-group">
-            <label for="searchPhone">Filtrar por teléfono:</label>
-            <input type="text" id="searchPhone" class="form-control form-control-custom" placeholder="Buscar por teléfono">
+            <label for="filterPhone">Filtrar por teléfono:</label>
+            <input type="text" id="filterPhone" class="form-control form-control-custom" placeholder="Buscar por teléfono">
         </div>
         
     </div>
@@ -285,6 +285,8 @@
                                 updateAnuncianteFilter(data);
                                 updateTipoFilter(data);
                                 updateBarrioFilter(data);
+                                updateHabitacionesFilter(data);
+                                updateDistritoFilter(data);
                                 applyFilters(); // Aplicar filtros al cargar nuevos datos
                                 $('#newDataAlert').fadeIn().delay(2000).fadeOut(); // Mostrar alerta
                                 hideLoading(); // Ocultar el indicador de carga
@@ -349,7 +351,7 @@
 
             var $filter = $('#filterAnunciante');
             $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
+            $filter.append('<option value="Ver todos">Ver todos</option>');
             uniqueAnunciantes.forEach(function(anunciante) {
                 $filter.append('<option value="' + anunciante + '">' + anunciante + '</option>');
             });
@@ -363,7 +365,7 @@
 
             var $filter = $('#filterTipo');
             $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
+            $filter.append('<option value="Ver todos">Ver todos</option>');
             uniqueTipos.forEach(function(tipo) {
                 $filter.append('<option value="' + tipo + '">' + tipo + '</option>');
             });
@@ -377,7 +379,7 @@
 
             var $filter = $('#filterBarrio');
             $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
+            $filter.append('<option value="Ver todos">Ver todos</option>');
             uniqueBarrios.forEach(function(barrio) {
                 $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
             });
@@ -391,7 +393,7 @@
 
             var $filter = $('#filterDistrito');
             $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
+            $filter.append('<option value="Ver todos">Ver todos</option>');
             uniqueDistritos.forEach(function(distrito) {
                 $filter.append('<option value="' + distrito + '">' + distrito + '</option>');
             });
@@ -405,7 +407,7 @@
 
             var $filter = $('#filterHabitaciones');
             $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
+            $filter.append('<option value="Ver todos">Ver todos</option>');
             uniqueHabitaciones.forEach(function(habitaciones) {
                 $filter.append('<option value="' + habitaciones + '">' + habitaciones + '</option>');
             });
@@ -419,7 +421,7 @@
 
             var $filter = $('#filterPhone');
             $filter.empty();
-            $filter.append('<option value="Todos">Todos</option>');
+            $filter.append('<option value="Ver todos">Ver todos</option>');
             uniquePrecios.forEach(function(precio) {
                 $filter.append('<option value="' + precio + '">' + precio + '</option>');
             });
@@ -438,12 +440,12 @@
 
             filteredData = data.filter(function (row) {
                 // var matchesTitle = row['titulo'] && row['titulo'].toLowerCase().includes(searchTerm);
-                var matchesAnunciante = selectedAnunciante === "Todos" || row['anunciante'] === selectedAnunciante;
-                var matchesTipo = selectedTipo === "Todos" || row['tipo'] === selectedTipo;
-                var matchesBarrio = selectedBarrio === "Todos" || row['barrio'] === selectedBarrio;
-                var matchesDistrito = selectedDistrito === "Todos" || row['distrito'] === selectedDistrito;
-                var matchesHabitaciones = selectedHabitaciones === "Todos" || row['habitaciones'] === selectedHabitaciones;
-                var matchesPhone = row['tlf'] && row['tlf'].includes(selectedPhone);
+                var matchesAnunciante = selectedAnunciante === "Ver todos" || row['anunciante'] === selectedAnunciante;
+                var matchesTipo = selectedTipo === "Ver todos" || row['tipo'] === selectedTipo;
+                var matchesBarrio = selectedBarrio === "Ver todos" || row['barrio'] === selectedBarrio;
+                var matchesDistrito = selectedDistrito === "Ver todos" || row['distrito'] === selectedDistrito;
+                var matchesHabitaciones = selectedHabitaciones === "Ver todos" || row['habitaciones'] === selectedHabitaciones;
+                var matchesPhone = row['tlf'] && String(row['tlf']).includes(selectedPhone);
                 return matchesAnunciante && matchesTipo && matchesBarrio && matchesDistrito && matchesHabitaciones && matchesPhone;
             });
 
