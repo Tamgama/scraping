@@ -96,7 +96,7 @@ def extract_data(row, patterns):
     data['exterior_interior'] = np.nan  # Columna adicional para almacenar si es exterior/interior
     if isinstance(row, str):
         row = [row]
-    if isinstance(row, float):
+    if isinstance(row, float) or row is None:
         row = []
     for item in row:
         for key, pattern in patterns.items():
@@ -115,8 +115,7 @@ def extract_data(row, patterns):
                     data[key] = match.group(1)
                 else:
                     data[key] = match.group(1)
-                break  # Dejar de buscar más patrones si se encuentra una coincidencia
-    
+                # No usar 'break' aquí
     return data
 
 # Aplicar la función de extracción de datos a la columna 'caracteristicas'
