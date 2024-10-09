@@ -6,6 +6,13 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Estilos para el layout de las tarjetas */
+#cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 /* Estilo básico para la caja de filtros y el contenido */
 .main-container {
     display: flex;
