@@ -18,7 +18,7 @@ body {
 /* Estilo básico para la caja de filtros y el contenido */
 .main-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end; /* Alinear a la derecha */
     gap: 20px; /* Espacio entre la caja de filtros y el contenido */
     margin: 20px auto; /* Centrar horizontalmente el contenedor principal */
     max-width: 1200px; /* Limitar el ancho máximo en pantallas grandes */
