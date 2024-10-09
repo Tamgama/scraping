@@ -64,6 +64,11 @@ $(document).ready(function () {
     //     applyFilters();
     // });
 
+    // Mostrar/ocultar los filtros cuando se hace clic en el botón en pantallas pequeñas
+    $('.filters-toggle-btn').click(function() {
+        $('.filters-container').toggleClass('show');
+    });
+
     // Filtro por anunciante
     $('#filterAnunciante').on('change', function () {
         applyFilters();

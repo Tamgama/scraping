@@ -13,47 +13,53 @@
 <body>
     <div class="container mt-5">
         <div class="row">
+            <!-- Botón para desplegar los filtros en pantallas pequeñas -->
+            <button class="filters-toggle-btn">Mostrar Filtros</button>
+
             <!-- Columna para los filtros -->
             <div class="col-md-3">
-                <div class="filters-container">
-                    <div class="filter-group">
-                        <label for="filterAnunciante">Filtrar por anunciante:</label>
-                        <select id="filterAnunciante" class="form-control form-control-custom">
-                            <option value="Ver todos">Ver todos</option>
-                            <!-- Opciones dinámicas serán insertadas aquí -->
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filterTipo">Filtrar por tipo:</label>
-                        <select id="filterTipo" class="form-control form-control-custom">
-                            <option value="Ver todos">Ver todos</option>
-                            <!-- Opciones dinámicas serán insertadas aquí -->
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filterBarrio">Filtrar por barrio:</label>
-                        <select id="filterBarrio" class="form-control form-control-custom">
-                            <option value="Ver todos">Ver todos</option>
-                            <!-- Opciones dinámicas serán insertadas aquí -->
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filterDistrito">Filtrar por distrito:</label>
-                        <select id="filterDistrito" class="form-control form-control-custom">
-                            <option value="Ver todos">Ver todos</option>
-                            <!-- Opciones dinámicas serán insertadas aquí -->
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filterHabitaciones">Filtrar por habitaciones:</label>
-                        <select id="filterHabitaciones" class="form-control form-control-custom">
-                            <option value="Ver todos">Ver todos</option>
-                            <!-- Opciones dinámicas serán insertadas aquí -->
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filterPhone">Filtrar por teléfono:</label>
-                        <input type="text" id="filterPhone" class="form-control form-control-custom" placeholder="Buscar teléfono">
+                <!-- Caja colapsable para pantallas pequeñas -->
+                <div id="filtersContainer" class="collapse d-md-block">
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <label for="filterAnunciante">Filtrar por anunciante:</label>
+                            <select id="filterAnunciante" class="form-control form-control-custom">
+                                <option value="Ver todos">Ver todos</option>
+                                <!-- Opciones dinámicas serán insertadas aquí -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterTipo">Filtrar por tipo:</label>
+                            <select id="filterTipo" class="form-control form-control-custom">
+                                <option value="Ver todos">Ver todos</option>
+                                <!-- Opciones dinámicas serán insertadas aquí -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterBarrio">Filtrar por barrio:</label>
+                            <select id="filterBarrio" class="form-control form-control-custom">
+                                <option value="Ver todos">Ver todos</option>
+                                <!-- Opciones dinámicas serán insertadas aquí -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterDistrito">Filtrar por distrito:</label>
+                            <select id="filterDistrito" class="form-control form-control-custom">
+                                <option value="Ver todos">Ver todos</option>
+                                <!-- Opciones dinámicas serán insertadas aquí -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterHabitaciones">Filtrar por habitaciones:</label>
+                            <select id="filterHabitaciones" class="form-control form-control-custom">
+                                <option value="Ver todos">Ver todos</option>
+                                <!-- Opciones dinámicas serán insertadas aquí -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterPhone">Filtrar por teléfono:</label>
+                            <input type="text" id="filterPhone" class="form-control form-control-custom" placeholder="Buscar teléfono">
+                        </div>
                     </div>
                 </div>
             </div>

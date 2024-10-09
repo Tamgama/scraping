@@ -11,6 +11,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    z-index: 0;
+    margin-top: 10px;
 }
 
 /* Estilo básico para la caja de filtros y el contenido */
@@ -23,7 +25,7 @@ body {
 }
 
 .filters-container {
-    position: sticky;
+    position: relative;
     top: 20px;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
@@ -32,6 +34,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 250px; /* Ancho de la caja de filtros */
     flex-shrink: 0; /* No permitir que la caja de filtros se encoja */
+    z-index: 1; /* Para que esté por encima de las tarjetas en móviles */
 }
 
 .content-container {
@@ -133,7 +136,7 @@ body {
 }
 
 /* Responsividad para pantallas pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .main-container {
         flex-direction: column; /* Apilar la caja de filtros y el contenido en pantallas pequeñas */
         margin: 0 10px; /* Reducir los márgenes laterales en pantallas pequeñas */
@@ -157,9 +160,32 @@ body {
     .card-custom h4 {
         font-size: 1.2rem; /* Ajustar el tamaño de la fuente del título en móviles */
     }
-    
-    .filter-group {
-        flex-direction: column; /* Filtros en bloque se muestran en columna en móviles */
+
+    .col-md-9 {
+        margin-top: 15px; /* Añadir espacio entre las tarjetas y los filtros */
+    }
+
+    /* Ocultar filtros en pantallas pequeñas con un botón desplegable */
+    .filters-container {
+        display: none;
+    }
+
+    .filters-toggle-btn {
+        display: block;
+        width: 100%;
+        background-color: #004d3c;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    .filters-container.show {
+        display: block;
+        z-index: 1; /* Los filtros se muestran por encima de las tarjetas */
     }
 }
 
