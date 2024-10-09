@@ -33,7 +33,6 @@ body {
     border: 1px solid rgba(194, 194, 194, 0.7); /* Borde más oscuro */
     border-radius: 5px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-    width: 250px; /* Ancho de la caja de filtros */
     flex-shrink: 0; /* No permitir que la caja de filtros se encoja */
     z-index: 1; /* Para que esté por encima de las tarjetas en móviles */
 }
