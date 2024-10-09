@@ -18,20 +18,21 @@ body {
 /* Estilo básico para la caja de filtros y el contenido */
 .main-container {
     display: flex;
-    justify-content: flex-end; /* Alinear a la derecha */
+    justify-content: flex-start; /* Alinear a la izquierda */
     gap: 20px; /* Espacio entre la caja de filtros y el contenido */
     margin: 20px auto; /* Centrar horizontalmente el contenedor principal */
     max-width: 1200px; /* Limitar el ancho máximo en pantallas grandes */
 }
 
+/* Estilos para la caja de filtros */
 .filters-container {
     position: relative;
     top: 20px;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
-    border: 1px solid rgba(194, 194, 194, 0.5);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo más opaco para mejor legibilidad */
+    border: 1px solid rgba(194, 194, 194, 0.7); /* Borde más oscuro */
+    border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
     width: 250px; /* Ancho de la caja de filtros */
     flex-shrink: 0; /* No permitir que la caja de filtros se encoja */
     z-index: 1; /* Para que esté por encima de las tarjetas en móviles */
@@ -143,8 +144,8 @@ body {
     }
 
     .filters-container {
-        position: static;
-        width: 100%;
+        position: static; /* Cambiar a posición estática */
+        width: 100%; /* Ancho completo en móviles */
         margin-bottom: 20px; /* Espacio debajo del filtro cuando está apilado */
     }
 
@@ -167,11 +168,11 @@ body {
 
     /* Ocultar filtros en pantallas pequeñas con un botón desplegable */
     .filters-container {
-        display: none;
+        display: none; /* Esconder inicialmente en móviles */
     }
 
     .filters-toggle-btn {
-        display: block;
+        display: block; /* Mostrar botón en móviles */
         width: 100%;
         background-color: #004d3c;
         color: white;
@@ -184,7 +185,7 @@ body {
     }
 
     .filters-container.show {
-        display: block;
+        display: block; /* Mostrar los filtros cuando la clase 'show' está activa */
         z-index: 1; /* Los filtros se muestran por encima de las tarjetas */
     }
 }
