@@ -197,7 +197,4 @@ body {
         gap: 30px; /* Añadir más espacio entre el filtro y el contenido en pantallas grandes */
     }
 
-    .filters-container {
-        width: 300px; /* Hacer la caja de filtros más ancha en pantallas grandes */
-    }
 }
