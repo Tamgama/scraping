@@ -8521,3 +8521,49 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 081ffa4] [UPD] data_updated: 2024-10-09 20:01
+ 4 files changed, 10890 insertions(+), 10548 deletions(-)
+To github.com:Tamgama/scraping.git
+   b39805c..081ffa4  main -> main
+Agent pid 505113
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106217390: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106217390/contact-phones
+ID 106217390 guardado en el CSV.
+Error al intentar acceder al teléfono para 99704822: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/99704822/contact-phones
+ID 99704822 guardado en el CSV.
+Error al intentar acceder al teléfono para 106217188: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106217188/contact-phones
+ID 106217188 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106217527/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106217527
+ID 106217527 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106217415/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106217415
+ID 106217415 guardado en el CSV.
+ID 106217015 ya existe. Consecutivos: 1
+ID 106216936 ya existe. Consecutivos: 2
+ID 104230610 ya existe. Consecutivos: 3
+ID 106216702 ya existe. Consecutivos: 4
+ID 30757552 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
