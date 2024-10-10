@@ -36,7 +36,6 @@ $(document).ready(function () {
                             updateAnuncianteFilter(data);
                             updateTipoFilter(data);
                             updateBarrioFilter(data);
-                            updateHabitacionesFilter(data);
                             updateDistritoFilter(data);
                             applyFilters(); // Aplicar filtros al cargar nuevos datos
                             $('#newDataAlert').fadeIn().delay(2000).fadeOut(); // Mostrar alerta
@@ -89,11 +88,6 @@ $(document).ready(function () {
         applyFilters();
     });
 
-    // Filtro por habitaciones
-    $('#filterHabitaciones').on('change', function () {
-        applyFilters();
-    });
-    
     // Filtro por precio
     $('#filterPhone').on('input', function () {
         applyFilters();
@@ -155,19 +149,6 @@ $(document).ready(function () {
         });
     }
 
-    // Actualizar el filtro de habitaciones con los valores únicos del CSV
-    function updateHabitacionesFilter(data) {
-        var uniqueHabitaciones = _.uniq(data.map(function(row) {
-            return row['habitaciones'];
-        }).filter(Boolean));
-
-        var $filter = $('#filterHabitaciones');
-        $filter.empty();
-        $filter.append('<option value="Ver todos">Ver todos</option>');
-        uniqueHabitaciones.forEach(function(habitaciones) {
-            $filter.append('<option value="' + habitaciones + '">' + habitaciones + '</option>');
-        });
-    }
 
     // Actualizar el filtro de tlf con los valores únicos del CSV
     function updatePhoneFilter(data) {
@@ -190,7 +171,6 @@ $(document).ready(function () {
         var selectedTipo = $('#filterTipo').val();
         var selectedBarrio = $('#filterBarrio').val();
         var selectedDistrito = $('#filterDistrito').val();
-        var selectedHabitaciones = $('#filterHabitaciones').val();
         var selectedPhone = $('#filterPhone').val();
 
 
@@ -200,9 +180,8 @@ $(document).ready(function () {
             var matchesTipo = selectedTipo === "Ver todos" || row['tipo'] === selectedTipo;
             var matchesBarrio = selectedBarrio === "Ver todos" || row['barrio'] === selectedBarrio;
             var matchesDistrito = selectedDistrito === "Ver todos" || row['distrito'] === selectedDistrito;
-            var matchesHabitaciones = selectedHabitaciones === "Ver todos" || row['habitaciones'] === selectedHabitaciones;
             var matchesPhone = row['tlf'] && String(row['tlf']).includes(selectedPhone);
-            return matchesAnunciante && matchesTipo && matchesBarrio && matchesDistrito && matchesHabitaciones && matchesPhone;
+            return matchesAnunciante && matchesTipo && matchesBarrio && matchesDistrito && matchesPhone;
         });
 
         currentPage = 1;
