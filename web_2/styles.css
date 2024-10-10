@@ -6,6 +6,64 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
+/* Estilo del header */
+header {
+    background-color: #004d3c; /* Color de fondo del header */
+    color: white; /* Texto blanco */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2; /* Mantener el header por encima del contenido */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo del logo/título */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Estilo de la barra de navegación */
+.nav-container {
+    display: flex;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list li {
+    margin: 0;
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    background-color: #002c23;
+    border-radius: 4px;
+}
+
 /* Estilos para el layout de las tarjetas */
 #cardsContainer {
     display: flex;
