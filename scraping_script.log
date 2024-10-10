@@ -8662,3 +8662,82 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 8ace817] [UPD] data_updated: 2024-10-10 08:00
+ 4 files changed, 7693 insertions(+), 7612 deletions(-)
+To github.com:Tamgama/scraping.git
+   65911f9..8ace817  main -> main
+Agent pid 508055
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   8ace817..09bc3ac  main       -> origin/main
+Updating 8ace817..09bc3ac
+Fast-forward
+ web_2/index.html | 18 +++++++++++-------
+ web_2/styles.css | 58 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 69 insertions(+), 7 deletions(-)
+Ejecutando alquileres.py...
+ID 106223354 guardado en el CSV.
+ID 106223360 guardado en el CSV.
+ID 105222309 guardado en el CSV.
+ID 106216526 guardado en el CSV.
+ID 106221368 guardado en el CSV.
+ID 106221627 guardado en el CSV.
+ID 106220873 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106223221/contact-phones
+ID 106223221 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106223006/contact-phones
+ID 106223006 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/100208752/contact-phones
+ID 100208752 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106221681/contact-phones
+ID 106221681 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106219996/contact-phones
+ID 106219996 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106134620/contact-phones
+ID 106134620 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106220203/contact-phones
+ID 106220203 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106219848/contact-phones
+ID 106219848 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106219929/contact-phones
+ID 106219929 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106219423/contact-phones
+ID 106219423 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106219400/contact-phones
+ID 106219400 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/104314059/contact-phones
+ID 104314059 guardado en el CSV.
+ID 106218780 ya existe. Consecutivos: 1
+ID 106218671 ya existe. Consecutivos: 2
+ID 98941497 ya existe. Consecutivos: 3
+ID 84200061 ya existe. Consecutivos: 4
+ID 106218454 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+
+Intentando leer el archivo CSV en la ruta: ../src/alquileres.csv
+Archivo CSV leído correctamente.
+Procesando ID: 106221368 - URL: https://www.idealista.com/es/ajax/ads/106221368/contact-phones
+No se encontró el número de teléfono para el ID de inmueble: 106221368. Asignado -1.
+Procesando ID: 106216526 - URL: https://www.idealista.com/es/ajax/ads/106216526/contact-phones
+No se encontró el número de teléfono para el ID de inmueble: 106216526. Asignado -1.
+Archivo CSV '../src/alquileres.csv' actualizado y guardado correctamente.
+
+Intentando leer el archivo CSV en la ruta: ../src/ventas.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/ventas.csv' actualizado y guardado correctamente.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
