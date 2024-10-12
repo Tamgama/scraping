@@ -9482,3 +9482,41 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main a7cea9f] [UPD] data_updated: 2024-10-12 08:00
+ 4 files changed, 11830 insertions(+), 11636 deletions(-)
+To github.com:Tamgama/scraping.git
+   3924dcb..a7cea9f  main -> main
+Agent pid 527894
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Normal Requests fallido con status code 403
+ScrapingBee Básico fallido con status code 401
+ScrapingBee Premium Proxy fallido con status code 401
+ScrapingBee Stealth Proxy fallido con status code 401
+Todas las peticiones fallaron
+No se pudo obtener contenido para la página 1.
+ID 106221984 ya existe. Consecutivos: 1
+ID 106233984 ya existe. Consecutivos: 2
+ID 106233643 ya existe. Consecutivos: 3
+ID 106217400 ya existe. Consecutivos: 4
+ID 106233396 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
