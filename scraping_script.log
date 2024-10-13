@@ -9800,3 +9800,51 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main eabbca0] [UPD] data_updated: 2024-10-13 16:00
+ 4 files changed, 12232 insertions(+), 12182 deletions(-)
+To github.com:Tamgama/scraping.git
+   0182c91..eabbca0  main -> main
+Agent pid 537311
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106246754: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106246754/contact-phones
+ID 106246754 guardado en el CSV.
+Error al intentar acceder al teléfono para 106246662: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106246662/contact-phones
+ID 106246662 guardado en el CSV.
+Error al intentar acceder al teléfono para 106246371: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106246371/contact-phones
+ID 106246371 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Normal Requests fallido con status code 503
+ScrapingBee Básico fallido con status code 401
+ScrapingBee Premium Proxy fallido con status code 401
+ScrapingBee Stealth Proxy fallido con status code 401
+Todas las peticiones fallaron
+No se pudo obtener contenido para el inmueble 106246873.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106227018/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106227018
+ID 106227018 guardado en el CSV.
+ID 106245127 ya existe. Consecutivos: 1
+ID 106244911 ya existe. Consecutivos: 2
+ID 106244778 ya existe. Consecutivos: 3
+ID 106244662 ya existe. Consecutivos: 4
+ID 106243314 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
