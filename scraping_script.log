@@ -9922,3 +9922,48 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 4a8d727] [UPD] data_updated: 2024-10-14 04:00
+ 4 files changed, 11930 insertions(+), 11898 deletions(-)
+To github.com:Tamgama/scraping.git
+   ae51ae4..4a8d727  main -> main
+Agent pid 540022
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   4a8d727..bf1e885  main       -> origin/main
+Updating 4a8d727..bf1e885
+Fast-forward
+ web_2/index.html |  4 ++--
+ web_2/script.js  | 23 +----------------------
+ 2 files changed, 3 insertions(+), 24 deletions(-)
+Ejecutando alquileres.py...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106248158/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106248158
+ID 106248158 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106248075/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106248075
+ID 106248075 guardado en el CSV.
+ID 106246747 ya existe. Consecutivos: 1
+ID 106246873 ya existe. Consecutivos: 2
+ID 106227018 ya existe. Consecutivos: 3
+ID 106245127 ya existe. Consecutivos: 4
+ID 106244911 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
