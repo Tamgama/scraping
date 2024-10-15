@@ -13,11 +13,11 @@ gauth = GoogleAuth()
 gauth.LoadCredentialsFile("./particulares/credentials.json")  # Cargar token de autenticación
 if not gauth.credentials or gauth.access_token_expired:
     print('Please, retreive credentials manually')
-    # gauth.LocalWebserverAuth()  # Autenticarse si no hay token o está vencido
-    # gauth.SaveCredentialsFile("credentials.json")  # Guardar token para la próxima vez
+    gauth.LocalWebserverAuth()  # Autenticarse si no hay token o está vencido
+    gauth.SaveCredentialsFile("./particulares/credentials.json")  # Guardar token para la próxima vez
 else:
     drive = GoogleDrive(gauth)
     # Subir el archivo Excel a Google Drive
-    file_drive = drive.CreateFile({'title': './particulares/particulares.xlsx'})  # Cambia el título según desees
-    file_drive.SetContentFile('particulares.xlsx')  # Archivo que queremos subir
+    file_drive = drive.CreateFile({'title': 'particulares.xlsx'})  # Cambia el título según desees
+    file_drive.SetContentFile('./particulares/particulares.xlsx')  # Archivo que queremos subir
     file_drive.Upload()
