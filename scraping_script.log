@@ -10273,3 +10273,43 @@ Ejecutando particulares/particulares.pyactualizar_web.py...
 Error al ejecutar particulares/particulares.pyactualizar_web.py: Command '['python3', 'particulares/particulares.pyactualizar_web.py']' returned non-zero exit status 2.
 python3: can't open file '/root/scraping/soporte/particulares/particulares.pyactualizar_web.py': [Errno 2] No such file or directory
 
+[main 0fcefe5] [UPD] data_updated: 2024-10-14 20:01
+ 4 files changed, 11556 insertions(+), 11098 deletions(-)
+To github.com:Tamgama/scraping.git
+   9f07977..0fcefe5  main -> main
+Agent pid 545897
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 104306762: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/104306762/contact-phones
+ID 104306762 guardado en el CSV.
+Error al intentar acceder al teléfono para 98503386: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/98503386/contact-phones
+ID 98503386 guardado en el CSV.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106258225/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106258225
+ID 106258225 guardado en el CSV.
+ID 106258160 ya existe. Consecutivos: 1
+ID 104366723 ya existe. Consecutivos: 2
+ID 106257722 ya existe. Consecutivos: 3
+ID 106257089 ya existe. Consecutivos: 4
+ID 106180554 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.pyactualizar_web.py...
+Error al ejecutar particulares/particulares.pyactualizar_web.py: Command '['python3', 'particulares/particulares.pyactualizar_web.py']' returned non-zero exit status 2.
+python3: can't open file '/root/scraping/soporte/particulares/particulares.pyactualizar_web.py': [Errno 2] No such file or directory
+
