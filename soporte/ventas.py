@@ -18,7 +18,7 @@ if os.path.exists(csv_file):
 else:
     df = pd.DataFrame(columns=[
         "ID_Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", 
-        "Área", "Precio", "Comunidad", "Precio/m²", "Características", "Habitaciones", "Baños",
+        "Área", "direccion_completa", "Precio", "Comunidad", "Precio/m²", "Características", "Habitaciones", "Baños",
         "Referencia", "Anunciante", "Nombre_Anunciante", "Última Actualización", "Teléfono", "URL", "fecha"
     ])
 
@@ -300,6 +300,7 @@ for i in range(1, num_paginas + 1):
                             "Distrito": district,
                             "Ciudad": city,
                             "Área": area,
+                            "direccion_completa": location,
                             "Precio": price_text,
                             "Comunidad": community,
                             "Precio/m²": meter_price,

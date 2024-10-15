@@ -6,7 +6,7 @@ scripts = [
     'ventas.py',
     'correccion-numeros.py',
     'limpieza.py',
-    './particulares/particulares.py', # Faltaba una coma y se estaban mezclando los scripts
+    # 'particulares/particulares.py',
     'actualizar_web.py',
 ]
 

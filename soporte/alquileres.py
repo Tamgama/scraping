@@ -13,7 +13,7 @@ if os.path.exists(csv_file):
     df = pd.read_csv(csv_file)
 else:
     df = pd.DataFrame(columns=[
-        "ID_Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", "Área", 
+        "ID_Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", "Área", "direccion_completa", 
         "Precio", "Fianza", "Precio_por_metro", "Características", "Habitaciones", "Metros_construidos", "Metros_utiles",
         "Baños", "Referencia", "Anunciante", "Nombre_Anunciante", "Última_Actualización", "Teléfono", "URL", "fecha"
     ])
@@ -169,25 +169,6 @@ for i in range(1, num_paginas + 1):
             except requests.RequestException as e:
                 print(f"Error al intentar acceder al teléfono para {data_element_id}: {e}")
 
-            # Print extracted information
-            # print(f"Título: {titulo_text}")
-            # print(f"Calle: {street}")
-            # print(f"Barrio: {neighborhood}")
-            # print(f"Distrito: {district}")
-            # print(f"Ciudad: {city}")
-            # print(f"Área: {area}")
-            # print(f"Precio: {price_text}")
-            # print(f"Fianza: {deposit}")
-            # print(f"Precio_por_metro: {meter_price}")
-            # print(f"Caracteristicas: {basics}")
-            # print(f"Metros_construidos: {metros}")
-            # print(f"habitaciones: {habitaciones}")
-            # print(f"baños: {baños}")
-            # print(f"referencia: {ref_num}")
-            # print(f"anunciante: {anunciante}")
-            # print(f"nombre anunciante: {nombre_anun}")
-            # print(f"tlf: {telefono}")
-            # print(f"URL: {inmueble_url}")
             df = df._append({
                 "ID_Inmueble": data_element_id,
                 "Tipo" : "Alquiler",
@@ -197,6 +178,7 @@ for i in range(1, num_paginas + 1):
                 "Distrito": district,
                 "Ciudad": city,
                 "Área": area,
+                "direccion_completa": location,
                 "Precio": price_text,
                 "Fianza": deposit,
                 "Precio_por_metro": meter_price,

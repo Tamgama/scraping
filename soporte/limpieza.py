@@ -18,12 +18,12 @@ ventas.rename(columns={"Precio/m²": "Precio_por_metro"}, inplace=True)
 
 # Definir el orden de las columnas deseado para ambos dataframes
 ventas_order = [
-    'ID_Inmueble', 'Tipo', 'Título', 'Calle', 'Barrio', 'Distrito', 'Ciudad', 'Área', 'Precio', 
+    'ID_Inmueble', 'Tipo', 'Título', 'Calle', 'Barrio', 'Distrito', 'Ciudad', 'Área', 'direccion_completa', 'Precio', 
     'Comunidad', 'Precio_por_metro', 'Características', 'Habitaciones', 'Baños', 'Referencia', 
     'Anunciante', 'Nombre_Anunciante', 'Teléfono', 'Última_Actualización', 'URL', "fecha"
 ]
 alquileres_order = [
-    'ID_Inmueble', 'Tipo', 'Título', 'Calle', 'Barrio', 'Distrito', 'Ciudad', 'Área', 'Precio', 
+    'ID_Inmueble', 'Tipo', 'Título', 'Calle', 'Barrio', 'Distrito', 'Ciudad', 'Área', 'direccion_completa', 'Precio', 
     'Fianza', 'Precio_por_metro', 'Características', 'Habitaciones', 'Baños', 'Referencia', 
     'Anunciante', 'Nombre_Anunciante', 'Última_Actualización', 'Teléfono', 'URL', "fecha"
 ]
@@ -66,10 +66,9 @@ df['tlf'] = pd.to_numeric(df['tlf'], errors='coerce').fillna(0).astype(int)
 columnas_extra = [
     'superficie', 'superficie_util', 'habitaciones', 'baños', 'terraza', 'garaje', 'estado', 
     'armarios', 'trastero', 'orientacion', 'amueblado', 'calefaccion', 'planta', 'ascensor', 
-    'construccion', 'movilidad_reducida'
+    'construccion', 'movilidad_reducida', 'exterior_interior'
 ]
-for col in columnas_extra:
-    df[col] = None
+df = df.reindex(columns=df.columns.tolist() + columnas_extra)
 
 # Definir patrones regex para extraer características de la columna 'caracteristicas'
 patterns = {
@@ -115,14 +114,15 @@ def extract_data(row, patterns):
                     data[key] = match.group(1)
                 else:
                     data[key] = match.group(1)
-                # No usar 'break' aquí
     return data
 
 # Aplicar la función de extracción de datos a la columna 'caracteristicas'
 df_extracted = df['caracteristicas'].apply(lambda row: extract_data(row, patterns))
 
-# Convertir la serie de diccionarios a un DataFrame y actualizar el DataFrame original
-df_extracted = pd.DataFrame(list(df_extracted))
+# Convertir la serie de diccionarios a un DataFrame y asegurarse de que los índices coincidan
+df_extracted = pd.DataFrame(list(df_extracted), index=df.index)
+
+# Actualizar el DataFrame original con las características extraídas
 df.update(df_extracted)
 
 # Guardar el DataFrame resultante en un archivo CSV
