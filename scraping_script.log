@@ -10313,3 +10313,35 @@ Ejecutando particulares/particulares.pyactualizar_web.py...
 Error al ejecutar particulares/particulares.pyactualizar_web.py: Command '['python3', 'particulares/particulares.pyactualizar_web.py']' returned non-zero exit status 2.
 python3: can't open file '/root/scraping/soporte/particulares/particulares.pyactualizar_web.py': [Errno 2] No such file or directory
 
+[main bed1b45] [UPD] data_updated: 2024-10-15 00:00
+ 4 files changed, 12587 insertions(+), 12505 deletions(-)
+To github.com:Tamgama/scraping.git
+   0fcefe5..bed1b45  main -> main
+Agent pid 547030
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106258225 ya existe. Consecutivos: 1
+ID 106258160 ya existe. Consecutivos: 2
+ID 104366723 ya existe. Consecutivos: 3
+ID 106257722 ya existe. Consecutivos: 4
+ID 106257089 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.pyactualizar_web.py...
+Error al ejecutar particulares/particulares.pyactualizar_web.py: Command '['python3', 'particulares/particulares.pyactualizar_web.py']' returned non-zero exit status 2.
+python3: can't open file '/root/scraping/soporte/particulares/particulares.pyactualizar_web.py': [Errno 2] No such file or directory
+
