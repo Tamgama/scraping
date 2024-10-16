@@ -263,8 +263,12 @@ for i in range(1, num_paginas + 1):
                             district = loc[2] if len(loc) > 2 else "N/A"
                             city = loc[3] if len(loc) > 3 else "N/A"
                             area = loc[4] if len(loc) > 4 else "N/A"
+                            
+                            # Concatenar todos los elementos en la dirección completa
+                            direccion_completa = ', '.join([street, neighborhood, district, city, area])
                         else:
                             street = neighborhood = district = city = area = "N/A"
+                            direccion_completa = "N/A"
 
                         # Extraer características del inmueble
                         details_section = soup_inmueble.find("section", {"id": "details"})
@@ -300,7 +304,7 @@ for i in range(1, num_paginas + 1):
                             "Distrito": district,
                             "Ciudad": city,
                             "Área": area,
-                            "direccion_completa": location,
+                            "direccion_completa": direccion_completa,
                             "Precio": price_text,
                             "Comunidad": community,
                             "Precio/m²": meter_price,

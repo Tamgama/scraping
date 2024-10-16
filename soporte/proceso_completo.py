@@ -6,7 +6,7 @@ scripts = [
     'ventas.py',
     'correccion-numeros.py',
     'limpieza.py',
-    # 'particulares/particulares.py',
+    'particulares/particulares.py',
     'actualizar_web.py',
 ]
 

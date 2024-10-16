@@ -59,6 +59,7 @@ df['area'] = df['area'].str.replace('Área de ', '', regex=False)
 df['barrio'] = df['barrio'].str.replace('Barrio ', '', regex=False)
 df['distrito'] = df['distrito'].str.replace('Distrito ', '', regex=False)
 
+
 # Convertir el número de teléfono a formato numérico, manejando errores y rellenando valores nulos con 0
 df['tlf'] = pd.to_numeric(df['tlf'], errors='coerce').fillna(0).astype(int)
 
@@ -93,27 +94,24 @@ patterns = {
 def extract_data(row, patterns):
     data = {col: np.nan for col in patterns.keys()}
     data['exterior_interior'] = np.nan  # Columna adicional para almacenar si es exterior/interior
-    if isinstance(row, str):
-        row = [row]
-    if isinstance(row, float) or row is None:
-        row = []
-    for item in row:
-        for key, pattern in patterns.items():
-            match = pattern.search(item)
-            if match:
-                if key == 'planta':
-                    data['planta'] = match.group(1)
-                    data['exterior_interior'] = match.group(2)
-                elif key == 'ascensor':
-                    data[key] = 'Sí' if 'Con' in match.group(0) else 'No'
-                elif key == 'amueblado':
-                    data[key] = 'Amueblado' if 'Amueblado' in match.group(0) else 'No amueblado'
-                elif key == 'calefaccion':
-                    data[key] = match.group(1) if match.group(1) != 'No disponible calefaccion' else 'No disponible'
-                elif key == 'orientacion':
-                    data[key] = match.group(1)
-                else:
-                    data[key] = match.group(1)
+    if pd.isna(row):  # Si el valor es nulo, devolver diccionario vacío
+        return data
+    for key, pattern in patterns.items():
+        match = pattern.search(row)
+        if match:
+            if key == 'planta':
+                data['planta'] = match.group(1)
+                data['exterior_interior'] = match.group(2)
+            elif key == 'ascensor':
+                data[key] = 'Sí' if 'Con' in match.group(0) else 'No'
+            elif key == 'amueblado':
+                data[key] = 'Amueblado' if 'Amueblado' in match.group(0) else 'No amueblado'
+            elif key == 'calefaccion':
+                data[key] = match.group(1) if match.group(1) != 'No disponible calefaccion' else 'No disponible'
+            elif key == 'orientacion':
+                data[key] = match.group(1)
+            else:
+                data[key] = match.group(1)
     return data
 
 # Aplicar la función de extracción de datos a la columna 'caracteristicas'
