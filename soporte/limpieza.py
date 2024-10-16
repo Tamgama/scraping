@@ -69,7 +69,8 @@ columnas_extra = [
     'armarios', 'trastero', 'orientacion', 'amueblado', 'calefaccion', 'planta', 'ascensor', 
     'construccion', 'movilidad_reducida', 'exterior_interior'
 ]
-df = df.reindex(columns=df.columns.tolist() + columnas_extra)
+for col in columnas_extra:
+    df[col] = None
 
 # Definir patrones regex para extraer características de la columna 'caracteristicas'
 patterns = {
