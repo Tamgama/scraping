@@ -7,7 +7,11 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import datetime
 import json
+<<<<<<< HEAD
 csv_file = "../src/alquileres-corregido.csv"
+=======
+csv_file = "../src/alquileres.csv"
+>>>>>>> 0845493 ([UPD] elimino csv para generar unos nuevos con los cambios en ventas.py y alquileres.py)
 
 ciudades_murcia = {
     "Abanilla": "Abanilla",

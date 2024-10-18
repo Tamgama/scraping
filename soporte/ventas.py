@@ -11,7 +11,7 @@ import json
 
 # URL base para scraping de inmuebles en Idealista
 base_url = "https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc"
-csv_file = "../src/ventas-corregido.csv"
+csv_file = "../src/ventas.csv"
 
 # Leer el archivo CSV si existe, si no, crear un DataFrame vacío
 if os.path.exists(csv_file):

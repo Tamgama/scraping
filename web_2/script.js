@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     var data = [];
     var filteredData = [];
@@ -58,16 +57,6 @@ $(document).ready(function () {
     // Cargar el CSV al iniciar la página
     loadCSV();
 
-    // // Filtro por título
-    // $('#searchTitle').on('input', function () {
-    //     applyFilters();
-    // });
-
-    // Mostrar/ocultar los filtros cuando se hace clic en el botón en pantallas pequeñas
-    $('.filters-toggle-btn').click(function() {
-        $('.filters-container').toggleClass('show');
-    });
-
     // Filtro por anunciante
     $('#filterAnunciante').on('change', function () {
         applyFilters();
@@ -88,7 +77,7 @@ $(document).ready(function () {
         applyFilters();
     });
 
-    // Filtro por precio
+    // Filtro por teléfono
     $('#filterPhone').on('input', function () {
         applyFilters();
     });
@@ -145,37 +134,19 @@ $(document).ready(function () {
         $filter.empty();
         $filter.append('<option value="Ver todos">Ver todos</option>');
         uniqueDistritos.forEach(function(distrito) {
-            $filter.append('<option value="' + distrito + '">' + distrito + '</option>');
-        });
-    }
-
-
-    // Actualizar el filtro de tlf con los valores únicos del CSV
-    function updatePhoneFilter(data) {
-        var uniquePhones = _.uniq(data.map(function(row) {
-            return row['tlf'];
-        }).filter(Boolean));
-
-        var $filter = $('#filterPhone');
-        $filter.empty();
-        $filter.append('<option value="Ver todos">Ver todos</option>');
-        uniquePrecios.forEach(function(precio) {
-            $filter.append('<option value="' + precio + '">' + precio + '</option>');
+            $filter.append('<option value="' + distrito + '</option>');
         });
     }
 
     // Aplicar los filtros de búsqueda
     function applyFilters() {
-        // var searchTerm = $('#searchTitle').val().toLowerCase();
         var selectedAnunciante = $('#filterAnunciante').val();
         var selectedTipo = $('#filterTipo').val();
         var selectedBarrio = $('#filterBarrio').val();
         var selectedDistrito = $('#filterDistrito').val();
         var selectedPhone = $('#filterPhone').val();
 
-
         filteredData = data.filter(function (row) {
-            // var matchesTitle = row['titulo'] && row['titulo'].toLowerCase().includes(searchTerm);
             var matchesAnunciante = selectedAnunciante === "Ver todos" || row['anunciante'] === selectedAnunciante;
             var matchesTipo = selectedTipo === "Ver todos" || row['tipo'] === selectedTipo;
             var matchesBarrio = selectedBarrio === "Ver todos" || row['barrio'] === selectedBarrio;
@@ -222,21 +193,16 @@ $(document).ready(function () {
 
             cardContent += '<div class="separator"></div>';
 
+            // Agregar Barrio y Distrito
             cardContent += '<div class="row-custom">';
-            cardContent += '<div class="col-custom"><strong>Precio:</strong> ' + (row['precio'] || 'N/A') + '</div>';
-            cardContent += '<div class="col-custom"><strong>Precio/m²:</strong> ' + (row['precio_por_metro'] || 'N/A') + '</div>';
-            cardContent += '</div>';
-
-            cardContent += '<div class="row-custom">';
-            cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row['superficie'] || 'N/A') + ' m²</div>';
-            cardContent += '<div class="col-custom"><strong>Última Actualización:</strong> ' + (row['ultima_actualizacion'] || 'N/A') + '</div>';
+            cardContent += '<div class="col-custom"><strong>Barrio:</strong> ' + (row['barrio'] || 'N/A') + '</div>';
+            cardContent += '<div class="col-custom"><strong>Distrito:</strong> ' + (row['distrito'] || 'N/A') + '</div>';
             cardContent += '</div>';
 
             // Añadir Nombre Anunciante y Teléfono
             cardContent += '<div class="row-custom">';
             cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row['nombre_anunciante'] || 'N/A') + '</div>';
 
-            // Enlace telefónico seguro
             var telefono = row['tlf'] ? String(row['tlf']) : '';
             if (telefono && telefono.length > 2) {
                 var prefijo = telefono.slice(0, 2);
@@ -248,26 +214,12 @@ $(document).ready(function () {
 
             cardContent += '</div>';
 
-            // Añadir características como badges
-            if (row['caracteristicas']) {
-                cardContent += '<div class="badge-container">';
-                var caracteristicas = row['caracteristicas'];
-
-                // Eliminar corchetes, comillas simples y dividir en elementos separados por comas
-                caracteristicas = caracteristicas.replace(/^\[|\]$/g, '').split(',');
-                caracteristicas.forEach(function(caracteristica) {
-                    // Eliminar comillas simples y espacios adicionales
-                    caracteristica = caracteristica.replace(/'/g, '').trim();
-                    cardContent += '<span class="badge-custom">' + caracteristica + '</span>';
-                });
-
-                cardContent += '</div>';
-            }
-
-            // Añadir el botón con la URL
-            if (row['url']) {
-                cardContent += '<a href="' + row['url'] + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
-            }
+            // Botón desplegable para cálculos
+            cardContent += '<button class="btn btn-primary" data-toggle="collapse" data-target="#calculo' + row['tlf'] + '">Mostrar Cálculo</button>';
+            cardContent += '<div id="calculo' + row['tlf'] + '" class="collapse mt-2">';
+            cardContent += '<p>Aquí puedes mostrar el cálculo.</p>';
+            cardContent += '<button class="btn btn-success" onclick="realizarCalculo(\'' + row['tlf'] + '\')">Realizar Cálculo</button>';
+            cardContent += '</div>';
 
             cardContent += '</div>';
             card.append(cardContent);
@@ -287,3 +239,8 @@ $(document).ready(function () {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     }
 });
+
+// Función que realiza el cálculo en base a un ID o cualquier otro dato
+function realizarCalculo(id) {
+    alert('Realizando cálculo para el ID: ' + id);
+}
