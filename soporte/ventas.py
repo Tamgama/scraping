@@ -2,6 +2,7 @@ import requests
 import time
 import random
 import os
+import re
 from bs4 import BeautifulSoup
 import pandas as pd
 import traceback
@@ -10,16 +11,16 @@ import json
 
 # URL base para scraping de inmuebles en Idealista
 base_url = "https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc"
-csv_file = "../src/ventas.csv"
+csv_file = "../src/ventas-corregido.csv"
 
 # Leer el archivo CSV si existe, si no, crear un DataFrame vacío
 if os.path.exists(csv_file):
     df = pd.read_csv(csv_file)
 else:
     df = pd.DataFrame(columns=[
-        "ID_Inmueble", "Tipo", "Título", "Calle", "Barrio", "Distrito", "Ciudad", 
-        "Área", "direccion_completa", "Precio", "Comunidad", "Precio/m²", "Características", "Habitaciones", "Baños",
-        "Referencia", "Anunciante", "Nombre_Anunciante", "Última Actualización", "Teléfono", "URL", "fecha"
+        "id_inmueble", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion", 
+        "precio", "precio_metro", "caracteristicas", "habitaciones", "m_construidos", "m_utiles",
+        "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "url", "fecha"
     ])
 
 # Cargar la cookie desde el archivo JSON
@@ -54,7 +55,7 @@ session = requests.Session()
 session.headers.update(headers)
 
 # Definir el rango de páginas que quieres recorrer
-num_paginas = 162  # Cambia este número según la cantidad de páginas que quieras recorrer
+num_paginas = 10  # Cambia este número según la cantidad de páginas que quieras recorrer
 
 # Función para hacer scraping con múltiples estrategias
 def scrape_url(url, use_session=False, is_phone_url=False):
@@ -254,32 +255,55 @@ for i in range(1, num_paginas + 1):
                         anunciante = anun_container.find("div", {"class": "name"}).get_text(strip=True) if anun_container else "N/A"
                         nombre_anun = anun_container.find("span").get_text(strip=True) if anun_container else "N/A"
 
-                        # Extraer localización
-                        location = soup_inmueble.find("div", {"id": "headerMap"})
+                         # Función para detectar barrios o pueblos y asignarlos a la columna "barrio"
+                        def detectar_barrio(texto):
+                            # Buscamos 'Murcia' o cualquier nombre que parezca un pueblo o barrio
+                            # Ajustamos el patrón para detectar "Murcia" o cualquier otro nombre
+                            murcia_pattern = r'\bmurcia\b'
+                            pueblo_pattern = r'\b[a-zA-Z]+\b'  # Detecta cualquier palabra que podría ser un barrio o pueblo
+                            barrio = ""
+
+                            # Detectamos si está en Murcia
+                            if re.search(murcia_pattern, texto, re.IGNORECASE):
+                                barrio = "Murcia"
+
+                            # Detectamos si hay otro pueblo o barrio
+                            pueblos = re.findall(pueblo_pattern, texto, re.IGNORECASE)
+                            if pueblos:
+                                barrio = pueblos[0]  # Puedes ajustar si detectas varios. Aquí guardamos el primer pueblo o barrio detectado.
+
+                            return barrio
+
+                        # Función para identificar si una palabra está relacionada con cardinalidad (norte, sur, este, oeste)
+                        def detectar_zona(texto):
+                            if re.search(r'\bnorte\b', texto, re.IGNORECASE):
+                                return "Norte"
+                            elif re.search(r'\bsur\b', texto, re.IGNORECASE):
+                                return "Sur"
+                            elif re.search(r'\beste\b', texto, re.IGNORECASE):
+                                return "Este"
+                            elif re.search(r'\boeste\b', texto, re.IGNORECASE):                                    return "Oeste"
+                            
+                            return ""
+
+                        # Modificar dentro del bucle donde extraemos la localización
+                        location = soup.find("div", {"id": "headerMap"})
                         if location:
                             loc = [lo.text for lo in location.find_all("li")]
                             street = loc[0] if len(loc) > 0 else "N/A"
-                            neighborhood = loc[1] if len(loc) > 1 else "N/A"
-                            district = loc[2] if len(loc) > 2 else "N/A"
-                            city = loc[3] if len(loc) > 3 else "N/A"
-                            area = loc[4] if len(loc) > 4 else "N/A"
-                            
-                            # Concatenar todos los elementos en la dirección completa
-                            direccion_completa = ', '.join([street, neighborhood, district, city, area])
+                            ciudad = loc[3] if len(loc) > 3 else "N/A"
+                            barrio = detectar_barrio(', '.join(loc))  # Detecta el barrio o pueblo dinámicamente
+                            zona = detectar_zona(', '.join(loc))  # Detecta zona cardinal (Norte, Sur, Este, Oeste)
+
+                            # Si no se detectó barrio pero la ciudad es Murcia, ponemos "Murcia" como barrio
+                        if not barrio:
+                            barrio = "Murcia"
+                            # Concatenar toda la dirección en una sola columna
+                            direccion_completa = ', '.join([street, barrio, zona, ciudad])
                         else:
-                            street = neighborhood = district = city = area = "N/A"
+                            street = barrio = zona = "N/A"
                             direccion_completa = "N/A"
 
-                        # Extraer características del inmueble
-                        details_section = soup_inmueble.find("section", {"id": "details"})
-                        if details_section:
-                            c1 = details_section.find("div", {"class": "details-property-feature-one"})
-                            basics = [caract.text for caract in c1.find_all("li")] if c1 else []
-                            metros = basics[0] if len(basics) > 0 else "N/A"
-                            habitaciones = basics[1] if len(basics) > 1 else "N/A"
-                            baños = basics[2] if len(basics) > 2 else "N/A"
-                        else:
-                            metros = habitaciones = baños = "N/A"
 
                         # Extraer teléfono usando la función scrape_url
                         phone_url = f"https://www.idealista.com/es/ajax/ads/{data_element_id}/contact-phones"
@@ -296,26 +320,26 @@ for i in range(1, num_paginas + 1):
 
                         # Agregar el inmueble al DataFrame
                         df = df._append({
-                            "ID_Inmueble": data_element_id,
-                            "Tipo": "venta",
-                            "Título": titulo_text,
-                            "Calle": street,
-                            "Barrio": neighborhood,
-                            "Distrito": district,
-                            "Ciudad": city,
-                            "Área": area,
-                            "direccion_completa": direccion_completa,
-                            "Precio": price_text,
-                            "Comunidad": community,
-                            "Precio/m²": meter_price,
-                            "Características": basics,
-                            "Habitaciones": habitaciones,
-                            "Baños": baños,
-                            "Referencia": ref_num,
-                            "Anunciante": anunciante,
-                            "Nombre_Anunciante": nombre_anun,
-                            "Última Actualización": actual,
-                            "Teléfono": telefono,
+                            "id_inmueble": data_element_id,
+                            "tipo" : "Alquiler",
+                            "titulo": titulo_text,
+                            "calle": street,
+                            "barrio": barrio,
+                            "zona": zona,
+                            "ciudad": ciudad,
+                            "localizacion": direccion_completa,
+                            # "direccion_completa": direccion_completa,
+                            "precio": price_text,
+                            # "Comunidad": community,
+                            "precio_metro": meter_price,
+                            "caracteristicas": basics,
+                            "habitaciones": habitaciones,
+                            "baños": baños,
+                            "referencia": ref_num,
+                            "anunciante": anunciante,
+                            "nombre": nombre_anun,
+                            "ultima_actualizacion": actual,
+                            "tlf": telefono,
                             "URL": inmueble_url,
                             "fecha": fecha_actual,
                         }, ignore_index=True)
