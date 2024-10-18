@@ -23,6 +23,66 @@ else:
         "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "url", "fecha"
     ])
 
+ciudades_murcia = {
+    "Abanilla": "Abanilla",
+    "Abarán": "Abarán",
+    "Águilas": "Águilas",
+    "Albudeite": "Albudeite",
+    "Alcantarilla": "Alcantarilla",
+    "Los Alcázares": "Los Alcázares",
+    "Aledo": "Aledo",
+    "Alguazas": "Alguazas",
+    "Alhama de Murcia": "Alhama de Murcia",
+    "Archena": "Archena",
+    "Beniel": "Beniel",
+    "Blanca": "Blanca",
+    "Bullas": "Bullas",
+    "Calasparra": "Calasparra",
+    "Campos del Río": "Campos del Río",
+    "Caravaca de la Cruz": "Caravaca de la Cruz",
+    "Cartagena": "Cartagena",
+    "Cehegín": "Cehegín",
+    "Ceutí": "Ceutí",
+    "Cieza": "Cieza",
+    "Fortuna": "Fortuna",
+    "Fuente Álamo de Murcia": "Fuente Álamo de Murcia",
+    "Jumilla": "Jumilla",
+    "Librilla": "Librilla",
+    "Lorca": "Lorca",
+    "Lorquí": "Lorquí",
+    "Mazarrón": "Mazarrón",
+    "Molina de Segura": "Molina de Segura",
+    "Moratalla": "Moratalla",
+    "Mula": "Mula",
+    "Murcia": "Murcia",
+    "Ojós": "Ojós",
+    "Pliego": "Pliego",
+    "Puerto Lumbreras": "Puerto Lumbreras",
+    "Ricote": "Ricote",
+    "San Javier": "San Javier",
+    "San Pedro del Pinatar": "San Pedro del Pinatar",
+    "Santomera": "Santomera",
+    "Torre-Pacheco": "Torre-Pacheco",
+    "Totana": "Totana",
+    "Ulea": "Ulea",
+    "La Unión": "La Unión",
+    "Villanueva del Río Segura": "Villanueva del Río Segura",
+    "Yecla": "Yecla",
+    "Sucina": "Sucina"  # Nota: Sucina es una pedanía de Murcia, no un municipio independiente
+}
+
+
+# Patrón regex para identificar barrios y distritos que comienzan por "barrio" o "distrito"
+barrio_regex = re.compile(r"^barrio\s+.+", re.IGNORECASE)
+distrito_regex = re.compile(r"^distrito\s+.+", re.IGNORECASE)
+
+direcciones_cardinales = ["norte", "sur", "este", "oeste", "centro"]
+# Patrón regex para identificar direcciones (simplificado)
+direccion_regex = re.compile(
+    r"^(Calle|Avda\.?|Avenida|Plaza|Camino|Carretera|C\.|Paseo)\s+.+", re.IGNORECASE
+)
+
+
 # Cargar la cookie desde el archivo JSON
 cookie = ""
 with open('cookie.json', 'r') as cookie_file:
@@ -196,7 +256,7 @@ for i in range(1, num_paginas + 1):
                 data_element_id = int(data_element_id)
 
                 # Comprobar si el ID ya existe
-                if data_element_id in df["ID_Inmueble"].values:
+                if data_element_id in df["id_inmueble"].values:
                     id_consecutivos += 1
                     print(f"ID {data_element_id} ya existe. Consecutivos: {id_consecutivos}")
 
@@ -255,56 +315,93 @@ for i in range(1, num_paginas + 1):
                         anunciante = anun_container.find("div", {"class": "name"}).get_text(strip=True) if anun_container else "N/A"
                         nombre_anun = anun_container.find("span").get_text(strip=True) if anun_container else "N/A"
 
-                         # Función para detectar barrios o pueblos y asignarlos a la columna "barrio"
-                        def detectar_barrio(texto):
-                            # Buscamos 'Murcia' o cualquier nombre que parezca un pueblo o barrio
-                            # Ajustamos el patrón para detectar "Murcia" o cualquier otro nombre
-                            murcia_pattern = r'\bmurcia\b'
-                            pueblo_pattern = r'\b[a-zA-Z]+\b'  # Detecta cualquier palabra que podría ser un barrio o pueblo
-                            barrio = ""
-
-                            # Detectamos si está en Murcia
-                            if re.search(murcia_pattern, texto, re.IGNORECASE):
-                                barrio = "Murcia"
-
-                            # Detectamos si hay otro pueblo o barrio
-                            pueblos = re.findall(pueblo_pattern, texto, re.IGNORECASE)
-                            if pueblos:
-                                barrio = pueblos[0]  # Puedes ajustar si detectas varios. Aquí guardamos el primer pueblo o barrio detectado.
-
-                            return barrio
-
-                        # Función para identificar si una palabra está relacionada con cardinalidad (norte, sur, este, oeste)
-                        def detectar_zona(texto):
-                            if re.search(r'\bnorte\b', texto, re.IGNORECASE):
-                                return "Norte"
-                            elif re.search(r'\bsur\b', texto, re.IGNORECASE):
-                                return "Sur"
-                            elif re.search(r'\beste\b', texto, re.IGNORECASE):
-                                return "Este"
-                            elif re.search(r'\boeste\b', texto, re.IGNORECASE):                                    return "Oeste"
+                        def clasificar_elementos(lista_elementos):
+                            clasificacion = {
+                                "direccion": None,
+                                "barrio": None,
+                                "distrito": None,
+                                "ciudad": None,
+                                "zona": None,
+                                "otros": []
+                            }
                             
-                            return ""
+                            # Diccionario para controlar si una categoría ya ha sido asignada
+                            categorias_asignadas = {
+                                "direccion": False,
+                                "barrio": False,
+                                "distrito": False,
+                                "ciudad": False,
+                                "zona": False,
+                            }
+                            
+                            for elemento in lista_elementos:
+                                elemento_strip = elemento.strip()
+                                elemento_lower = elemento_strip.lower()
+                                
+                                # Verificar si 'direccion' está vacía y si el elemento es una dirección
+                                if not categorias_asignadas["direccion"] and direccion_regex.match(elemento_strip):
+                                    clasificacion["direccion"] = elemento_strip
+                                    categorias_asignadas["direccion"] = True
+                                    continue  # Pasar al siguiente elemento
+                                
+                                # Verificar si 'barrio' está vacío y si el elemento es un barrio
+                                if not categorias_asignadas["barrio"] and barrio_regex.match(elemento_strip):
+                                    clasificacion["barrio"] = elemento_strip
+                                    categorias_asignadas["barrio"] = True
+                                    continue  # Pasar al siguiente elemento
+                                
+                                # Verificar si 'distrito' está vacío y si el elemento es un distrito
+                                if not categorias_asignadas["distrito"] and distrito_regex.match(elemento_strip):
+                                    clasificacion["distrito"] = elemento_strip
+                                    categorias_asignadas["distrito"] = True
+                                
+                                # Verificar si 'ciudad' está vacía y si el elemento contiene una ciudad
+                                if not categorias_asignadas["ciudad"] and any(ciudad.lower() in elemento_lower for ciudad in ciudades_murcia):
+                                    # Encontrar la primera ciudad que coincide
+                                    ciudad_match = next(ciudad for ciudad in ciudades_murcia if ciudad.lower() in elemento_lower)
+                                    clasificacion["ciudad"] = ciudad_match
+                                    categorias_asignadas["ciudad"] = True
+                                    continue  # Pasar al siguiente elemento
+                                if not categorias_asignadas["zona"]:
+                                    for dir_cardinal in direcciones_cardinales:
+                                        if dir_cardinal in elemento_lower:
+                                            clasificacion["zona"] = dir_cardinal.capitalize()
+                                            categorias_asignadas["zona"] = True
+                                            break  # Dejar de buscar direcciones cardinales
+                                # Si no ha sido clasificado, añadir a 'otros'
+                                clasificacion["otros"].append(elemento_strip)
+                            return clasificacion
 
                         # Modificar dentro del bucle donde extraemos la localización
-                        location = soup.find("div", {"id": "headerMap"})
+                        location = soup_inmueble.find("div", {"id": "headerMap"})
                         if location:
-                            loc = [lo.text for lo in location.find_all("li")]
-                            street = loc[0] if len(loc) > 0 else "N/A"
-                            ciudad = loc[3] if len(loc) > 3 else "N/A"
-                            barrio = detectar_barrio(', '.join(loc))  # Detecta el barrio o pueblo dinámicamente
-                            zona = detectar_zona(', '.join(loc))  # Detecta zona cardinal (Norte, Sur, Este, Oeste)
-
+                            loc = [lo.text.strip() for lo in location.find_all("li")]
+                            # Se coge toda la dirección y se clasfican los elementos
+                            # SI hay elementos que no entience, los pone en 'otros'
+                            # Eso se puede usar para ir corrigiendo las expresiones regulares
+                            direccion_clasificada = clasificar_elementos(loc)
+                            street = direccion_clasificada['direccion'] or "N/A"
+                            # Si no se detecta ciudad, se pone Murcia
+                            ciudad = direccion_clasificada['ciudad'] or "Murcia"
                             # Si no se detectó barrio pero la ciudad es Murcia, ponemos "Murcia" como barrio
-                        if not barrio:
-                            barrio = "Murcia"
+                            barrio = direccion_clasificada['barrio'] or "Murcia"
+                            # Zona
+                            zona = direccion_clasificada['zona'] or "N/A"  # Detecta zona cardinal (Norte, Sur, Este, Oeste)
                             # Concatenar toda la dirección en una sola columna
-                            direccion_completa = ', '.join([street, barrio, zona, ciudad])
+                            direccion_completa = ', '.join(loc)
                         else:
-                            street = barrio = zona = "N/A"
+                            ciudad = street = barrio = zona = "N/A"
                             direccion_completa = "N/A"
 
-
+                        # Extract property details
+                        c1 = soup_inmueble.find("section", {"id": "details"}).find("div", {"class": "details-property-feature-one"})
+                        c2 = soup_inmueble.find("section", {"id": "details"}).find("div", {"class": "details-property-feature-two"})
+                        basics = [caract.text.strip() for caract in c1.find_all("li")] if c1 else []
+                        # TODO: This is not correct
+                        if basics:
+                            metros = basics[0] if len(basics) > 0 else "N/A"
+                            habitaciones = basics[1] if len(basics) > 1 else "N/A"
+                            baños = basics[2] if len(basics) > 2 else "N/A"
                         # Extraer teléfono usando la función scrape_url
                         phone_url = f"https://www.idealista.com/es/ajax/ads/{data_element_id}/contact-phones"
                         contenido_telefono = scrape_url(phone_url, use_session=False, is_phone_url=True)  # Usar la sesión normal o ScrapingBee

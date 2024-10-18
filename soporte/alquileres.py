@@ -62,7 +62,7 @@ ciudades_murcia = {
 barrio_regex = re.compile(r"^barrio\s+.+", re.IGNORECASE)
 distrito_regex = re.compile(r"^distrito\s+.+", re.IGNORECASE)
 
-direcciones_cardinales = ["norte", "sur", "este", "oeste"]
+direcciones_cardinales = ["norte", "sur", "este", "oeste", "centro"]
 # Patrón regex para identificar direcciones (simplificado)
 direccion_regex = re.compile(
     r"^(Calle|Avda\.?|Avenida|Plaza|Camino|Carretera|C\.|Paseo)\s+.+", re.IGNORECASE
@@ -307,6 +307,7 @@ for i in range(1, num_paginas + 1):
             c1 = soup.find("section", {"id": "details"}).find("div", {"class": "details-property-feature-one"})
             c2 = soup.find("section", {"id": "details"}).find("div", {"class": "details-property-feature-two"})
             basics = [caract.text.strip() for caract in c1.find_all("li")] if c1 else []
+            # TODO: This is not correct, for now is cleaned in limpieza,py
             if basics:
                 metros = basics[0] if len(basics) > 0 else "N/A"
                 habitaciones = basics[1] if len(basics) > 1 else "N/A"
