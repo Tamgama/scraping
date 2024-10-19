@@ -260,11 +260,15 @@ for i in range(1, num_paginas + 1):
                     id_consecutivos += 1
                     print(f"ID {data_element_id} ya existe. Consecutivos: {id_consecutivos}")
 
+                    
                     # Detener el proceso si encuentra 5 IDs consecutivos
                     if id_consecutivos >= 5:
-                        print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
-                        detener_scraping = True
-                        break
+                        print('ª')
+                        # print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
+                        # detener_scraping = True
+                        # break
+                        
+                    continue
                 else:
                     id_consecutivos = 0  # Reiniciar el contador si no es consecutivo
 

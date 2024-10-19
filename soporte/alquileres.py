@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import datetime
 import json
-csv_file = "alquileres-corregido.csv"
+csv_file = "../src/alquileres-corregido.csv"
 
 ciudades_murcia = {
     "Abanilla": "Abanilla",
@@ -140,12 +140,12 @@ for i in range(1, num_paginas + 1):
             
             if data_element_id in df["id_inmueble"].values:
                 id_consecutivos += 1
-                # print(f"ID {data_element_id} ya existe. Saltando...")
+                print(f"ID {data_element_id} ya existe. Saltando...")
                 
                 # Si se encuentran 5 IDs consecutivos, detener el proceso
-                if id_consecutivos >= 5:
-                    print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
-                    break
+                # if id_consecutivos >= 5:
+                #     print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
+                #     break
                 continue
             else:
                 id_consecutivos = 0  # Reiniciar contador si se encuentra un ID nuevo
@@ -356,9 +356,9 @@ for i in range(1, num_paginas + 1):
             except Exception as e:
                 print(f"Error al intentar guardar en CSV: {e}")
             time.sleep(random.uniform(1, 3))  # Añadir un retraso
-    if id_consecutivos >= 5:  # Salir del bucle principal si se encontraron 5 IDs consecutivos
-        print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
-        break
+    # if id_consecutivos >= 5:  # Salir del bucle principal si se encontraron 5 IDs consecutivos
+    #     print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
+    #     break
 # Guardar el DataFrame actualizado en el archivo CSV al finalizar el proceso
 try:
     df.sort_values(by="fecha", ascending=False, inplace=True)
