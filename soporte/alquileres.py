@@ -65,7 +65,7 @@ distrito_regex = re.compile(r"^distrito\s+.+", re.IGNORECASE)
 direcciones_cardinales = ["norte", "sur", "este", "oeste", "centro"]
 # Patrón regex para identificar direcciones (simplificado)
 direccion_regex = re.compile(
-    r"^(Calle|Avda\.?|Avenida|Plaza|Camino|Carretera|C\.|Paseo)\s+.+", re.IGNORECASE
+    r"^(Calle|Avda\.?|Avenida|Carril|Plaza|Camino|Carretera|C\.|Paseo)\s+.+", re.IGNORECASE
 )
 
 # Leer el archivo CSV si existe, si no, crear un DataFrame vacío
