@@ -65,7 +65,8 @@ distrito_regex = re.compile(r"^distrito\s+.+", re.IGNORECASE)
 direcciones_cardinales = ["norte", "sur", "este", "oeste", "centro"]
 # Patrón regex para identificar direcciones (simplificado)
 direccion_regex = re.compile(
-    r"^(Calle|Avda\.?|Avenida|Carril|Plaza|Camino|Carretera|C\.|Paseo)\s+.+", re.IGNORECASE
+    r"^(Calle|Avda\.?|Avenida|Carril|Plaza|Camino|Carretera|C\.|Paseo|Pza\.?|de|Ronda|Senda|Donantes|Arroyo|Atlantico)\s+.+", 
+    re.IGNORECASE
 )
 
 # Leer el archivo CSV si existe, si no, crear un DataFrame vacío
@@ -143,9 +144,9 @@ for i in range(1, num_paginas + 1):
                 print(f"ID {data_element_id} ya existe. Saltando...")
                 
                 # Si se encuentran 5 IDs consecutivos, detener el proceso
-                # if id_consecutivos >= 5:
-                #     print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
-                #     break
+                if id_consecutivos >= 5:
+                    print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
+                    break
                 continue
             else:
                 id_consecutivos = 0  # Reiniciar contador si se encuentra un ID nuevo
@@ -356,9 +357,9 @@ for i in range(1, num_paginas + 1):
             except Exception as e:
                 print(f"Error al intentar guardar en CSV: {e}")
             time.sleep(random.uniform(1, 3))  # Añadir un retraso
-    # if id_consecutivos >= 5:  # Salir del bucle principal si se encontraron 5 IDs consecutivos
-    #     print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
-    #     break
+    if id_consecutivos >= 5:  # Salir del bucle principal si se encontraron 5 IDs consecutivos
+        print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
+        break
 # Guardar el DataFrame actualizado en el archivo CSV al finalizar el proceso
 try:
     df.sort_values(by="fecha", ascending=False, inplace=True)

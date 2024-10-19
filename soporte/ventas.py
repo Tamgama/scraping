@@ -79,7 +79,8 @@ distrito_regex = re.compile(r"^distrito\s+.+", re.IGNORECASE)
 direcciones_cardinales = ["norte", "sur", "este", "oeste", "centro"]
 # Patrón regex para identificar direcciones (simplificado)
 direccion_regex = re.compile(
-    r"^(Calle|Avda\.?|Avenida|Plaza|Camino|Carretera|C\.|Paseo)\s+.+", re.IGNORECASE
+    r"^(Calle|Avda\.?|Avenida|Carril|Plaza|Camino|Carretera|C\.|Paseo|Pza\.?|de|Ronda|Senda|Donantes|Arroyo|Atlantico)\s+.+", 
+    re.IGNORECASE
 )
 
 
@@ -115,7 +116,7 @@ session = requests.Session()
 session.headers.update(headers)
 
 # Definir el rango de páginas que quieres recorrer
-num_paginas = 10  # Cambia este número según la cantidad de páginas que quieras recorrer
+num_paginas = 159  # Cambia este número según la cantidad de páginas que quieras recorrer
 
 # Función para hacer scraping con múltiples estrategias
 def scrape_url(url, use_session=False, is_phone_url=False):
@@ -422,7 +423,7 @@ for i in range(1, num_paginas + 1):
                         # Agregar el inmueble al DataFrame
                         df = df._append({
                             "id_inmueble": data_element_id,
-                            "tipo" : "Alquiler",
+                            "tipo" : "Ventas",
                             "titulo": titulo_text,
                             "calle": street,
                             "barrio": barrio,
