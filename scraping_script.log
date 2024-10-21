@@ -47350,3 +47350,72 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 88c37e1] [UPD] data_updated: 2024-10-21 04:05
+ 3 files changed, 7047 insertions(+), 2059 deletions(-)
+To github.com:Tamgama/scraping.git
+   15415ea..88c37e1  main -> main
+Agent pid 594904
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   88c37e1..8823014  main       -> origin/main
+Updating 88c37e1..8823014
+Fast-forward
+ soporte/alquileres.py                    |     4 +
+ soporte/cookie.json                      |     2 +-
+ soporte/limpieza.py                      |    54 +-
+ soporte/{ => pruebas}/correcciones.ipynb |     0
+ soporte/{ => pruebas}/limpieza.ipynb     |   257 +-
+ soporte/{ => pruebas}/selenium.ipynb     |     0
+ soporte/ventas.py                        |    11 +-
+ src/alquileres-corregido.csv             |  1249 +--
+ src/alquileres.csv                       |  6358 ++++++-------
+ src/data.csv                             |  5335 -----------
+ src/ventas-corregido.csv                 |  2854 +++---
+ src/ventas.csv                           | 14764 ++++++++++++++---------------
+ web_2/data/inmuebles.csv                 |  7282 +++++++-------
+ web_2/script.js                          |    77 +-
+ 14 files changed, 16376 insertions(+), 21871 deletions(-)
+ rename soporte/{ => pruebas}/correcciones.ipynb (100%)
+ rename soporte/{ => pruebas}/limpieza.ipynb (94%)
+ rename soporte/{ => pruebas}/selenium.ipynb (100%)
+ delete mode 100644 src/data.csv
+Ejecutando alquileres.py...
+Error al ejecutar alquileres.py: Command '['python3', 'alquileres.py']' returned non-zero exit status 1.
+  File "/root/scraping/soporte/alquileres.py", line 14
+    >>>>>>> 0845493 ([UPD] elimino csv para generar unos nuevos con los cambios en ventas.py y alquileres.py)
+            ^
+SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+
+Ejecutando ventas.py...
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-1.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-2.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-3.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-4.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-5.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-6.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-7.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-8.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-9.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Error al procesar la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-10.htm?ordenado-por=fecha-publicacion-desc: 'id_inmueble'
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+
+Intentando leer el archivo CSV en la ruta: ../src/alquileres.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/alquileres.csv' actualizado y guardado correctamente.
+
+Intentando leer el archivo CSV en la ruta: ../src/ventas.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/ventas.csv' actualizado y guardado correctamente.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
