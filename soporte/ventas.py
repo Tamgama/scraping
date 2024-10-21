@@ -116,7 +116,7 @@ session = requests.Session()
 session.headers.update(headers)
 
 # Definir el rango de páginas que quieres recorrer
-num_paginas = 159  # Cambia este número según la cantidad de páginas que quieras recorrer
+num_paginas = 10  # Cambia este número según la cantidad de páginas que quieras recorrer
 
 # Función para hacer scraping con múltiples estrategias
 def scrape_url(url, use_session=False, is_phone_url=False):
@@ -264,10 +264,9 @@ for i in range(1, num_paginas + 1):
                     
                     # Detener el proceso si encuentra 5 IDs consecutivos
                     if id_consecutivos >= 5:
-                        print('ª')
-                        # print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
-                        # detener_scraping = True
-                        # break
+                        print("Se encontraron 5 IDs consecutivos. Deteniendo proceso.")
+                        detener_scraping = True
+                        break
                         
                     continue
                 else:
