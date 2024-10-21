@@ -7,8 +7,8 @@ pd.set_option("display.max_columns", None)
 pd.set_option('display.max_colwidth', None)
 
 # Cargar los datasets de ventas y alquileres
-ventas = pd.read_csv("../src/ventas-corregido.csv")
-alquileres = pd.read_csv("../src/alquileres-corregido.csv")
+ventas = pd.read_csv("../src/ventas.csv")
+alquileres = pd.read_csv("../src/alquileres.csv")
 
 # # Eliminar columnas innecesarias del dataframe de alquileres
 # alquileres.drop(['Metros_construidos', 'Metros_utilesBaños'], axis=1, inplace=True)

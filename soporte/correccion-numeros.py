@@ -45,8 +45,8 @@ session.headers.update(headers)
 
 def obtener_numero_telefono(id_inmueble):
     """
-    Dado un id_inmueble, obtiene el número de teléfono asociado.
-    Retorna el número de teléfono como string, o -1 si no se encuentra.
+    Dado un id_inmueble, obtiene el número de tlf asociado.
+    Retorna el número de tlf como string, o -1 si no se encuentra.
     """
     url = f"https://www.idealista.com/es/ajax/ads/{id_inmueble}/contact-phones"
     print(f"Procesando ID: {id_inmueble} - URL: {url}")
@@ -71,13 +71,13 @@ def obtener_numero_telefono(id_inmueble):
             # Verificar si la respuesta es JSON válida
             if 'application/json' in response.headers.get('Content-Type', ''):
                 data = response.json()
-                # Verificar si los datos del teléfono están presentes y son válidos
+                # Verificar si los datos del tlf están presentes y son válidos
                 if 'phone1' in data and data['phone1'] and 'number' in data['phone1']:
                     phone_number = data['phone1']['number']
-                    print(f"Teléfono {phone_number} asignado para el ID de inmueble: {id_inmueble}")
+                    print(f"tlf {phone_number} asignado para el ID de inmueble: {id_inmueble}")
                     return phone_number
                 else:
-                    print(f"No se encontró el número de teléfono para el ID de inmueble: {id_inmueble}. "
+                    print(f"No se encontró el número de tlf para el ID de inmueble: {id_inmueble}. "
                           "Asignado -1.")
                     return -1
             else:
@@ -105,18 +105,18 @@ for csv_path in csv_files:
     except FileNotFoundError:
         print(f"Error: No se encontró el archivo CSV en la ruta {csv_path}")
         continue
-    # Validar que las columnas 'Teléfono' e 'ID_Inmueble' existen
-    if 'Teléfono' not in df.columns or 'ID_Inmueble' not in df.columns:
-        print("Error: Las columnas 'Teléfono' o 'ID_Inmueble' no se encontraron en el archivo CSV.")
+    # Validar que las columnas 'tlf' e 'id_inmueble' existen
+    if 'tlf' not in df.columns or 'id_inmueble' not in df.columns:
+        print("Error: Las columnas 'tlf' o 'id_inmueble' no se encontraron en el archivo CSV.")
         continue
-    # Filtrar solo las filas donde el teléfono esté vacío, sea 'N/A' o 0
-    df_faltante = df[df['Teléfono'].isna() | (df['Teléfono'] == 'N/A') | (df['Teléfono'] == 0)]
+    # Filtrar solo las filas donde el tlf esté vacío, sea 'N/A' o 0
+    df_faltante = df[df['tlf'].isna() | (df['tlf'] == 'N/A') | (df['tlf'] == 0)]
     # Iterar sobre las filas filtradas
     for index, row in df_faltante.iterrows():
-        id_inmueble = int(row['ID_Inmueble'])
+        id_inmueble = int(row['id_inmueble'])
         telefono = obtener_numero_telefono(id_inmueble)
         if telefono is not None:
-            df.at[index, 'Teléfono'] = telefono
+            df.at[index, 'tlf'] = telefono
             # Guardar el archivo CSV actualizado después de cada cambio
             df.to_csv(csv_path, index=False)
     df.sort_values(by="fecha", ascending=False, inplace=True)
