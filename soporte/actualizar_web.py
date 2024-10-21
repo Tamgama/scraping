@@ -49,11 +49,11 @@ hostname = 'home484808560.1and1-data.host'  # Cambia esto por la IP o dominio de
 port = 22  # El puerto por defecto de SFTP es 22
 username = 'u74332895'  # Nombre de usuario
 password = 'Pr0Murc14#10.06.24'  # Contraseña
-local_dir = '../web_2'  # Ruta local a la carpeta web_2
+local_dir = 'scraping/web_2'  # Ruta local a la carpeta web_2
 remote_dir = 'web_2'  # Ruta remota en el servidor
 
 # Ejecutar la subida
 sftp_upload(hostname, port, username, password, local_dir, remote_dir)
-local_dir = '../security'  # Ruta local a la carpeta web_2
+local_dir = 'scraping/security'  # Ruta local a la carpeta web_2
 remote_dir = 'security'  # Ruta remota en el servidor
 sftp_upload(hostname, port, username, password, local_dir, remote_dir)
