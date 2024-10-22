@@ -57,11 +57,6 @@ $(document).ready(function () {
     // Cargar el CSV al iniciar la página
     loadCSV();
 
-    // Mostrar/ocultar los filtros cuando se hace clic en el botón en pantallas pequeñas
-    $('.filters-toggle-btn').click(function() {
-        $('.filters-container').toggleClass('show');
-    });
-
     // Filtro por anunciante
     $('#filterAnunciante').on('change', function () {
         applyFilters();
@@ -139,21 +134,7 @@ $(document).ready(function () {
         $filter.empty();
         $filter.append('<option value="Ver todos">Ver todos</option>');
         uniqueDistritos.forEach(function(distrito) {
-            $filter.append('<option value="' + distrito + '">' + distrito + '</option>');
-        });
-    }
-
-    // Actualizar el filtro de tlf con los valores únicos del CSV
-    function updatePhoneFilter(data) {
-        var uniquePhones = _.uniq(data.map(function(row) {
-            return row['tlf'];
-        }).filter(Boolean));
-
-        var $filter = $('#filterPhone');
-        $filter.empty();
-        $filter.append('<option value="Ver todos">Ver todos</option>');
-        uniquePhones.forEach(function(precio) {
-            $filter.append('<option value="' + precio + '">' + precio + '</option>');
+            $filter.append('<option value="' + distrito + '</option>');
         });
     }
 
@@ -199,7 +180,6 @@ $(document).ready(function () {
         }
     });
 
-    // Renderizar la página con las tarjetas
     function renderPage(page) {
         $('#cardsContainer').empty();
         var start = (page - 1) * pageSize;
@@ -214,16 +194,12 @@ $(document).ready(function () {
             cardContent += '<div class="separator"></div>';
 
             cardContent += '<div class="row-custom">';
-            cardContent += '<div class="col-custom"><strong>Precio:</strong> ' + (row['precio'] || 'N/A') + ' €</div>';
-            cardContent += '<div class="col-custom"><strong>Precio/m²:</strong> ' + (row['precio_por_metro'] || 'N/A') + '€/m²</div>';
+            cardContent += '<div class="col-custom"><strong>Precio:</strong> ' + (row['precio'] || 'N/A') + '</div>';
+            cardContent += '<div class="col-custom"><strong>Precio/m²:</strong> ' + (row['precio_por_metro'] || 'N/A') + '</div>';
             cardContent += '</div>';
 
             cardContent += '<div class="row-custom">';
             cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row['superficie'] || 'N/A') + ' m²</div>';
-            cardContent += '</div>';
-
-            // Añadir Barrio y Distrito
-            cardContent += '<div class="row-custom">';
             cardContent += '<div class="col-custom"><strong>Barrio:</strong> ' + (row['barrio'] || 'N/A') + '</div>';
             cardContent += '<div class="col-custom"><strong>Distrito:</strong> ' + (row['distrito'] || 'N/A') + '</div>';
             cardContent += '</div>';
@@ -244,117 +220,70 @@ $(document).ready(function () {
 
             cardContent += '</div>';
 
-            
-            // Añadir la valoración de venta
-            var avgVentaRating = row['valoracion_venta'] || 'Sin valoración';
-            cardContent += '<div class="row-custom">';
-            cardContent += '<div class="col-custom"><strong>Valoración de venta:</strong> ' + avgVentaRating + '</div>';
-            
-            // Añadir desplegable para valoración de venta
-            cardContent += '<div class="col-custom">';
-            cardContent += '<label for="ventaRatingSelect">Valoración de venta:</label>';
-            cardContent += '<select class="ventaRatingSelect" data-id="' + row['id'] + '">';
-            for (var j = 1; j <= 10; j++) {
-                cardContent += '<option value="' + j + '">' + j + '</option>';
-            }
-            cardContent += '</select>';
-            cardContent += '</div>';
-            
-            cardContent += '</div>'; // Cerrar row-custom para valoración de venta
-            cardContent += '</div>'; // Cerrar card-custom
-            card.append(cardContent);
-            
-            // Añadir características como badges
+            // Mostrar las características como etiquetas si existen
             if (row['caracteristicas']) {
-                cardContent += '<div class="badge-container">';
-                var caracteristicas = row['caracteristicas'];
-
-                // Eliminar corchetes, comillas simples y dividir en elementos separados por comas
-                caracteristicas = caracteristicas.replace(/^\[|\]$/g, '').split(',');
-                caracteristicas.forEach(function(caracteristica) {
-                    // Eliminar comillas simples y espacios adicionales
+                cardContent += '<div class="tags">';
+                var caracteristicas = row['caracteristicas'].replace('[', '').replace(']', '').split(',');
+                caracteristicas.forEach(function (caracteristica) {
                     caracteristica = caracteristica.replace(/'/g, '').trim();
                     cardContent += '<span class="badge-custom">' + caracteristica + '</span>';
                 });
-
                 cardContent += '</div>';
             }
-            
-            // Añadir el botón con la URL
-            if (row['url']) {
-                cardContent += '<a href="' + row['url'] + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
+
+            // Botón desplegable para realizar cálculo
+            cardContent += '<button class="btn btn-secondary btn-sm mt-2" data-toggle="collapse" data-target="#calculo-' + row['id'] + '">Mostrar cálculo</button>';
+            cardContent += '<div id="calculo-' + row['id'] + '" class="collapse mt-2">';
+
+            // Seleccionar porcentaje
+            cardContent += '<label for="porcentaje-' + row['id'] + '">Seleccione porcentaje (%):</label>';
+            cardContent += '<select id="porcentaje-' + row['id'] + '" class="form-control">';
+            for (var i = 1; i <= 10; i++) {
+                cardContent += '<option value="' + i + '">' + i + '%</option>';
             }
+            cardContent += '</select>';
+
+            // Añadir un campo para ingresar el precio y metros
+            cardContent += '<input type="text" id="input-metros-' + row['id'] + '" class="form-control mt-2" value="' + (row['superficie'] || 0) + '" readonly>';
+            cardContent += '<input type="text" id="input-precio-' + row['id'] + '" class="form-control mt-2" value="' + (row['precio'] || 0) + '" readonly>';
+
+            // Botón para realizar cálculo
+            cardContent += '<button class="btn btn-primary mt-2" onclick="realizarCalculo(' + row['id'] + ')">Calcular Valoración de Venta</button>';
+
+            // Contenedor donde se mostrará el resultado del cálculo
+            cardContent += '<div id="resultado-calculo-' + row['id'] + '" class="mt-2"></div>';
+
+            cardContent += '</div>';
+            cardContent += '</div>';
+            card.append(cardContent);
 
             $('#cardsContainer').append(card);
         });
-
-        // Añadir evento para manejar cambios en el desplegable de valoración media
-        $('.ratingSelect').on('change', function() {
-            var selectedValue = $(this).val();
-            var inmuebleId = $(this).data('id');
-            updateRating(inmuebleId, selectedValue, 'media');
-        });
-
-        // Añadir evento para manejar cambios en el desplegable de valoración de venta
-        $('.ventaRatingSelect').on('change', function() {
-            var selectedValue = $(this).val();
-            var inmuebleId = $(this).data('id');
-            updateRating(inmuebleId, selectedValue, 'venta');
-        });
     }
 
-    // Actualizar los controles de paginación
     function updatePaginationControls() {
-        $('#currentPageTop, #currentPageBottom').text(currentPage);
-        $('#totalPagesTop, #totalPagesBottom').text(totalPages);
+        $('#pageInfoTop, #pageInfoBottom').text('Página ' + currentPage + ' de ' + totalPages);
         $('#prevPageTop, #prevPageBottom').prop('disabled', currentPage === 1);
         $('#nextPageTop, #nextPageBottom').prop('disabled', currentPage === totalPages);
     }
 
-    // Volver a la parte superior de la página después de cambiar de página
+    // Función para volver a la parte superior de la página
     function scrollToTop() {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     }
-
-    // Función para actualizar las valoraciones
-    function updateRating(inmuebleId, rating, tipo) {
-        // Encuentra el inmueble por id
-        var inmueble = data.find(function (row) {
-            return row['id'] == inmuebleId;
-        });
-
-        if (inmueble) {
-            if (tipo === 'media') {
-                // Actualizar la valoración media
-                var valoraciones = inmueble.valoraciones || [];
-                valoraciones.push(parseInt(rating));
-                inmueble.valoraciones = valoraciones;
-
-                var totalValoraciones = valoraciones.reduce(function (acc, val) {
-                    return acc + val;
-                }, 0);
-
-                var avgRating = (totalValoraciones / valoraciones.length).toFixed(1);
-                inmueble.valoracion_media = avgRating;
-
-                // Actualizar visualmente la tarjeta
-                $('select[data-id="' + inmuebleId + '"]').closest('.card-custom').find('.col-custom strong:contains("Valoración media")').next().text(avgRating);
-            } else if (tipo === 'venta') {
-                // Actualizar la valoración de venta
-                var valoracionesVenta = inmueble.valoraciones_venta || [];
-                valoracionesVenta.push(parseInt(rating));
-                inmueble.valoraciones_venta = valoracionesVenta;
-
-                var totalValoracionesVenta = valoracionesVenta.reduce(function (acc, val) {
-                    return acc + val;
-                }, 0);
-
-                var avgVentaRating = (totalValoracionesVenta / valoracionesVenta.length).toFixed(1);
-                inmueble.valoracion_venta = avgVentaRating;
-
-                // Actualizar visualmente la tarjeta
-                $('select[data-id="' + inmuebleId + '"]').closest('.card-custom').find('.col-custom strong:contains("Valoración de venta")').next().text(avgVentaRating);
-            }
-        }
-    }
 });
+
+// Función que realiza el cálculo en base a un ID o cualquier otro dato
+function realizarCalculo(id) {
+    var metros = parseFloat($('#input-metros-' + id).val());
+    var precio = parseFloat($('#input-precio-' + id).val());
+    var porcentaje = parseFloat($('#porcentaje-' + id).val());
+
+    if (!isNaN(metros) && !isNaN(precio) && !isNaN(porcentaje)) {
+        // Calcular el valor ajustado
+        var valoracion = precio + (precio * (porcentaje / 100));
+        $('#resultado-calculo-' + id).html('<strong>Valoración de Venta:</strong> ' + valoracion.toFixed(2) + ' €');
+    } else {
+        $('#resultado-calculo-' + id).html('<strong>Error:</strong> No se puede realizar el cálculo.');
+    }
+}
