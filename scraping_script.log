@@ -47962,3 +47962,104 @@ Ejecutando actualizar_web.py...
 La carpeta ../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta ../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main ca33dbb] [UPD] data_updated: 2024-10-22 12:01
+ 4 files changed, 4301 insertions(+), 4085 deletions(-)
+To github.com:Tamgama/scraping.git
+   15a4f19..ca33dbb  main -> main
+Agent pid 632067
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   ca33dbb..28d53a3  main       -> origin/main
+Updating ca33dbb..28d53a3
+Fast-forward
+ soporte/actualizar_web.py |   4 +-
+ web_2/script.js           | 148 ++++++++++++++++++++++++++++++++++++++++------
+ 2 files changed, 133 insertions(+), 19 deletions(-)
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 26111541: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/26111541/contact-phones
+ID 26111541 guardado en el CSV.
+Error al intentar acceder al teléfono para 106334403: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106334403/contact-phones
+ID 106334403 guardado en el CSV.
+Error al intentar acceder al teléfono para 106333905: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106333905/contact-phones
+ID 106333905 guardado en el CSV.
+Error al intentar acceder al teléfono para 106268401: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106268401/contact-phones
+ID 106268401 guardado en el CSV.
+ID 106331224 ya existe. Saltando...
+ID 106330185 ya existe. Saltando...
+ID 106329735 ya existe. Saltando...
+ID 106322033 ya existe. Saltando...
+ID 106317822 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/104940289/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 104940289
+ID 104940289 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106334370/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106334370
+ID 106334370 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106334324/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106334324
+ID 106334324 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106334051/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106334051
+ID 106334051 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106329882/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106329882
+ID 106329882 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106333588/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106333588
+ID 106333588 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106333432/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106333432
+ID 106333432 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/99551860/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 99551860
+ID 99551860 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/104894671/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 104894671
+ID 104894671 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106285518/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106285518
+ID 106285518 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/104894121/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 104894121
+ID 104894121 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105019161/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 105019161
+ID 105019161 guardado en el CSV.
+ID 106332258 ya existe. Consecutivos: 1
+ID 106326318 ya existe. Consecutivos: 2
+ID 106319369 ya existe. Consecutivos: 3
+ID 106329939 ya existe. Consecutivos: 4
+ID 106331612 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/web_2'
+Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/security'
+
