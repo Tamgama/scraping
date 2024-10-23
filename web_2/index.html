@@ -21,14 +21,14 @@
             </nav>
         </div>
     </header>
-    <div class="container mt-5">
+
+    <div class="container main-container mt-5">
         <div class="row">
             <!-- Botón para desplegar los filtros en pantallas pequeñas -->
             <button class="filters-toggle-btn btn btn-secondary d-md-none mb-3" data-toggle="collapse" data-target="#filtersContainer">Mostrar Filtros</button>
 
-            <!-- Columna para los filtros (Alineada a la izquierda) -->
-            <div class="col-md-3">
-                <!-- Caja colapsable para pantallas pequeñas -->
+            <!-- Columna para los filtros -->
+            <div class="col-md-3 filters-container p-3 border rounded">
                 <div id="filtersContainer" class="collapse d-md-block">
                     <div class="filters-container p-3 border rounded">
                         <div class="filter-group mb-3">
@@ -68,9 +68,9 @@
             </div>
 
             <!-- Columna para las tarjetas -->
-            <div class="col-md-9">
+            <div class="col-md-9 content-container">
                 <div id="cardsContainer" class="row">
-                    <!-- Contenedor para las cards -->
+                    <!-- Contenedor para las cards, las tarjetas dinámicas se insertan aquí -->
                 </div>
 
                 <!-- Paginación en la parte inferior -->
