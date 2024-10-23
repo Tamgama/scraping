@@ -11,8 +11,8 @@ import json
 
 # URL base para scraping de inmuebles en Idealista
 base_url = "https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc"
-csv_file = "../src/ventas.csv"
-
+base_dir = os.path.dirname(os.path.abspath(__file__))
+csv_file = os.path.join(base_dir, '../src/ventas.csv')  # Ruta local al csv
 # Leer el archivo CSV si existe, si no, crear un DataFrame vacío
 if os.path.exists(csv_file):
     df = pd.read_csv(csv_file)
@@ -86,7 +86,7 @@ direccion_regex = re.compile(
 
 # Cargar la cookie desde el archivo JSON
 cookie = ""
-with open('cookie.json', 'r') as cookie_file:
+with open(os.path.join(base_dir, './cookie.json'), 'r') as cookie_file:
     config = json.load(cookie_file)
     cookie = config['cookie']
 
