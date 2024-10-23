@@ -6,6 +6,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 /* Estilo del header */
 header {
     background-color: #004d3c; /* Color de fondo del header */
@@ -63,31 +64,34 @@ header {
     border-radius: 4px;
 }
 
-/* Layout para la caja de filtros y el contenido */
+/* Estilos para el layout de las tarjetas */
 #cardsContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    z-index: 0;
     margin-top: 10px;
 }
 
+/* Estilo básico para la caja de filtros y el contenido */
 .main-container {
     display: flex;
     justify-content: flex-start; /* Alinear a la izquierda */
-    gap: 20px;
+    gap: 20px; /* Espacio entre la caja de filtros y el contenido */
     margin: 20px auto; /* Centrar horizontalmente el contenedor principal */
-    max-width: 1200px;
+    max-width: 1200px; /* Limitar el ancho máximo en pantallas grandes */
 }
 
-/* Estilo de la caja de filtros */
+/* Estilos para la caja de filtros */
 .filters-container {
     position: relative;
+    top: 20px;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.9); /* Fondo más opaco para mejor legibilidad */
     border: 1px solid rgba(194, 194, 194, 0.7); /* Borde más oscuro */
     border-radius: 5px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
+    flex-shrink: 0; /* No permitir que la caja de filtros se encoja */
     z-index: 1; /* Para que esté por encima de las tarjetas en móviles */
 }
 
@@ -97,88 +101,109 @@ header {
     background-color: #fff; /* Fondo blanco del contenido */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 0; /* Evitar problemas de desbordamiento en pantallas pequeñas */
 }
 
 /* Estilo general de las tarjetas */
 .card-custom {
     width: 100%;
     margin-bottom: 20px; /* Espacio inferior entre las tarjetas */
-    border: 1px solid #c2c2c2;
-    border-radius: 8px;
+    border: 1px solid #c2c2c2; /* Borde gris claro alrededor de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados para las tarjetas */
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-    background-color: #ffffff;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de relieve */
+    background-color: #ffffff; /* Fondo blanco de la tarjeta */
+    transition: transform 0.2s ease-in-out; /* Efecto de transición al hacer hover */
 }
 
+/* Efecto de hover en las tarjetas */
 .card-custom:hover {
     transform: translateY(-5px); /* Mover hacia arriba al hacer hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumentar sombra al hacer hover */
 }
 
-/* Título de las tarjetas */
-.card-custom h5 {
+/* Estilo del título en las tarjetas */
+.card-custom h4 {
     margin-bottom: 10px;
-    font-size: 1.4rem;
-    color: #343a40;
+    font-size: 1.5rem; /* Tamaño de la fuente del título */
+    color: #343a40; /* Color gris oscuro para el título */
 }
 
 /* Separador en las tarjetas */
 .separator {
     height: 1px;
-    background-color: #dee2e6;
+    background-color: #dee2e6; /* Color gris claro para el separador */
     margin: 10px 0;
 }
 
-/* Fila personalizada dentro de las tarjetas */
+/* Estilo de las filas dentro de las tarjetas */
 .row-custom {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espacio inferior entre las filas */
 }
 
+/* Estilo de las columnas dentro de las tarjetas */
 .row-custom .col-custom {
     flex: 1 1 45%; /* Cada columna ocupa 45% del ancho disponible */
-    margin-bottom: 10px;
-    color: #495057;
+    margin-bottom: 10px; /* Espacio inferior entre las columnas */
+    color: #495057; /* Color gris oscuro para el texto */
 }
 
-/* Botón personalizado */
+/* Estilo del botón en las tarjetas */
 .btn-custom {
     margin-top: 10px;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    background-color: #004d3c;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    transition: background-color 0.2s ease-in-out;
+    width: 100%; /* El botón ocupa todo el ancho disponible */
+    background-color: #004d3c; /* Fondo para el botón */
+    color: #ffffff; /* Color para el texto del botón */
+    border: none; /* Sin bordes */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 20px; /* Padding del botón */
+    transition: background-color 0.2s ease-in-out; /* Efecto de transición para el hover */
 }
 
+/* Efecto de hover en el botón */
 .btn-custom:hover {
-    background-color: #002c23;
+    background-color: #002c23; /* Fondo más oscuro al hacer hover */
 }
 
-/* Paginación en la parte superior e inferior */
+/* Estilo del contenedor de badges */
+.badge-container {
+    margin-bottom: 10px; /* Espacio inferior entre el contenedor de badges y el siguiente elemento */
+}
+
+/* Estilo de los badges dentro de las tarjetas */
+.badge-custom {
+    background-color: #004d3c; /* Fondo azul para los badges */
+    color: white; /* Color blanco para el texto de los badges */
+    margin-right: 5px; /* Espacio derecho entre los badges */
+    margin-bottom: 5px; /* Espacio inferior entre los badges cuando se envuelven */
+    font-size: 0.75rem; /* Tamaño de texto reducido para los badges */
+    padding: 3px 7px; /* Padding interno de los badges */
+    border-radius: 4px; /* Bordes redondeados para los badges */
+    display: inline-block; /* Los badges se muestran en línea */
+}
+
+/* Paginación tanto arriba como abajo */
 #paginationControlsTop, #paginationControlsBottom {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-top: 20px; /* Espacio superior para separar de las tarjetas */
+    margin-bottom: 20px; /* Espacio inferior de 20px */
+    text-align: center; /* Centrar los botones de paginación */
 }
 
-/* Responsividad */
+/* Responsividad para pantallas pequeñas */
 @media (max-width: 800px) {
     .main-container {
-        flex-direction: column; /* Apilar filtros y contenido en pantallas pequeñas */
-        margin: 0 10px;
+        flex-direction: column; /* Apilar la caja de filtros y el contenido en pantallas pequeñas */
+        margin: 0 10px; /* Reducir los márgenes laterales en pantallas pequeñas */
     }
 
     .filters-container {
-        position: static;
-        width: 100%;
-        margin-bottom: 20px;
+        position: static; /* Cambiar a posición estática */
+        width: 100%; /* Ancho completo en móviles */
+        margin-bottom: 20px; /* Espacio debajo del filtro cuando está apilado */
     }
 
     .content-container {
@@ -186,21 +211,25 @@ header {
     }
 
     .row-custom .col-custom {
-        flex: 1 1 100%; /* Columnas ocupan el 100% en móviles */
-        margin-bottom: 5px;
+        flex: 1 1 100%; /* En móviles, las columnas ocupan el 100% del ancho */
+        margin-bottom: 5px; /* Reducir el espacio inferior en pantallas pequeñas */
     }
 
-    .card-custom h5 {
-        font-size: 1.2rem;
+    .card-custom h4 {
+        font-size: 1.2rem; /* Ajustar el tamaño de la fuente del título en móviles */
     }
 
     .col-md-9 {
-        margin-top: 15px;
+        margin-top: 15px; /* Añadir espacio entre las tarjetas y los filtros */
     }
 
-    /* Filtros colapsables en pantallas pequeñas */
+    /* Ocultar filtros en pantallas pequeñas con un botón desplegable */
+    .filters-container {
+        display: none; /* Esconder inicialmente en móviles */
+    }
+
     .filters-toggle-btn {
-        display: block;
+        display: block; /* Mostrar botón en móviles */
         width: 100%;
         background-color: #004d3c;
         color: white;
@@ -213,15 +242,16 @@ header {
     }
 
     .filters-container.show {
-        display: block;
-        z-index: 1;
+        display: block; /* Mostrar los filtros cuando la clase 'show' está activa */
+        z-index: 1; /* Los filtros se muestran por encima de las tarjetas */
     }
 }
 
-/* Ajustes para pantallas grandes */
+/* Ajuste para pantallas muy grandes */
 @media (min-width: 1200px) {
     .main-container {
-        max-width: 1400px;
-        gap: 30px;
+        max-width: 1400px; /* Aumentar el ancho máximo en pantallas grandes */
+        gap: 30px; /* Añadir más espacio entre el filtro y el contenido en pantallas grandes */
     }
+
 }

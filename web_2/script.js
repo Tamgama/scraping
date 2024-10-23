@@ -187,43 +187,49 @@ $(document).ready(function () {
         var pageData = _.slice(filteredData, start, end);
 
         pageData.forEach(function (row) {
-            var card = $('<div class="col-12 col-md-6 col-lg-4 mb-4"></div>');
-            var cardContent = '<div class="card shadow-sm card-custom">';
-            cardContent += '<div class="card-body">';
-            
-            // Título
-            cardContent += '<h5 class="card-title">' + (row['titulo'] || 'Título desconocido') + '</h5>';
-            
-            // Información básica
-            cardContent += '<p class="card-text"><strong>Precio:</strong> ' + (row['precio'] || 'N/A') + ' €</p>';
-            cardContent += '<p class="card-text"><strong>Barrio:</strong> ' + (row['barrio'] || 'N/A') + '</p>';
-            cardContent += '<p class="card-text"><strong>Distrito:</strong> ' + (row['distrito'] || 'N/A') + '</p>';
-            
-            // Nombre del anunciante y teléfono
-            cardContent += '<p class="card-text"><strong>Nombre Anunciante:</strong> ' + (row['nombre_anunciante'] || 'N/A') + '</p>';
+            var card = $('<div class="col-12 mb-4"></div>');
+            var cardContent = '<div class="card-custom">';
+            cardContent += '<h4>' + (row['titulo'] || 'Título desconocido') + '</h4>'; // Título en la parte superior
 
+            cardContent += '<div class="separator"></div>';
+
+            cardContent += '<div class="row-custom">';
+            cardContent += '<div class="col-custom"><strong>Precio:</strong> ' + (row['precio'] || 'N/A') + '</div>';
+            cardContent += '<div class="col-custom"><strong>Precio/m²:</strong> ' + (row['precio_por_metro'] || 'N/A') + '</div>';
+            cardContent += '</div>';
+
+            cardContent += '<div class="row-custom">';
+            cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row['superficie'] || 'N/A') + ' m²</div>';
+            cardContent += '<div class="col-custom"><strong>Barrio:</strong> ' + (row['barrio'] || 'N/A') + '</div>';
+            cardContent += '<div class="col-custom"><strong>Distrito:</strong> ' + (row['distrito'] || 'N/A') + '</div>';
+            cardContent += '</div>';
+
+            // Añadir Nombre Anunciante y Teléfono
+            cardContent += '<div class="row-custom">';
+            cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row['nombre_anunciante'] || 'N/A') + '</div>';
 
             // Enlace telefónico seguro
             var telefono = row['tlf'] ? String(row['tlf']) : '';
             if (telefono && telefono.length > 2) {
                 var prefijo = telefono.slice(0, 2);
                 var numero = telefono.slice(2);
-                cardContent += '<p class="card-text"><strong>Teléfono:</strong> <a href="tel:+' + prefijo + numero + '">' + numero + '</a></p>';
+                cardContent += '<div class="col-custom"><strong>Teléfono:</strong> <a href="tel:+' + prefijo + numero + '">' + numero + '</a></div>';
             } else {
-                cardContent += '<p class="card-text"><strong>Teléfono:</strong> N/A</p>';
+                cardContent += '<div class="col-custom"><strong>Teléfono:</strong> N/A</div>';
             }
 
-            // // Mostrar las características como etiquetas si existen
-            // if (row['caracteristicas']) {
-            //     cardContent += '<div class="tags">';
-            //     var caracteristicas = row['caracteristicas'].replace('[', '').replace(']', '').split(',');
-            //     caracteristicas.forEach(function (caracteristica) {
-            //         caracteristica = caracteristica.replace(/'/g, '').trim();
-            //         cardContent += '<span class="badge-custom">' + caracteristica + '</span>';
-            //     });
-            //     cardContent += '</div>';
-            // }
-            // Campo de ingresos si es de alquiler
+            cardContent += '</div>';
+
+            // Mostrar las características como etiquetas si existen
+            if (row['caracteristicas']) {
+                cardContent += '<div class="tags">';
+                var caracteristicas = row['caracteristicas'].replace('[', '').replace(']', '').split(',');
+                caracteristicas.forEach(function (caracteristica) {
+                    caracteristica = caracteristica.replace(/'/g, '').trim();
+                    cardContent += '<span class="badge-custom">' + caracteristica + '</span>';
+                });
+                cardContent += '</div>';
+            }
             if (row['tipo'] === 'Alquiler') {
                 cardContent += '<div class="form-group"><input type="text" id="input-ingresos-' + row['id'] + '" class="form-control" placeholder="Ingresos anuales alquiler"></div>';
             }
@@ -240,19 +246,17 @@ $(document).ready(function () {
             }
             cardContent += '</select>';
 
-            // Precio original (se mostrará pero no se podrá editar)
-            cardContent += '<div class="form-group mt-2"><input type="text" id="input-precio-' + row['id'] + '" class="form-control" value="' + (row['precio'] || 0) + '" readonly></div>';
+            // Añadir un campo para ingresar el precio y metros
+            cardContent += '<input type="text" id="input-precio-' + row['id'] + '" class="form-control mt-2" value="' + (row['precio'] || 0) + '" readonly>';
 
-            // Botón para realizar el cálculo
+            // Botón para realizar cálculo
             cardContent += '<button class="btn btn-primary mt-2" onclick="realizarCalculo(' + row['id'] + ', \'' + row['tipo'] + '\')">Calcular Rentabilidad</button>';
 
             // Contenedor donde se mostrará el resultado del cálculo
             cardContent += '<div id="resultado-calculo-' + row['id'] + '" class="mt-2"></div>';
 
-            cardContent += '</div>'; // Fin del cálculo desplegable
-            cardContent += '</div>'; // Fin del card-body
-            cardContent += '</div>'; // Fin de la tarjeta
-
+            cardContent += '</div>';
+            cardContent += '</div>';
             card.append(cardContent);
 
             $('#cardsContainer').append(card);
@@ -271,38 +275,38 @@ $(document).ready(function () {
     }
     // Función para calcular y mostrar precio de venta, compra bruta, rentabilidad bruta y neta
     window.realizarCalculo = function(id, tipo) {
-      var precio = parseFloat($('#input-precio-' + id).val());
-      var porcentaje = parseFloat($('#porcentaje-' + id).val());
-    
-      if (tipo === 'Alquiler') {
-          var ingresos = parseFloat($('#input-ingresos-' + id).val());
-          if (!isNaN(ingresos) && !isNaN(precio) && !isNaN(porcentaje)) {
-              // Calcular el precio ajustado con el porcentaje seleccionado
-              var precioAjustado = precio + (precio * (porcentaje / 100));
-              
-              // Calcular el precio de venta original sin aumento
-              var precioVenta = (ingresos / porcentaje) * 100;
-              
-              // Calcular el precio de compra bruta (con el 15% de aumento)
-              var precioCompraBruta = precioVenta * 1.15;
-              
-              // Calcular la rentabilidad bruta
-              var rentabilidadBruta = (ingresos / precioCompraBruta) * 100;
-    
-              // Asumimos un 25% de gastos anuales para el cálculo de la rentabilidad neta
-              var gastosAnuales = ingresos * 0.25;
-              var ingresosNetos = ingresos - gastosAnuales;
-              var rentabilidadNeta = (ingresosNetos / precioCompraBruta) * 100;
-              
-              $('#resultado-calculo-' + id).html('<strong>Precio de Venta:</strong> ' + precioVenta.toFixed(2) + ' €<br>' +
-                  '<strong>Precio Compra Bruta (con 15%):</strong> ' + precioCompraBruta.toFixed(2) + ' €<br>' +
-                  '<strong>Rentabilidad Bruta:</strong> ' + rentabilidadBruta.toFixed(2) + ' %<br>' +
-                  '<strong>Rentabilidad Neta:</strong> ' + rentabilidadNeta.toFixed(2) + ' %');
-          } else {
-              $('#resultado-calculo-' + id).html('<strong>Error:</strong> No se puede realizar el cálculo.');
-          }
-      } else {
-          $('#resultado-calculo-' + id).html('<strong>Error:</strong> Solo se puede calcular la rentabilidad en inmuebles de alquiler.');
+        var precio = parseFloat($('#input-precio-' + id).val());
+        var porcentaje = parseFloat($('#porcentaje-' + id).val());
+      
+        if (tipo === 'Alquiler') {
+            var ingresos = parseFloat($('#input-ingresos-' + id).val());
+            if (!isNaN(ingresos) && !isNaN(precio) && !isNaN(porcentaje)) {
+                // Calcular el precio ajustado con el porcentaje seleccionado
+                var precioAjustado = precio + (precio * (porcentaje / 100));
+                
+                // Calcular el precio de venta original sin aumento
+                var precioVenta = (ingresos / porcentaje) * 100;
+                
+                // Calcular el precio de compra bruta (con el 15% de aumento)
+                var precioCompraBruta = precioVenta * 1.15;
+                
+                // Calcular la rentabilidad bruta
+                var rentabilidadBruta = (ingresos / precioCompraBruta) * 100;
+      
+                // Asumimos un 25% de gastos anuales para el cálculo de la rentabilidad neta
+                var gastosAnuales = ingresos * 0.25;
+                var ingresosNetos = ingresos - gastosAnuales;
+                var rentabilidadNeta = (ingresosNetos / precioCompraBruta) * 100;
+                
+                $('#resultado-calculo-' + id).html('<strong>Precio de Venta:</strong> ' + precioVenta.toFixed(2) + ' €<br>' +
+                    '<strong>Precio Compra Bruta (con 15%):</strong> ' + precioCompraBruta.toFixed(2) + ' €<br>' +
+                    '<strong>Rentabilidad Bruta:</strong> ' + rentabilidadBruta.toFixed(2) + ' %<br>' +
+                    '<strong>Rentabilidad Neta:</strong> ' + rentabilidadNeta.toFixed(2) + ' %');
+            } else {
+                $('#resultado-calculo-' + id).html('<strong>Error:</strong> No se puede realizar el cálculo.');
+            }
+        } else {
+            $('#resultado-calculo-' + id).html('<strong>Error:</strong> Solo se puede calcular la rentabilidad en inmuebles de alquiler.');
+        }
       }
-    }
 });
