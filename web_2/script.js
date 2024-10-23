@@ -6,17 +6,14 @@ $(document).ready(function () {
     var totalPages = 0;
     var lastHash = "";
 
-    // Mostrar el indicador de carga
     function showLoading() {
         $('#loadingIndicator').show();
     }
 
-    // Ocultar el indicador de carga
     function hideLoading() {
         $('#loadingIndicator').hide();
     }
 
-    // Cargar el archivo CSV automáticamente
     function loadCSV() {
         showLoading();
         $.ajax({
@@ -31,114 +28,98 @@ $(document).ready(function () {
                         dynamicTyping: true,
                         complete: function (results) {
                             data = results.data;
-                            filteredData = data; // Inicialmente, sin filtrar
+                            filteredData = data;
                             updateAnuncianteFilter(data);
                             updateTipoFilter(data);
                             updateBarrioFilter(data);
                             updateDistritoFilter(data);
-                            applyFilters(); // Aplicar filtros al cargar nuevos datos
-                            $('#newDataAlert').fadeIn().delay(2000).fadeOut(); // Mostrar alerta
-                            hideLoading(); // Ocultar el indicador de carga
+                            applyFilters();
+                            $('#newDataAlert').fadeIn().delay(2000).fadeOut();
+                            hideLoading();
                         }
                     });
                 } else {
-                    hideLoading(); // Ocultar el indicador de carga
+                    hideLoading();
                 }
             },
-            error: function() {
-                hideLoading(); // Ocultar el indicador de carga en caso de error
+            error: function () {
+                hideLoading();
             }
         });
     }
 
-    // Verificar cambios en el archivo cada 5 segundos
     setInterval(loadCSV, 5000);
-
-    // Cargar el CSV al iniciar la página
     loadCSV();
 
-    // Filtro por anunciante
     $('#filterAnunciante').on('change', function () {
         applyFilters();
     });
 
-    // Filtro por tipo
     $('#filterTipo').on('change', function () {
         applyFilters();
     });
 
-    // Filtro por barrio
     $('#filterBarrio').on('change', function () {
         applyFilters();
     });
 
-    // Filtro por distrito
     $('#filterDistrito').on('change', function () {
         applyFilters();
     });
 
-    // Filtro por precio
     $('#filterPhone').on('input', function () {
         applyFilters();
     });
 
-    // Actualizar el filtro de anunciante con los valores únicos del CSV
     function updateAnuncianteFilter(data) {
-        var uniqueAnunciantes = _.uniq(data.map(function(row) {
+        var uniqueAnunciantes = _.uniq(data.map(function (row) {
             return row['anunciante'];
         }).filter(Boolean));
 
         var $filter = $('#filterAnunciante');
         $filter.empty();
         $filter.append('<option value="Ver todos">Ver todos</option>');
-        uniqueAnunciantes.forEach(function(anunciante) {
+        uniqueAnunciantes.forEach(function (anunciante) {
             $filter.append('<option value="' + anunciante + '">' + anunciante + '</option>');
         });
     }
 
-    // Actualizar el filtro de tipo con los valores únicos del CSV
     function updateTipoFilter(data) {
-        var uniqueTipos = _.uniq(data.map(function(row) {
+        var uniqueTipos = _.uniq(data.map(function (row) {
             return row['tipo'];
         }).filter(Boolean));
 
         var $filter = $('#filterTipo');
         $filter.empty();
         $filter.append('<option value="Ver todos">Ver todos</option>');
-        uniqueTipos.forEach(function(tipo) {
+        uniqueTipos.forEach(function (tipo) {
             $filter.append('<option value="' + tipo + '">' + tipo + '</option>');
         });
     }
 
-    // Actualizar el filtro de barrio con los valores únicos del CSV
     function updateBarrioFilter(data) {
-        var uniqueBarrios = _.uniq(data.map(function(row) {
+        var uniqueBarrios = _.uniq(data.map(function (row) {
             return row['barrio'];
         }).filter(Boolean));
 
         var $filter = $('#filterBarrio');
         $filter.empty();
         $filter.append('<option value="Ver todos">Ver todos</option>');
-        uniqueBarrios.forEach(function(barrio) {
-            $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
+        uniqueBarrios.forEach(function (barrio) {
+            $filter.append('<option value="' + barrio + '</option>');
         });
     }
 
-    // Actualizar el filtro de distrito con los valores únicos del CSV
     function updateDistritoFilter(data) {
-        var uniqueDistritos = _.uniq(data.map(function(row) {
+        var uniqueDistritos = _.uniq(data.map(function (row) {
             return row['distrito'];
         }).filter(Boolean));
 
         var $filter = $('#filterDistrito');
         $filter.empty();
-        $filter.append('<option value="Ver todos">Ver todos</option>');
-        uniqueDistritos.forEach(function(distrito) {
-            $filter.append('<option value="' + distrito + '</option>');
-        });
+        $filter.append('<option value="' + distrito + '</option>');
     }
 
-    // Aplicar los filtros de búsqueda
     function applyFilters() {
         var selectedAnunciante = $('#filterAnunciante').val();
         var selectedTipo = $('#filterTipo').val();
@@ -161,80 +142,48 @@ $(document).ready(function () {
         updatePaginationControls();
     }
 
-    // Paginación
-    $('#prevPageTop, #prevPageBottom').on('click', function () {
-        if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
-            updatePaginationControls();
-            scrollToTop(); // Volver a la parte superior
-        }
-    });
-
-    $('#nextPageTop, #nextPageBottom').on('click', function () {
-        if (currentPage < totalPages) {
-            currentPage++;
-            renderPage(currentPage);
-            updatePaginationControls();
-            scrollToTop(); // Volver a la parte superior
-        }
-    });
-
     function renderPage(page) {
         $('#cardsContainer').empty();
         var start = (page - 1) * pageSize;
         var end = start + pageSize;
         var pageData = _.slice(filteredData, start, end);
-
+    
         pageData.forEach(function (row) {
-            var card = $('<div class="col-12 mb-4"></div>');
-            var cardContent = '<div class="card-custom">';
-            cardContent += '<h4>' + (row['titulo'] || 'Título desconocido') + '</h4>'; // Título en la parte superior
-
-            cardContent += '<div class="separator"></div>';
-
-            cardContent += '<div class="row-custom">';
-            cardContent += '<div class="col-custom"><strong>Precio:</strong> ' + (row['precio'] || 'N/A') + '</div>';
-            cardContent += '<div class="col-custom"><strong>Precio/m²:</strong> ' + (row['precio_por_metro'] || 'N/A') + '</div>';
-            cardContent += '</div>';
-
-            cardContent += '<div class="row-custom">';
-            cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row['superficie'] || 'N/A') + ' m²</div>';
-            cardContent += '<div class="col-custom"><strong>Barrio:</strong> ' + (row['barrio'] || 'N/A') + '</div>';
-            cardContent += '<div class="col-custom"><strong>Distrito:</strong> ' + (row['distrito'] || 'N/A') + '</div>';
-            cardContent += '</div>';
-
-            // Añadir Nombre Anunciante y Teléfono
-            cardContent += '<div class="row-custom">';
-            cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row['nombre_anunciante'] || 'N/A') + '</div>';
-
-            // Enlace telefónico seguro
+            var card = $('<div class="col-12 col-md-6 col-lg-4 mb-4"></div>');
+            var cardContent = '<div class="card shadow-sm">';
+            cardContent += '<div class="card-body">';
+            
+            // Título
+            cardContent += '<h5 class="card-title">' + (row['titulo'] || 'Título desconocido') + '</h5>';
+            
+            // Información básica
+            cardContent += '<p class="card-text"><strong>Precio:</strong> ' + (row['precio'] || 'N/A') + ' €</p>';
+            cardContent += '<p class="card-text"><strong>Precio/m²:</strong> ' + (row['precio_por_metro'] || 'N/A') + ' €/m²</p>';
+            cardContent += '<p class="card-text"><strong>Superficie:</strong> ' + (row['superficie'] || 'N/A') + ' m²</p>';
+            cardContent += '<p class="card-text"><strong>Barrio:</strong> ' + (row['barrio'] || 'N/A') + '</p>';
+            cardContent += '<p class="card-text"><strong>Distrito:</strong> ' + (row['distrito'] || 'N/A') + '</p>';
+            
+            // Nombre del anunciante y teléfono
+            cardContent += '<p class="card-text"><strong>Nombre Anunciante:</strong> ' + (row['nombre_anunciante'] || 'N/A') + '</p>';
+    
             var telefono = row['tlf'] ? String(row['tlf']) : '';
             if (telefono && telefono.length > 2) {
                 var prefijo = telefono.slice(0, 2);
                 var numero = telefono.slice(2);
-                cardContent += '<div class="col-custom"><strong>Teléfono:</strong> <a href="tel:+' + prefijo + numero + '">' + numero + '</a></div>';
+                cardContent += '<p class="card-text"><strong>Teléfono:</strong> <a href="tel:+' + prefijo + numero + '">' + numero + '</a></p>';
             } else {
-                cardContent += '<div class="col-custom"><strong>Teléfono:</strong> N/A</div>';
+                cardContent += '<p class="card-text"><strong>Teléfono:</strong> N/A</p>';
             }
-
-            cardContent += '</div>';
-
-            // Mostrar las características como etiquetas si existen
-            if (row['caracteristicas']) {
-                cardContent += '<div class="tags">';
-                var caracteristicas = row['caracteristicas'].replace('[', '').replace(']', '').split(',');
-                caracteristicas.forEach(function (caracteristica) {
-                    caracteristica = caracteristica.replace(/'/g, '').trim();
-                    cardContent += '<span class="badge-custom">' + caracteristica + '</span>';
-                });
-                cardContent += '</div>';
+    
+            // Campo de ingresos si es de alquiler
+            if (row['tipo'] === 'Alquiler') {
+                cardContent += '<div class="form-group"><input type="text" id="input-ingresos-' + row['id'] + '" class="form-control" placeholder="Ingresos anuales alquiler"></div>';
             }
-
-            // Botón desplegable para realizar cálculo
+    
+            // Botón desplegable para mostrar el cálculo
             cardContent += '<button class="btn btn-secondary btn-sm mt-2" data-toggle="collapse" data-target="#calculo-' + row['id'] + '">Mostrar cálculo</button>';
             cardContent += '<div id="calculo-' + row['id'] + '" class="collapse mt-2">';
-
+    
             // Seleccionar porcentaje
             cardContent += '<label for="porcentaje-' + row['id'] + '">Seleccione porcentaje (%):</label>';
             cardContent += '<select id="porcentaje-' + row['id'] + '" class="form-control">';
@@ -242,24 +191,27 @@ $(document).ready(function () {
                 cardContent += '<option value="' + i + '">' + i + '%</option>';
             }
             cardContent += '</select>';
-
-            // Añadir un campo para ingresar el precio y metros
-            cardContent += '<input type="text" id="input-metros-' + row['id'] + '" class="form-control mt-2" value="' + (row['superficie'] || 0) + '" readonly>';
-            cardContent += '<input type="text" id="input-precio-' + row['id'] + '" class="form-control mt-2" value="' + (row['precio'] || 0) + '" readonly>';
-
-            // Botón para realizar cálculo
-            cardContent += '<button class="btn btn-primary mt-2" onclick="realizarCalculo(' + row['id'] + ')">Calcular Valoración de Venta</button>';
-
+    
+            // Campos para ingresar metros y precio
+            cardContent += '<div class="form-group mt-2"><input type="text" id="input-metros-' + row['id'] + '" class="form-control" value="' + (row['superficie'] || 0) + '" readonly></div>';
+            cardContent += '<div class="form-group"><input type="text" id="input-precio-' + row['id'] + '" class="form-control" value="' + (row['precio'] || 0) + '" readonly></div>';
+    
+            // Botón para realizar el cálculo
+            cardContent += '<button class="btn btn-primary mt-2" onclick="realizarCalculo(' + row['id'] + ', \'' + row['tipo'] + '\')">Calcular Valoración/Rentabilidad</button>';
+    
             // Contenedor donde se mostrará el resultado del cálculo
             cardContent += '<div id="resultado-calculo-' + row['id'] + '" class="mt-2"></div>';
-
-            cardContent += '</div>';
-            cardContent += '</div>';
+    
+            cardContent += '</div>'; // Fin del cálculo desplegable
+            cardContent += '</div>'; // Fin del card-body
+            cardContent += '</div>'; // Fin de la tarjeta
+    
             card.append(cardContent);
-
+    
             $('#cardsContainer').append(card);
         });
     }
+    
 
     function updatePaginationControls() {
         $('#pageInfoTop, #pageInfoBottom').text('Página ' + currentPage + ' de ' + totalPages);
@@ -267,23 +219,26 @@ $(document).ready(function () {
         $('#nextPageTop, #nextPageBottom').prop('disabled', currentPage === totalPages);
     }
 
-    // Función para volver a la parte superior de la página
-    function scrollToTop() {
-        $('html, body').animate({ scrollTop: 0 }, 'fast');
+    function realizarCalculo(id, tipo) {
+        var metros = parseFloat($('#input-metros-' + id).val());
+        var precio = parseFloat($('#input-precio-' + id).val());
+        var porcentaje = parseFloat($('#porcentaje-' + id).val());
+
+        if (tipo === 'Venta') {
+            if (!isNaN(metros) && !isNaN(precio) && !isNaN(porcentaje)) {
+                var valoracion = precio + (precio * (porcentaje / 100));
+                $('#resultado-calculo-' + id).html('<strong>Valoración de Venta:</strong> ' + valoracion.toFixed(2) + ' €');
+            } else {
+                $('#resultado-calculo-' + id).html('<strong>Error:</strong> No se puede realizar el cálculo.');
+            }
+        } else if (tipo === 'Alquiler') {
+            var ingresos = parseFloat($('#input-ingresos-' + id).val());
+            if (!isNaN(ingresos) && !isNaN(precio)) {
+                var rentabilidad = (ingresos / precio) * 100;
+                $('#resultado-calculo-' + id).html('<strong>Rentabilidad Bruta:</strong> ' + rentabilidad.toFixed(2) + ' %');
+            } else {
+                $('#resultado-calculo-' + id).html('<strong>Error:</strong> No se puede realizar el cálculo.');
+            }
+        }
     }
 });
-
-// Función que realiza el cálculo en base a un ID o cualquier otro dato
-function realizarCalculo(id) {
-    var metros = parseFloat($('#input-metros-' + id).val());
-    var precio = parseFloat($('#input-precio-' + id).val());
-    var porcentaje = parseFloat($('#porcentaje-' + id).val());
-
-    if (!isNaN(metros) && !isNaN(precio) && !isNaN(porcentaje)) {
-        // Calcular el valor ajustado
-        var valoracion = precio + (precio * (porcentaje / 100));
-        $('#resultado-calculo-' + id).html('<strong>Valoración de Venta:</strong> ' + valoracion.toFixed(2) + ' €');
-    } else {
-        $('#resultado-calculo-' + id).html('<strong>Error:</strong> No se puede realizar el cálculo.');
-    }
-}

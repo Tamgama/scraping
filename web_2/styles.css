@@ -6,7 +6,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
 /* Estilo del header */
 header {
     background-color: #004d3c; /* Color de fondo del header */
@@ -113,7 +112,7 @@ header {
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de relieve */
     background-color: #ffffff; /* Fondo blanco de la tarjeta */
-    transition: transform 0.2s ease-in-out; /* Efecto de transición al hacer hover */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Efecto de transición al hacer hover */
 }
 
 /* Efecto de hover en las tarjetas */
