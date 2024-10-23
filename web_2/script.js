@@ -219,7 +219,13 @@ $(document).ready(function () {
             }
 
             cardContent += '</div>';
-
+            
+            
+            // Añadir el botón con la URL
+            if (row['url']) {
+                cardContent += '<a href="' + row['url'] + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
+            }
+            
             // Mostrar las características como etiquetas si existen
             if (row['caracteristicas']) {
                 cardContent += '<div class="tags">';
@@ -231,7 +237,8 @@ $(document).ready(function () {
                 cardContent += '</div>';
             }
             if (row['tipo'] === 'Alquiler') {
-                cardContent += '<div class="form-group"><input type="text" id="input-ingresos-' + row['id'] + '" class="form-control" placeholder="Ingresos anuales alquiler"></div>';
+                const precioAnual = parseFloat(row['precio']) * 12;
+                cardContent += '<div class="form-group"><input type="number" id="input-precio-"' + row['id'] + '" value="' + precioAnual + '"></div>'
             }
 
             // Botón desplegable para realizar cálculo
