@@ -12,54 +12,55 @@
 <body>
     <header>
         <div class="header-container">
-            <h1 class="logo text-center">Gestión de datos</h1>
+            <h1 class="logo">Gestión de datos</h1>
             <nav class="nav-container">
-                <ul class="nav-list d-flex justify-content-center">
-                    <li class="mx-2"><a href="#">Scraping</a></li>
-                    <li class="mx-2"><a href="#">Otros documentos</a></li>
+                <ul class="nav-list">
+                    <li><a href="#">Scraping</a></li>
+                    <li><a href="#">Otros documentos</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="container main-container mt-5">
+    <div class="container mt-5">
         <div class="row">
             <!-- Botón para desplegar los filtros en pantallas pequeñas -->
             <button class="filters-toggle-btn btn btn-secondary d-md-none mb-3" data-toggle="collapse" data-target="#filtersContainer">Mostrar Filtros</button>
 
-            <!-- Columna para los filtros -->
-            <div class="col-md-3 filters-container p-3 border rounded">
+            <!-- Columna para los filtros (Alineada a la izquierda) -->
+            <div class="col-md-3">
+                <!-- Caja colapsable para pantallas pequeñas -->
                 <div id="filtersContainer" class="collapse d-md-block">
-                    <div class="filters-container p-3 border rounded">
-                        <div class="filter-group mb-3">
+                    <div class="filters-container">
+                        <div class="filter-group">
                             <label for="filterAnunciante">Filtrar por anunciante:</label>
                             <select id="filterAnunciante" class="form-control form-control-custom">
                                 <option value="Ver todos">Ver todos</option>
                                 <!-- Opciones dinámicas serán insertadas aquí -->
                             </select>
                         </div>
-                        <div class="filter-group mb-3">
+                        <div class="filter-group">
                             <label for="filterTipo">Filtrar por tipo:</label>
                             <select id="filterTipo" class="form-control form-control-custom">
                                 <option value="Ver todos">Ver todos</option>
                                 <!-- Opciones dinámicas serán insertadas aquí -->
                             </select>
                         </div>
-                        <div class="filter-group mb-3">
+                        <div class="filter-group">
                             <label for="filterBarrio">Filtrar por barrio:</label>
                             <select id="filterBarrio" class="form-control form-control-custom">
                                 <option value="Ver todos">Ver todos</option>
                                 <!-- Opciones dinámicas serán insertadas aquí -->
                             </select>
                         </div>
-                        <div class="filter-group mb-3">
+                        <div class="filter-group">
                             <label for="filterDistrito">Filtrar por distrito:</label>
                             <select id="filterDistrito" class="form-control form-control-custom">
                                 <option value="Ver todos">Ver todos</option>
                                 <!-- Opciones dinámicas serán insertadas aquí -->
                             </select>
                         </div>
-                        <div class="filter-group mb-3">
+                        <div class="filter-group">
                             <label for="filterPhone">Filtrar por teléfono:</label>
                             <input type="text" id="filterPhone" class="form-control form-control-custom" placeholder="Buscar teléfono">
                         </div>
@@ -68,19 +69,19 @@
             </div>
 
             <!-- Columna para las tarjetas -->
-            <div class="col-md-9 content-container">
+            <div class="col-md-9">
                 <div id="cardsContainer" class="row">
-                    <!-- Contenedor para las cards, las tarjetas dinámicas se insertan aquí -->
+                    <!-- Contenedor para las cards dinámicas que se generan con JavaScript -->
                 </div>
 
                 <!-- Paginación en la parte inferior -->
-                <div id="paginationControlsBottom" class="mt-3 text-center">
+                <div id="paginationControlsBottom" class="mt-3">
                     <button id="prevPageBottom" class="btn btn-primary" disabled>Anterior</button>
                     <span id="pageInfoBottom" class="mx-2">Página 1</span>
                     <button id="nextPageBottom" class="btn btn-primary" disabled>Siguiente</button>
                 </div>
 
-                <div id="newDataAlert" class="alert alert-info alert-fixed text-center mt-3" style="display: none;">
+                <div id="newDataAlert" class="alert alert-info alert-fixed" style="display: none;">
                     ¡Nuevos datos disponibles! La página se ha actualizado.
                 </div>
             </div>
@@ -98,7 +99,7 @@
     <!-- SHA-256 JS para calcular hash -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
     
-    <!-- Enlace al script de JS -->
+    <!-- Enlace al script de JS modificado -->
     <script src="script.js"></script>
 </body>
 </html>
