@@ -101,7 +101,7 @@ $(document).ready(function () {
 
         pageData.forEach(function (row) {
             var card = $('<div class="col-12 col-md-6 col-lg-4 mb-4"></div>');
-            var cardContent = '<div class="card shadow-sm">';
+            var cardContent = '<div class="card shadow-sm card-custom">';
             cardContent += '<div class="card-body">';
             
             // Título
@@ -161,7 +161,7 @@ $(document).ready(function () {
     }
 
     // Función para calcular y mostrar precio de venta, compra bruta, rentabilidad bruta y neta
-    function realizarCalculo(id, tipo) {
+    window.realizarCalculo = function(id, tipo) {
         var precio = parseFloat($('#input-precio-' + id).val());
         var porcentaje = parseFloat($('#porcentaje-' + id).val());
 
