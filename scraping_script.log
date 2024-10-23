@@ -48219,3 +48219,79 @@ Ejecutando actualizar_web.py...
 Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/web_2'
 Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/security'
 
+[main ddf1ed9] [UPD] data_updated: 2024-10-23 04:00
+ 4 files changed, 4317 insertions(+), 4271 deletions(-)
+To github.com:Tamgama/scraping.git
+   0e84577..ddf1ed9  main -> main
+Agent pid 639383
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106340483: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106340483/contact-phones
+ID 106340483 guardado en el CSV.
+Error al intentar acceder al teléfono para 103501777: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/103501777/contact-phones
+ID 103501777 guardado en el CSV.
+Error al intentar acceder al teléfono para 95951137: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/95951137/contact-phones
+ID 95951137 guardado en el CSV.
+Error al intentar acceder al teléfono para 98749940: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/98749940/contact-phones
+ID 98749940 guardado en el CSV.
+Error al intentar acceder al teléfono para 100870645: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/100870645/contact-phones
+ID 100870645 guardado en el CSV.
+Error al intentar acceder al teléfono para 101512917: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/101512917/contact-phones
+ID 101512917 guardado en el CSV.
+ID 106338520 ya existe. Saltando...
+ID 103680198 ya existe. Saltando...
+ID 106337302 ya existe. Saltando...
+ID 106337079 ya existe. Saltando...
+ID 106336925 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106335283/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106335283
+ID 106335283 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106334261/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106334261
+ID 106334261 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106341301/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106341301
+ID 106341301 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106340531/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106340531
+ID 106340531 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106340524/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106340524
+ID 106340524 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106340455/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106340455
+ID 106340455 guardado en el CSV.
+ID 106339939 ya existe. Consecutivos: 1
+ID 94344667 ya existe. Consecutivos: 2
+ID 106338652 ya existe. Consecutivos: 3
+ID 106337719 ya existe. Consecutivos: 4
+ID 100729436 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/web_2'
+Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/security'
+
