@@ -48125,3 +48125,53 @@ Ejecutando actualizar_web.py...
 Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/web_2'
 Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/security'
 
+[main 2cc5462] [UPD] data_updated: 2024-10-22 20:00
+ 4 files changed, 4326 insertions(+), 4248 deletions(-)
+To github.com:Tamgama/scraping.git
+   b483ac5..2cc5462  main -> main
+Agent pid 635485
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106338520: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106338520/contact-phones
+ID 106338520 guardado en el CSV.
+ID 103680198 ya existe. Saltando...
+ID 106337302 ya existe. Saltando...
+ID 106337079 ya existe. Saltando...
+ID 106336925 ya existe. Saltando...
+ID 106336824 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/94344667/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 94344667
+ID 94344667 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106338652/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106338652
+ID 106338652 guardado en el CSV.
+ID 106337719 ya existe. Consecutivos: 1
+ID 100729436 ya existe. Consecutivos: 2
+ID 106337261 ya existe. Consecutivos: 3
+ID 104940289 ya existe. Consecutivos: 4
+ID 106334370 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en ../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/web_2'
+Error durante la transferencia: [Errno 2] No such file or directory: 'scraping/security'
+
