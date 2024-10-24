@@ -35,7 +35,6 @@ $(document).ready(function () {
                             updateAnuncianteFilter(data);
                             updateTipoFilter(data);
                             updateBarrioFilter(data);
-                            updateDistritoFilter(data);
                             applyFilters(); // Aplicar filtros al cargar nuevos datos
                             $('#newDataAlert').fadeIn().delay(2000).fadeOut(); // Mostrar alerta
                             hideLoading(); // Ocultar el indicador de carga
@@ -69,11 +68,6 @@ $(document).ready(function () {
 
     // Filtro por barrio
     $('#filterBarrio').on('change', function () {
-        applyFilters();
-    });
-
-    // Filtro por distrito
-    $('#filterDistrito').on('change', function () {
         applyFilters();
     });
 
@@ -124,35 +118,20 @@ $(document).ready(function () {
         });
     }
 
-    // Actualizar el filtro de distrito con los valores únicos del CSV
-    function updateDistritoFilter(data) {
-        var uniqueDistritos = _.uniq(data.map(function(row) {
-            return row['distrito'];
-        }).filter(Boolean));
-
-        var $filter = $('#filterDistrito');
-        $filter.empty();
-        $filter.append('<option value="Ver todos">Ver todos</option>');
-        uniqueDistritos.forEach(function(distrito) {
-            $filter.append('<option value="' + distrito + '</option>');
-        });
-    }
 
     // Aplicar los filtros de búsqueda
     function applyFilters() {
         var selectedAnunciante = $('#filterAnunciante').val();
         var selectedTipo = $('#filterTipo').val();
         var selectedBarrio = $('#filterBarrio').val();
-        var selectedDistrito = $('#filterDistrito').val();
         var selectedPhone = $('#filterPhone').val();
 
         filteredData = data.filter(function (row) {
             var matchesAnunciante = selectedAnunciante === "Ver todos" || row['anunciante'] === selectedAnunciante;
             var matchesTipo = selectedTipo === "Ver todos" || row['tipo'] === selectedTipo;
             var matchesBarrio = selectedBarrio === "Ver todos" || row['barrio'] === selectedBarrio;
-            var matchesDistrito = selectedDistrito === "Ver todos" || row['distrito'] === selectedDistrito;
             var matchesPhone = row['tlf'] && String(row['tlf']).includes(selectedPhone);
-            return matchesAnunciante && matchesTipo && matchesBarrio && matchesDistrito && matchesPhone;
+            return matchesAnunciante && matchesTipo && matchesBarrio && matchesPhone;
         });
 
         currentPage = 1;
@@ -201,7 +180,6 @@ $(document).ready(function () {
             cardContent += '<div class="row-custom">';
             cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row['superficie'] || 'N/A') + ' m²</div>';
             cardContent += '<div class="col-custom"><strong>Barrio:</strong> ' + (row['barrio'] || 'N/A') + '</div>';
-            cardContent += '<div class="col-custom"><strong>Distrito:</strong> ' + (row['distrito'] || 'N/A') + '</div>';
             cardContent += '</div>';
 
             // Añadir Nombre Anunciante y Teléfono
