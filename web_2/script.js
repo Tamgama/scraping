@@ -236,10 +236,6 @@ $(document).ready(function () {
                 });
                 cardContent += '</div>';
             }
-            if (row['tipo'] === 'Alquiler') {
-                const precioAnual = parseFloat(row['precio']) * 12;
-                cardContent += '<div class="form-group"><input type="number" id="input-precio-"' + row['id'] + '" value="' + precioAnual + '"></div>'
-            }
 
             // Botón desplegable para realizar cálculo
             cardContent += '<button class="btn btn-secondary btn-sm mt-2" data-toggle="collapse" data-target="#calculo-' + row['id'] + '">Mostrar cálculo</button>';
@@ -286,7 +282,7 @@ $(document).ready(function () {
         var porcentaje = parseFloat($('#porcentaje-' + id).val());
       
         if (tipo === 'Alquiler') {
-            var ingresos = parseFloat($('#input-ingresos-' + id).val());
+            var ingresos = precio * 12;
             if (!isNaN(ingresos) && !isNaN(precio) && !isNaN(porcentaje)) {
                 // Calcular el precio ajustado con el porcentaje seleccionado
                 var precioAjustado = precio + (precio * (porcentaje / 100));

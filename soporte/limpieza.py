@@ -20,12 +20,12 @@ alquileres = pd.read_csv("../src/alquileres.csv")
 ventas_order = [
     "id_inmueble", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion",
     "precio", "precio_metro", "caracteristicas", "habitaciones", "m_construidos", "m_utiles",
-    "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "url", "fecha"
+    "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "URL", "fecha"
 ]
 alquileres_order = [
     "id_inmueble", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion",
     "precio", "precio_metro", "caracteristicas", "habitaciones", "m_construidos", "m_utiles",
-    "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "url", "fecha"
+    "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "URL", "fecha"
 ]
 
 # Reorganizar las columnas en los dataframes según el orden definido
@@ -36,8 +36,8 @@ alquileres = alquileres.reindex(columns=alquileres_order)
 df = pd.concat([alquileres, ventas], axis=0, ignore_index=True)
 # df.drop(['Fianza', 'Comunidad'], axis=1, inplace=True)
 
-# # Normalizar nombres de columnas a minúsculas y reemplazar espacios con guiones bajos
-# df.columns = df.columns.str.lower().str.replace(' ', '_')
+# Normalizar nombres de columnas a minúsculas y reemplazar espacios con guiones bajos
+df.columns = df.columns.str.lower().str.replace(' ', '_')
 
 # Renombrar columnas específicas para consistencia
 df.rename(columns={
