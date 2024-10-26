@@ -49522,3 +49522,43 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 2dd87a4] [UPD] data_updated: 2024-10-26 00:00
+ 4 files changed, 4573 insertions(+), 4527 deletions(-)
+To github.com:Tamgama/scraping.git
+   d38fc42..2dd87a4  main -> main
+Agent pid 686007
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+ID 97698432 ya existe. Saltando...
+ID 106377047 ya existe. Saltando...
+ID 106375881 ya existe. Saltando...
+ID 106375351 ya existe. Saltando...
+ID 106375056 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106378392 ya existe. Consecutivos: 1
+ID 106378257 ya existe. Consecutivos: 2
+ID 101013531 ya existe. Consecutivos: 3
+ID 106377662 ya existe. Consecutivos: 4
+ID 106377701 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
