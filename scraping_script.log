@@ -49692,3 +49692,59 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 4cc4c39] [UPD] data_updated: 2024-10-26 12:00
+ 4 files changed, 4595 insertions(+), 4483 deletions(-)
+To github.com:Tamgama/scraping.git
+   436d57b..4cc4c39  main -> main
+Agent pid 692147
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106372448: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106372448/contact-phones
+ID 106372448 guardado en el CSV.
+Error al intentar acceder al teléfono para 106378334: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106378334/contact-phones
+ID 106378334 guardado en el CSV.
+ID 106379556 ya existe. Saltando...
+ID 104505885 ya existe. Saltando...
+ID 106379965 ya existe. Saltando...
+ID 97698432 ya existe. Saltando...
+ID 106377047 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106381322/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106381322
+ID 106381322 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106359781/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106359781
+ID 106359781 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106359469/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106359469
+ID 106359469 guardado en el CSV.
+ID 106376744 ya existe. Consecutivos: 1
+ID 106380270 ya existe. Consecutivos: 2
+ID 106374875 ya existe. Consecutivos: 3
+ID 104687492 ya existe. Consecutivos: 4
+ID 106379870 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
