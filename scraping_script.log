@@ -49478,3 +49478,47 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main d38fc42] [UPD] data_updated: 2024-10-25 20:00
+ 4 files changed, 4592 insertions(+), 4502 deletions(-)
+To github.com:Tamgama/scraping.git
+   9e3178d..d38fc42  main -> main
+Agent pid 677656
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+ID 97698432 ya existe. Saltando...
+ID 106377047 ya existe. Saltando...
+ID 106375881 ya existe. Saltando...
+ID 106375351 ya existe. Saltando...
+ID 106375056 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106378392/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106378392
+ID 106378392 guardado en el CSV.
+ID 106378257 ya existe. Consecutivos: 1
+ID 101013531 ya existe. Consecutivos: 2
+ID 106377662 ya existe. Consecutivos: 3
+ID 106377701 ya existe. Consecutivos: 4
+ID 106377455 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
