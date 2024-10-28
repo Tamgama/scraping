@@ -50076,3 +50076,45 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 9420832] [UPD] data_updated: 2024-10-27 20:00
+ 4 files changed, 4553 insertions(+), 4487 deletions(-)
+To github.com:Tamgama/scraping.git
+   d347f22..9420832  main -> main
+Agent pid 732899
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 100677752: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/100677752/contact-phones
+ID 100677752 guardado en el CSV.
+ID 106385760 ya existe. Saltando...
+ID 106385417 ya existe. Saltando...
+ID 106384007 ya existe. Saltando...
+ID 103986642 ya existe. Saltando...
+ID 106383887 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106385555 ya existe. Consecutivos: 1
+ID 106385125 ya existe. Consecutivos: 2
+ID 104835165 ya existe. Consecutivos: 3
+ID 106384373 ya existe. Consecutivos: 4
+ID 106383249 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
