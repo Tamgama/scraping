@@ -265,11 +265,6 @@ function renderPage(page) {
 
         cardContent += '</div>';
         
-        // Añadir el botón con la URL
-        if (row['url']) {
-            cardContent += '<a href="' + row['url'] + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
-        }
-        
         // Mostrar las características como etiquetas si existen
         if (row['caracteristicas']) {
             cardContent += '<div class="tags">';
@@ -280,6 +275,17 @@ function renderPage(page) {
             });
             cardContent += '</div>';
         }
+
+        // Añadir el botón con la URL
+        if (row['url']) {
+            cardContent += '<a href="' + row['url'] + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
+        }
+
+        // Añadir separador
+        cardContent += '<hr class="separator">';
+
+        // Botón para mostrar/ocultar funcionalidades adicionales
+        cardContent += '<button style="margin-right: 15px;" class="btn btn-info btn-sm mt-2" data-toggle="collapse" data-target="#funcionalidades-' + row['id'] + '">Mostrar Funcionalidades</button>';
 
         // Botón desplegable para realizar cálculo
         cardContent += '<button class="btn btn-secondary btn-sm mt-2" data-toggle="collapse" data-target="#calculo-' + row['id'] + '">Mostrar cálculo</button>';
@@ -303,12 +309,6 @@ function renderPage(page) {
         cardContent += '<div id="resultado-calculo-' + row['id'] + '" class="mt-2"></div>';
 
         cardContent += '</div>';
-
-        // Añadir separador
-        cardContent += '<hr class="separator">';
-
-        // Botón para mostrar/ocultar funcionalidades adicionales
-        cardContent += '<button class="btn btn-info btn-sm mt-2" data-toggle="collapse" data-target="#funcionalidades-' + row['id'] + '">Mostrar Funcionalidades</button>';
 
         // Contenedor colapsable para funcionalidades adicionales
         cardContent += '<div id="funcionalidades-' + row['id'] + '" class="collapse mt-2">';
