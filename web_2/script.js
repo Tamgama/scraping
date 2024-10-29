@@ -50,8 +50,8 @@ $(document).ready(function () {
         });
     }
 
-    // Verificar cambios en el archivo cada 5 segundos
-    setInterval(loadCSV, 5000);
+    // Verificar cambios en el archivo cada 50 segundos
+    setInterval(loadCSV, 50000);
 
     // Cargar el CSV al iniciar la página
     loadCSV();
@@ -164,28 +164,28 @@ $(document).ready(function () {
         var start = (page - 1) * pageSize;
         var end = start + pageSize;
         var pageData = _.slice(filteredData, start, end);
-
+    
         pageData.forEach(function (row) {
             var card = $('<div class="col-12 mb-4"></div>');
             var cardContent = '<div class="card-custom">';
             cardContent += '<h4>' + (row['titulo'] || 'Título desconocido') + '</h4>'; // Título en la parte superior
-
+    
             cardContent += '<div class="separator"></div>';
-
+    
             cardContent += '<div class="row-custom">';
             cardContent += '<div class="col-custom"><strong>Precio:</strong> ' + (row['precio'] || 'N/A') + '</div>';
             cardContent += '<div class="col-custom"><strong>Precio/m²:</strong> ' + (row['precio_por_metro'] || 'N/A') + '</div>';
             cardContent += '</div>';
-
+    
             cardContent += '<div class="row-custom">';
             cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row['superficie'] || 'N/A') + ' m²</div>';
             cardContent += '<div class="col-custom"><strong>Barrio:</strong> ' + (row['barrio'] || 'N/A') + '</div>';
             cardContent += '</div>';
-
+    
             // Añadir Nombre Anunciante y Teléfono
             cardContent += '<div class="row-custom">';
             cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row['nombre_anunciante'] || 'N/A') + '</div>';
-
+    
             // Enlace telefónico seguro
             var telefono = row['tlf'] ? String(row['tlf']) : '';
             if (telefono && telefono.length > 2) {
@@ -195,14 +195,8 @@ $(document).ready(function () {
             } else {
                 cardContent += '<div class="col-custom"><strong>Teléfono:</strong> N/A</div>';
             }
-
+    
             cardContent += '</div>';
-            
-            
-            // Añadir el botón con la URL
-            if (row['url']) {
-                cardContent += '<a href="' + row['url'] + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
-            }
             
             // Mostrar las características como etiquetas si existen
             if (row['caracteristicas']) {
@@ -215,10 +209,20 @@ $(document).ready(function () {
                 cardContent += '</div>';
             }
 
+            // Añadir el botón con la URL
+            if (row['url']) {
+                cardContent += '<a href="' + row['url'] + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
+            }
+    
+            // Añadir separador
+            cardContent += '<hr class="separator">';
             // Botón desplegable para realizar cálculo
             cardContent += '<button class="btn btn-secondary btn-sm mt-2" data-toggle="collapse" data-target="#calculo-' + row['id'] + '">Mostrar cálculo</button>';
+            // Botón para mostrar/ocultar funcionalidades adicionales
+            cardContent += '<button class="btn btn-info btn-sm mt-2" data-toggle="collapse" data-target="#funcionalidades-' + row['id'] + '">Mostrar Funcionalidades</button>';
+            
             cardContent += '<div id="calculo-' + row['id'] + '" class="collapse mt-2">';
-
+    
             // Seleccionar porcentaje
             cardContent += '<label for="porcentaje-' + row['id'] + '">Seleccione porcentaje (%):</label>';
             cardContent += '<select id="porcentaje-' + row['id'] + '" class="form-control">';
@@ -226,23 +230,50 @@ $(document).ready(function () {
                 cardContent += '<option value="' + i + '">' + i + '%</option>';
             }
             cardContent += '</select>';
-
+    
             // Añadir un campo para ingresar el precio y metros
             cardContent += '<input type="text" id="input-precio-' + row['id'] + '" class="form-control mt-2" value="' + (row['precio'] || 0) + '" readonly>';
-
+    
             // Botón para realizar cálculo
             cardContent += '<button class="btn btn-primary mt-2" onclick="realizarCalculo(' + row['id'] + ', \'' + row['tipo'] + '\')">Calcular Rentabilidad</button>';
-
+    
             // Contenedor donde se mostrará el resultado del cálculo
             cardContent += '<div id="resultado-calculo-' + row['id'] + '" class="mt-2"></div>';
-
+    
             cardContent += '</div>';
+    
+            // Contenedor colapsable para funcionalidades adicionales
+            cardContent += '<div id="funcionalidades-' + row['id'] + '" class="collapse mt-2">';
+    
+            // Sección de comentarios
+            cardContent += '<div class="comment-section">';
+            cardContent += '<label for="commentInput-' + row['id'] + '">Comentarios:</label>';
+            cardContent += '<textarea id="commentInput-' + row['id'] + '" class="form-control" placeholder="Escribe un comentario..."></textarea>';
+            cardContent += '<button class="btn btn-custom mt-2" onclick="guardarComentario(' + row['id'] + ')">Guardar Comentario</button>';
+            cardContent += '<ul id="commentList-' + row['id'] + '" class="comment-list mt-3"></ul>';
             cardContent += '</div>';
+    
+            // Registro de día y llamadas
+            cardContent += '<div class="log-section mt-3">';
+            cardContent += '<label for="dateInput-' + row['id'] + '">Fecha:</label>';
+            cardContent += '<input type="date" id="dateInput-' + row['id'] + '" class="form-control">';
+            cardContent += '<button class="btn btn-secondary mt-2" onclick="registrarLlamada(' + row['id'] + ')">Registrar Llamada</button>';
+            cardContent += '<div id="callLog-' + row['id'] + '" class="mt-2"></div>';
+            cardContent += '</div>';
+    
+            // Botón de "No Disponible"
+            cardContent += '<button class="btn btn-danger mt-3" onclick="marcarNoDisponible(' + row['id'] + ')">Marcar como No Disponible</button>';
+    
+            cardContent += '</div>'; // Cierre del contenedor colapsable
+    
+            cardContent += '</div>'; // Cierre de la tarjeta
             card.append(cardContent);
-
+    
             $('#cardsContainer').append(card);
         });
     }
+    
+
 
     function updatePaginationControls() {
         $('#pageInfoTop, #pageInfoBottom').text('Página ' + currentPage + ' de ' + totalPages);
@@ -328,63 +359,15 @@ $(document).ready(function () {
 
 
     window.guardarComentario = function(id) {
-        var comentario = $('#comentario-' + id).val();
-        if (comentario) {
-            $('#comentarios-guardados-' + id).text('Comentarios: ' + comentario);
-            $('#comentario-' + id).val('');
-        } else {
-            alert("Por favor, escribe un comentario antes de guardar.");
-        }
+    alert('Pendiente de implementar');
     }
 
     window.registrarLlamada = function(id) {
-        var fechaLlamada = new Date().toLocaleString();
-        $('#registro-llamadas-' + id).text('Última llamada registrada: ' + fechaLlamada);
+        alert('Pendiente de implementar');
     }
 
-    // Función para alternar la visibilidad de la sección de detalles
-    function toggleDetails(button) {
-        const detailsSection = button.nextElementSibling;
-        if (detailsSection.style.display === "none") {
-            detailsSection.style.display = "block";
-            button.textContent = "Ocultar detalles";
-        } else {
-            detailsSection.style.display = "none";
-            button.textContent = "Ver detalles";
-        }
-    }
-
-    // Guarda el comentario ingresado por el usuario y muestra en la lista de comentarios
-    function guardarComentario() {
-        const commentInput = document.getElementById('commentInput');
-        const commentList = document.getElementById('commentList');
-
-        if (commentInput.value.trim()) {
-            const commentItem = document.createElement('li');
-            commentItem.textContent = commentInput.value;
-            commentList.appendChild(commentItem);
-
-            // Limpia el campo de texto después de guardar el comentario
-            commentInput.value = '';
-        }
-    }
-
-    // Marca la propiedad como "No Disponible" y desactiva las interacciones
-    function marcarNoDisponible() {
-        const card = event.target.closest('.card-custom');
-        card.classList.add('disabled-card');
-
-        const buttons = card.querySelectorAll('button');
-        buttons.forEach(button => {
-            button.disabled = true;
-        });
-
-        const inputs = card.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            input.disabled = true;
-        });
-
-        alert('Propiedad marcada como No Disponible');
+    window.marcarNoDisponible = function(id) {
+        alert('Pendiente de implementar');
     }
 
 });
