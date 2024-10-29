@@ -168,6 +168,21 @@ header {
     background-color: #002c23; /* Fondo más oscuro al hacer hover */
 }
 
+/* Estilos para el botón "Ver detalles" */
+.btn-info {
+    margin-top: 10px;
+    width: 100%;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-info:hover {
+    background-color: #007bff;
+}
+
 /* Estilos para la sección de comentarios */
 .comment-section label {
     font-weight: bold;
@@ -196,6 +211,15 @@ header {
 .disabled-card input,
 .disabled-card textarea {
     cursor: not-allowed;
+}
+
+/* Estilo adicional para la sección desplegable de detalles */
+.details-section {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 /* Estilo del contenedor de badges */

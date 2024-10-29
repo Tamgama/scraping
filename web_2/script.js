@@ -341,4 +341,50 @@ $(document).ready(function () {
         var fechaLlamada = new Date().toLocaleString();
         $('#registro-llamadas-' + id).text('Última llamada registrada: ' + fechaLlamada);
     }
+
+    // Función para alternar la visibilidad de la sección de detalles
+    function toggleDetails(button) {
+        const detailsSection = button.nextElementSibling;
+        if (detailsSection.style.display === "none") {
+            detailsSection.style.display = "block";
+            button.textContent = "Ocultar detalles";
+        } else {
+            detailsSection.style.display = "none";
+            button.textContent = "Ver detalles";
+        }
+    }
+
+    // Guarda el comentario ingresado por el usuario y muestra en la lista de comentarios
+    function guardarComentario() {
+        const commentInput = document.getElementById('commentInput');
+        const commentList = document.getElementById('commentList');
+
+        if (commentInput.value.trim()) {
+            const commentItem = document.createElement('li');
+            commentItem.textContent = commentInput.value;
+            commentList.appendChild(commentItem);
+
+            // Limpia el campo de texto después de guardar el comentario
+            commentInput.value = '';
+        }
+    }
+
+    // Marca la propiedad como "No Disponible" y desactiva las interacciones
+    function marcarNoDisponible() {
+        const card = event.target.closest('.card-custom');
+        card.classList.add('disabled-card');
+
+        const buttons = card.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+
+        const inputs = card.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+
+        alert('Propiedad marcada como No Disponible');
+    }
+
 });

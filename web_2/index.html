@@ -47,39 +47,39 @@
                     <!-- Plantilla para una tarjeta -->
                     <div class="card-custom">
                         <h4>Nombre de la Propiedad</h4>
-                        <p>Detalles de la propiedad...</p>
-                        <hr class="separator">
-
-                        <!-- Sección de comentarios -->
-                        <div class="comment-section">
-                            <label for="commentInput">Comentarios:</label>
-                            <textarea id="commentInput" class="form-control" placeholder="Escribe un comentario..."></textarea>
-                            <button class="btn btn-custom mt-2" onclick="guardarComentario()">Guardar Comentario</button>
-                            <ul id="commentList" class="comment-list mt-3">
-                                <!-- Comentarios guardados se mostrarán aquí -->
-                            </ul>
+                        <p>Detalles básicos de la propiedad...</p>
+                        
+                        <!-- Botón para desplegar detalles -->
+                        <button class="btn btn-info" onclick="toggleDetails(this)">Ver detalles</button>
+                        
+                        <!-- Sección desplegable de detalles (oculta por defecto) -->
+                        <div class="details-section" style="display: none;">
+                            <hr class="separator">
+                            
+                            <!-- Sección de comentarios -->
+                            <div class="comment-section">
+                                <label for="commentInput">Comentarios:</label>
+                                <textarea id="commentInput" class="form-control" placeholder="Escribe un comentario..."></textarea>
+                                <button class="btn btn-custom mt-2" onclick="guardarComentario()">Guardar Comentario</button>
+                                <ul id="commentList" class="comment-list mt-3">
+                                    <!-- Comentarios guardados se mostrarán aquí -->
+                                </ul>
+                            </div>
+            
+                            <!-- Registro de día y llamadas -->
+                            <div class="log-section mt-3">
+                                <label for="dateInput">Fecha:</label>
+                                <input type="date" id="dateInput" class="form-control">
+                                <label for="callLogInput" class="mt-2">Registro de llamadas:</label>
+                                <input type="text" id="callLogInput" class="form-control" placeholder="Registro de llamadas">
+                            </div>
+            
+                            <!-- Botón de "No Disponible" -->
+                            <button class="btn btn-danger mt-3" onclick="marcarNoDisponible()">Marcar como No Disponible</button>
                         </div>
-
-                        <!-- Registro de día y llamadas -->
-                        <div class="log-section mt-3">
-                            <label for="dateInput">Fecha:</label>
-                            <input type="date" id="dateInput" class="form-control">
-                            <label for="callLogInput" class="mt-2">Registro de llamadas:</label>
-                            <input type="text" id="callLogInput" class="form-control" placeholder="Registro de llamadas">
-                        </div>
-
-                        <!-- Botón de "No Disponible" -->
-                        <button class="btn btn-danger mt-3" onclick="marcarNoDisponible()">Marcar como No Disponible</button>
                     </div>
                 </div>
-                
-                <!-- Controles de paginación -->
-                <div class="d-flex justify-content-between my-3">
-                    <button id="prevPageTop" class="btn btn-secondary">Anterior</button>
-                    <span id="pageInfoTop" class="align-self-center">Página 1 de X</span>
-                    <button id="nextPageTop" class="btn btn-secondary">Siguiente</button>
-                </div>
-            </div>
+            </div>            
         </div>
     </div>
 
