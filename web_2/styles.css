@@ -6,7 +6,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
 /* Estilo del header */
 header {
     background-color: #004d3c; /* Color de fondo del header */
@@ -169,6 +168,36 @@ header {
     background-color: #002c23; /* Fondo más oscuro al hacer hover */
 }
 
+/* Estilos para la sección de comentarios */
+.comment-section label {
+    font-weight: bold;
+}
+
+.comment-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.comment-list li {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+/* Estilos para desactivar la tarjeta cuando se marca como "No disponible" */
+.disabled-card {
+    opacity: 0.6;
+    pointer-events: none; /* Evita cualquier interacción en la tarjeta */
+}
+
+.disabled-card button,
+.disabled-card input,
+.disabled-card textarea {
+    cursor: not-allowed;
+}
+
 /* Estilo del contenedor de badges */
 .badge-container {
     margin-bottom: 10px; /* Espacio inferior entre el contenedor de badges y el siguiente elemento */
@@ -253,5 +282,4 @@ header {
         max-width: 1400px; /* Aumentar el ancho máximo en pantallas grandes */
         gap: 30px; /* Añadir más espacio entre el filtro y el contenido en pantallas grandes */
     }
-
 }

@@ -22,6 +22,10 @@
         </div>
     </header>
 
+    <!-- Indicador de carga y alerta de nuevos datos -->
+    <div id="loadingIndicator" class="alert alert-info text-center" style="display:none;">Cargando datos...</div>
+    <div id="newDataAlert" class="alert alert-success text-center" style="display:none;">Nuevos datos cargados</div>
+
     <div class="container mt-5">
         <div class="row">
             <!-- Botón para desplegar los filtros en pantallas pequeñas -->
@@ -32,31 +36,7 @@
                 <!-- Caja colapsable para pantallas pequeñas -->
                 <div id="filtersContainer" class="collapse d-md-block">
                     <div class="filters-container">
-                        <div class="filter-group">
-                            <label for="filterAnunciante">Filtrar por anunciante:</label>
-                            <select id="filterAnunciante" class="form-control form-control-custom">
-                                <option value="Ver todos">Ver todos</option>
-                                <!-- Opciones dinámicas serán insertadas aquí -->
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="filterTipo">Filtrar por tipo:</label>
-                            <select id="filterTipo" class="form-control form-control-custom">
-                                <option value="Ver todos">Ver todos</option>
-                                <!-- Opciones dinámicas serán insertadas aquí -->
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="filterBarrio">Filtrar por barrio:</label>
-                            <select id="filterBarrio" class="form-control form-control-custom">
-                                <option value="Ver todos">Ver todos</option>
-                                <!-- Opciones dinámicas serán insertadas aquí -->
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="filterPhone">Filtrar por teléfono:</label>
-                            <input type="text" id="filterPhone" class="form-control form-control-custom" placeholder="Buscar teléfono">
-                        </div>
+                        <!-- Filtros de búsqueda aquí -->
                     </div>
                 </div>
             </div>
@@ -64,18 +44,40 @@
             <!-- Columna para las tarjetas -->
             <div class="col-md-9">
                 <div id="cardsContainer" class="row">
-                    <!-- Contenedor para las cards dinámicas que se generan con JavaScript -->
-                </div>
+                    <!-- Plantilla para una tarjeta -->
+                    <div class="card-custom">
+                        <h4>Nombre de la Propiedad</h4>
+                        <p>Detalles de la propiedad...</p>
+                        <hr class="separator">
 
-                <!-- Paginación en la parte inferior -->
-                <div id="paginationControlsBottom" class="mt-3">
-                    <button id="prevPageBottom" class="btn btn-primary" disabled>Anterior</button>
-                    <span id="pageInfoBottom" class="mx-2">Página 1</span>
-                    <button id="nextPageBottom" class="btn btn-primary" disabled>Siguiente</button>
-                </div>
+                        <!-- Sección de comentarios -->
+                        <div class="comment-section">
+                            <label for="commentInput">Comentarios:</label>
+                            <textarea id="commentInput" class="form-control" placeholder="Escribe un comentario..."></textarea>
+                            <button class="btn btn-custom mt-2" onclick="guardarComentario()">Guardar Comentario</button>
+                            <ul id="commentList" class="comment-list mt-3">
+                                <!-- Comentarios guardados se mostrarán aquí -->
+                            </ul>
+                        </div>
 
-                <div id="newDataAlert" class="alert alert-info alert-fixed" style="display: none;">
-                    ¡Nuevos datos disponibles! La página se ha actualizado.
+                        <!-- Registro de día y llamadas -->
+                        <div class="log-section mt-3">
+                            <label for="dateInput">Fecha:</label>
+                            <input type="date" id="dateInput" class="form-control">
+                            <label for="callLogInput" class="mt-2">Registro de llamadas:</label>
+                            <input type="text" id="callLogInput" class="form-control" placeholder="Registro de llamadas">
+                        </div>
+
+                        <!-- Botón de "No Disponible" -->
+                        <button class="btn btn-danger mt-3" onclick="marcarNoDisponible()">Marcar como No Disponible</button>
+                    </div>
+                </div>
+                
+                <!-- Controles de paginación -->
+                <div class="d-flex justify-content-between my-3">
+                    <button id="prevPageTop" class="btn btn-secondary">Anterior</button>
+                    <span id="pageInfoTop" class="align-self-center">Página 1 de X</span>
+                    <button id="nextPageTop" class="btn btn-secondary">Siguiente</button>
                 </div>
             </div>
         </div>

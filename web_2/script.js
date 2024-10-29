@@ -252,8 +252,43 @@ $(document).ready(function () {
 
     // Función para volver a la parte superior de la página
     function scrollToTop() {
-        $('html, body').animate({ scrollTop: 0 }, 'fast');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Guarda el comentario ingresado por el usuario y muestra en la lista de comentarios
+    function guardarComentario() {
+        const commentInput = document.getElementById('commentInput');
+        const commentList = document.getElementById('commentList');
+
+        if (commentInput.value.trim()) {
+            const commentItem = document.createElement('li');
+            commentItem.textContent = commentInput.value;
+            commentList.appendChild(commentItem);
+
+            // Limpia el campo de texto después de guardar el comentario
+            commentInput.value = '';
+        }
+    }
+
+    // Marca la propiedad como "No Disponible" y desactiva las interacciones
+    function marcarNoDisponible() {
+        const card = event.target.closest('.card-custom');
+        card.classList.add('disabled-card');
+
+        const buttons = card.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+
+        const inputs = card.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+
+        alert('Propiedad marcada como No Disponible');
+    }
+
+
     // Función para calcular y mostrar precio de venta, compra bruta, rentabilidad bruta y neta
     window.realizarCalculo = function(id, tipo) {
         var precio = parseFloat($('#input-precio-' + id).val());
@@ -290,4 +325,20 @@ $(document).ready(function () {
             $('#resultado-calculo-' + id).html('<strong>Error:</strong> Solo se puede calcular la rentabilidad en inmuebles de alquiler.');
         }
       }
+
+
+    window.guardarComentario = function(id) {
+        var comentario = $('#comentario-' + id).val();
+        if (comentario) {
+            $('#comentarios-guardados-' + id).text('Comentarios: ' + comentario);
+            $('#comentario-' + id).val('');
+        } else {
+            alert("Por favor, escribe un comentario antes de guardar.");
+        }
+    }
+
+    window.registrarLlamada = function(id) {
+        var fechaLlamada = new Date().toLocaleString();
+        $('#registro-llamadas-' + id).text('Última llamada registrada: ' + fechaLlamada);
+    }
 });
