@@ -251,7 +251,7 @@ function renderPage(page) {
 
         // Añadir Nombre Anunciante y Teléfono
         cardContent += '<div class="row-custom">';
-        cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row['nombre_anunciante'] || 'N/A') + '</div>';
+        cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row['nombre'] || 'N/A') + '</div>';
 
         // Enlace telefónico seguro
         var telefono = row['tlf'] ? String(row['tlf']) : '';
