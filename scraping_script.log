@@ -52654,3 +52654,49 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 1b48e65] [UPD] data_updated: 2024-11-02 20:00
+ 4 files changed, 4893 insertions(+), 4849 deletions(-)
+To github.com:Tamgama/scraping.git
+   a0e997b..1b48e65  main -> main
+Agent pid 845751
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106439594: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106439594/contact-phones
+ID 106439594 guardado en el CSV.
+ID 106439085 ya existe. Saltando...
+ID 105795869 ya existe. Saltando...
+ID 103754209 ya existe. Saltando...
+ID 106437223 ya existe. Saltando...
+ID 106437052 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106439627/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106439627
+ID 106439627 guardado en el CSV.
+ID 106438590 ya existe. Consecutivos: 1
+ID 106437596 ya existe. Consecutivos: 2
+ID 106437345 ya existe. Consecutivos: 3
+ID 105309173 ya existe. Consecutivos: 4
+ID 101896997 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
