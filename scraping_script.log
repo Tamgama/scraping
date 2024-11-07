@@ -54524,3 +54524,51 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main a6269eb] [UPD] data_updated: 2024-11-07 04:00
+ 4 files changed, 4905 insertions(+), 4865 deletions(-)
+To github.com:Tamgama/scraping.git
+   5e1802d..a6269eb  main -> main
+Agent pid 910756
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 104367939: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/104367939/contact-phones
+ID 104367939 guardado en el CSV.
+Error al intentar acceder al teléfono para 98368370: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/98368370/contact-phones
+ID 98368370 guardado en el CSV.
+ID 104755894 ya existe. Saltando...
+ID 106479635 ya existe. Saltando...
+ID 92314044 ya existe. Saltando...
+ID 103733118 ya existe. Saltando...
+ID 96876521 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106480476/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106480476
+ID 106480476 guardado en el CSV.
+ID 106479796 ya existe. Consecutivos: 1
+ID 106461303 ya existe. Consecutivos: 2
+ID 106479648 ya existe. Consecutivos: 3
+ID 106479467 ya existe. Consecutivos: 4
+ID 106479325 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
