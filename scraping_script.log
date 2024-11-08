@@ -55181,3 +55181,52 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 3987993] [UPD] data_updated: 2024-11-08 16:01
+ 4 files changed, 4808 insertions(+), 4670 deletions(-)
+To github.com:Tamgama/scraping.git
+   a51f922..3987993  main -> main
+Agent pid 935782
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106507869: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106507869/contact-phones
+ID 106507869 guardado en el CSV.
+Error al intentar acceder al teléfono para 106497808: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106497808/contact-phones
+ID 106497808 guardado en el CSV.
+Error al intentar acceder al teléfono para 87986719: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/87986719/contact-phones
+ID 87986719 guardado en el CSV.
+Error al intentar acceder al teléfono para 97437674: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/97437674/contact-phones
+ID 97437674 guardado en el CSV.
+Error al intentar acceder al teléfono para 106506033: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106506033/contact-phones
+ID 106506033 guardado en el CSV.
+ID 106165638 ya existe. Saltando...
+ID 101768295 ya existe. Saltando...
+ID 102602156 ya existe. Saltando...
+Error al intentar acceder al teléfono para 83948620: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/83948620/contact-phones
+ID 83948620 guardado en el CSV.
+ID 98950789 ya existe. Saltando...
+ID 106497998 ya existe. Saltando...
+ID 106497339 ya existe. Saltando...
+ID 98950614 ya existe. Saltando...
+ID 103359292 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Error al ejecutar ventas.py: Command '['python3', 'ventas.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
