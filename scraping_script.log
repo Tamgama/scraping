@@ -54999,3 +54999,49 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main bd5fbe3] [UPD] data_updated: 2024-11-08 04:00
+ 4 files changed, 5003 insertions(+), 4953 deletions(-)
+To github.com:Tamgama/scraping.git
+   fc9979c..bd5fbe3  main -> main
+Agent pid 925393
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106497622: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106497622/contact-phones
+ID 106497622 guardado en el CSV.
+Error al intentar acceder al teléfono para 106497484: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106497484/contact-phones
+ID 106497484 guardado en el CSV.
+Error al intentar acceder al teléfono para 106497599: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106497599/contact-phones
+ID 106497599 guardado en el CSV.
+ID 97881470 ya existe. Saltando...
+ID 106489431 ya existe. Saltando...
+ID 106489985 ya existe. Saltando...
+ID 106489725 ya existe. Saltando...
+ID 805898 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106497428 ya existe. Consecutivos: 1
+ID 106495714 ya existe. Consecutivos: 2
+ID 106481652 ya existe. Consecutivos: 3
+ID 106489345 ya existe. Consecutivos: 4
+ID 106493635 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
