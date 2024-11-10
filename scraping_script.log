@@ -55739,3 +55739,46 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 7249aa6] [UPD] data_updated: 2024-11-10 16:04
+ 4 files changed, 601 insertions(+), 570 deletions(-)
+To github.com:Tamgama/scraping.git
+   0885ef7..7249aa6  main -> main
+Agent pid 960851
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al ejecutar alquileres.py: Command '['python3', 'alquileres.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando ventas.py...
+Error al ejecutar ventas.py: Command '['python3', 'ventas.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+Error al ejecutar limpieza.py: Command '['python3', 'limpieza.py']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/root/scraping/soporte/limpieza.py", line 10, in <module>
+    ventas = pd.read_csv("../src/ventas.csv")
+  File "/root/scraping/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/root/scraping/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/root/scraping/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/root/scraping/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1898, in _make_engine
+    return mapping[engine](f, **self.options)
+  File "/root/scraping/.venv/lib/python3.10/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 93, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "parsers.pyx", line 581, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+
+Ejecutando particulares/particulares.py...
+Error al ejecutar particulares/particulares.py: Command '['python3', 'particulares/particulares.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
