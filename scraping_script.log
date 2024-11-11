@@ -55958,3 +55958,39 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main e900d85] [UPD] data_updated: 2024-11-11 08:02
+ 1 file changed, 58 insertions(+)
+To github.com:Tamgama/scraping.git
+   fdc67a0..e900d85  main -> main
+Agent pid 969149
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   e900d85..6251565  main       -> origin/main
+Updating e900d85..6251565
+Fast-forward
+ soporte/cookie.json      |    2 +-
+ src/alquileres.csv       |  944 ++++-----
+ src/ventas.csv           | 2387 +++++++++++++++++++++
+ web_2/data/inmuebles.csv | 5122 +++++++++++++++++++++++-----------------------
+ web_2/script.js          |   32 +-
+ 5 files changed, 5475 insertions(+), 3012 deletions(-)
+Ejecutando alquileres.py...
+Error al ejecutar alquileres.py: Command '['python3', 'alquileres.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando ventas.py...
+Error al ejecutar ventas.py: Command '['python3', 'ventas.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando limpieza.py...
+Error al ejecutar limpieza.py: Command '['python3', 'limpieza.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando particulares/particulares.py...
+Error al ejecutar particulares/particulares.py: Command '['python3', 'particulares/particulares.py']' died with <Signals.SIGKILL: 9>.
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
