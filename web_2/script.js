@@ -366,6 +366,34 @@ window.marcarNoDisponible = function(id) {
     alert('Pendiente de implementar');
 }
 
+// Implementación de la función realizarCalculo
 window.realizarCalculo = function(id, tipo) {
-    alert('Pendiente de implementar');
+    var precio = parseFloat($('#input-precio-' + id).val());
+    var porcentaje = parseFloat($('#porcentaje-' + id).val());
+  
+    if (tipo === 'Alquiler') {
+        var ingresos = precio * 12;
+        if (!isNaN(ingresos) && !isNaN(precio) && !isNaN(porcentaje)) {
+            // Calcular el precio ajustado con el porcentaje seleccionado
+            var precioAjustado = precio + (precio * (porcentaje / 100));
+            // Calcular el precio de venta original sin aumento
+            var precioVenta = (ingresos / porcentaje) * 100;
+            // Calcular el precio de compra bruta (con el 15% de aumento)
+            var precioCompraBruta = precioVenta * 1.15;
+            // Calcular la rentabilidad bruta
+            var rentabilidadBruta = (ingresos / precioCompraBruta) * 100;
+            // Asumimos un 25% de gastos anuales para el cálculo de la rentabilidad neta
+            var gastosAnuales = ingresos * 0.25;
+            var ingresosNetos = ingresos - gastosAnuales;
+            var rentabilidadNeta = (ingresosNetos / precioCompraBruta) * 100;
+            $('#resultado-calculo-' + id).html('<strong>Precio de Venta:</strong> ' + precioVenta.toFixed(2) + ' €<br>' +
+                '<strong>Precio Compra Bruta (con 15%):</strong> ' + precioCompraBruta.toFixed(2) + ' €<br>' +
+                '<strong>Rentabilidad Bruta:</strong> ' + rentabilidadBruta.toFixed(2) + ' %<br>' +
+                '<strong>Rentabilidad Neta:</strong> ' + rentabilidadNeta.toFixed(2) + ' %');
+        } else {
+            $('#resultado-calculo-' + id).html('<strong>Error:</strong> No se puede realizar el cálculo.');
+        }
+    } else {
+        $('#resultado-calculo-' + id).html('<strong>Error:</strong> Solo se puede calcular la rentabilidad en inmuebles de alquiler.');
+    }
 }
