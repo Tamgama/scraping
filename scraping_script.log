@@ -56615,3 +56615,81 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 8b7055a] [UPD] data_updated: 2024-11-12 12:00:22
+ 4 files changed, 2550 insertions(+), 2451 deletions(-)
+To github.com:Tamgama/scraping.git
+   77a2b01..8b7055a  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 21616 killed;
+Agent pid 23555
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+ID 106535320 guardado en el CSV.
+ID 106534813 guardado en el CSV.
+ID 103487808 guardado en el CSV.
+ID 106533553 guardado en el CSV.
+ID 104966756 guardado en el CSV.
+ID 105701992 guardado en el CSV.
+ID 100709490 ya existe. Saltando...
+ID 106520631 ya existe. Saltando...
+ID 106529733 ya existe. Saltando...
+ID 91276540 ya existe. Saltando...
+ID 90894246 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/100057606/contact-phones
+ID 100057606 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106535336/contact-phones
+ID 106535336 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106534282/contact-phones
+ID 106534282 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106534279/contact-phones
+ID 106534279 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106534261/contact-phones
+ID 106534261 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106532924/contact-phones
+ID 106532924 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106533343/contact-phones
+ID 106533343 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106532925/contact-phones
+ID 106532925 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106532521/contact-phones
+ID 106532521 guardado en el CSV.
+ID 106532202 ya existe. Consecutivos: 1
+ID 106532007 ya existe. Consecutivos: 2
+ID 106526150 ya existe. Consecutivos: 3
+ID 106531251 ya existe. Consecutivos: 4
+ID 102201788 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+
+Intentando leer el archivo CSV en la ruta: ../src/alquileres.csv
+Archivo CSV leído correctamente.
+Procesando ID: 106534813 - URL: https://www.idealista.com/es/ajax/ads/106534813/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106534813. Asignado -1.
+Archivo CSV '../src/alquileres.csv' actualizado y guardado correctamente.
+
+Intentando leer el archivo CSV en la ruta: ../src/ventas.csv
+Archivo CSV leído correctamente.
+Procesando ID: 106532521 - URL: https://www.idealista.com/es/ajax/ads/106532521/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106532521. Asignado -1.
+Archivo CSV '../src/ventas.csv' actualizado y guardado correctamente.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
