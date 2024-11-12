@@ -56693,3 +56693,104 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 750c144] [UPD] data_updated: 2024-11-12 16:01:10
+ 4 files changed, 3383 insertions(+), 3275 deletions(-)
+To github.com:Tamgama/scraping.git
+   8b7055a..750c144  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 23555 killed;
+Agent pid 25670
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 28255628: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/28255628/contact-phones
+ID 28255628 guardado en el CSV.
+Error al intentar acceder al teléfono para 106538815: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106538815/contact-phones
+ID 106538815 guardado en el CSV.
+Error al intentar acceder al teléfono para 92735609: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/92735609/contact-phones
+ID 92735609 guardado en el CSV.
+Error al intentar acceder al teléfono para 106537864: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106537864/contact-phones
+ID 106537864 guardado en el CSV.
+Error al intentar acceder al teléfono para 106532870: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106532870/contact-phones
+ID 106532870 guardado en el CSV.
+Error al intentar acceder al teléfono para 106536848: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106536848/contact-phones
+ID 106536848 guardado en el CSV.
+Error al intentar acceder al teléfono para 106536682: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106536682/contact-phones
+ID 106536682 guardado en el CSV.
+Error al intentar acceder al teléfono para 106536215: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106536215/contact-phones
+ID 106536215 guardado en el CSV.
+Error al intentar acceder al teléfono para 31330175: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/31330175/contact-phones
+ID 31330175 guardado en el CSV.
+Error al intentar acceder al teléfono para 106535972: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106535972/contact-phones
+ID 106535972 guardado en el CSV.
+Error al intentar acceder al teléfono para 106535916: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106535916/contact-phones
+ID 106535916 guardado en el CSV.
+ID 106535320 ya existe. Saltando...
+ID 103487808 ya existe. Saltando...
+ID 106533553 ya existe. Saltando...
+ID 104966756 ya existe. Saltando...
+ID 105701992 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106538383/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106538383
+ID 106538383 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106538196/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106538196
+ID 106538196 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106537645/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106537645
+ID 106537645 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106537610/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106537610
+ID 106537610 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106537522/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106537522
+ID 106537522 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106537365/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106537365
+ID 106537365 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106537297/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106537297
+ID 106537297 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106536883/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106536883
+ID 106536883 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106535966/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106535966
+ID 106535966 guardado en el CSV.
+ID 100057606 ya existe. Consecutivos: 1
+ID 106535336 ya existe. Consecutivos: 2
+ID 106534282 ya existe. Consecutivos: 3
+ID 106534279 ya existe. Consecutivos: 4
+ID 106534261 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
