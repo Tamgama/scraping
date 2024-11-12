@@ -56022,3 +56022,8 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main fc5a858] [UPD] data_updated: 2024-11-11 16:07
+ 2 files changed, 852 insertions(+), 824 deletions(-)
+To github.com:Tamgama/scraping.git
+   a8bcf48..fc5a858  main -> main
+-bash: ./root/scripts/scraping_script.sh: No such file or directory
