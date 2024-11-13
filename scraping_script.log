@@ -56902,3 +56902,60 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 925a91b] [UPD] data_updated: 2024-11-13 04:00:15
+ 4 files changed, 5159 insertions(+), 5110 deletions(-)
+To github.com:Tamgama/scraping.git
+   5590cee..925a91b  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 32697 killed;
+Agent pid 35531
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   925a91b..c3ecf1f  main       -> origin/main
+Updating 925a91b..c3ecf1f
+Fast-forward
+ soporte/cookie.json      |    2 +-
+ src/alquileres.csv       |  598 ++++-----
+ src/ventas.csv           | 1714 +++++++++++++-------------
+ web_2/data/inmuebles.csv | 3028 +++++++++++++++++++++++-----------------------
+ 4 files changed, 2673 insertions(+), 2669 deletions(-)
+Ejecutando alquileres.py...
+ID 106455748 ya existe. Saltando...
+ID 106539164 ya existe. Saltando...
+ID 28255628 ya existe. Saltando...
+ID 106538815 ya existe. Saltando...
+ID 92735609 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 103824437 ya existe. Consecutivos: 1
+ID 106540958 ya existe. Consecutivos: 2
+ID 106378999 ya existe. Consecutivos: 3
+ID 106540200 ya existe. Consecutivos: 4
+ID 106540152 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+
+Intentando leer el archivo CSV en la ruta: ../src/alquileres.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/alquileres.csv' actualizado y guardado correctamente.
+
+Intentando leer el archivo CSV en la ruta: ../src/ventas.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/ventas.csv' actualizado y guardado correctamente.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
