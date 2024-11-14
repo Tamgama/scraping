@@ -57724,3 +57724,110 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main a60efc0] [UPD] data_updated: 2024-11-14 16:01:07
+ 4 files changed, 5382 insertions(+), 5224 deletions(-)
+To github.com:Tamgama/scraping.git
+   b200958..a60efc0  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 56295 killed;
+Agent pid 58241
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 103479738: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/103479738/contact-phones
+ID 103479738 guardado en el CSV.
+Error al intentar acceder al teléfono para 106531338: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106531338/contact-phones
+ID 106531338 guardado en el CSV.
+Error al intentar acceder al teléfono para 101077117: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/101077117/contact-phones
+ID 101077117 guardado en el CSV.
+ID 106487763 ya existe. Saltando...
+Error al intentar acceder al teléfono para 106561047: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106561047/contact-phones
+ID 106561047 guardado en el CSV.
+Error al intentar acceder al teléfono para 106560879: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106560879/contact-phones
+ID 106560879 guardado en el CSV.
+Error al intentar acceder al teléfono para 106560673: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106560673/contact-phones
+ID 106560673 guardado en el CSV.
+ID 106364847 ya existe. Saltando...
+Error al intentar acceder al teléfono para 106560400: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106560400/contact-phones
+ID 106560400 guardado en el CSV.
+ID 97124697 ya existe. Saltando...
+ID 103639957 ya existe. Saltando...
+ID 105925326 ya existe. Saltando...
+ID 106514710 ya existe. Saltando...
+ID 106556773 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106562710/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106562710
+ID 106562710 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106562353/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106562353
+ID 106562353 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/102018785/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 102018785
+ID 102018785 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106561879/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106561879
+ID 106561879 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106530819/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106530819
+ID 106530819 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106561735/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106561735
+ID 106561735 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106560366/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106560366
+ID 106560366 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106560011/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106560011
+ID 106560011 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106561087/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106561087
+ID 106561087 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106560906/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106560906
+ID 106560906 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106560858/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106560858
+ID 106560858 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106527974/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106527974
+ID 106527974 guardado en el CSV.
+ID 106560207 ya existe. Consecutivos: 1
+ID 106559985 ya existe. Consecutivos: 2
+ID 106559927 ya existe. Consecutivos: 3
+ID 106559782 ya existe. Consecutivos: 4
+ID 106558109 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
