@@ -54,9 +54,8 @@ function loadScrapingView() {
                     <div id="sortContainer" class="mt-3">
                         <label for="sortOrder">Ordenar por:</label>
                         <select id="sortOrder" class="form-control">
-                            <option value="default">Por defecto</option>
-                            <option value="fechaAsc">Fecha (ascendente)</option>
-                            <option value="fechaDesc">Fecha (descendente)</option>
+                            <option value="fechaDesc" selected="1">Más nuevo a más antiguo</option>
+                            <option value="fechaAsc">Más antiguo a más nuevo</option>
                         </select>
                     </div>
                 </div>
@@ -178,6 +177,7 @@ function loadCSV() {
                     complete: function (results) {
                         data = results.data.map(row => {
                             row['fecha'] = row['fecha'] ? new Date(row['fecha']) : null; // Convertir a objeto Date o dejar como null
+                            row['id'] = row['id'] ? parseInt(row['id']) : null; // Convertir a objeto Date o dejar como null
                             return row;
                         });
                         filteredData = data;
@@ -243,13 +243,9 @@ function applySort() {
     var sortOrder = $('#sortOrder').val();
 
     if (sortOrder === 'fechaAsc') {
-        filteredData = _.sortBy(filteredData, function (row) {
-            return row['fecha'] ? row['fecha'].getTime() : 0; // Usar getTime() para fechas válidas
-        });
+        filteredData = _.sortBy(filteredData, ['fecha', 'id']); // Orden ascendente por fecha y luego id_inmueble
     } else if (sortOrder === 'fechaDesc') {
-        filteredData = _.sortBy(filteredData, function (row) {
-            return row['fecha'] ? row['fecha'].getTime() : 0;
-        }).reverse();
+        filteredData = _.sortBy(filteredData, ['fecha', 'id']).reverse(); // Orden descendente por fecha y luego id_inmueble
     }
 
     currentPage = 1; // Reiniciar a la primera página después de ordenar
