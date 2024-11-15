@@ -51,6 +51,14 @@ function loadScrapingView() {
                             <input type="text" id="filterPhone" class="form-control form-control-custom" placeholder="Buscar teléfono">
                         </div>
                     </div>
+                    <div id="sortContainer" class="mt-3">
+                        <label for="sortOrder">Ordenar por:</label>
+                        <select id="sortOrder" class="form-control">
+                            <option value="default">Por defecto</option>
+                            <option value="fechaAsc">Fecha (ascendente)</option>
+                            <option value="fechaDesc">Fecha (descendente)</option>
+                        </select>
+                    </div>
                 </div>
 
                 <!-- Columna para las tarjetas -->
@@ -60,9 +68,11 @@ function loadScrapingView() {
                     </div>
                     <!-- Controles de paginación -->
                     <div class="d-flex justify-content-between my-3">
+                        <button id="firstPage" class="btn btn-secondary">Primera</button>
                         <button id="prevPageTop" class="btn btn-secondary">Anterior</button>
                         <span id="pageInfoTop" class="align-self-center">Página 1 de X</span>
                         <button id="nextPageTop" class="btn btn-secondary">Siguiente</button>
+                        <button id="lastPage" class="btn btn-secondary">Última</button>
                     </div>
                 </div>
             </div>
@@ -119,6 +129,28 @@ function configureScrapingEvents() {
             scrollToTop();
         }
     });
+
+    $('#firstPage').on('click', function () {
+        if (currentPage > 1) {
+            currentPage = 1;
+            renderPage(currentPage);
+            updatePaginationControls();
+            scrollToTop();
+        }
+    });
+    
+    $('#lastPage').on('click', function () {
+        if (currentPage < totalPages) {
+            currentPage = totalPages;
+            renderPage(currentPage);
+            updatePaginationControls();
+            scrollToTop();
+        }
+    });
+
+    $('#sortOrder').on('change', function () {
+        applySort();
+    });
 }
 
 // Mostrar y ocultar indicador de carga
@@ -144,7 +176,10 @@ function loadCSV() {
                     header: true,
                     dynamicTyping: true,
                     complete: function (results) {
-                        data = results.data;
+                        data = results.data.map(row => {
+                            row['fecha'] = row['fecha'] ? new Date(row['fecha']) : null; // Convertir a objeto Date o dejar como null
+                            return row;
+                        });
                         filteredData = data;
                         updateAnuncianteFilter(data);
                         updateTipoFilter(data);
@@ -204,6 +239,24 @@ function updateBarrioFilter(data) {
     });
 }
 
+function applySort() {
+    var sortOrder = $('#sortOrder').val();
+
+    if (sortOrder === 'fechaAsc') {
+        filteredData = _.sortBy(filteredData, function (row) {
+            return row['fecha'] ? row['fecha'].getTime() : 0; // Usar getTime() para fechas válidas
+        });
+    } else if (sortOrder === 'fechaDesc') {
+        filteredData = _.sortBy(filteredData, function (row) {
+            return row['fecha'] ? row['fecha'].getTime() : 0;
+        }).reverse();
+    }
+
+    currentPage = 1; // Reiniciar a la primera página después de ordenar
+    renderPage(currentPage);
+    updatePaginationControls();
+}
+
 // Aplicar los filtros
 function applyFilters() {
     var selectedAnunciante = $('#filterAnunciante').val();
@@ -223,6 +276,7 @@ function applyFilters() {
     totalPages = Math.ceil(filteredData.length / pageSize);
     renderPage(currentPage);
     updatePaginationControls();
+    applySort(); // Ordenar los resultados filtrados
 }
 
 // Renderizar la página
@@ -263,6 +317,17 @@ function renderPage(page) {
             cardContent += '<div class="col-custom"><strong>Teléfono:</strong> N/A</div>';
         }
 
+        cardContent += '</div>';
+
+        // Lo ocultamos de momento con el display: none;
+        cardContent += '<div style="display: none;" class="row-custom">';
+        if (row['fecha']) {
+            var formattedDate = row['fecha'].toLocaleString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit', 
+                                                                    hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            cardContent += '<div class="col-custom"><strong>Fecha:</strong> ' + formattedDate + '</div>';
+        } else {
+            cardContent += '<div class="col-custom"><strong>Fecha:</strong> N/A</div>';
+        }
         cardContent += '</div>';
         
         // Mostrar las características como etiquetas si existen
@@ -346,6 +411,8 @@ function updatePaginationControls() {
     $('#pageInfoTop').text('Página ' + currentPage + ' de ' + totalPages);
     $('#prevPageTop').prop('disabled', currentPage === 1);
     $('#nextPageTop').prop('disabled', currentPage === totalPages);
+    $('#firstPage').prop('disabled', currentPage === 1);
+    $('#lastPage').prop('disabled', currentPage === totalPages);
 }
 
 // Función para volver a la parte superior de la página

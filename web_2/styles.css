@@ -294,3 +294,15 @@ header {
     background-color: #138496;
     border-color: #117a8b;
 }
+#sortContainer {
+    margin-top: 10px;
+}
+
+#sortOrder {
+    margin-top: 5px;
+    width: 100%;
+}
+
+#firstPage, #lastPage {
+    margin: 0 5px; /* Añade un pequeño margen entre los botones */
+}
