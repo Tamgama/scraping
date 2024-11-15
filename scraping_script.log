@@ -58022,3 +58022,398 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main ede1089] [UPD] data_updated: 2024-11-15 08:00:14
+ 4 files changed, 5413 insertions(+), 5364 deletions(-)
+To github.com:Tamgama/scraping.git
+   5716b07..ede1089  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 64722 killed;
+Agent pid 67067
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   ede1089..f5f6649  main       -> origin/main
+Updating ede1089..f5f6649
+Fast-forward
+ soporte/cookie.json |  2 +-
+ web_2/script.js     | 65 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ web_2/styles.css    | 12 ++++++++++
+ 3 files changed, 77 insertions(+), 2 deletions(-)
+Ejecutando alquileres.py...
+ID 106569312 guardado en el CSV.
+ID 106569157 guardado en el CSV.
+ID 106568767 guardado en el CSV.
+ID 29228001 guardado en el CSV.
+ID 106566828 guardado en el CSV.
+ID 106566294 guardado en el CSV.
+ID 106563905 ya existe. Saltando...
+ID 106563613 ya existe. Saltando...
+ID 98024226 ya existe. Saltando...
+ID 103479738 ya existe. Saltando...
+ID 106531338 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106569271/contact-phones
+ID 106569271 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106568999/contact-phones
+ID 106568999 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106568789/contact-phones
+ID 106568789 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106568713/contact-phones
+ID 106568713 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106568575/contact-phones
+ID 106568575 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106568199/contact-phones
+ID 106568199 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106568229/contact-phones
+ID 106568229 guardado en el CSV.
+ID 106465319 ya existe. Consecutivos: 1
+ID 105876004 ya existe. Consecutivos: 2
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106475362/contact-phones
+ID 106475362 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106567732/contact-phones
+ID 106567732 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106567114/contact-phones
+ID 106567114 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106562647/contact-phones
+ID 106562647 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106566567/contact-phones
+ID 106566567 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106288892/contact-phones
+ID 106288892 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106567134/contact-phones
+ID 106567134 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106567137/contact-phones
+ID 106567137 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106567103/contact-phones
+ID 106567103 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/104699269/contact-phones
+ID 104699269 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106563458/contact-phones
+ID 106563458 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106561548/contact-phones
+ID 106561548 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106566206/contact-phones
+ID 106566206 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106566096/contact-phones
+ID 106566096 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106566029/contact-phones
+ID 106566029 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105691895/contact-phones
+ID 105691895 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106565936/contact-phones
+ID 106565936 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/95974866/contact-phones
+ID 95974866 guardado en el CSV.
+ID 106565668 ya existe. Consecutivos: 1
+ID 106564364 ya existe. Consecutivos: 2
+ID 106563996 ya existe. Consecutivos: 3
+ID 106563768 ya existe. Consecutivos: 1
+ID 106563673 ya existe. Consecutivos: 2
+ID 103115221 ya existe. Consecutivos: 3
+ID 106563504 ya existe. Consecutivos: 4
+ID 104407536 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+
+Intentando leer el archivo CSV en la ruta: ../src/alquileres.csv
+Archivo CSV leído correctamente.
+Procesando ID: 106568767 - URL: https://www.idealista.com/es/ajax/ads/106568767/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106568767. Asignado -1.
+Procesando ID: 106563613 - URL: https://www.idealista.com/es/ajax/ads/106563613/contact-phones
+tlf +34620881177 asignado para el ID de inmueble: 106563613
+Procesando ID: 98024226 - URL: https://www.idealista.com/es/ajax/ads/98024226/contact-phones
+tlf +34868350101 asignado para el ID de inmueble: 98024226
+Procesando ID: 106563905 - URL: https://www.idealista.com/es/ajax/ads/106563905/contact-phones
+tlf +34644204038 asignado para el ID de inmueble: 106563905
+Procesando ID: 106561047 - URL: https://www.idealista.com/es/ajax/ads/106561047/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106561047. Asignado -1.
+Procesando ID: 101077117 - URL: https://www.idealista.com/es/ajax/ads/101077117/contact-phones
+tlf +34868350790 asignado para el ID de inmueble: 101077117
+Procesando ID: 106531338 - URL: https://www.idealista.com/es/ajax/ads/106531338/contact-phones
+tlf +34868350188 asignado para el ID de inmueble: 106531338
+Procesando ID: 106560400 - URL: https://www.idealista.com/es/ajax/ads/106560400/contact-phones
+tlf +34868350665 asignado para el ID de inmueble: 106560400
+Procesando ID: 106560673 - URL: https://www.idealista.com/es/ajax/ads/106560673/contact-phones
+tlf +34868350385 asignado para el ID de inmueble: 106560673
+Procesando ID: 103479738 - URL: https://www.idealista.com/es/ajax/ads/103479738/contact-phones
+tlf +34868350101 asignado para el ID de inmueble: 103479738
+Procesando ID: 106560879 - URL: https://www.idealista.com/es/ajax/ads/106560879/contact-phones
+tlf +34868350665 asignado para el ID de inmueble: 106560879
+Procesando ID: 103639957 - URL: https://www.idealista.com/es/ajax/ads/103639957/contact-phones
+tlf +34868350665 asignado para el ID de inmueble: 103639957
+Procesando ID: 103489254 - URL: https://www.idealista.com/es/ajax/ads/103489254/contact-phones
+tlf +34868350254 asignado para el ID de inmueble: 103489254
+Procesando ID: 106514710 - URL: https://www.idealista.com/es/ajax/ads/106514710/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106514710. Asignado -1.
+Procesando ID: 97124697 - URL: https://www.idealista.com/es/ajax/ads/97124697/contact-phones
+tlf +34868350665 asignado para el ID de inmueble: 97124697
+Procesando ID: 106552658 - URL: https://www.idealista.com/es/ajax/ads/106552658/contact-phones
+tlf +34650961065 asignado para el ID de inmueble: 106552658
+Procesando ID: 81563921 - URL: https://www.idealista.com/es/ajax/ads/81563921/contact-phones
+tlf +34868350723 asignado para el ID de inmueble: 81563921
+Procesando ID: 106554831 - URL: https://www.idealista.com/es/ajax/ads/106554831/contact-phones
+tlf +34868350289 asignado para el ID de inmueble: 106554831
+Procesando ID: 106553852 - URL: https://www.idealista.com/es/ajax/ads/106553852/contact-phones
+tlf +34868350290 asignado para el ID de inmueble: 106553852
+Procesando ID: 103682168 - URL: https://www.idealista.com/es/ajax/ads/103682168/contact-phones
+tlf +34666021377 asignado para el ID de inmueble: 103682168
+Procesando ID: 105489247 - URL: https://www.idealista.com/es/ajax/ads/105489247/contact-phones
+tlf +34910775775 asignado para el ID de inmueble: 105489247
+Procesando ID: 106554440 - URL: https://www.idealista.com/es/ajax/ads/106554440/contact-phones
+tlf +34868350424 asignado para el ID de inmueble: 106554440
+Procesando ID: 106556773 - URL: https://www.idealista.com/es/ajax/ads/106556773/contact-phones
+tlf +34868350385 asignado para el ID de inmueble: 106556773
+Procesando ID: 106553670 - URL: https://www.idealista.com/es/ajax/ads/106553670/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106553670. Asignado -1.
+Procesando ID: 106515304 - URL: https://www.idealista.com/es/ajax/ads/106515304/contact-phones
+tlf +34634711236 asignado para el ID de inmueble: 106515304
+Procesando ID: 106551629 - URL: https://www.idealista.com/es/ajax/ads/106551629/contact-phones
+tlf +34868350433 asignado para el ID de inmueble: 106551629
+Procesando ID: 105619329 - URL: https://www.idealista.com/es/ajax/ads/105619329/contact-phones
+tlf +34876210875 asignado para el ID de inmueble: 105619329
+Procesando ID: 106550100 - URL: https://www.idealista.com/es/ajax/ads/106550100/contact-phones
+tlf +34632273474 asignado para el ID de inmueble: 106550100
+Procesando ID: 35596820 - URL: https://www.idealista.com/es/ajax/ads/35596820/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 35596820. Asignado -1.
+Procesando ID: 106547518 - URL: https://www.idealista.com/es/ajax/ads/106547518/contact-phones
+tlf +34670068691 asignado para el ID de inmueble: 106547518
+Procesando ID: 105305492 - URL: https://www.idealista.com/es/ajax/ads/105305492/contact-phones
+tlf +34868350665 asignado para el ID de inmueble: 105305492
+Procesando ID: 106548736 - URL: https://www.idealista.com/es/ajax/ads/106548736/contact-phones
+tlf +34868350665 asignado para el ID de inmueble: 106548736
+Procesando ID: 106548320 - URL: https://www.idealista.com/es/ajax/ads/106548320/contact-phones
+tlf +34868350267 asignado para el ID de inmueble: 106548320
+Procesando ID: 97957939 - URL: https://www.idealista.com/es/ajax/ads/97957939/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 97957939. Asignado -1.
+Procesando ID: 106548870 - URL: https://www.idealista.com/es/ajax/ads/106548870/contact-phones
+tlf +34868350665 asignado para el ID de inmueble: 106548870
+Archivo CSV '../src/alquileres.csv' actualizado y guardado correctamente.
+
+Intentando leer el archivo CSV en la ruta: ../src/ventas.csv
+Archivo CSV leído correctamente.
+Procesando ID: 106565668 - URL: https://www.idealista.com/es/ajax/ads/106565668/contact-phones
+tlf +34919380558 asignado para el ID de inmueble: 106565668
+Procesando ID: 106564364 - URL: https://www.idealista.com/es/ajax/ads/106564364/contact-phones
+tlf +34919387825 asignado para el ID de inmueble: 106564364
+Procesando ID: 106563504 - URL: https://www.idealista.com/es/ajax/ads/106563504/contact-phones
+tlf +34919388857 asignado para el ID de inmueble: 106563504
+Procesando ID: 102902016 - URL: https://www.idealista.com/es/ajax/ads/102902016/contact-phones
+tlf +34919388857 asignado para el ID de inmueble: 102902016
+Procesando ID: 106561827 - URL: https://www.idealista.com/es/ajax/ads/106561827/contact-phones
+tlf +34868350928 asignado para el ID de inmueble: 106561827
+Procesando ID: 106563768 - URL: https://www.idealista.com/es/ajax/ads/106563768/contact-phones
+tlf +34868350971 asignado para el ID de inmueble: 106563768
+Procesando ID: 106563673 - URL: https://www.idealista.com/es/ajax/ads/106563673/contact-phones
+tlf +34613737339 asignado para el ID de inmueble: 106563673
+Procesando ID: 104469393 - URL: https://www.idealista.com/es/ajax/ads/104469393/contact-phones
+tlf +34919388857 asignado para el ID de inmueble: 104469393
+Procesando ID: 106563391 - URL: https://www.idealista.com/es/ajax/ads/106563391/contact-phones
+tlf +34919388857 asignado para el ID de inmueble: 106563391
+Procesando ID: 102916680 - URL: https://www.idealista.com/es/ajax/ads/102916680/contact-phones
+tlf +34919388857 asignado para el ID de inmueble: 102916680
+Procesando ID: 104407536 - URL: https://www.idealista.com/es/ajax/ads/104407536/contact-phones
+tlf +34919388857 asignado para el ID de inmueble: 104407536
+Procesando ID: 106563996 - URL: https://www.idealista.com/es/ajax/ads/106563996/contact-phones
+tlf +34636455964 asignado para el ID de inmueble: 106563996
+Procesando ID: 103115221 - URL: https://www.idealista.com/es/ajax/ads/103115221/contact-phones
+tlf +34919388857 asignado para el ID de inmueble: 103115221
+Procesando ID: 106563361 - URL: https://www.idealista.com/es/ajax/ads/106563361/contact-phones
+tlf +34919388857 asignado para el ID de inmueble: 106563361
+Procesando ID: 106561879 - URL: https://www.idealista.com/es/ajax/ads/106561879/contact-phones
+tlf +34868350019 asignado para el ID de inmueble: 106561879
+Procesando ID: 106561735 - URL: https://www.idealista.com/es/ajax/ads/106561735/contact-phones
+tlf +34868350531 asignado para el ID de inmueble: 106561735
+Procesando ID: 106562710 - URL: https://www.idealista.com/es/ajax/ads/106562710/contact-phones
+tlf +34654386751 asignado para el ID de inmueble: 106562710
+Procesando ID: 106562353 - URL: https://www.idealista.com/es/ajax/ads/106562353/contact-phones
+tlf +34868350766 asignado para el ID de inmueble: 106562353
+Procesando ID: 102018785 - URL: https://www.idealista.com/es/ajax/ads/102018785/contact-phones
+tlf +34868350663 asignado para el ID de inmueble: 102018785
+Procesando ID: 106530819 - URL: https://www.idealista.com/es/ajax/ads/106530819/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106530819. Asignado -1.
+Procesando ID: 106560366 - URL: https://www.idealista.com/es/ajax/ads/106560366/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106560366. Asignado -1.
+Procesando ID: 106560906 - URL: https://www.idealista.com/es/ajax/ads/106560906/contact-phones
+tlf +34868350250 asignado para el ID de inmueble: 106560906
+Procesando ID: 106561087 - URL: https://www.idealista.com/es/ajax/ads/106561087/contact-phones
+tlf +34868355537 asignado para el ID de inmueble: 106561087
+Procesando ID: 106527974 - URL: https://www.idealista.com/es/ajax/ads/106527974/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106527974. Asignado -1.
+Procesando ID: 106560011 - URL: https://www.idealista.com/es/ajax/ads/106560011/contact-phones
+tlf +34609880139 asignado para el ID de inmueble: 106560011
+Procesando ID: 106560858 - URL: https://www.idealista.com/es/ajax/ads/106560858/contact-phones
+tlf +34868350795 asignado para el ID de inmueble: 106560858
+Procesando ID: 106560207 - URL: https://www.idealista.com/es/ajax/ads/106560207/contact-phones
+tlf +34868355610 asignado para el ID de inmueble: 106560207
+Procesando ID: 106559074 - URL: https://www.idealista.com/es/ajax/ads/106559074/contact-phones
+tlf +34868350726 asignado para el ID de inmueble: 106559074
+Procesando ID: 106559927 - URL: https://www.idealista.com/es/ajax/ads/106559927/contact-phones
+tlf +34865440173 asignado para el ID de inmueble: 106559927
+Procesando ID: 106559985 - URL: https://www.idealista.com/es/ajax/ads/106559985/contact-phones
+tlf +34868355483 asignado para el ID de inmueble: 106559985
+Procesando ID: 106557438 - URL: https://www.idealista.com/es/ajax/ads/106557438/contact-phones
+tlf +34868350136 asignado para el ID de inmueble: 106557438
+Procesando ID: 106555755 - URL: https://www.idealista.com/es/ajax/ads/106555755/contact-phones
+tlf +34919380920 asignado para el ID de inmueble: 106555755
+Procesando ID: 106557700 - URL: https://www.idealista.com/es/ajax/ads/106557700/contact-phones
+tlf +34868350265 asignado para el ID de inmueble: 106557700
+Procesando ID: 106539993 - URL: https://www.idealista.com/es/ajax/ads/106539993/contact-phones
+tlf +34868350218 asignado para el ID de inmueble: 106539993
+Procesando ID: 89779575 - URL: https://www.idealista.com/es/ajax/ads/89779575/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 89779575. Asignado -1.
+Procesando ID: 106557303 - URL: https://www.idealista.com/es/ajax/ads/106557303/contact-phones
+tlf +34868350663 asignado para el ID de inmueble: 106557303
+Procesando ID: 106558109 - URL: https://www.idealista.com/es/ajax/ads/106558109/contact-phones
+tlf +34868350219 asignado para el ID de inmueble: 106558109
+Procesando ID: 106559100 - URL: https://www.idealista.com/es/ajax/ads/106559100/contact-phones
+tlf +34868350726 asignado para el ID de inmueble: 106559100
+Procesando ID: 106559782 - URL: https://www.idealista.com/es/ajax/ads/106559782/contact-phones
+tlf +34865440667 asignado para el ID de inmueble: 106559782
+Procesando ID: 106557383 - URL: https://www.idealista.com/es/ajax/ads/106557383/contact-phones
+tlf +34868350011 asignado para el ID de inmueble: 106557383
+Procesando ID: 106556896 - URL: https://www.idealista.com/es/ajax/ads/106556896/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106556896
+Procesando ID: 106556860 - URL: https://www.idealista.com/es/ajax/ads/106556860/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106556860
+Procesando ID: 106549227 - URL: https://www.idealista.com/es/ajax/ads/106549227/contact-phones
+tlf +34868350250 asignado para el ID de inmueble: 106549227
+Procesando ID: 106554610 - URL: https://www.idealista.com/es/ajax/ads/106554610/contact-phones
+tlf +34865440173 asignado para el ID de inmueble: 106554610
+Procesando ID: 106556873 - URL: https://www.idealista.com/es/ajax/ads/106556873/contact-phones
+tlf +34868350042 asignado para el ID de inmueble: 106556873
+Procesando ID: 104699881 - URL: https://www.idealista.com/es/ajax/ads/104699881/contact-phones
+tlf +34868350925 asignado para el ID de inmueble: 104699881
+Procesando ID: 106556395 - URL: https://www.idealista.com/es/ajax/ads/106556395/contact-phones
+tlf +34868355381 asignado para el ID de inmueble: 106556395
+Procesando ID: 106556925 - URL: https://www.idealista.com/es/ajax/ads/106556925/contact-phones
+tlf +34868355381 asignado para el ID de inmueble: 106556925
+Procesando ID: 106557062 - URL: https://www.idealista.com/es/ajax/ads/106557062/contact-phones
+tlf +34868355077 asignado para el ID de inmueble: 106557062
+Procesando ID: 104699219 - URL: https://www.idealista.com/es/ajax/ads/104699219/contact-phones
+tlf +34919381241 asignado para el ID de inmueble: 104699219
+Procesando ID: 102756976 - URL: https://www.idealista.com/es/ajax/ads/102756976/contact-phones
+tlf +34606680464 asignado para el ID de inmueble: 102756976
+Procesando ID: 106556276 - URL: https://www.idealista.com/es/ajax/ads/106556276/contact-phones
+tlf +34868355585 asignado para el ID de inmueble: 106556276
+Procesando ID: 106556574 - URL: https://www.idealista.com/es/ajax/ads/106556574/contact-phones
+tlf +34868350912 asignado para el ID de inmueble: 106556574
+Procesando ID: 106556324 - URL: https://www.idealista.com/es/ajax/ads/106556324/contact-phones
+tlf +34868350042 asignado para el ID de inmueble: 106556324
+Procesando ID: 106553616 - URL: https://www.idealista.com/es/ajax/ads/106553616/contact-phones
+tlf +34699198507 asignado para el ID de inmueble: 106553616
+Procesando ID: 106553094 - URL: https://www.idealista.com/es/ajax/ads/106553094/contact-phones
+tlf +34868355291 asignado para el ID de inmueble: 106553094
+Procesando ID: 106552900 - URL: https://www.idealista.com/es/ajax/ads/106552900/contact-phones
+tlf +34868350635 asignado para el ID de inmueble: 106552900
+Procesando ID: 106553024 - URL: https://www.idealista.com/es/ajax/ads/106553024/contact-phones
+tlf +34960377713 asignado para el ID de inmueble: 106553024
+Procesando ID: 106552209 - URL: https://www.idealista.com/es/ajax/ads/106552209/contact-phones
+tlf +34868350011 asignado para el ID de inmueble: 106552209
+Procesando ID: 95369073 - URL: https://www.idealista.com/es/ajax/ads/95369073/contact-phones
+tlf +34868355337 asignado para el ID de inmueble: 95369073
+Procesando ID: 106550085 - URL: https://www.idealista.com/es/ajax/ads/106550085/contact-phones
+tlf +34680608277 asignado para el ID de inmueble: 106550085
+Procesando ID: 106546352 - URL: https://www.idealista.com/es/ajax/ads/106546352/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106546352
+Procesando ID: 106549275 - URL: https://www.idealista.com/es/ajax/ads/106549275/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106549275. Asignado -1.
+Procesando ID: 106545980 - URL: https://www.idealista.com/es/ajax/ads/106545980/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106545980. Asignado -1.
+Procesando ID: 106549381 - URL: https://www.idealista.com/es/ajax/ads/106549381/contact-phones
+tlf +34868350457 asignado para el ID de inmueble: 106549381
+Procesando ID: 106549360 - URL: https://www.idealista.com/es/ajax/ads/106549360/contact-phones
+tlf +34868355326 asignado para el ID de inmueble: 106549360
+Procesando ID: 106551693 - URL: https://www.idealista.com/es/ajax/ads/106551693/contact-phones
+tlf +34865445961 asignado para el ID de inmueble: 106551693
+Procesando ID: 106545983 - URL: https://www.idealista.com/es/ajax/ads/106545983/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106545983. Asignado -1.
+Procesando ID: 106546106 - URL: https://www.idealista.com/es/ajax/ads/106546106/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106546106. Asignado -1.
+Procesando ID: 98494699 - URL: https://www.idealista.com/es/ajax/ads/98494699/contact-phones
+tlf +34868355337 asignado para el ID de inmueble: 98494699
+Procesando ID: 106551205 - URL: https://www.idealista.com/es/ajax/ads/106551205/contact-phones
+tlf +34868355072 asignado para el ID de inmueble: 106551205
+Procesando ID: 106550645 - URL: https://www.idealista.com/es/ajax/ads/106550645/contact-phones
+tlf +34868350912 asignado para el ID de inmueble: 106550645
+Procesando ID: 106551595 - URL: https://www.idealista.com/es/ajax/ads/106551595/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106551595. Asignado -1.
+Procesando ID: 106550734 - URL: https://www.idealista.com/es/ajax/ads/106550734/contact-phones
+tlf +34868350531 asignado para el ID de inmueble: 106550734
+Procesando ID: 101642178 - URL: https://www.idealista.com/es/ajax/ads/101642178/contact-phones
+tlf +34868355337 asignado para el ID de inmueble: 101642178
+Procesando ID: 106546279 - URL: https://www.idealista.com/es/ajax/ads/106546279/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106546279. Asignado -1.
+Procesando ID: 106545165 - URL: https://www.idealista.com/es/ajax/ads/106545165/contact-phones
+tlf +34606176339 asignado para el ID de inmueble: 106545165
+Procesando ID: 106546411 - URL: https://www.idealista.com/es/ajax/ads/106546411/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106546411
+Procesando ID: 106546152 - URL: https://www.idealista.com/es/ajax/ads/106546152/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106546152
+Procesando ID: 106545600 - URL: https://www.idealista.com/es/ajax/ads/106545600/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106545600. Asignado -1.
+Procesando ID: 106546350 - URL: https://www.idealista.com/es/ajax/ads/106546350/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106546350
+Procesando ID: 106550626 - URL: https://www.idealista.com/es/ajax/ads/106550626/contact-phones
+tlf +34868350567 asignado para el ID de inmueble: 106550626
+Procesando ID: 106545965 - URL: https://www.idealista.com/es/ajax/ads/106545965/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106545965. Asignado -1.
+Procesando ID: 106546154 - URL: https://www.idealista.com/es/ajax/ads/106546154/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106546154. Asignado -1.
+Procesando ID: 106545887 - URL: https://www.idealista.com/es/ajax/ads/106545887/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106545887. Asignado -1.
+Procesando ID: 106546202 - URL: https://www.idealista.com/es/ajax/ads/106546202/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106546202. Asignado -1.
+Procesando ID: 106545753 - URL: https://www.idealista.com/es/ajax/ads/106545753/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106545753
+Procesando ID: 106545957 - URL: https://www.idealista.com/es/ajax/ads/106545957/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106545957
+Procesando ID: 106537308 - URL: https://www.idealista.com/es/ajax/ads/106537308/contact-phones
+tlf +34868350637 asignado para el ID de inmueble: 106537308
+Procesando ID: 106545734 - URL: https://www.idealista.com/es/ajax/ads/106545734/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106545734. Asignado -1.
+Procesando ID: 106546104 - URL: https://www.idealista.com/es/ajax/ads/106546104/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106546104
+Procesando ID: 106542885 - URL: https://www.idealista.com/es/ajax/ads/106542885/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106542885. Asignado -1.
+Procesando ID: 106548886 - URL: https://www.idealista.com/es/ajax/ads/106548886/contact-phones
+tlf +34950790793 asignado para el ID de inmueble: 106548886
+Procesando ID: 106546094 - URL: https://www.idealista.com/es/ajax/ads/106546094/contact-phones
+tlf +34868350228 asignado para el ID de inmueble: 106546094
+Procesando ID: 106548918 - URL: https://www.idealista.com/es/ajax/ads/106548918/contact-phones
+tlf +34868355754 asignado para el ID de inmueble: 106548918
+Procesando ID: 106548436 - URL: https://www.idealista.com/es/ajax/ads/106548436/contact-phones
+tlf +34868350726 asignado para el ID de inmueble: 106548436
+Procesando ID: 106546039 - URL: https://www.idealista.com/es/ajax/ads/106546039/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106546039
+Procesando ID: 106546077 - URL: https://www.idealista.com/es/ajax/ads/106546077/contact-phones
+tlf +34868355178 asignado para el ID de inmueble: 106546077
+Procesando ID: 106548077 - URL: https://www.idealista.com/es/ajax/ads/106548077/contact-phones
+tlf +34865440667 asignado para el ID de inmueble: 106548077
+Procesando ID: 106546002 - URL: https://www.idealista.com/es/ajax/ads/106546002/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106546002
+Procesando ID: 106546048 - URL: https://www.idealista.com/es/ajax/ads/106546048/contact-phones
+tlf +34865440132 asignado para el ID de inmueble: 106546048
+Procesando ID: 106546655 - URL: https://www.idealista.com/es/ajax/ads/106546655/contact-phones
+tlf +34868350203 asignado para el ID de inmueble: 106546655
+Procesando ID: 106545385 - URL: https://www.idealista.com/es/ajax/ads/106545385/contact-phones
+tlf +34868355585 asignado para el ID de inmueble: 106545385
+Procesando ID: 106548889 - URL: https://www.idealista.com/es/ajax/ads/106548889/contact-phones
+tlf +34950790793 asignado para el ID de inmueble: 106548889
+Archivo CSV '../src/ventas.csv' actualizado y guardado correctamente.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
