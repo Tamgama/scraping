@@ -19,13 +19,13 @@ alquileres = pd.read_csv("../src/alquileres.csv")
 # Definir el orden de las columnas deseado para ambos dataframes
 ventas_order = [
     "id_inmueble", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion",
-    "precio", "precio_metro", "caracteristicas", "habitaciones", "m_construidos", "m_utiles",
-    "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "URL", "fecha"
+    "precio", "precio_metro", "caracteristicas", "habitaciones",
+    "baños", "referencia", "anunciante", "nombre", "tlf", "URL", "fecha"
 ]
 alquileres_order = [
     "id_inmueble", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion",
-    "precio", "precio_metro", "caracteristicas", "habitaciones", "m_construidos", "m_utiles",
-    "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "URL", "fecha"
+    "precio", "precio_metro", "caracteristicas", "habitaciones",
+    "baños", "referencia", "anunciante", "nombre", "tlf", "URL", "fecha"
 ]
 
 # Reorganizar las columnas en los dataframes según el orden definido
@@ -68,8 +68,7 @@ df['tlf'] = pd.to_numeric(df['tlf'], errors='coerce').fillna(0).astype(int)
 # Inicializar columnas adicionales para almacenar las características extraídas
 columnas_extra = [
     'superficie', 'superficie_util', 'habitaciones', 'baños', 'terraza', 'garaje', 'estado',
-    'armarios', 'trastero', 'orientacion', 'amueblado', 'calefaccion', 'planta', 'ascensor',
-    'construccion', 'movilidad_reducida', 'exterior_interior'
+    'armarios', 'trastero', 'orientacion', 'calefaccion', 'planta', 'ascensor', 'construccion'
 ]
 for col in columnas_extra:
     df[col] = None
@@ -86,17 +85,17 @@ patterns = {
     'armarios': re.compile(r'(Armarios empotrados)', re.IGNORECASE),
     'trastero': re.compile(r'(Trastero)', re.IGNORECASE),
     'orientacion': re.compile(r'Orientación\s([\w\s,]+)', re.IGNORECASE),
-    'amueblado': re.compile(r'(Amueblado y cocina equipada|Cocina sin equipar y casa sin amueblar)', re.IGNORECASE),
+    # 'amueblado': re.compile(r'(Amueblado y cocina equipada|Cocina sin equipar y casa sin amueblar)', re.IGNORECASE),
     'calefaccion': re.compile(r'Calefacción (central|individual|No disponible calefaccion)', re.IGNORECASE),
     'planta': re.compile(r'Planta\s(\d+)(?:ª|\s)?(exterior|interior)', re.IGNORECASE),
     'ascensor': re.compile(r'(Con ascensor|Sin ascensor)', re.IGNORECASE),
     'construccion': re.compile(r'Construido en (\d{4})', re.IGNORECASE),
-    'movilidad_reducida': re.compile(r'(Solo acceso exterior adaptado para personas con movilidad reducida)', re.IGNORECASE)
+    # 'movilidad_reducida': re.compile(r'(Solo acceso exterior adaptado para personas con movilidad reducida)', re.IGNORECASE)
 }
 
 def extract_data(row, patterns):
     data = {col: np.nan for col in patterns.keys()}
-    data['exterior_interior'] = np.nan  # Columna adicional para almacenar si es exterior/interior
+    # data['exterior_interior'] = np.nan  # Columna adicional para almacenar si es exterior/interior
     if pd.isna(row):  # Si el valor es nulo, devolver diccionario vacío
         return data
     for key, pattern in patterns.items():
@@ -104,11 +103,11 @@ def extract_data(row, patterns):
         if match:
             if key == 'planta':
                 data['planta'] = match.group(1)
-                data['exterior_interior'] = match.group(2)
+                # data['exterior_interior'] = match.group(2)
             elif key == 'ascensor':
                 data[key] = 'Sí' if 'Con' in match.group(0) else 'No'
-            elif key == 'amueblado':
-                data[key] = 'Amueblado' if 'Amueblado' in match.group(0) else 'No amueblado'
+            # elif key == 'amueblado':
+            #     data[key] = 'Amueblado' if 'Amueblado' in match.group(0) else 'No amueblado'
             elif key == 'calefaccion':
                 data[key] = match.group(1) if match.group(1) != 'No disponible calefaccion' else 'No disponible'
             elif key == 'orientacion':

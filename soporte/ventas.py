@@ -19,8 +19,8 @@ if os.path.exists(csv_file):
 else:
     df = pd.DataFrame(columns=[
         "id_inmueble", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion", 
-        "precio", "precio_metro", "caracteristicas", "habitaciones", "m_construidos", "m_utiles",
-        "baños", "referencia", "anunciante", "nombre", "ultima_atualizacion", "tlf", "url", "fecha"
+        "precio", "precio_metro", "caracteristicas", "habitaciones",
+        "baños", "referencia", "anunciante", "nombre", "tlf", "url", "fecha"
     ])
 
 ciudades_murcia = {
@@ -439,7 +439,7 @@ for i in range(1, num_paginas + 1):
                             "referencia": ref_num,
                             "anunciante": anunciante,
                             "nombre": nombre_anun,
-                            "ultima_actualizacion": actual,
+                            # "ultima_actualizacion": actual,
                             "tlf": telefono,
                             "URL": inmueble_url,
                             "fecha": fecha_actual,
