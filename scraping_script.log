@@ -59465,3 +59465,48 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main ebaf975] [UPD] data_updated: 2024-11-18 04:00:17
+ 4 files changed, 5565 insertions(+), 5518 deletions(-)
+To github.com:Tamgama/scraping.git
+   820c991..ebaf975  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 97828 killed;
+Agent pid 100854
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106582576: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106582576/contact-phones
+ID 106582576 guardado en el CSV.
+ID 34925358 ya existe. Saltando...
+ID 105339466 ya existe. Saltando...
+ID 106581327 ya existe. Saltando...
+ID 106581202 ya existe. Saltando...
+ID 106580677 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106582291 ya existe. Consecutivos: 1
+ID 106582198 ya existe. Consecutivos: 2
+ID 106582151 ya existe. Consecutivos: 3
+ID 106582150 ya existe. Consecutivos: 4
+ID 106582164 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
