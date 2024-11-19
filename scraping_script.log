@@ -59965,3 +59965,60 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 2dc6854] [UPD] data_updated: 2024-11-19 04:00:13
+ 4 files changed, 5631 insertions(+), 5588 deletions(-)
+To github.com:Tamgama/scraping.git
+   2d8f440..2dc6854  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 111105 killed;
+Agent pid 112952
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106579891: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106579891/contact-phones
+ID 106579891 guardado en el CSV.
+ID 105695938 ya existe. Saltando...
+Error al intentar acceder al teléfono para 106594087: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106594087/contact-phones
+ID 106594087 guardado en el CSV.
+ID 106593109 ya existe. Saltando...
+ID 106592763 ya existe. Saltando...
+ID 105425225 ya existe. Saltando...
+ID 106591879 ya existe. Saltando...
+ID 106591800 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106511004 ya existe. Consecutivos: 1
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106594066/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106594066
+ID 106594066 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106594062/contact-phones
+Error al obtener el teléfono, código de estado: 403
+Teléfono fallo para el inmueble 106594062
+ID 106594062 guardado en el CSV.
+ID 105630886 ya existe. Consecutivos: 1
+ID 106591980 ya existe. Consecutivos: 2
+ID 106591769 ya existe. Consecutivos: 3
+ID 106591847 ya existe. Consecutivos: 4
+ID 106591477 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
