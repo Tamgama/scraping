@@ -64546,3 +64546,85 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 5c45cc9] [UPD] data_updated: 2024-11-21 16:10:04
+ 4 files changed, 9748 insertions(+), 9653 deletions(-)
+To github.com:Tamgama/scraping.git
+   3ae0be2..5c45cc9  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 140770 killed;
+Agent pid 142242
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando alquileres.py...
+ID 82935872 guardado en el CSV.
+ID 106628456 guardado en el CSV.
+ID 106628328 guardado en el CSV.
+ID 83551000 guardado en el CSV.
+ID 102175059 guardado en el CSV.
+ID 106626689 guardado en el CSV.
+ID 106625588 guardado en el CSV.
+ID 106625973 guardado en el CSV.
+ID 106625584 ya existe. Saltando...
+ID 106625333 ya existe. Saltando...
+ID 106619283 ya existe. Saltando...
+ID 89941820 ya existe. Saltando...
+ID 106623776 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106628646/contact-phones
+ID 106628646 guardado en el CSV.
+ID 106387908 ya existe. Consecutivos: 1
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106628009/contact-phones
+ID 106628009 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/103058965/contact-phones
+ID 103058965 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106627560/contact-phones
+ID 106627560 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/100366529/contact-phones
+ID 100366529 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106627177/contact-phones
+ID 106627177 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106627083/contact-phones
+ID 106627083 guardado en el CSV.
+ID 106126930 ya existe. Consecutivos: 1
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105230228/contact-phones
+ID 105230228 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106626698/contact-phones
+ID 106626698 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106626572/contact-phones
+ID 106626572 guardado en el CSV.
+ID 106014534 ya existe. Consecutivos: 1
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106626358/contact-phones
+ID 106626358 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106626186/contact-phones
+ID 106626186 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106621513/contact-phones
+ID 106621513 guardado en el CSV.
+ID 106625738 ya existe. Consecutivos: 1
+ID 106625525 ya existe. Consecutivos: 2
+ID 106625274 ya existe. Consecutivos: 3
+ID 106625191 ya existe. Consecutivos: 4
+ID 106624184 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+/root/scraping/soporte/correccion-numeros.py:119: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '+34868350635' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+  df.at[index, 'tlf'] = telefono
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
