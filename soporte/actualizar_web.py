@@ -22,14 +22,11 @@ def sftp_upload(hostname, port, username, password, local_dir, remote_dir):
     try:
         # Crear un cliente SSH
         ssh = paramiko.SSHClient()
-        
         # Aceptar automáticamente los certificados SSH desconocidos
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        
         # Conexión al servidor SFTP
         ssh.connect(hostname, port=port, username=username, password=password)
         sftp = ssh.open_sftp()
-
         # Crear la carpeta remota si no existe
         try:
             sftp.stat(remote_dir)
