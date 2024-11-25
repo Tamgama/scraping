@@ -412,10 +412,75 @@ function updatePaginationControls() {
 }
 
 // Función para volver a la parte superior de la página
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+// Función para cargar comentarios desde la API
+function cargarComentarios(id) {
+    const commentList = $(`#commentList-${id}`);
+    commentList.empty();
+
+    $.ajax({
+        url: `/api/v1/euspay.php/comentarios/${id}`,
+        type: 'GET',
+        success: function (response) {
+            if (response.length) {
+                response.forEach(comment => {
+                    const commentHtml = `
+                        <li class="comment-item">
+                            <p>${comment.comentario}</p>
+                            <small><em>${new Date(comment.fecha).toLocaleString('es-ES')}</em></small>
+                        </li>
+                    `;
+                    commentList.append(commentHtml);
+                });
+            } else {
+                commentList.append('<li>No hay comentarios disponibles.</li>');
+            }
+        },
+        error: function () {
+            commentList.append('<li>Error al cargar los comentarios.</li>');
+        }
+    });
 }
 
+// Función para guardar comentarios
+function guardarComentario(id) {
+    const commentInput = $(`#commentInput-${id}`);
+    const commentText = commentInput.val().trim();
+
+    if (!commentText) {
+        alert("El comentario no puede estar vacío.");
+        return;
+    }
+
+    showLoading();
+
+    $.ajax({
+        url: '/api/v1/euspay.php/comentarios',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            id_inmueble: id,
+            comentario: commentText,
+            fecha: new Date().toISOString(),
+        }),
+        success: function (response) {
+            const commentList = $(`#commentList-${id}`);
+            const commentHtml = `
+                <li class="comment-item">
+                    <p>${response.comentario}</p>
+                    <small><em>${new Date(response.fecha).toLocaleString('es-ES')}</em></small>
+                </li>
+            `;
+            commentList.append(commentHtml);
+            commentInput.val('');
+            hideLoading();
+            alert("Comentario guardado exitosamente.");
+        },
+        error: function () {
+            hideLoading();
+            alert("Error al guardar el comentario.");
+        }
+    });
+}
 // Funciones para las funcionalidades adicionales
 window.guardarComentario = function(id) {
     alert('Pendiente de implementar');
