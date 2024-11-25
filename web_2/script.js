@@ -412,6 +412,10 @@ function updatePaginationControls() {
 }
 
 // Función para volver a la parte superior de la página
+// Función para volver a la parte superior de la página
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 // Función para cargar comentarios desde la API
 function cargarComentarios(id) {
     const commentList = $(`#commentList-${id}`);
@@ -442,7 +446,7 @@ function cargarComentarios(id) {
 }
 
 // Función para guardar comentarios
-function guardarComentario(id) {
+window.guardarComentario = function(id) {
     const commentInput = $(`#commentInput-${id}`);
     const commentText = commentInput.val().trim();
 
@@ -481,11 +485,6 @@ function guardarComentario(id) {
         }
     });
 }
-// Funciones para las funcionalidades adicionales
-window.guardarComentario = function(id) {
-    alert('Pendiente de implementar');
-}
-
 window.registrarLlamada = function(id) {
     alert('Pendiente de implementar');
 }
