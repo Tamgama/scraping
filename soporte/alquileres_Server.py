@@ -389,7 +389,7 @@ for i in range(1, num_paginas + 1):
             patterns = {
                 'superficie': re.compile(r'(\d+)\s*m² construidos', re.IGNORECASE),
                 'habitaciones': re.compile(r'(\d+)\s*habitaciones?', re.IGNORECASE),
-                'baños': re.compile(r'(\d+)\s*baños?', re.IGNORECASE),
+                'banos': re.compile(r'(\d+)\s*baños?', re.IGNORECASE),
                 'terraza': re.compile(r'(Terraza|Balcón)', re.IGNORECASE),
                 'garaje': re.compile(r'(Plaza de garaje)', re.IGNORECASE),
                 'estado': re.compile(r'(Segunda mano\b.*buen estado)', re.IGNORECASE),
@@ -447,9 +447,9 @@ for i in range(1, num_paginas + 1):
                 "localizacion": direccion_completa,
                 "precio": precio,
                 "precio_metro": precio_metro,
-                "caracteristicas": basics,
+                "caracteristicas": str(basics),
                 "referencia": ref_num,
-                "anunciante": anunciante,
+                "tipo_contacto": anunciante,
                 "nombre": nombre_anun,
                 "telefono": telefono,
                 "url": inmueble_url,
@@ -457,16 +457,18 @@ for i in range(1, num_paginas + 1):
                 'fuente': 'idealista',
                 'disponibilidad': 'disponible',
             }
+            inmueble_data.update(extraidos)
             # Añadir las características extraídas
             if(inmueble_existe(inmueble_data['id_inmueble'])):
                 print('El inmueble ya existe')
-
             else:
                 contacto= verificar_insertar_contacto(
                     inmueble_data['nombre'],
                     str(inmueble_data['telefono']),
-                    str(inmueble_data["anunciante"])
-                )
-
+                    str(inmueble_data["tipo_contacto"]),
+                )    
+                inmueble_data['id_contacto'] = contacto
+                insertar_inmueble(inmueble_data)
             time.sleep(random.uniform(1,3))
+            break
             
