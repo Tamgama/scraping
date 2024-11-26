@@ -7,8 +7,121 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import json
 
+
+# Verifica si un inmueble existe en la base de datos a través de la API.
+def inmueble_existe(id_inmueble):
+    try:
+        # Construir la URL para consultar el inmueble por ID
+        url = f"{api_base_url}/inmuebles/{id_inmueble}"
+        # Realizar la solicitud GET con autenticación
+        response = requests.get(url, auth=auth_credentials)
+        # Verificar si la respuesta es 200
+        if response.status_code == 200:
+            # Analizar el contenido de la respuesta
+            data = response.json()
+            if "error" in data:
+                # print(f"Error en la respuesta: {data['error']}")
+                return False
+            else:
+                return True
+        # Si la respuesta es 404, el inmueble no existe
+        elif response.status_code == 404:
+            return False
+        # Manejar otros posibles códigos de error
+        else:
+            print(f"Error inesperado: {response.status_code} - {response.text}")
+            return False
+    except requests.RequestException as e:
+        print(f"Error al conectar con la API: {e}")
+        return False
+    
+def verificar_insertar_contacto(nombre, telefono, tipo_contacto):
+    try:
+        # Construir la URL para buscar contactos por nombre y teléfono
+        url = f"{api_base_url}/contactos"
+        # Realizar la solicitud GET con filtros (nombre y teléfono)
+        params = {"nombre": nombre, "telefono": telefono}
+        response = requests.get(url, auth=auth_credentials, params=params)
+        # Verificar si el contacto existe
+        if response.status_code == 200:
+            data = response.json()
+            if data:  # Si la API devuelve datos, el contacto existe
+                return data[0]['id_contacto']  # Devuelve el primer contacto encontrado
+        # Si el contacto no existe, realizar un POST para crearlo
+        if response.status_code == 404 or not data:
+            # URL para insertar el contacto
+            url = f"{api_base_url}/contactos"
+            payload = {
+                "nombre": nombre,
+                "telefono": telefono,
+                "tipo_contacto": tipo_contacto
+            }
+            post_response = requests.post(url, auth=auth_credentials, json=payload)
+            
+            if post_response.status_code == 201:
+                created_data = post_response.json()
+                return created_data['id']  # Devuelve el ID del contacto recién creado
+            else:
+                print(f"Error al crear el contacto: {post_response.status_code} - {post_response.text}")
+                return None
+    except requests.RequestException as e:
+        print(f"Error al conectar con la API: {e}")
+        return None
+    
+def insertar_inmueble(data):
+    # Filtrar solo los campos especificados
+    allowed_keys = [
+        "id_inmueble", "id_contacto", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion", "precio",
+        "precio_metro", "superficie", "habitaciones", "banos", "armarios", "trastero", "orientacion", "amueblado",
+        "calefaccion", "planta", "ascensor", "construccion", "movilidad_reducida", "exterior_interior", "fecha",
+        "estado", "caracteristicas", "fuente", "disponibilidad", "tipo_transaccion"
+    ]
+    filtered_data = {key: value for key, value in data.items() if key in allowed_keys}
+    try:
+        # Construir la URL para insertar un inmueble
+        url = f"{api_base_url}/inmuebles"
+        # Realizar la solicitud POST con los datos del inmueble
+        response = requests.post(url, auth=auth_credentials, json=filtered_data)   
+        # Verificar si la inserción fue exitosa
+        if response.status_code == 201:
+            created_data = response.json()
+            print(f"ID {created_data['id']} guardado en la base de datos.")
+            return created_data['id']  # Devuelve el ID del inmueble recién creado
+        else:
+            print(f"Error al insertar el inmueble: {response.status_code} - {response.text}")
+            return None
+    except requests.RequestException as e:
+        print(f"Error al conectar con la API: {e}")
+        return None
+    
+# FUnción para poder ver que hemos cargado de momento en la base de datos:
+# Función para imprimir el contenido de una tabla en la base de datos
+def imprimir_tabla(nombre_tabla):
+    try:
+        # Construir la URL para consultar la tabla
+        url = f"{api_base_url}/{nombre_tabla}"
+        # Realizar la solicitud GET
+        response = requests.get(url, auth=auth_credentials)
+        # Verificar si la solicitud fue exitosa
+        if response.status_code == 200:
+            rows = response.json()  # Convertir la respuesta JSON a un objeto Python
+            if not rows:
+                print(f"La tabla '{nombre_tabla}' está vacía.")
+                return
+            for fila in rows:
+                print(fila)
+        else:
+            print(f"Error al consultar la tabla '{nombre_tabla}': {response.status_code} - {response.text}")
+    except requests.RequestException as e:
+        print(f"Error al conectar con la API: {e}")
+
+
 # Configuración de directorios y archivos
 base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Variable global para la URL base de la API
+api_base_url = "http://euspay.com/api/v1/euspay.php"
+auth_credentials = ("promurcia", "Pr0Murc14")  # Sustituye por tu usuario y contraseña
 
 # Definiciones para la clasificación de ubicaciones y patrones regex
 ciudades_murcia = {
@@ -338,18 +451,22 @@ for i in range(1, num_paginas + 1):
                 "referencia": ref_num,
                 "anunciante": anunciante,
                 "nombre": nombre_anun,
-                "tlf": telefono,
+                "telefono": telefono,
                 "url": inmueble_url,
                 "fecha": fecha_actual,
                 'fuente': 'idealista',
                 'disponibilidad': 'disponible',
             }
             # Añadir las características extraídas
-            inmueble_data.update(extraidos)
-            # Imprimir o procesar los datos del inmueble
-            print("Datos del inmueble:")
-            for key, value in inmueble_data.items():
-                print(f"{key}: {value}")
-            print("-" * 40)  # Separador entre inmuebles
+            if(inmueble_existe(inmueble_data['id_inmueble'])):
+                print('El inmueble ya existe')
 
-            time.sleep(random.uniform(1, 3))  # Añadir un retraso
+            else:
+                contacto= verificar_insertar_contacto(
+                    inmueble_data['nombre'],
+                    str(inmueble_data['telefono']),
+                    str(inmueble_data["anunciante"])
+                )
+
+            time.sleep(random.uniform(1,3))
+            
