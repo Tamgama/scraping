@@ -2,6 +2,7 @@ import subprocess
 
 # Lista de scripts a ejecutar en orden
 scripts = [
+    'obtencion_inmuebles.py',
     'alquileres.py',
     'ventas.py',
     'correccion-numeros.py',

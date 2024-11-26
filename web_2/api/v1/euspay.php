@@ -31,6 +31,74 @@ if (!in_array($table, $validTables)) {
 // Leer método HTTP
 $method = $_SERVER['REQUEST_METHOD'];
 
+// Función para formatear un inmueble con comentarios y contactos
+function formatInmuebleWithComments($rows) {
+    if (empty($rows)) return [];
+
+    $result = [];
+    foreach ($rows[0] as $key => $value) {
+        if (!str_starts_with($key, 'contacto_') && !str_starts_with($key, 'comentario_')) {
+            $result[$key] = $value;
+        }
+    }
+
+    $result['contacto'] = [
+        "nombre" => $rows[0]['contacto_nombre'] ?? null,
+        "telefono" => $rows[0]['contacto_telefono'] ?? null,
+        "tipo" => $rows[0]['tipo_contacto'] ?? null
+    ];
+
+    $result['comentarios'] = [];
+    foreach ($rows as $row) {
+        if (isset($row['id_comentario'])) {
+            $result['comentarios'][] = [
+                "id_comentario" => $row['id_comentario'],
+                "comentario" => $row['comentario_texto'] ?? null,
+                "fecha" => $row['comentario_fecha'] ?? null
+            ];
+        }
+    }
+
+    return $result;
+}
+
+// Función para formatear múltiples inmuebles con comentarios
+function formatMultipleInmueblesWithComments($rows) {
+    if (empty($rows)) return [];
+
+    $inmuebles = [];
+    foreach ($rows as $row) {
+        $id_inmueble = $row['id_inmueble'];
+
+        if (!isset($inmuebles[$id_inmueble])) {
+            $inmuebles[$id_inmueble] = [];
+            foreach ($row as $key => $value) {
+                if (!str_starts_with($key, 'contacto_') && !str_starts_with($key, 'comentario_')) {
+                    $inmuebles[$id_inmueble][$key] = $value;
+                }
+            }
+
+            $inmuebles[$id_inmueble]['contacto'] = [
+                "nombre" => $row['contacto_nombre'] ?? null,
+                "telefono" => $row['contacto_telefono'] ?? null,
+                "tipo" => $row['tipo_contacto'] ?? null
+            ];
+
+            $inmuebles[$id_inmueble]['comentarios'] = [];
+        }
+
+        if (isset($row['id_comentario'])) {
+            $inmuebles[$id_inmueble]['comentarios'][] = [
+                "id_comentario" => $row['id_comentario'],
+                "comentario" => $row['comentario_texto'] ?? null,
+                "fecha" => $row['comentario_fecha'] ?? null,
+            ];
+        }
+    }
+
+    return array_values($inmuebles);
+}
+
 // Función para enviar respuestas JSON estandarizadas
 function sendResponse($status, $message, $data = null, $errors = null) {
     header('Content-Type: application/json');
@@ -73,6 +141,7 @@ try {
                             inmuebles.*,
                             contactos.nombre AS contacto_nombre,
                             contactos.telefono AS contacto_telefono,
+                            contactos.tipo_contacto AS tipo_contacto,
                             comentarios.id_comentario,
                             comentarios.comentario AS comentario_texto,
                             comentarios.fecha AS comentario_fecha
@@ -91,6 +160,7 @@ try {
                             inmuebles.*,
                             contactos.nombre AS contacto_nombre,
                             contactos.telefono AS contacto_telefono,
+                            contactos.tipo_contacto AS tipo_contacto,
                             comentarios.id_comentario,
                             comentarios.comentario AS comentario_texto,
                             comentarios.fecha AS comentario_fecha
