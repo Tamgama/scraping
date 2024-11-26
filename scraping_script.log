@@ -66866,3 +66866,91 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main a920603] [UPD] data_updated: 2024-11-26 16:11:18
+ 4 files changed, 10005 insertions(+), 9870 deletions(-)
+To github.com:Tamgama/scraping.git
+   163bcfb..a920603  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 208547 killed;
+Agent pid 210442
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   a920603..28d85b7  main       -> origin/main
+Updating a920603..28d85b7
+Fast-forward
+ web_2/api/v1/euspay.php | 273 ++++++++++++++++++++++++------------------------
+ 1 file changed, 137 insertions(+), 136 deletions(-)
+Ejecutando alquileres.py...
+ID 106669856 guardado en el CSV.
+ID 106668466 guardado en el CSV.
+ID 106668598 guardado en el CSV.
+ID 106668418 guardado en el CSV.
+ID 106666916 guardado en el CSV.
+ID 106662604 guardado en el CSV.
+ID 106665352 guardado en el CSV.
+ID 106666953 guardado en el CSV.
+ID 106666838 guardado en el CSV.
+ID 100768937 guardado en el CSV.
+ID 103975010 guardado en el CSV.
+ID 29386090 ya existe. Saltando...
+ID 87377832 ya existe. Saltando...
+ID 103358293 ya existe. Saltando...
+ID 106610758 ya existe. Saltando...
+ID 106652340 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/102483836/contact-phones
+ID 102483836 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106650109/contact-phones
+ID 106650109 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/103666620/contact-phones
+ID 103666620 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106668456/contact-phones
+ID 106668456 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106667778/contact-phones
+ID 106667778 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106667119/contact-phones
+ID 106667119 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106667742/contact-phones
+ID 106667742 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106667513/contact-phones
+ID 106667513 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106667165/contact-phones
+ID 106667165 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106666998/contact-phones
+ID 106666998 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106666941/contact-phones
+ID 106666941 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106666679/contact-phones
+ID 106666679 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106666543/contact-phones
+ID 106666543 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106666192/contact-phones
+ID 106666192 guardado en el CSV.
+ID 106666263 ya existe. Consecutivos: 1
+ID 106662880 ya existe. Consecutivos: 2
+ID 106662867 ya existe. Consecutivos: 3
+ID 103615641 ya existe. Consecutivos: 4
+ID 106665064 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+/root/scraping/soporte/correccion-numeros.py:119: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '+34919380509' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+  df.at[index, 'tlf'] = telefono
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
