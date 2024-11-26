@@ -50,6 +50,8 @@ function handleError($e) {
 try {
     switch ($method) {
         case 'GET':
+            // Obtener parámetros de búsqueda desde la query string
+            $queryParams = $_GET; // Contiene los parámetros enviados en la URL
             if ($table === 'comentarios') {
                 if ($id) {
                     // Obtener comentarios para un inmueble específico
@@ -99,16 +101,41 @@ try {
                     sendResponse(200, formatMultipleInmueblesWithComments($rows));
                 }
             } else {
-                // Obtener registros de una tabla específica (opcionalmente por ID)
+                // Obtener registros de una tabla específica (opcionalmente por ID o con filtros)
                 if ($id) {
+                    // Obtener un registro específico por ID
                     $stmt = $pdo->prepare("SELECT * FROM `$table` WHERE id_" . rtrim($table, 's') . " = :id");
                     $stmt->execute(['id' => $id]);
                     $data = $stmt->fetch(PDO::FETCH_ASSOC);
                     sendResponse(200, $data ?: ["error" => "Registro no encontrado."]);
                 } else {
-                    $stmt = $pdo->query("SELECT * FROM `$table`");
+                    // Validar y construir la consulta dinámica con `=`
+                    $whereClauses = [];
+                    $params = [];
+        
+                    foreach ($queryParams as $key => $value) {
+                        // Validar los parámetros según el tipo esperado
+                        if (is_numeric($value)) {
+                            $whereClauses[] = "$key = :$key"; // Comparación exacta
+                            $params[$key] = $value;
+                        } elseif (preg_match('/^\d{4}-\d{2}-\d{2}$/', $value)) {
+                            // Validar formato de fecha para evitar errores con campos DATE
+                            $whereClauses[] = "$key = :$key";
+                            $params[$key] = $value;
+                        } else {
+                            // Asumimos que es un texto para búsquedas exactas
+                            $whereClauses[] = "$key = :$key";
+                            $params[$key] = $value;
+                        }
+                    }
+        
+                    $whereSql = $whereClauses ? "WHERE " . implode(" AND ", $whereClauses) : "";
+                    $sql = "SELECT * FROM `$table` $whereSql";
+        
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute($params);
                     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    sendResponse(200, $data);
+                    sendResponse(200, $data ?: ["error" => "No se encontraron registros con los parámetros dados."]);
                 }
             }
             break;
