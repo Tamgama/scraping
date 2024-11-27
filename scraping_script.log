@@ -66954,3 +66954,138 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 4c513ca] [UPD] data_updated: 2024-11-26 20:10:53
+ 4 files changed, 10126 insertions(+), 9988 deletions(-)
+To github.com:Tamgama/scraping.git
+   28d85b7..4c513ca  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 210442 killed;
+Agent pid 212969
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   4c513ca..402f6c9  main       -> origin/main
+Updating 4c513ca..402f6c9
+Fast-forward
+ soporte/alquileres_Server.py   | 472 -----------------------------------
+ soporte/cookie.json            |   2 +-
+ soporte/obtencion_inmuebles.py | 547 +++++++++++++++++++++++++++++++++++++++++
+ soporte/proceso_completo.py    |   1 +
+ web_2/api/v1/euspay.php        |  70 ++++++
+ web_2/index.html               |   1 +
+ web_2/script.js                | 424 ++++++++++++++++++++++----------
+ 7 files changed, 912 insertions(+), 605 deletions(-)
+ delete mode 100644 soporte/alquileres_Server.py
+ create mode 100644 soporte/obtencion_inmuebles.py
+Ejecutando obtencion_inmuebles.py...
+Inmueble 97320451 ya existe. Contador de repetidos: 1
+Inmueble 106670860 ya existe. Contador de repetidos: 2
+Inmueble 106669856 ya existe. Contador de repetidos: 3
+Inmueble 106668466 ya existe. Contador de repetidos: 4
+Inmueble 106668598 ya existe. Contador de repetidos: 5
+Se alcanzó el número máximo de inmuebles repetidos consecutivos. Deteniendo proceso.
+ID 106672160 guardado en la base de datos.
+ID 105011626 guardado en la base de datos.
+ID 106672068 guardado en la base de datos.
+Inmueble 106671877 ya existe. Contador de repetidos: 1
+Inmueble 106671117 ya existe. Contador de repetidos: 2
+Inmueble 106671038 ya existe. Contador de repetidos: 3
+Inmueble 102483836 ya existe. Contador de repetidos: 4
+Inmueble 106650109 ya existe. Contador de repetidos: 5
+Se alcanzó el número máximo de inmuebles repetidos consecutivos. Deteniendo proceso.
+
+Ejecutando alquileres.py...
+ID 97320451 guardado en el CSV.
+ID 106670860 guardado en el CSV.
+ID 106669856 ya existe. Saltando...
+ID 106668466 ya existe. Saltando...
+ID 106668598 ya existe. Saltando...
+ID 106668418 ya existe. Saltando...
+ID 106666916 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106672160/contact-phones
+ID 106672160 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105011626/contact-phones
+ID 105011626 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106672068/contact-phones
+ID 106672068 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106671877/contact-phones
+ID 106671877 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106671117/contact-phones
+ID 106671117 guardado en el CSV.
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/106671038/contact-phones
+ID 106671038 guardado en el CSV.
+ID 102483836 ya existe. Consecutivos: 1
+ID 106650109 ya existe. Consecutivos: 2
+ID 103666620 ya existe. Consecutivos: 3
+ID 106668456 ya existe. Consecutivos: 4
+ID 106667778 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+
+Intentando leer el archivo CSV en la ruta: ../src/alquileres.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/alquileres.csv' actualizado y guardado correctamente.
+
+Intentando leer el archivo CSV en la ruta: ../src/ventas.csv
+Archivo CSV leído correctamente.
+Procesando ID: 104723905 - URL: https://www.idealista.com/es/ajax/ads/104723905/contact-phones
+tlf +34919381241 asignado para el ID de inmueble: 104723905
+Procesando ID: 106589665 - URL: https://www.idealista.com/es/ajax/ads/106589665/contact-phones
+tlf +34868350377 asignado para el ID de inmueble: 106589665
+Procesando ID: 106587108 - URL: https://www.idealista.com/es/ajax/ads/106587108/contact-phones
+tlf +34868350791 asignado para el ID de inmueble: 106587108
+Procesando ID: 106604555 - URL: https://www.idealista.com/es/ajax/ads/106604555/contact-phones
+tlf +34868350639 asignado para el ID de inmueble: 106604555
+Procesando ID: 106584815 - URL: https://www.idealista.com/es/ajax/ads/106584815/contact-phones
+tlf +34868355135 asignado para el ID de inmueble: 106584815
+Procesando ID: 106591769 - URL: https://www.idealista.com/es/ajax/ads/106591769/contact-phones
+tlf +34868350567 asignado para el ID de inmueble: 106591769
+Procesando ID: 106580188 - URL: https://www.idealista.com/es/ajax/ads/106580188/contact-phones
+tlf +34868355381 asignado para el ID de inmueble: 106580188
+Procesando ID: 106557414 - URL: https://www.idealista.com/es/ajax/ads/106557414/contact-phones
+tlf +34868350978 asignado para el ID de inmueble: 106557414
+Procesando ID: 106617043 - URL: https://www.idealista.com/es/ajax/ads/106617043/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106617043. Asignado -1.
+Procesando ID: 106587182 - URL: https://www.idealista.com/es/ajax/ads/106587182/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 106587182. Asignado -1.
+Procesando ID: 103729239 - URL: https://www.idealista.com/es/ajax/ads/103729239/contact-phones
+tlf +34636189457 asignado para el ID de inmueble: 103729239
+Procesando ID: 102860421 - URL: https://www.idealista.com/es/ajax/ads/102860421/contact-phones
+No se encontró el número de tlf para el ID de inmueble: 102860421. Asignado -1.
+Procesando ID: 105327056 - URL: https://www.idealista.com/es/ajax/ads/105327056/contact-phones
+tlf +34868355357 asignado para el ID de inmueble: 105327056
+Procesando ID: 106582150 - URL: https://www.idealista.com/es/ajax/ads/106582150/contact-phones
+tlf +34868355803 asignado para el ID de inmueble: 106582150
+Procesando ID: 106582164 - URL: https://www.idealista.com/es/ajax/ads/106582164/contact-phones
+tlf +34868355803 asignado para el ID de inmueble: 106582164
+Procesando ID: 106563842 - URL: https://www.idealista.com/es/ajax/ads/106563842/contact-phones
+tlf +34868350651 asignado para el ID de inmueble: 106563842
+Procesando ID: 106553866 - URL: https://www.idealista.com/es/ajax/ads/106553866/contact-phones
+tlf +34868350736 asignado para el ID de inmueble: 106553866
+Procesando ID: 106454639 - URL: https://www.idealista.com/es/ajax/ads/106454639/contact-phones
+tlf +34868350635 asignado para el ID de inmueble: 106454639
+Procesando ID: 106602086 - URL: https://www.idealista.com/es/ajax/ads/106602086/contact-phones
+tlf +34965020752 asignado para el ID de inmueble: 106602086
+Procesando ID: 106572039 - URL: https://www.idealista.com/es/ajax/ads/106572039/contact-phones
+tlf +34868350857 asignado para el ID de inmueble: 106572039
+Procesando ID: 98303125 - URL: https://www.idealista.com/es/ajax/ads/98303125/contact-phones
+tlf +34965023290 asignado para el ID de inmueble: 98303125
+Archivo CSV '../src/ventas.csv' actualizado y guardado correctamente.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
