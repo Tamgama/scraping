@@ -67089,3 +67089,70 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main de70656] [UPD] data_updated: 2024-11-27 00:02:04
+ 4 files changed, 6559 insertions(+), 6408 deletions(-)
+To github.com:Tamgama/scraping.git
+   402f6c9..de70656  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 212969 killed;
+Agent pid 215004
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando obtencion_inmuebles.py...
+Inmueble 97320451 ya existe. Contador de repetidos: 1
+Inmueble 106670860 ya existe. Contador de repetidos: 2
+Inmueble 106669856 ya existe. Contador de repetidos: 3
+Inmueble 106668466 ya existe. Contador de repetidos: 4
+Inmueble 106668598 ya existe. Contador de repetidos: 5
+Se alcanzó el número máximo de inmuebles repetidos consecutivos. Deteniendo proceso.
+ID 105099603 guardado en la base de datos.
+Inmueble 106672160 ya existe. Contador de repetidos: 1
+Inmueble 105011626 ya existe. Contador de repetidos: 2
+Inmueble 106672068 ya existe. Contador de repetidos: 3
+Inmueble 106671877 ya existe. Contador de repetidos: 4
+Inmueble 106671117 ya existe. Contador de repetidos: 5
+Se alcanzó el número máximo de inmuebles repetidos consecutivos. Deteniendo proceso.
+
+Ejecutando alquileres.py...
+ID 97320451 ya existe. Saltando...
+ID 106670860 ya existe. Saltando...
+ID 106669856 ya existe. Saltando...
+ID 106668466 ya existe. Saltando...
+ID 106668598 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+Obteniendo datos del teléfono desde https://www.idealista.com/es/ajax/ads/105099603/contact-phones
+ID 105099603 guardado en el CSV.
+ID 106672160 ya existe. Consecutivos: 1
+ID 105011626 ya existe. Consecutivos: 2
+ID 106672068 ya existe. Consecutivos: 3
+ID 106671877 ya existe. Consecutivos: 4
+ID 106671117 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+
+Intentando leer el archivo CSV en la ruta: ../src/alquileres.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/alquileres.csv' actualizado y guardado correctamente.
+
+Intentando leer el archivo CSV en la ruta: ../src/ventas.csv
+Archivo CSV leído correctamente.
+Archivo CSV '../src/ventas.csv' actualizado y guardado correctamente.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
