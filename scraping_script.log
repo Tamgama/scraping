@@ -68614,3 +68614,50 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main bc2234f] [UPD] data_updated: 2024-11-30 04:00:13
+ 4 files changed, 11277 insertions(+), 11230 deletions(-)
+To github.com:Tamgama/scraping.git
+   c290c8e..bc2234f  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 252577 killed;
+Agent pid 255643
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando obtencion_inmuebles.py...
+Deteniendo proceso debido a un status_code 403 en la página https://www.idealista.com/alquiler-viviendas/murcia-murcia/pagina-1.htm?ordenado-por=fecha-publicacion-desc
+Deteniendo proceso debido a un status_code 403 en la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-1.htm?ordenado-por=fecha-publicacion-desc
+
+Ejecutando alquileres.py...
+ID 82578923 ya existe. Saltando...
+ID 106703863 ya existe. Saltando...
+ID 95527616 ya existe. Saltando...
+ID 103530138 ya existe. Saltando...
+ID 106699103 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 106659228 ya existe. Consecutivos: 1
+ID 106704433 ya existe. Consecutivos: 2
+ID 106704262 ya existe. Consecutivos: 3
+ID 101089613 ya existe. Consecutivos: 4
+ID 106704145 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
