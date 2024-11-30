@@ -68775,3 +68775,56 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main faaf20e] [UPD] data_updated: 2024-11-30 16:00:15
+ 4 files changed, 11297 insertions(+), 11244 deletions(-)
+To github.com:Tamgama/scraping.git
+   c0bd6ba..faaf20e  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 259555 killed;
+Agent pid 262552
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Ejecutando obtencion_inmuebles.py...
+Deteniendo proceso debido a un status_code 403 en la página https://www.idealista.com/alquiler-viviendas/murcia-murcia/pagina-1.htm?ordenado-por=fecha-publicacion-desc
+Deteniendo proceso debido a un status_code 403 en la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-1.htm?ordenado-por=fecha-publicacion-desc
+
+Ejecutando alquileres.py...
+Error al intentar acceder al teléfono para 106707830: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106707830/contact-phones
+ID 106707830 guardado en el CSV.
+Error al intentar acceder al teléfono para 106707749: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106707749/contact-phones
+ID 106707749 guardado en el CSV.
+Error al intentar acceder al teléfono para 106707409: 403 Client Error: Forbidden for url: https://www.idealista.com/es/ajax/ads/106707409/contact-phones
+ID 106707409 guardado en el CSV.
+ID 106704069 ya existe. Saltando...
+ID 106705812 ya existe. Saltando...
+ID 82578923 ya existe. Saltando...
+ID 106703863 ya existe. Saltando...
+ID 95527616 ya existe. Saltando...
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/alquileres.csv.
+
+Ejecutando ventas.py...
+ID 104889441 ya existe. Consecutivos: 1
+ID 104889382 ya existe. Consecutivos: 2
+ID 106702230 ya existe. Consecutivos: 3
+ID 106659228 ya existe. Consecutivos: 4
+ID 106704433 ya existe. Consecutivos: 5
+Se encontraron 5 IDs consecutivos. Deteniendo proceso.
+Datos guardados en /root/scraping/soporte/../src/ventas.csv.
+
+Ejecutando correccion-numeros.py...
+Error al ejecutar correccion-numeros.py: Command '['python3', 'correccion-numeros.py']' returned non-zero exit status 1.
+
+Ejecutando limpieza.py...
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
