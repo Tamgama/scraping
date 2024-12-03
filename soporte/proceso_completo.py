@@ -3,10 +3,10 @@ import subprocess
 # Lista de scripts a ejecutar en orden
 scripts = [
     'obtencion_inmuebles.py',
-    'alquileres.py',
-    'ventas.py',
-    'correccion-numeros.py',
-    'limpieza.py',
+    # 'alquileres.py',
+    # 'ventas.py',
+    # 'correccion-numeros.py',
+    # 'limpieza.py',
     'particulares/particulares.py',
     'actualizar_web.py',
 ]
