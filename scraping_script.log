@@ -70037,3 +70037,32 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 68a79dd] [UPD] data_updated: 2024-12-03 16:00:08
+ 1 file changed, 28 insertions(+)
+To github.com:Tamgama/scraping.git
+   51ac455..68a79dd  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 319803 killed;
+Agent pid 321548
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   68a79dd..c130c0c  main       -> origin/main
+Updating 68a79dd..c130c0c
+Fast-forward
+ soporte/fotocasa/alquiler_fotocasa.ipynb | 531 +++++++++++++++++--------------
+ soporte/fotocasa/alquileres_fotocasa.csv | 151 +++++++++
+ 2 files changed, 435 insertions(+), 247 deletions(-)
+ create mode 100644 soporte/fotocasa/alquileres_fotocasa.csv
+Ejecutando obtencion_inmuebles.py...
+Deteniendo proceso debido a un status_code 403 en la página https://www.idealista.com/alquiler-viviendas/murcia-murcia/pagina-1.htm?ordenado-por=fecha-publicacion-desc
+Deteniendo proceso debido a un status_code 403 en la página https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-1.htm?ordenado-por=fecha-publicacion-desc
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
