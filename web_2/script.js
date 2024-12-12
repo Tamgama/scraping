@@ -30,29 +30,35 @@ function loadScrapingView(showCartera = false) {
                     <div id="filtersContainer" class="collapse d-md-block">
                         <div class="filter-group">
                             <label for="filterTipoAnunciante">Filtrar por anunciante:</label>
-                            <select id="filterTipoAnunciante" class="form-control form-control-custom">
+                            <select id="filterTipoAnunciante" class="form-control form-control-custom" data-filter="tipoAnunciante">
                                 <option value="Ver todos">Ver todos</option>
                             </select>
                         </div>
                         <div class="filter-group">
                             <label for="filterTransaccion">Filtrar por tipo:</label>
-                            <select id="filterTipoTransaccion" class="form-control form-control-custom">
+                            <select id="filterTipoTransaccion" class="form-control form-control-custom" data-filter="tipoTransaccion">
                                 <option value="Ver todos">Ver todos</option>
                             </select>
                         </div>
                         <div class="filter-group">
                             <label for="filterBarrio">Filtrar por barrio:</label>
-                            <select id="filterBarrio" class="form-control form-control-custom">
+                            <select id="filterBarrio" class="form-control form-control-custom" data-filter="barrio">
                                 <option value="Ver todos">Ver todos</option>
                             </select>
                         </div>
                         <div class="filter-group">
                             <label for="filterPhone">Filtrar por teléfono:</label>
-                            <input type="text" id="filterPhone" class="form-control form-control-custom" placeholder="Buscar teléfono">
+                            <input type="text" id="filterPhone" class="form-control form-control-custom" data-filter="tlf" placeholder="Buscar teléfono">
                         </div>
                         <div class="filter-group">
                             <label for="filterFuente">Filtrar por fuente:</label>
-                            <select id="filterFuente" class="form-control form-control-custom">
+                            <select id="filterFuente" class="form-control form-control-custom" data-filter="fuente">
+                                <option value="Ver todos">Ver todos</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterDisponibilidad">Filtrar por disponibilidad:</label>
+                            <select id="filterDisponibilidad" class="form-control form-control-custom" data-filter="disponibilidad">
                                 <option value="Ver todos">Ver todos</option>
                             </select>
                         </div>
@@ -99,24 +105,8 @@ function loadScrapingView(showCartera = false) {
 }
 
 function configureScrapingEvents() {
-    // Eventos para los filtros
-    $('#filterTipoAnunciante').on('change', function () {
-        applyFilters();
-    });
-
-    $('#filterTipoTransaccion').on('change', function () {
-        applyFilters();
-    });
-
-    $('#filterBarrio').on('change', function () {
-        applyFilters();
-    });
-
-    $('#filterPhone').on('input', function () {
-        applyFilters();
-    });
-
-    $('#filterFuente').on('change', function () {
+    // Vincular eventos de cambio e input a todos los filtros dinámicamente
+    $('[data-filter]').on('change input', function () {
         applyFilters();
     });
 
@@ -189,6 +179,7 @@ function loadDataFromAPI(showCartera) {
                     superficie: row.superficie,
                     barrio: row.barrio,
                     tipoAnunciante: row.contacto ? row.contacto.tipo : 'Desconocido',
+                    id_contacto: row.id_contacto,
                     anunciante: row.contacto ? row.contacto.nombre : 'Desconocido',
                     tlf: row.contacto ? row.contacto.telefono : null,
                     fecha: row.fecha ? new Date(row.fecha) : null,
@@ -209,6 +200,7 @@ function loadDataFromAPI(showCartera) {
                 updateTipoTransaccionFilter(data);
                 updateBarrioFilter(data);
                 updateFuenteFilter(data); 
+                updateDisponibilidadFilter(data);   
                 applyFilters();
                 $('#newDataAlert').fadeIn().delay(2000).fadeOut();
                 hideLoading();
@@ -233,6 +225,17 @@ function updateTipoAnuncianteFilter(data) {
     $filter.append('<option value="Ver todos">Ver todos</option>');
     uniqueTipoAnunciantes.forEach(tipoAnunciante => {
         $filter.append('<option value="' + tipoAnunciante + '">' + tipoAnunciante + '</option>');
+    });
+}
+
+function updateDisponibilidadFilter(data) {
+    var uniqueDisponibilidades = _.uniq(data.map(row => row.disponibilidad).filter(Boolean));
+
+    var $filter = $('#filterDisponibilidad');
+    $filter.empty();
+    $filter.append('<option value="Ver todos">Ver todos</option>');
+    uniqueDisponibilidades.forEach(disponibilidad => {
+        $filter.append('<option value="' + disponibilidad + '">' + disponibilidad + '</option>');
     });
 }
 
@@ -266,19 +269,24 @@ function updateFuenteFilter(data) {
 }
 // Aplicar los filtros
 function applyFilters() {
-    var selectedTipoAnunciante = $('#filterTipoAnunciante').val();
-    var selectedTipoTransaccion = $('#filterTipoTransaccion').val();
-    var selectedBarrio = $('#filterBarrio').val();
-    var selectedPhone = $('#filterPhone').val();
-    var selectedFuente = $('#filterFuente').val();
-
     filteredData = data.filter(function (row) {
-        var matchesTipoAnunciante = selectedTipoAnunciante === "Ver todos" || row.tipoAnunciante === selectedTipoAnunciante;
-        var matchesTipoTransaccion = selectedTipoTransaccion === "Ver todos" || row.tipoTransaccion === selectedTipoTransaccion;
-        var matchesBarrio = selectedBarrio === "Ver todos" || row.barrio === selectedBarrio;
-        var matchesPhone = row.tlf && String(row.tlf).includes(selectedPhone);
-        var matchesFuente = selectedFuente === "Ver todos" || row.fuente === selectedFuente;
-        return matchesTipoAnunciante && matchesTipoTransaccion && matchesBarrio && matchesPhone && matchesFuente;
+        let matches = true;
+        // Iterar sobre todos los campos de filtro dinámicamente
+        $('[data-filter]').each(function () {
+            const filterKey = $(this).data('filter'); // Propiedad del objeto `row`
+            const filterValue = $(this).val(); // Valor seleccionado o ingresado
+            // Verificar si el filtro tiene un valor y si coincide
+            if (filterValue && filterValue !== "Ver todos") {
+                if (filterKey === "tlf") {
+                    // Comparación especial para búsquedas parciales en teléfonos
+                    matches = matches && row[filterKey] && row[filterKey].includes(filterValue);
+                } else {
+                    // Comparación estándar para valores exactos
+                    matches = matches && row[filterKey] === filterValue;
+                }
+            }
+        });
+        return matches;
     });
 
     currentPage = 1;
@@ -287,6 +295,7 @@ function applyFilters() {
     updatePaginationControls();
     applySort(); // Ordenar los resultados filtrados
 }
+
 
 // Ordenar los datos filtrados
 function applySort() {
@@ -403,6 +412,14 @@ function renderPage(page) {
 
         // Botón desplegable para realizar cálculo
         cardContent += '<button class="btn btn-secondary btn-sm mt-2" data-toggle="collapse" data-target="#calculo-' + row.id + '">Mostrar cálculo</button>';
+        
+        // Botoón para gestionar los contactos, bien creando o bien actualizando
+        cardContent += `
+            <button class="btn btn-info btn-sm mt-2" onclick="openContactModal(${row.id}, ${row.id_contacto || null})">
+                Gestionar Contacto
+            </button>
+        `;
+        
         cardContent += '<div id="calculo-' + row.id + '" class="collapse mt-2">';
 
         // Seleccionar porcentaje
@@ -491,7 +508,6 @@ function renderPage(page) {
                 </button>
             `;
         }
-
 
         cardContent += '</div>'; // Cierre del contenedor colapsable
 
@@ -754,6 +770,112 @@ function toggleCartera(id, newState) {
         error: function () {
             alert(`Error al intentar ${action.toLowerCase()}.`);
             hideLoading();
+        }
+    });
+}
+
+function openContactModal(idInmueble, idContacto) {
+    $('#inmuebleId').val(idInmueble);
+
+    if (idContacto) {
+        // Cargar datos del contacto desde la API
+        $.ajax({
+            url: `http://euspay.com/api/v1/euspay.php/contactos/${idContacto}`,
+            type: 'GET',
+            success: function (response) {
+                if (response.status === 'success' && response.data) {
+                    $('#contactId').val(idContacto);
+                    $('#contactName').val(response.data.nombre);
+                    $('#contactPhone').val(response.data.telefono);
+                    $('#contactType').val(response.data.tipo_contacto);
+                } else {
+                    alert("No se pudo cargar la información del contacto.");
+                }
+            },
+            error: function () {
+                alert("Error al cargar el contacto.");
+            }
+        });
+    } else {
+        // Inicializar formulario vacío para crear un nuevo contacto
+        $('#contactId').val('');
+        $('#contactName').val('');
+        $('#contactPhone').val('');
+        $('#contactType').val('Particular');
+    }
+
+    // Mostrar el modal
+    $('#contactModal').modal('show');
+}
+
+function saveContact() {
+    const idContacto = $('#contactId').val();
+    const idInmueble = $('#inmuebleId').val();
+    const nombre = $('#contactName').val().trim();
+    const telefono = $('#contactPhone').val().trim();
+    const tipo = $('#contactType').val();
+
+    if (!nombre || !telefono) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+
+    const payload = {
+        nombre,
+        telefono,
+        tipo_contacto: tipo
+    };
+
+    const url = idContacto
+        ? `http://euspay.com/api/v1/euspay.php/contactos/${idContacto}`
+        : 'http://euspay.com/api/v1/euspay.php/contactos';
+
+    const method = idContacto ? 'PUT' : 'POST';
+
+    // Enviar datos a la API
+    $.ajax({
+        url: url,
+        type: method,
+        contentType: 'application/json',
+        data: JSON.stringify(payload),
+        success: function (response) {
+            if (response.status === 'success') {
+                alert("Contacto guardado con éxito.");
+
+                // Si es un nuevo contacto, asociarlo al inmueble
+                if (!idContacto) {
+                    associateContactToInmueble(response.data.id, idInmueble);
+                } else {
+                    $('#contactModal').modal('hide');
+                }
+            } else {
+                alert("No se pudo guardar el contacto.");
+            }
+        },
+        error: function () {
+            alert("Error al guardar el contacto.");
+        }
+    });
+}
+
+function associateContactToInmueble(idContacto, idInmueble) {
+    $.ajax({
+        url: `http://euspay.com/api/v1/euspay.php/inmuebles/${idInmueble}`,
+        type: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify({ id_contacto: idContacto }),
+        success: function (response) {
+            if (response.status === 'success') {
+                alert("Contacto asociado al inmueble.");
+                $('#contactModal').modal('hide');
+                // Recargar la página o actualizar la tarjeta
+                loadDataFromAPI();
+            } else {
+                alert("No se pudo asociar el contacto al inmueble.");
+            }
+        },
+        error: function () {
+            alert("Error al asociar el contacto al inmueble.");
         }
     });
 }

@@ -27,6 +27,48 @@
         <!-- Se deja vacío y luego cada botón carga su contenido del csv o base de datos en breves (Por defecto Scraping) -->
     </div>
 
+    <!-- Modal para la modificación de datos de contacto -->
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Gestionar Contacto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm">
+                        <input type="hidden" id="contactId" />
+                        <input type="hidden" id="inmuebleId" />
+                        <div class="form-group">
+                            <label for="contactName">Nombre</label>
+                            <input type="text" class="form-control" id="contactName" placeholder="Nombre del contacto">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Teléfono</label>
+                            <input type="text" class="form-control" id="contactPhone" placeholder="Teléfono">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactType">Tipo de Contacto</label>
+                            <select class="form-control" id="contactType">
+                                <option value="Particular">Particular</option>
+                                <option value="Profesional">Profesional</option>
+                                <option value="Promotora">Promotora</option>
+                                <option value="Agente Pro">Agente Pro</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveContact()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Bootstrap JS -->
