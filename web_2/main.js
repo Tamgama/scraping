@@ -3,23 +3,23 @@
 $(document).ready(function () {
     var currentView = 'scraping'; // Vista actual
 
-    // Cargar la vista por defecto
-    loadScrapingView();
+    // Cargar la vista por defecto (no en cartera)
+    loadScrapingView(false);
 
     // Event listeners para los botones de la barra de navegación
     $('#btnScraping').on('click', function (e) {
         e.preventDefault();
         if (currentView !== 'scraping') {
             currentView = 'scraping';
-            loadScrapingView();
+            loadScrapingView(false);
         }
     });
 
-    $('#btnOtrosDocumentos').on('click', function (e) {
+    $('#btnEnCartera').on('click', function (e) {
         e.preventDefault();
-        if (currentView !== 'otrosDocumentos') {
-            currentView = 'otrosDocumentos';
-            loadOtrosDocumentosView();
+        if (currentView !== 'cartera') {
+            currentView = 'cartera';
+            loadScrapingView(true);
         }
     });
 });

@@ -10,7 +10,7 @@ var totalPages = 0;
 var lastHash = "";
 
 // Función para cargar la vista de "Scraping"
-function loadScrapingView() {
+function loadScrapingView(showCartera = false) {
     // Limpiar el contenido principal
     $('#mainContent').empty();
 
@@ -49,6 +49,12 @@ function loadScrapingView() {
                         <div class="filter-group">
                             <label for="filterPhone">Filtrar por teléfono:</label>
                             <input type="text" id="filterPhone" class="form-control form-control-custom" placeholder="Buscar teléfono">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterFuente">Filtrar por fuente:</label>
+                            <select id="filterFuente" class="form-control form-control-custom">
+                                <option value="Ver todos">Ver todos</option>
+                            </select>
                         </div>
                     </div>
                     <div id="sortContainer" class="mt-3">
@@ -89,7 +95,7 @@ function loadScrapingView() {
 
     // Configurar eventos y cargar datos
     configureScrapingEvents();
-    loadDataFromAPI(); // Cambiado para cargar desde la API
+    loadDataFromAPI(showCartera); // Cambiado para cargar desde la API
 }
 
 function configureScrapingEvents() {
@@ -107,6 +113,10 @@ function configureScrapingEvents() {
     });
 
     $('#filterPhone').on('input', function () {
+        applyFilters();
+    });
+
+    $('#filterFuente').on('change', function () {
         applyFilters();
     });
 
@@ -162,7 +172,7 @@ function hideLoading() {
 }
 
 // Cargar los datos desde la API
-function loadDataFromAPI() {
+function loadDataFromAPI(showCartera) {
     showLoading();
     $.ajax({
         url: 'http://euspay.com/api/v1/euspay.php/relacionados',
@@ -171,8 +181,10 @@ function loadDataFromAPI() {
             if (response.status === 'success') {
                 data = response.data.map(row => ({
                     id: row.id_inmueble,
+                    id_idealista: row.id_idealista,
                     titulo: row.titulo,
                     precio: row.precio,
+                    cartera: row.cartera,
                     precio_por_metro: row.precio_metro,
                     superficie: row.superficie,
                     barrio: row.barrio,
@@ -183,13 +195,20 @@ function loadDataFromAPI() {
                     caracteristicas: row.caracteristicas,
                     disponibilidad: row.disponibilidad,
                     comentarios: row.comentarios,
-                    url: `https://www.idealista.com/inmueble/${row.id_inmueble}/`,
-                    tipoTransaccion: row.tipo_transaccion
+                    // TODO: Put this on a function, maybe fotocasa...
+                    url: row.fuente && row.fuente == 'idealista' ? `https://www.idealista.com/inmueble/${row.id_idealista}/` :`./pdf/${row.titulo}`,
+                    tipoTransaccion: row.tipo_transaccion,
+                    fuente: row.fuente || 'Desconocida',
                 }));
-                filteredData = data;
+                if (showCartera) {
+                    data = data.filter(row => row.cartera);
+                } else {
+                    data = data.filter(row => !row.cartera);
+                }
                 updateTipoAnuncianteFilter(data);
                 updateTipoTransaccionFilter(data);
                 updateBarrioFilter(data);
+                updateFuenteFilter(data); 
                 applyFilters();
                 $('#newDataAlert').fadeIn().delay(2000).fadeOut();
                 hideLoading();
@@ -236,19 +255,30 @@ function updateBarrioFilter(data) {
         $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
     });
 }
+function updateFuenteFilter(data) {
+    var uniqueFuentes = _.uniq(data.map(row => row.fuente).filter(Boolean));
+    var $filter = $('#filterFuente');
+    $filter.empty();
+    $filter.append('<option value="Ver todos">Ver todos</option>');
+    uniqueFuentes.forEach(fuente => {
+        $filter.append('<option value="' + fuente + '">' + fuente + '</option>');
+    });
+}
 // Aplicar los filtros
 function applyFilters() {
     var selectedTipoAnunciante = $('#filterTipoAnunciante').val();
     var selectedTipoTransaccion = $('#filterTipoTransaccion').val();
     var selectedBarrio = $('#filterBarrio').val();
     var selectedPhone = $('#filterPhone').val();
+    var selectedFuente = $('#filterFuente').val();
 
     filteredData = data.filter(function (row) {
         var matchesTipoAnunciante = selectedTipoAnunciante === "Ver todos" || row.tipoAnunciante === selectedTipoAnunciante;
         var matchesTipoTransaccion = selectedTipoTransaccion === "Ver todos" || row.tipoTransaccion === selectedTipoTransaccion;
         var matchesBarrio = selectedBarrio === "Ver todos" || row.barrio === selectedBarrio;
         var matchesPhone = row.tlf && String(row.tlf).includes(selectedPhone);
-        return matchesTipoAnunciante && matchesTipoTransaccion && matchesBarrio && matchesPhone;
+        var matchesFuente = selectedFuente === "Ver todos" || row.fuente === selectedFuente;
+        return matchesTipoAnunciante && matchesTipoTransaccion && matchesBarrio && matchesPhone && matchesFuente;
     });
 
     currentPage = 1;
@@ -284,15 +314,31 @@ function renderPage(page) {
         var card = $('<div class="col-12 mb-4"></div>');
         var cardContent = '<div class="card-custom" style="position: relative;">';
 
-        // Añadir ribbon si el inmueble no está disponible
+        // Contenedor para los badges
+        cardContent += `
+            <div class="badges-container" style="display: flex; gap: 10px; position: absolute; top: 10px; right: 10px;">
+        `;
+
+        // Badge para "No disponible"
         if (row.disponibilidad === "No disponible") {
             cardContent += `
-                <span class="badge badge-danger position-absolute" style="top: 10px; right: 10px; font-size: 14px; padding: 10px 15px;">
+                <span class="badge badge-danger" style="font-size: 14px; padding: 5px 10px;">
                     No Disponible
                 </span>
             `;
         }
 
+        // Badge para "En cartera"
+        if (row.cartera) {
+            cardContent += `
+                <span class="badge badge-success" style="font-size: 14px; padding: 5px 10px;">
+                    En Cartera
+                </span>
+            `;
+        }
+
+        // Cierre del contenedor de badges
+        cardContent += `</div>`;
         cardContent += '<h4>' + (row.titulo || 'Título desconocido') + '</h4>'; // Título en la parte superior
 
         cardContent += '<div class="separator"></div>';
@@ -312,15 +358,21 @@ function renderPage(page) {
         cardContent += '<div class="col-custom"><strong>Nombre Anunciante:</strong> ' + (row.anunciante || 'N/A') + '</div>';
 
         // Enlace telefónico seguro
-        var telefono = row.tlf ? String(row.tlf) : '';
-        if (telefono && telefono.length > 2) {
-            var prefijo = telefono.slice(0, 2);
-            var numero = telefono.slice(2);
-            cardContent += '<div class="col-custom"><strong>Teléfono:</strong> <a href="tel:+' + prefijo + numero + '">' + numero + '</a></div>';
+        var telefono = row.tlf ? String(row.tlf).replace(/\s+/g, '').replace('+', '') : '';
+        if (telefono && telefono.length >= 9) {
+            var prefijo = telefono.length > 9 ? telefono.slice(0, 2) : ''; // Detecta prefijo si el número es mayor a 9 caracteres
+            var numero = telefono.length > 9 ? telefono.slice(2) : telefono; // Si no hay prefijo, usar el número completo
+            var telefonoHref = prefijo ? '+' + prefijo + numero : numero;
+            cardContent += '<div class="col-custom"><strong>Teléfono:</strong> <a href="tel:' + telefonoHref + '">' + numero + '</a></div>';
         } else {
             cardContent += '<div class="col-custom"><strong>Teléfono:</strong> N/A</div>';
         }
 
+        cardContent += '</div>';
+
+        // Añadir fuente
+        cardContent += '<div class="row-custom">';
+        cardContent += '<div class="col-custom"><strong>Fuente:</strong> ' + (row.fuente || 'Desconocida') + '</div>';
         cardContent += '</div>';
 
         // Mostrar las características como etiquetas si existen
@@ -335,8 +387,12 @@ function renderPage(page) {
         }
 
         // Añadir el botón con la URL
+        let viewMessage = 'Ver Inmueble';
+        if (row.fuente === 'pdf') {
+            viewMessage = 'Ver PDF';
+        }
         if (row.url) {
-            cardContent += '<a href="' + row.url + '" target="_blank" class="btn btn-primary btn-custom">Ver Inmueble</a>';
+            cardContent += '<a href="' + row.url + `" target="_blank" class="btn btn-primary btn-custom">${viewMessage}</a>`;
         }
 
         // Añadir separador
@@ -421,6 +477,22 @@ function renderPage(page) {
                 </button>
             `;
         }
+        // Botón para marcar como "En Cartera" o "No en Cartera"
+        if (row.cartera) {
+            cardContent += `
+                <button class="btn btn-warning mt-3" onclick="toggleCartera(${row.id}, false)">
+                    Quitar de cartera
+                </button>
+            `;
+        } else {
+            cardContent += `
+                <button class="btn btn-success mt-3" onclick="toggleCartera(${row.id}, true)">
+                    Poner en cartera
+                </button>
+            `;
+        }
+
+
         cardContent += '</div>'; // Cierre del contenedor colapsable
 
         cardContent += '</div>'; // Cierre de la tarjeta
@@ -652,6 +724,40 @@ window.marcarNoDisponible = function(id) {
         }
     });
 }
+
+function toggleCartera(id, newState) {
+    const action = newState ? "Poner en cartera" : "Quitar de cartera";
+    if (!confirm(`¿Estás seguro de que deseas ${action}?`)) {
+        return;
+    }
+
+    showLoading();
+
+    $.ajax({
+        url: `http://euspay.com/api/v1/euspay.php/inmuebles/${id}/cartera`,
+        type: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify({ cartera: newState }),
+        success: function (response) {
+            if (response.status === 'success') {
+                alert(`Inmueble marcado como ${action}.`);
+                var inmueble = data.find(item => item.id === id);
+                if (inmueble) {
+                    inmueble.cartera = newState;
+                }
+                renderPage(currentPage);
+            } else {
+                alert(`No se pudo ${action.toLowerCase()}.`);
+            }
+            hideLoading();
+        },
+        error: function () {
+            alert(`Error al intentar ${action.toLowerCase()}.`);
+            hideLoading();
+        }
+    });
+}
+
 
 // Implementación de la función realizarCalculo
 window.realizarCalculo = function(id, tipoTransaccion) {

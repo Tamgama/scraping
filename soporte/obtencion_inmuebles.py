@@ -146,7 +146,7 @@ def insertar_inmueble(data):
     """
     # Filtrar solo los campos especificados
     allowed_keys = [
-        "id_inmueble", "id_contacto", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion", "precio",
+        "id_inmueble", "id_idealista", "id_contacto", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion", "precio",
         "precio_metro", "superficie", "habitaciones", "banos", "armarios", "trastero", "orientacion", "amueblado",
         "calefaccion", "planta", "ascensor", "construccion", "movilidad_reducida", "exterior_interior", "fecha",
         "estado", "caracteristicas", "fuente", "disponibilidad", "tipo_transaccion"
@@ -501,6 +501,7 @@ def procesar_inmuebles(base_url, tipo_transaccion, max_repetidos=5):
 
                 inmueble_data = {
                     "id_inmueble": data_element_id,
+                    "id_idealista": data_element_id,
                     "tipo": tipo_inmueble,
                     "tipo_transaccion": tipo_transaccion,
                     "titulo": titulo_text,
