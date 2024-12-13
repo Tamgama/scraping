@@ -51,6 +51,12 @@ function loadScrapingView(showCartera = false) {
                             </select>
                         </div>
                         <div class="filter-group">
+                            <label for="filterHabitacion">Filtrar por habitaciones:</label>
+                            <select id="filterHabitacion" class="form-control form-control-custom" data-filter="habitaciones">
+                                <option value="Ver todos">Ver todos</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
                             <label for="filterPhone">Filtrar por teléfono:</label>
                             <input type="text" id="filterPhone" class="form-control form-control-custom" data-filter="tlf" placeholder="Buscar teléfono">
                         </div>
@@ -209,7 +215,8 @@ function loadDataFromAPI(showCartera) {
                 updateTipoAnuncianteFilter(data);
                 updateTipoTransaccionFilter(data);
                 updateBarrioFilter(data);
-                updateFuenteFilter(data); 
+                updateFuenteFilter(data);
+                updateHabitacionesFilter(data);
                 updateDisponibilidadFilter(data);   
                 applyFilters();
                 $('#newDataAlert').fadeIn().delay(2000).fadeOut();
@@ -268,6 +275,7 @@ function updateBarrioFilter(data) {
         $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
     });
 }
+
 function updateFuenteFilter(data) {
     var uniqueFuentes = _.uniq(data.map(row => row.fuente).filter(Boolean));
     var $filter = $('#filterFuente');
@@ -277,6 +285,29 @@ function updateFuenteFilter(data) {
         $filter.append('<option value="' + fuente + '">' + fuente + '</option>');
     });
 }
+
+function updateHabitacionesFilter(data) {
+    // Obtener valores únicos de habitaciones
+    var uniqueHabitaciones = _.uniq(data.map(row => row.habitaciones).filter(Boolean));
+
+    // Ordenar las habitaciones de menor a mayor
+    uniqueHabitaciones.sort((a, b) => a - b);
+
+    // Buscar el filtro de habitaciones en el DOM
+    var $filter = $('#filterHabitacion');
+    if ($filter.length === 0) {
+        console.error('No se encontró el filtro de habitaciones en el HTML.');
+        return;
+    }
+
+    // Limpiar y añadir opciones al filtro
+    $filter.empty();
+    $filter.append('<option value="Ver todos">Ver todos</option>');
+    uniqueHabitaciones.forEach(habitacion => {
+        $filter.append('<option value="' + habitacion + '">' + habitacion + '</option>');
+    });
+}
+
 // Aplicar los filtros
 function applyFilters() {
     filteredData = data.filter(function (row) {
@@ -372,6 +403,7 @@ function renderPage(page) {
         cardContent += '<div class="row-custom">';
         cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row.superficie ? `${formatNumber(row.superficie, 'es-ES')} m²` : 'N/A') + '</div>';
         cardContent += '<div class="col-custom"><strong>Barrio:</strong> ' + (row.barrio || 'N/A') + '</div>';
+        cardContent += '<div class="col-custom"><strong>Habitaciones:</strong> ' + (row.habitaciones || 'N/A') + '</div>';
         cardContent += '</div>';
 
         // Añadir Nombre Anunciante y Teléfono
@@ -918,6 +950,7 @@ function openPropertyModal(idInmueble) {
                 $('#propertyCity').val(property.ciudad || '');
                 $('#propertyStreet').val(property.calle || '');
                 $('#propertyBathrooms').val(property.banos || '');
+                $('#propertyRooms').val(property.habitaciones || '');
                 $('#propertyState').val(property.estado || '');
                 $('#propertyZone').val(property.zona || '');
                 $('#propertyModal').modal('show');
@@ -943,6 +976,7 @@ function saveProperty() {
         ciudad: $('#propertyCity').val().trim(),
         calle: $('#propertyStreet').val().trim(),
         banos: parseInt($('#propertyBathrooms').val(), 10),
+        habitacionES: parseInt($('#propertyRooms').val(), 10),
         estado: $('#propertyState').val().trim(),
         zona: $('#propertyZone').val().trim(),
     };
