@@ -68,6 +68,72 @@
         </div>
     </div>
     
+    <div class="modal fade" id="propertyModal" tabindex="-1" role="dialog" aria-labelledby="propertyModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="propertyModalLabel">Editar Información del Inmueble</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="propertyForm">
+                        <input type="hidden" id="propertyId" />
+                        <div class="form-group">
+                            <label for="propertyTitle">Título</label>
+                            <input type="text" class="form-control" id="propertyTitle" placeholder="Título del inmueble">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyPrice">Precio</label>
+                            <input type="number" class="form-control" id="propertyPrice" placeholder="Precio">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyPricePerMeter">Precio por metro</label>
+                            <input type="number" class="form-control" id="propertyPricePerMeter" placeholder="Precio por metro">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertySurface">Superficie</label>
+                            <input type="number" class="form-control" id="propertySurface" placeholder="Superficie (m²)">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyLocation">Localización</label>
+                            <input type="text" class="form-control" id="propertyLocation" placeholder="Localización">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyNeighborhood">Barrio</label>
+                            <input type="text" class="form-control" id="propertyNeighborhood" placeholder="Barrio">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyCity">Ciudad</label>
+                            <input type="text" class="form-control" id="propertyCity" placeholder="Ciudad">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyStreet">Calle</label>
+                            <input type="text" class="form-control" id="propertyStreet" placeholder="Calle">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyBathrooms">Baños</label>
+                            <input type="number" class="form-control" id="propertyBathrooms" placeholder="Número de baños">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyState">Estado</label>
+                            <input type="text" class="form-control" id="propertyState" placeholder="Estado">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyZone">Zona</label>
+                            <input type="text" class="form-control" id="propertyZone" placeholder="Zona">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveProperty()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

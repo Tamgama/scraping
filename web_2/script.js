@@ -9,6 +9,10 @@ var currentPage = 1;
 var totalPages = 0;
 var lastHash = "";
 
+function formatNumber(value, locale = 'es-ES', options = {}) {
+    return new Intl.NumberFormat(locale, options).format(value);
+}
+
 // Función para cargar la vista de "Scraping"
 function loadScrapingView(showCartera = false) {
     // Limpiar el contenido principal
@@ -178,6 +182,12 @@ function loadDataFromAPI(showCartera) {
                     precio_por_metro: row.precio_metro,
                     superficie: row.superficie,
                     barrio: row.barrio,
+                    calle: row.calle,
+                    zona: row.zona,
+                    ciudad: row.ciudad,
+                    habitaciones: row.habitaciones,
+                    banos: row.banos,
+                    estado: row.estado,
                     tipoAnunciante: row.contacto ? row.contacto.tipo : 'Desconocido',
                     id_contacto: row.id_contacto,
                     anunciante: row.contacto ? row.contacto.nombre : 'Desconocido',
@@ -353,12 +363,14 @@ function renderPage(page) {
         cardContent += '<div class="separator"></div>';
 
         cardContent += '<div class="row-custom">';
-        cardContent += '<div class="col-custom"><strong>Precio:</strong> ' + (row.precio || 'N/A') + '</div>';
-        cardContent += '<div class="col-custom"><strong>Precio/m²:</strong> ' + (row.precio_por_metro || 'N/A') + '</div>';
+        cardContent += `<div class="col-custom"><strong>Precio:</strong> ` + 
+            (row.precio ? `${formatNumber(row.precio, 'es-ES', { style: 'currency', currency: 'EUR' })}` : 'N/A') + '</div>';
+        cardContent += `<div class="col-custom"><strong>Precio/m²:</strong> ` + 
+            (row.precio_por_metro ? `${formatNumber(row.precio_por_metro, 'es-ES', { style: 'currency', currency: 'EUR' })}` : 'N/A') + '</div>';
         cardContent += '</div>';
 
         cardContent += '<div class="row-custom">';
-        cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row.superficie || 'N/A') + ' m²</div>';
+        cardContent += '<div class="col-custom"><strong>Superficie:</strong> ' + (row.superficie ? `${formatNumber(row.superficie, 'es-ES')} m²` : 'N/A') + '</div>';
         cardContent += '<div class="col-custom"><strong>Barrio:</strong> ' + (row.barrio || 'N/A') + '</div>';
         cardContent += '</div>';
 
@@ -417,6 +429,13 @@ function renderPage(page) {
         cardContent += `
             <button class="btn btn-info btn-sm mt-2" onclick="openContactModal(${row.id}, ${row.id_contacto || null})">
                 Gestionar Contacto
+            </button>
+        `;
+
+        // Botón para actualizar información inmueble
+        cardContent += `
+            <button class="btn btn-warning btn-sm mt-2" onclick="openPropertyModal(${row.id})">
+                Editar Inmueble
             </button>
         `;
         
@@ -876,6 +895,82 @@ function associateContactToInmueble(idContacto, idInmueble) {
         },
         error: function () {
             alert("Error al asociar el contacto al inmueble.");
+        }
+    });
+}
+
+function openPropertyModal(idInmueble) {
+    $('#propertyId').val(idInmueble);
+
+    // Cargar datos del inmueble desde la API
+    $.ajax({
+        url: `http://euspay.com/api/v1/euspay.php/inmuebles/${idInmueble}`,
+        type: 'GET',
+        success: function (response) {
+            if (response.status === 'success' && response.data) {
+                const property = response.data;
+                $('#propertyTitle').val(property.titulo || '');
+                $('#propertyPrice').val(property.precio || '');
+                $('#propertyPricePerMeter').val(property.precio_metro || '');
+                $('#propertySurface').val(property.superficie || '');
+                $('#propertyLocation').val(property.localizacion || '');
+                $('#propertyNeighborhood').val(property.barrio || '');
+                $('#propertyCity').val(property.ciudad || '');
+                $('#propertyStreet').val(property.calle || '');
+                $('#propertyBathrooms').val(property.banos || '');
+                $('#propertyState').val(property.estado || '');
+                $('#propertyZone').val(property.zona || '');
+                $('#propertyModal').modal('show');
+            } else {
+                alert("No se pudo cargar la información del inmueble.");
+            }
+        },
+        error: function () {
+            alert("Error al cargar la información del inmueble.");
+        }
+    });
+}
+
+function saveProperty() {
+    const idInmueble = $('#propertyId').val();
+    const payload = {
+        titulo: $('#propertyTitle').val().trim(),
+        precio: parseFloat($('#propertyPrice').val()),
+        precio_metro: parseFloat($('#propertyPricePerMeter').val()),
+        superficie: parseFloat($('#propertySurface').val()),
+        localizacion: $('#propertyLocation').val().trim(),
+        barrio: $('#propertyNeighborhood').val().trim(),
+        ciudad: $('#propertyCity').val().trim(),
+        calle: $('#propertyStreet').val().trim(),
+        banos: parseInt($('#propertyBathrooms').val(), 10),
+        estado: $('#propertyState').val().trim(),
+        zona: $('#propertyZone').val().trim(),
+    };
+
+    // Validar campos obligatorios
+    if (!payload.titulo || isNaN(payload.precio) || isNaN(payload.superficie)) {
+        alert("Por favor, completa todos los campos obligatorios.");
+        return;
+    }
+
+    // Enviar los datos al servidor
+    $.ajax({
+        url: `http://euspay.com/api/v1/euspay.php/inmuebles/${idInmueble}`,
+        type: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify(payload),
+        success: function (response) {
+            if (response.status === 'success') {
+                alert("Inmueble actualizado con éxito.");
+                $('#propertyModal').modal('hide');
+                // Recargar la página o actualizar la tarjeta
+                loadDataFromAPI();
+            } else {
+                alert("No se pudo actualizar el inmueble.");
+            }
+        },
+        error: function () {
+            alert("Error al actualizar el inmueble.");
         }
     });
 }
