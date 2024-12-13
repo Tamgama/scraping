@@ -71315,3 +71315,59 @@ Ejecutando actualizar_web.py...
 La carpeta /root/scraping/soporte/../web_2 ha sido subida a home484808560.1and1-data.host:web_2 exitosamente.
 La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
 
+[main 1bb4ff7] [UPD] data_updated: 2024-12-12 20:00:08
+ 1 file changed, 23 insertions(+)
+To github.com:Tamgama/scraping.git
+   2987db7..1bb4ff7  main -> main
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 505014 killed;
+Agent pid 506383
+Identity added: /root/.ssh/equalityon@gmail.com (equalityon@gmail.com)
+From github.com:Tamgama/scraping
+ * branch            main       -> FETCH_HEAD
+   1bb4ff7..1263d71  main       -> origin/main
+Updating 1bb4ff7..1263d71
+Fast-forward
+ soporte/cookie.json            |   2 +-
+ soporte/obtencion_inmuebles.py |   3 +-
+ web_2/index.html               |  44 +++++-
+ web_2/main.js                  |  16 +--
+ web_2/script.js                | 312 +++++++++++++++++++++++++++++++++++------
+ 5 files changed, 324 insertions(+), 53 deletions(-)
+Ejecutando obtencion_inmuebles.py...
+Inmueble 106639888 ya existe. Contador de repetidos: 1
+ID 106806838 guardado en la base de datos.
+ID 106806317 guardado en la base de datos.
+ID 94302016 guardado en la base de datos.
+ID 105194617 guardado en la base de datos.
+ID 95602572 guardado en la base de datos.
+Inmueble 106804135 ya existe. Contador de repetidos: 1
+Inmueble 106804120 ya existe. Contador de repetidos: 2
+Inmueble 105329437 ya existe. Contador de repetidos: 3
+Inmueble 105537168 ya existe. Contador de repetidos: 4
+Inmueble 34773429 ya existe. Contador de repetidos: 5
+Se alcanzó el número máximo de inmuebles repetidos consecutivos. Deteniendo proceso.
+ID 106807073 guardado en la base de datos.
+ID 106806888 guardado en la base de datos.
+ID 106806767 guardado en la base de datos.
+No se encontró ningún contacto con los filtros dados. Procediendo a crear el contacto.
+ID 106806600 guardado en la base de datos.
+ID 103809785 guardado en la base de datos.
+ID 106806256 guardado en la base de datos.
+ID 106806003 guardado en la base de datos.
+ID 106805618 guardado en la base de datos.
+Inmueble 106805470 ya existe. Contador de repetidos: 1
+Inmueble 106805361 ya existe. Contador de repetidos: 2
+Inmueble 106805214 ya existe. Contador de repetidos: 3
+Inmueble 106804739 ya existe. Contador de repetidos: 4
+Inmueble 106804652 ya existe. Contador de repetidos: 5
+Se alcanzó el número máximo de inmuebles repetidos consecutivos. Deteniendo proceso.
+
+Ejecutando particulares/particulares.py...
+Please, retreive credentials manually
+
+Ejecutando actualizar_web.py...
+Error durante la transferencia: size mismatch in put!  8365 != 4275
+La carpeta /root/scraping/soporte/../security ha sido subida a home484808560.1and1-data.host:security exitosamente.
+
