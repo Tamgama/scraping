@@ -315,13 +315,19 @@ function applyFilters() {
         // Iterar sobre todos los campos de filtro dinámicamente
         $('[data-filter]').each(function () {
             const filterKey = $(this).data('filter'); // Propiedad del objeto `row`
-            const filterValue = $(this).val(); // Valor seleccionado o ingresado
+            let filterValue = $(this).val(); // Valor seleccionado o ingresado
             // Verificar si el filtro tiene un valor y si coincide
             if (filterValue && filterValue !== "Ver todos") {
                 if (filterKey === "tlf") {
                     // Comparación especial para búsquedas parciales en teléfonos
                     matches = matches && row[filterKey] && row[filterKey].includes(filterValue);
                 } else {
+                    // Habitaciones es un select, que devuelve un string, pero
+                    // habitaciones es un entero, hay que parsear para poder comprobar
+                    // que son iguales
+                    if (filterKey === "habitaciones") {
+                        filterValue = parseInt(filterValue);
+                    }
                     // Comparación estándar para valores exactos
                     matches = matches && row[filterKey] === filterValue;
                 }
@@ -976,7 +982,7 @@ function saveProperty() {
         ciudad: $('#propertyCity').val().trim(),
         calle: $('#propertyStreet').val().trim(),
         banos: parseInt($('#propertyBathrooms').val(), 10),
-        habitacionES: parseInt($('#propertyRooms').val(), 10),
+        habitaciones: parseInt($('#propertyRooms').val(), 10),
         estado: $('#propertyState').val().trim(),
         zona: $('#propertyZone').val().trim(),
     };
