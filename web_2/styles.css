@@ -63,6 +63,15 @@ header {
     border-radius: 4px;
 }
 
+/* Estilos del contador */
+#propertyCounters {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
 /* Estilos para el layout de las tarjetas */
 #cardsContainer {
     display: flex;

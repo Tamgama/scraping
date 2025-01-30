@@ -221,6 +221,16 @@ function loadDataFromAPI(showCartera) {
                 applyFilters();
                 $('#newDataAlert').fadeIn().delay(2000).fadeOut();
                 hideLoading();
+
+                // Variables para contar los inmuebles totales y los de particulares
+                let totalInmuebles = data.length;
+                let inmueblesParticulares = data.filter(p => p.tipoAnunciante === "Particular").length;
+
+                console.log("Total de inmuebles:", totalInmuebles);
+                console.log("Inmuebles de particulares:", inmueblesParticulares);
+
+                applyFilters();
+                $("#loadingIndicator").hide();
             } else {
                 console.error("Error al cargar los datos:", response.message);
                 hideLoading();
