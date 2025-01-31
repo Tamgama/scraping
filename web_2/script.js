@@ -1002,7 +1002,7 @@ function saveProperty() {
     const idInmueble = $('#propertyId').val();
     const payload = {
         titulo: $('#propertyTitle').val().trim(),
-        precio: parseFloat($('#propertyPrice').val()),
+        precio: parseFloat($('#propertyPrice').val()) || 0,
         precio_metro: parseFloat($('#propertyPricePerMeter').val()),
         superficie: parseFloat($('#propertySurface').val()),
         localizacion: $('#propertyLocation').val().trim(),
