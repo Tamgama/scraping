@@ -231,11 +231,12 @@ function loadDataFromAPI(showCartera) {
                 hideLoading();
 
                 // Variables para contar los inmuebles totales y los de particulares
-                let totalInmuebles = data.length;
-                let inmueblesParticulares = data.filter(p => p.tipoAnunciante === "Particular").length;
-
-                console.log("Total de inmuebles:", totalInmuebles);
-                console.log("Inmuebles de particulares:", inmueblesParticulares);
+                const totalInmuebles = data.length;
+                const inmueblesParticulares = data.filter(p => p.tipoAnunciante === "Particular").length;
+                document.getElementById('totalProperties').textContent = totalInmuebles;
+                document.getElementById('privateProperties').textContent = inmueblesParticulares;
+                // console.log("Total de inmuebles:", totalInmuebles);
+                // console.log("Inmuebles de particulares:", inmueblesParticulares);
 
                 applyFilters();
                 $("#loadingIndicator").hide();
@@ -349,6 +350,8 @@ function applyFilters() {
                 if (filterKey === "tlf") {
                     // Comparación especial para búsquedas parciales en teléfonos
                     matches = matches && row[filterKey] && row[filterKey].includes(filterValue);
+                } else if (filterKey === 'precioMin' || filterKey === 'precioMax') {
+                    // Estos filtros especiales se hacen antes de aplicar el resto de los filtros    
                 } else {
                     // Habitaciones es un select, que devuelve un string, pero
                     // habitaciones es un entero, hay que parsear para poder comprobar
