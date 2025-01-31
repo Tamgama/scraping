@@ -45,6 +45,14 @@ function loadScrapingView(showCartera = false) {
                             </select>
                         </div>
                         <div class="filter-group">
+                            <label for="filterMinPrice">Precio Mínimo:</label>
+                            <input type="number" id="filterMinPrice" class="form-control form-control-custom" data-filter="precioMin" placeholder="Mínimo">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterMaxPrice">Precio Máximo:</label>
+                            <input type="number" id="filterMaxPrice" class="form-control form-control-custom" data-filter="precioMax" placeholder="Máximo">
+                        </div>
+                        <div class="filter-group">
                             <label for="filterBarrio">Filtrar por barrio:</label>
                             <select id="filterBarrio" class="form-control form-control-custom" data-filter="barrio">
                                 <option value="Ver todos">Ver todos</option>
@@ -178,7 +186,7 @@ function loadDataFromAPI(showCartera) {
         url: 'http://euspay.com/api/v1/euspay.php/relacionados',
         dataType: 'json',
         success: function (response) {
-            if (response.status === 'success') {
+            if (response.status === 'success'){
                 data = response.data.map(row => ({
                     id: row.id_inmueble,
                     id_idealista: row.id_idealista,
@@ -322,6 +330,16 @@ function updateHabitacionesFilter(data) {
 function applyFilters() {
     filteredData = data.filter(function (row) {
         let matches = true;
+
+        // Obtener valores de los filtros de precio
+        let minPrice = parseFloat($('#filterMinPrice').val()) || 0;
+        let maxPrice = parseFloat($('#filterMaxPrice').val()) || Infinity;
+
+        // Filtrar por precio dentro del rango
+        if (row.precio) {
+            matches = matches && row.precio >= minPrice && row.precio <= maxPrice;
+        }
+
         // Iterar sobre todos los campos de filtro dinámicamente
         $('[data-filter]').each(function () {
             const filterKey = $(this).data('filter'); // Propiedad del objeto `row`

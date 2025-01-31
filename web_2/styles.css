@@ -127,7 +127,8 @@ header {
 /* Efecto de hover en las tarjetas */
 .card-custom:hover {
     transform: translateY(-5px); /* Mover hacia arriba al hacer hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumentar sombra al hacer hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Aumentar sombra al hacer hover */
+    transition: all 0.3s ease-in-out;
 }
 
 /* Estilo del título en las tarjetas */
@@ -164,7 +165,7 @@ header {
 .btn-custom {
     margin-top: 10px;
     width: 100%; /* El botón ocupa todo el ancho disponible */
-    background-color: #004d3c; /* Fondo para el botón */
+    background-color: #005c4a; /* Fondo para el botón */
     color: #ffffff; /* Color para el texto del botón */
     border: none; /* Sin bordes */
     border-radius: 4px; /* Bordes redondeados */
@@ -174,7 +175,7 @@ header {
 
 /* Efecto de hover en el botón */
 .btn-custom:hover {
-    background-color: #002c23; /* Fondo más oscuro al hacer hover */
+    background-color: #00392e; /* Fondo más oscuro al hacer hover */
 }
 
 /* Estilos para la sección de comentarios */
@@ -226,6 +227,9 @@ header {
 
 /* Paginación tanto arriba como abajo */
 #paginationControlsTop, #paginationControlsBottom {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 20px; /* Espacio superior para separar de las tarjetas */
     margin-bottom: 20px; /* Espacio inferior de 20px */
     text-align: center; /* Centrar los botones de paginación */
@@ -264,6 +268,7 @@ header {
     /* Ocultar filtros en pantallas pequeñas con un botón desplegable */
     .filters-container {
         display: none; /* Esconder inicialmente en móviles */
+        transition: all 0.3s ease-in-out;
     }
 
     .filters-toggle-btn {
@@ -282,6 +287,7 @@ header {
     .filters-container.show {
         display: block; /* Mostrar los filtros cuando la clase 'show' está activa */
         z-index: 1; /* Los filtros se muestran por encima de las tarjetas */
+        overflow:auto;
     }
 }
 
