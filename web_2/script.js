@@ -179,6 +179,20 @@ function hideLoading() {
     $('#loadingIndicator').hide();
 }
 
+function getUrlFromRow(row) {
+    url = '';
+    if (row.fuente) {
+        if (row.fuente == 'idealista') {
+            url = `https://www.idealista.com/inmueble/${row.id_idealista}/`
+        } else if (row.fuente == 'pdf') {
+            url = `./pdf/${row.titulo}`
+        } else if (row.fuente == 'fotocasa') {
+            url = `${row.enlace}`
+        }
+    }
+    return url;
+}
+
 // Cargar los datos desde la API
 function loadDataFromAPI(showCartera) {
     showLoading();
@@ -211,7 +225,7 @@ function loadDataFromAPI(showCartera) {
                     disponibilidad: row.disponibilidad,
                     comentarios: row.comentarios,
                     // TODO: Put this on a function, maybe fotocasa...
-                    url: row.fuente && row.fuente == 'idealista' ? `https://www.idealista.com/inmueble/${row.id_idealista}/` :`./pdf/${row.titulo}`,
+                    url: getUrlFromRow(row),
                     tipoTransaccion: row.tipo_transaccion,
                     fuente: row.fuente || 'Desconocida',
                 }));

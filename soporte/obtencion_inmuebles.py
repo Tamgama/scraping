@@ -19,7 +19,7 @@ def inmueble_existe(id_inmueble):
     """
     try:
         # Construir la URL para consultar el inmueble por ID
-        url = f"{api_base_url}/inmuebles/{id_inmueble}"
+        url = f"{api_base_url}/inmuebles?id_idealista={id_inmueble}"
         # Realizar la solicitud GET con autenticación
         response = requests.get(url, auth=auth_credentials)
 
@@ -146,7 +146,7 @@ def insertar_inmueble(data):
     """
     # Filtrar solo los campos especificados
     allowed_keys = [
-        "id_inmueble", "id_idealista", "id_contacto", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion", "precio",
+        "id_idealista", "id_contacto", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion", "precio",
         "precio_metro", "superficie", "habitaciones", "banos", "armarios", "trastero", "orientacion", "amueblado",
         "calefaccion", "planta", "ascensor", "construccion", "movilidad_reducida", "exterior_interior", "fecha",
         "estado", "caracteristicas", "fuente", "disponibilidad", "tipo_transaccion"
@@ -538,11 +538,12 @@ def procesar_inmuebles(base_url, tipo_transaccion, max_repetidos=5):
 procesar_inmuebles(
     base_url="https://www.idealista.com/alquiler-viviendas/murcia-murcia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc",
     tipo_transaccion="Alquiler",
+    max_repetidos=40,
 )
 
 # Procesar inmuebles en venta
 procesar_inmuebles(
     base_url="https://www.idealista.com/venta-viviendas/murcia-murcia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc",
     tipo_transaccion="Ventas",
-
+    max_repetidos=5,
 )
