@@ -538,7 +538,7 @@ def procesar_inmuebles(base_url, tipo_transaccion, max_repetidos=5):
 procesar_inmuebles(
     base_url="https://www.idealista.com/alquiler-viviendas/murcia-murcia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc",
     tipo_transaccion="Alquiler",
-    max_repetidos=40,
+    max_repetidos=5,
 )
 
 # Procesar inmuebles en venta
