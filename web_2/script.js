@@ -247,8 +247,13 @@ function loadDataFromAPI(showCartera) {
                 // Variables para contar los inmuebles totales y los de particulares
                 const totalInmuebles = data.length;
                 const inmueblesParticulares = data.filter(p => p.tipoAnunciante === "Particular").length;
+                const particularesVenta = data.filter(p => p.tipoAnunciante === "Particular" && p.tipoTransaccion === "Venta").lenght;
+                const particularesAlquiler = data.filter(p => p.tipoAnunciante === "Particular" && p.tipoTransaccion === "Alquiler").length;
+                
                 document.getElementById('totalProperties').textContent = totalInmuebles;
                 document.getElementById('privateProperties').textContent = inmueblesParticulares;
+                document.getElementById("privateSaleProperties").textContent = particularesVenta;
+                document.getElementById("privateRentProperties").textContent = particularesAlquiler;
                 // console.log("Total de inmuebles:", totalInmuebles);
                 // console.log("Inmuebles de particulares:", inmueblesParticulares);
 
