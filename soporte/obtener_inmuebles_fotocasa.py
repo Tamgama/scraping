@@ -467,4 +467,4 @@ def procesar_inmuebles(base_url, max_repetidos=5, num_paginas=10):
             break  # Detener el scraping si hay errores de red graves
     print(f"🎯 Proceso completado. {inmuebles_insertados} inmuebles insertados en la base de datos.")
 
-procesar_inmuebles('https://www.fotocasa.es/es/alquiler/viviendas/murcia-provincia/todas-las-zonas/', 5, 1)
+procesar_inmuebles('https://www.fotocasa.es/es/alquiler/viviendas/murcia-provincia/todas-las-zonas/', 5, 5)
