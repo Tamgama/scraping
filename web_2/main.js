@@ -22,4 +22,12 @@ $(document).ready(function () {
             loadScrapingView(true);
         }
     });
+
+    $('#btnHabitaciones').on('click', function (e) {
+        e.preventDefault();
+        if (currentView !== 'habitaciones') {
+            currentView = 'habitaciones';
+            loadScrapingView(true);
+        }
+    });
 });

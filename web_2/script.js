@@ -14,7 +14,7 @@ function formatNumber(value, locale = 'es-ES', options = {}) {
 }
 
 // Función para cargar la vista de "Scraping"
-function loadScrapingView(showCartera = false) {
+function loadScrapingView(view = 'Scraping') {
     // Limpiar el contenido principal
     $('#mainContent').empty();
 
@@ -119,7 +119,7 @@ function loadScrapingView(showCartera = false) {
 
     // Configurar eventos y cargar datos
     configureScrapingEvents();
-    loadDataFromAPI(showCartera); // Cambiado para cargar desde la API
+    loadDataFromAPI(view); // Cambiado para cargar desde la API
 }
 
 function configureScrapingEvents() {
@@ -194,7 +194,7 @@ function getUrlFromRow(row) {
 }
 
 // Cargar los datos desde la API
-function loadDataFromAPI(showCartera) {
+function loadDataFromAPI(view) {
     showLoading();
     $.ajax({
         url: 'http://euspay.com/api/v1/euspay.php/relacionados',
@@ -229,11 +229,14 @@ function loadDataFromAPI(showCartera) {
                     tipoTransaccion: row.tipo_transaccion,
                     fuente: row.fuente || 'Desconocida',
                 }));
-                if (showCartera) {
-                    data = data.filter(row => row.cartera);
-                } else {
-                    data = data.filter(row => !row.cartera);
+                if (view == 'Scraping') {
+                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitaciones');
+                } else if (view == 'cartera') {
+                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitaciones');
+                } else if (view == 'Habitaciones') {
+                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitaciones');
                 }
+                
                 updateTipoAnuncianteFilter(data);
                 updateTipoTransaccionFilter(data);
                 updateBarrioFilter(data);
