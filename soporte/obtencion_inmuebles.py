@@ -547,3 +547,10 @@ procesar_inmuebles(
     tipo_transaccion="Ventas",
     max_repetidos=5,
 )
+
+# Procesar inmuebles en venta
+procesar_inmuebles(
+    base_url="https://www.idealista.com/alquiler-habitacion/murcia-murcia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc",
+    tipo_transaccion="Habitación",
+    max_repetidos=5,
+)

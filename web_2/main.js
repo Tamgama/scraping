@@ -11,7 +11,7 @@ $(document).ready(function () {
         e.preventDefault();
         if (currentView !== 'scraping') {
             currentView = 'scraping';
-            loadScrapingView(false);
+            loadScrapingView(currentView);
         }
     });
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
         e.preventDefault();
         if (currentView !== 'cartera') {
             currentView = 'cartera';
-            loadScrapingView(true);
+            loadScrapingView(currentView);
         }
     });
 
@@ -27,7 +27,7 @@ $(document).ready(function () {
         e.preventDefault();
         if (currentView !== 'habitaciones') {
             currentView = 'habitaciones';
-            loadScrapingView(true);
+            loadScrapingView(currentView);
         }
     });
 });

@@ -1,5 +1,4 @@
 import os
-# pip install paramiko
 import paramiko
 
 def upload_directory(sftp, local_dir, remote_dir):

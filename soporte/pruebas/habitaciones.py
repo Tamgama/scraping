@@ -335,7 +335,7 @@ for i in range(1, num_paginas + 1):
 
             df = df._append({
                 "id_inmueble": data_element_id,
-                "tipo" : "habitaciones",
+                "tipo" : "Habitación",
                 "titulo": titulo_text,
                 "calle": street,
                 "barrio": barrio,

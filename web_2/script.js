@@ -14,7 +14,7 @@ function formatNumber(value, locale = 'es-ES', options = {}) {
 }
 
 // Función para cargar la vista de "Scraping"
-function loadScrapingView(view = 'Scraping') {
+function loadScrapingView(view = 'scraping') {
     // Limpiar el contenido principal
     $('#mainContent').empty();
 
@@ -229,12 +229,12 @@ function loadDataFromAPI(view) {
                     tipoTransaccion: row.tipo_transaccion,
                     fuente: row.fuente || 'Desconocida',
                 }));
-                if (view == 'Scraping') {
-                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitaciones');
+                if (view == 'scraping') {
+                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitación');
                 } else if (view == 'cartera') {
-                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitaciones');
-                } else if (view == 'Habitaciones') {
-                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitaciones');
+                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitación');
+                } else if (view == 'habitaciones') {
+                    data = data.filter(row => !row.cartera && row.tipoTransaccion === 'Habitación');
                 }
                 
                 updateTipoAnuncianteFilter(data);
