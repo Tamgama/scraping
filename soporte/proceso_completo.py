@@ -9,6 +9,7 @@ scripts = [
     # 'limpieza.py',
     'particulares/particulares.py',
     'obtener_inmuebles_fotocasa.py',
+    'habitaciones.py',
     'actualizar_web.py',
 ]
 
