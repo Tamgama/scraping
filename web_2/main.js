@@ -4,7 +4,7 @@ $(document).ready(function () {
     var currentView = 'scraping'; // Vista actual
 
     // Cargar la vista por defecto (no en cartera)
-    loadScrapingView(false);
+    loadScrapingView(currentView);
 
     // Event listeners para los botones de la barra de navegación
     $('#btnScraping').on('click', function (e) {
