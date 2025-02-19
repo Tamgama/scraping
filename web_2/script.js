@@ -59,6 +59,12 @@ function loadScrapingView(view = 'scraping') {
                             </select>
                         </div>
                         <div class="filter-group">
+                            <label for="filterProvincia">Filtrar por provincia:</label>
+                            <select id="filterProvincia" class="form-control form-control-custom" data-filter="provincia">
+                                <option value="Ver todos">Ver todos</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
                             <label for="filterHabitacion">Filtrar por habitaciones:</label>
                             <select id="filterHabitacion" class="form-control form-control-custom" data-filter="habitaciones">
                                 <option value="Ver todos">Ver todos</option>
@@ -232,7 +238,7 @@ function loadDataFromAPI(view) {
                 if (view == 'scraping') {
                     data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitación');
                 } else if (view == 'cartera') {
-                    data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitación');
+                    data = data.filter(row => row.cartera && row.tipoTransaccion !== 'Habitación');
                 } else if (view == 'habitaciones') {
                     data = data.filter(row => !row.cartera && row.tipoTransaccion === 'Habitación');
                 }
@@ -240,6 +246,7 @@ function loadDataFromAPI(view) {
                 updateTipoAnuncianteFilter(data);
                 updateTipoTransaccionFilter(data);
                 updateBarrioFilter(data);
+                updateProvinciaFilter(data);
                 updateFuenteFilter(data);
                 updateHabitacionesFilter(data);
                 updateDisponibilidadFilter(data);   
@@ -314,6 +321,16 @@ function updateBarrioFilter(data) {
     $filter.append('<option value="Ver todos">Ver todos</option>');
     uniqueBarrios.forEach(barrio => {
         $filter.append('<option value="' + barrio + '">' + barrio + '</option>');
+    });
+}
+
+function updateProvinciaFilter(data) {
+    var uniqueProvincias = _.uniq(data.map(row => row.provincia).filter(Boolean));
+    var $filter = $('#filterProvincia');
+    $filter.empty();
+    $filter.append('<option value="Ver todos">Ver todos</option>');
+    uniqueProvincias.forEach(provincia => {
+        $filter.append('<option value="' + provincia + '">' + provincia + '</option>');
     });
 }
 
