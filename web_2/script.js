@@ -219,6 +219,7 @@ function loadDataFromAPI(view) {
                     calle: row.calle,
                     zona: row.zona,
                     ciudad: row.ciudad,
+                    provincia:row.provincia,
                     habitaciones: row.habitaciones,
                     banos: row.banos,
                     estado: row.estado,

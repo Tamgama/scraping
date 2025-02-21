@@ -601,7 +601,7 @@ procesar_inmuebles(
 # Procesar inmuebles en venta
 procesar_inmuebles(
     base_url="https://www.idealista.com/venta-viviendas/almeria-provincia/pagina-{}.htm?ordenado-por=fecha-publicacion-desc",
-    tipo_transaccion="Ventas",
+    tipo_transaccion="Venta",
     max_repetidos=5,
 )
 
