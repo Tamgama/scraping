@@ -38,13 +38,28 @@ try {
         case 'GET':
             if ($id) {
                 // Obtener un registro específico
-                $stmt = $pdo->prepare("SELECT * FROM cartera WHERE id_cartera = :id");
+                // Hay que tener en cuenta ahora que los datos de precio, título de inmueble
+                // están en la tabla de inmuebles, por eso hay que hacer un INNER JOIN
+                // y sacar de ahí el dato
+                $stmt = $pdo->prepare("
+                    SELECT cartera.*, inmuebles.precio, inmuebles.titulo 
+                    FROM cartera
+                    INNER JOIN inmuebles ON cartera.id_inmueble = inmuebles.id_inmueble
+                    WHERE cartera.id_cartera = :id
+                ");
                 $stmt->execute(['id' => $id]);
                 $data = $stmt->fetch(PDO::FETCH_ASSOC);
                 sendResponse("success", "Registro obtenido con éxito", $data ?: []);
             } else {
                 // Obtener todos los registros
-                $stmt = $pdo->query("SELECT * FROM cartera");
+                // Hay que tener en cuenta ahora que los datos de precio, título de inmueble
+                // están en la tabla de inmuebles, por eso hay que hacer un INNER JOIN
+                // y sacar de ahí el dato
+                $stmt = $pdo->query("
+                    SELECT cartera.*, inmuebles.precio, inmuebles.titulo 
+                    FROM cartera
+                    INNER JOIN inmuebles ON cartera.id_inmueble = inmuebles.id_inmueble
+                ");
                 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 sendResponse("success", "Registros obtenidos con éxito", $data ?: []);
             }
