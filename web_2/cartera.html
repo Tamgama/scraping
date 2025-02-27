@@ -7,31 +7,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .navbar {
-            background-color: #004d3f;
-        }
-        .navbar a {
-            color: white !important;
-        }
-        .container-fluid {
-            padding: 20px;
-        }
-        .alert {
-            font-size: 1.2rem;
-        }
-        .btn-group {
-            margin-bottom: 15px;
-        }
-        .badge-pendiente { background-color: #856507; }
-        .badge-negociacion { background-color: #003e81; }
-        .badge-cerrado { background-color: #006e1a6b; }
-        .table th, .table td { text-align: center; }
-        .action-buttons { display: flex; gap: 5px; justify-content: center; }
-    </style>
+    <link rel="stylesheet" href="cartera.css">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
@@ -45,10 +22,7 @@
 
     <div class="container-fluid">
         <div class="alert alert-info text-center">
-            <strong>Total de Inmuebles:</strong> <span id="totalProperties">13424</span> |
-            <strong>Particulares:</strong> <span id="privateProperties">5548</span> |
-            <strong>Particulares en Venta:</strong> <span id="privateSaleProperties">0</span> |
-            <strong>Particulares en Alquiler:</strong> <span id="privateRentProperties">0</span>
+            <strong>Total de Inmuebles:</strong> <span id="totalProperties">0</span> |
         </div>
 
         <h3 class="text-center">Panel de Control ERP</h3>
@@ -59,11 +33,12 @@
             <button class="btn btn-outline-success" onclick="filterStatus('En Negociación')">En Negociación</button>
             <button class="btn btn-outline-danger" onclick="filterStatus('Cerrado')">Cerrados</button>
         </div>
-
+        <!-- Tabla de inmuebles -->
         <table class="table table-bordered mt-3">
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Enlace</th>
                     <th>Título</th>
                     <th>Precio</th>
                     <th>Estado</th>
@@ -77,8 +52,25 @@
                 <!-- Datos se cargarán desde JavaScript -->
             </tbody>
         </table>
-    </div>
 
+        <!-- Controles de paginación -->
+        <div class="d-flex align-items-center justify-content-center">
+            <button id="prevPage" class="btn btn-secondary" onclick="changePage('prev')">Anterior</button>
+            <span id="pageInfo">Página 1 de X</span>
+            <button id="nextPage" class="btn btn-secondary" onclick="changePage('next')">Siguiente</button>
+        
+            <!-- Selector de cantidad de inmuebles por página -->
+            <label for="pageSize" class="mr-2">Mostrar:</label>
+            <select id="pageSize" class="form-control w-auto" onchange="changePageSize(this.value)">
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="all">Todos</option>
+            </select>
+        </div>
+    </div>
+    
     <!-- jQuery y Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

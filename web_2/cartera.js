@@ -1,57 +1,94 @@
-const API_URL = "http://127.0.0.1:5000/api/cartera"; // URL de la API
+const API_URL = "http://euspay.com/api/v1/euspay.php/cartera"; // URL de la API de Cartera
 
-async function loadProperties() {
+var data = [];
+let currentPage = 1;
+let pageSize = 10; // Cantidad predeterminada de inmuebles por página
+
+function formatNumber(value, locale = 'es-ES', options = {}) {
+    return new Intl.NumberFormat(locale, options).format(value);
+}
+
+async function loaddata() {
     try {
-        // Mostrar indicador de carga
         showLoading();
 
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error("Error al cargar los datos");
 
-        let properties = await response.json();
+        data = await response.json();
 
-        // Filtrar solo los inmuebles que están en cartera
-        properties = properties.filter(p => p.cartera === true);
+        // Generar código alfanumérico basado en id_cartera
+        data.forEach((prop) => {
+            prop.codigo = `CAR${String(prop.id_cartera).padStart(3, '0')}`;
+        });
 
-        // Contar inmuebles en cartera
-        document.getElementById("totalProperties").textContent = properties.length;
-        document.getElementById("privateProperties").textContent = properties.filter(p => p.tipoAnunciante === "Particular").length;
-        document.getElementById("privateSaleProperties").textContent = properties.filter(p => p.tipoAnunciante === "Particular" && p.tipoTransaccion === "Venta").length;
-        document.getElementById("privateRentProperties").textContent = properties.filter(p => p.tipoAnunciante === "Particular" && p.tipoTransaccion === "Alquiler").length;
+        document.getElementById("totaldata").textContent = data.length;
 
-        // Renderizar propiedades en la tabla
-        renderProperties(properties);
+        renderPage(currentPage);
 
-        // Ocultar indicador de carga
         hideLoading();
-
     } catch (error) {
         console.error("Error obteniendo datos:", error);
         hideLoading();
     }
 }
 
-// Función para mostrar los inmuebles en la tabla
-function renderProperties(properties) {
+// Renderizar la tabla con paginación
+function renderPage(page) {
     const tableBody = document.getElementById("carteraTableBody");
     tableBody.innerHTML = "";
 
-    properties.forEach((prop) => {
+    let start = (page - 1) * pageSize;
+    let end = pageSize === "all" ? data.length : start + pageSize;
+    let paginatedData = data.slice(start, end);
+
+    paginatedData.forEach((prop) => {
         tableBody.innerHTML += `
-            <tr data-status="${prop.status}">
-                <td>${prop.id}</td>
-                <td>${prop.titulo}</td>
-                <td>${prop.precio}€</td>
-                <td><span class="badge ${getBadgeClass(prop.status)}">${prop.status}</span></td>
-                <td>${prop.fase}</td>
-                <td>${prop.siguiente_accion}</td>
-                <td>${prop.fecha_accion}</td>
+            <tr data-status="${prop.estado}">
+                <td>${prop.id_inmueble}</td>
                 <td>
-                    <button class="btn btn-sm btn-primary" onclick="editProperty(${prop.id})">✏️</button>
-                    <button class="btn btn-sm btn-info" onclick="viewHistory(${prop.id})">📜</button>
+                    <a href="${prop.enlace}" target="_blank">${prop.codigo}</a>
+                </td>
+                <td>${prop.titulo}</td>
+                <td>${prop.precio ? prop.precio + '€' : 'N/A'}</td>
+                <td><span class="badge ${getBadgeClass(prop.estado)}">${prop.estado}</span></td>
+                <td>${prop.fase || 'N/A'}</td>
+                <td>${prop.siguiente_accion || 'N/A'}</td>
+                <td>${prop.fecha_accion ? new Date(prop.fecha_accion).toLocaleDateString('es-ES') : 'N/A'}</td>
+                <td>
+                    <button class="btn btn-sm btn-primary" onclick="editProperty(${prop.id_inmueble})">✏️</button>
+                    <button class="btn btn-sm btn-info" onclick="viewHistory(${prop.id_inmueble})">📜</button>
                 </td>
             </tr>`;
     });
+
+    updatePaginationControls();
+}
+
+// Actualizar controles de paginación
+function updatePaginationControls() {
+    let totalPages = Math.ceil(data.length / pageSize);
+    document.getElementById("pageInfo").textContent = `Página ${currentPage} de ${totalPages}`;
+    document.getElementById("prevPage").disabled = currentPage === 1;
+    document.getElementById("nextPage").disabled = currentPage >= totalPages;
+}
+
+// Función para cambiar de página
+function changePage(direction) {
+    let totalPages = Math.ceil(data.length / pageSize);
+    if (direction === "prev" && currentPage > 1) {
+        currentPage--;
+    } else if (direction === "next" && currentPage < totalPages) {
+        currentPage++;
+    }
+    renderPage(currentPage);
+}
+
+// Función para cambiar cantidad de inmuebles por página
+function changePageSize(size) {
+    pageSize = size === "all" ? "all" : parseInt(size);
+    currentPage = 1;
+    renderPage(currentPage);
 }
 
 // Función para asignar colores según el estado
@@ -61,84 +98,15 @@ function getBadgeClass(status) {
            "badge-cerrado";
 }
 
-// Función para filtrar inmuebles por estado
-function filterStatus(status) {
-    document.querySelectorAll("#carteraTableBody tr").forEach(row => {
-        row.style.display = (status === "all" || row.dataset.status === status) ? "" : "none";
-    });
-}
-
-// Función para editar un inmueble
-async function editProperty(id) {
-    try {
-        const response = await fetch(`${API_URL}/${id}`);
-        if (!response.ok) throw new Error("Error obteniendo detalles del inmueble");
-
-        const property = await response.json();
-        document.getElementById("editPropertyId").value = property.id;
-        document.getElementById("editTitle").value = property.titulo;
-        document.getElementById("editPrice").value = property.precio;
-
-        $("#editPropertyModal").modal("show");
-    } catch (error) {
-        console.error("Error obteniendo el inmueble:", error);
-    }
-}
-
-// Función para guardar cambios de edición
-async function saveEdit() {
-    const id = document.getElementById("editPropertyId").value;
-    const updatedProperty = {
-        titulo: document.getElementById("editTitle").value,
-        precio: document.getElementById("editPrice").value,
-    };
-
-    try {
-        const response = await fetch(`${API_URL}/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(updatedProperty),
-        });
-
-        if (!response.ok) throw new Error("Error al guardar los cambios");
-
-        $("#editPropertyModal").modal("hide");
-        loadProperties();
-    } catch (error) {
-        console.error("Error al actualizar:", error);
-    }
-}
-
-// Función para ver historial del inmueble
-async function viewHistory(id) {
-    try {
-        const response = await fetch(`${API_URL}/${id}/history`);
-        if (!response.ok) throw new Error("Error obteniendo historial");
-
-        const history = await response.json();
-        document.getElementById("historyContent").innerHTML = history.map(entry => `<p>${entry}</p>`).join("");
-
-        $("#historyModal").modal("show");
-    } catch (error) {
-        console.error("Error cargando historial:", error);
-    }
-}
-
 // Función para mostrar indicador de carga
 function showLoading() {
-    const loadingIndicator = document.getElementById("loadingIndicator");
-    if (loadingIndicator) {
-        loadingIndicator.style.display = "block";
-    }
+    document.getElementById("loadingIndicator").style.display = "block";
 }
 
 // Función para ocultar indicador de carga
 function hideLoading() {
-    const loadingIndicator = document.getElementById("loadingIndicator");
-    if (loadingIndicator) {
-        loadingIndicator.style.display = "none";
-    }
+    document.getElementById("loadingIndicator").style.display = "none";
 }
 
 // Cargar los datos al inicio
-document.addEventListener("DOMContentLoaded", loadProperties);
+document.addEventListener("DOMContentLoaded", loaddata);
