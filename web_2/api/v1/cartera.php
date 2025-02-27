@@ -37,14 +37,33 @@ try {
     switch ($method) {
         case 'GET':
             if ($id) {
-                // Obtener un registro específico con datos de inmuebles y estados
-                $stmt = $pdo->prepare("SELECT c.*, i.titulo, i.precio, e.estado FROM cartera c LEFT JOIN inmuebles i ON c.id_inmueble = i.id_inmueble LEFT JOIN estados e ON c.id_estado = e.id_estado WHERE c.id_cartera = :id");
+                // Obtener un registro específico
+                // Hay que tener en cuenta ahora que los datos de precio, título de inmueble
+                // están en la tabla de inmuebles, por eso hay que hacer un INNER JOIN
+                // y sacar de ahí el dato
+                $stmt = $pdo->prepare("
+                    SELECT cartera.*, inmuebles.precio, inmuebles.titulo, 
+                    e.estado , inmuebles.enlace
+                    FROM cartera
+                    INNER JOIN inmuebles ON cartera.id_inmueble = inmuebles.id_inmueble
+                    LEFT JOIN estados e ON e.id_estado = cartera.id_estado
+                    WHERE cartera.id_cartera = :id
+                ");
                 $stmt->execute(['id' => $id]);
                 $data = $stmt->fetch(PDO::FETCH_ASSOC);
                 sendResponse("success", "Registro obtenido con éxito", $data ?: []);
             } else {
-                // Obtener todos los registros con datos de inmuebles y estados
-                $stmt = $pdo->query("SELECT c.*, i.titulo, i.precio, e.estado FROM cartera c LEFT JOIN inmuebles i ON c.id_inmueble = i.id_inmueble LEFT JOIN estados e ON c.id_estado = e.id_estado");
+                // Obtener todos los registros
+                // Hay que tener en cuenta ahora que los datos de precio, título de inmueble
+                // están en la tabla de inmuebles, por eso hay que hacer un INNER JOIN
+                // y sacar de ahí el dato
+                $stmt = $pdo->query("
+                    SELECT cartera.*, inmuebles.precio, inmuebles.titulo, e.estado,
+                    inmuebles.enlace
+                    FROM cartera
+                    INNER JOIN inmuebles ON cartera.id_inmueble = inmuebles.id_inmueble
+                    LEFT JOIN estados e ON e.id_estado = cartera.id_estado
+                ");
                 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 sendResponse("success", "Registros obtenidos con éxito", $data ?: []);
             }

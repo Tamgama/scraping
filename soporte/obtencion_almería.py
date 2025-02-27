@@ -149,7 +149,7 @@ def insertar_inmueble(data):
         "id_idealista", "id_contacto", "tipo", "titulo", "calle", "barrio", "zona", "ciudad", "localizacion", "provincia", "precio",
         "precio_metro", "superficie", "habitaciones", "banos", "armarios", "trastero", "orientacion", "amueblado",
         "calefaccion", "planta", "ascensor", "construccion", "movilidad_reducida", "exterior_interior", "fecha",
-        "estado", "caracteristicas", "fuente", "disponibilidad", "tipo_transaccion"
+        "estado", "caracteristicas", "fuente", "disponibilidad", "tipo_transaccion", "enlace"
     ]
     filtered_data = {key: value for key, value in data.items() if key in allowed_keys}
     try:
@@ -574,7 +574,7 @@ def procesar_inmuebles(base_url, tipo_transaccion, max_repetidos=5):
                     "tipo_contacto": anunciante,
                     "nombre": nombre_anun,
                     "telefono": telefono,
-                    "url": inmueble_url,
+                    "enlace": inmueble_url,
                     "fecha": fecha_actual,
                     'fuente': 'idealista',
                     'disponibilidad': 'disponible',
