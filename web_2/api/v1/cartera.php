@@ -68,13 +68,13 @@ try {
         case 'POST':
             // Crear un nuevo registro
             $input = json_decode(file_get_contents('php://input'), true);
-            if (!$input || !isset($input['estado'], $input['acciones'], $input['fecha_accion'], $input['enlace'], $input['id_inmueble'], $input['id_transaccion'])) {
-                sendResponse("error", "Campos requeridos: estado, acciones, fecha_accion, enlace, id_inmueble, id_transaccion.");
+            if (!$input || !isset($input['estado'], $input['acciones'], $input['fecha_accion'], $input['enlace'], $input['id_inmueble'], $input['fase'])) {
+                sendResponse("error", "Campos requeridos: estado, acciones, fecha_accion, enlace, id_inmueble, fase.");
             }
 
             $stmt = $pdo->prepare("
-                INSERT INTO cartera (estado, acciones, fecha_accion, enlace, id_inmueble, id_transaccion) 
-                VALUES (:estado, :acciones, :fecha_accion, :enlace, :id_inmueble, :id_transaccion)
+                INSERT INTO cartera (estado, acciones, fecha_accion, enlace, id_inmueble, fase) 
+                VALUES (:estado, :acciones, :fecha_accion, :enlace, :id_inmueble, :fase)
             ");
 
             try {
@@ -84,7 +84,7 @@ try {
                     'fecha_accion' => $input['fecha_accion'],
                     'enlace' => $input['enlace'],
                     'id_inmueble' => $input['id_inmueble'],
-                    'id_transaccion' => $input['id_transaccion']
+                    'fase' => $input['fase'],
                 ]);
 
                 sendResponse("success", "Registro creado con éxito.", ["id_cartera" => $pdo->lastInsertId()]);

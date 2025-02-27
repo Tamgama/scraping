@@ -625,13 +625,13 @@ function renderPage(page) {
         // Botón para marcar como "En Cartera" o "No en Cartera"
         if (row.cartera) {
             cardContent += `
-                <button class="btn btn-warning mt-3" onclick="toggleCartera(${row.id}, false)">
+                <button class="btn btn-warning mt-3" onclick="toggleCartera(${row.id}, false, '${row.url}')">
                     Quitar de cartera
                 </button>
             `;
         } else {
             cardContent += `
-                <button class="btn btn-success mt-3" onclick="toggleCartera(${row.id}, true)">
+                <button class="btn btn-success mt-3" onclick="toggleCartera(${row.id}, true, '${row.url}')">
                     Poner en cartera
                 </button>
             `;
@@ -869,38 +869,183 @@ window.marcarNoDisponible = function(id) {
     });
 }
 
-function toggleCartera(id, newState) {
-    const action = newState ? "Poner en cartera" : "Quitar de cartera";
-    if (!confirm(`¿Estás seguro de que deseas ${action}?`)) {
+function showCarteraModal(id, url) {
+    let modal = document.getElementById("carteraModal");
+    if (!modal) {
+        // Si el modal no existe, lo creamos y lo insertamos en el body
+        modal = document.createElement("div");
+        modal.id = "carteraModal";
+        modal.className = "modal fade";
+        modal.setAttribute("tabindex", "-1");
+        modal.setAttribute("role", "dialog");
+        modal.setAttribute("aria-hidden", "true");
+        modal.innerHTML = `
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Añadir a Cartera</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="carteraForm">
+                            <input type="hidden" id="modalInmuebleId">
+                            <div class="mb-3">
+                                <label for="modalFase" class="form-label">Fase</label>
+                                <select id="modalFase" class="form-control">
+                                    <option value="Inicial">Inicial</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="modalEstado" class="form-label">Estado</label>
+                                <select id="modalEstado" class="form-control">
+                                    <option value="Pendiente">Pendiente</option>
+                                    <option value="En Negociación">En Negociación</option>
+                                    <option value="Cerrado">Cerrado</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="modalAcciones" class="form-label">Acciones (Número)</label>
+                                <input type="number" id="modalAcciones" class="form-control" min="0" required>
+                            </div>
+                            <input type="hidden" id="modalEnlace">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelModalBtn" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="saveCartera">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+    // Actualizamos los valores del modal con los datos del inmueble
+    $("#modalInmuebleId").val(id);
+    $("#modalEnlace").val(url);
+    $("#modalAcciones").val(""); // Reseteamos acciones
+    // Eliminar eventos previos para evitar duplicaciones
+    $("#saveCartera").off("click").on("click", saveCarteraHandler);
+    // Mostrar el modal en Bootstrap 4
+    $("#carteraModal").modal("show");
+}
+
+
+function toggleCartera(id, newState, url) {
+    if (newState) {
+        showCarteraModal(id, url); // Mostrar modal para ingresar datos
+    } else {
+        if (!confirm("¿Estás seguro de que deseas quitar este inmueble de la cartera?")) {
+            return;
+        }
+        sendCarteraRequest(id, false, null, null, null, null); // Actualizar `inmuebles` y eliminar de `cartera`
+    }
+}
+
+function saveCarteraHandler() {
+    const id = $("#modalInmuebleId").val();
+    const fase = $("#modalFase").val();
+    const estado = $("#modalEstado").val();
+    const acciones = $("#modalAcciones").val();
+    const enlace = $("#modalEnlace").val();
+    if (!acciones || acciones < 0) {
+        alert("Por favor, introduce un número válido en Acciones.");
         return;
     }
+    sendCarteraRequest(id, true, estado, acciones, enlace, fase);
+    // errar el modal en Bootstrap 4
+    $("#carteraModal").modal("hide");
+}
 
-    showLoading();
 
+// Función para insertar en `cartera`
+function addToCartera(id, estado, acciones, enlace, fase) {
     $.ajax({
-        url: `http://euspay.com/api/v1/euspay.php/inmuebles/${id}/cartera`,
-        type: 'PUT',
-        contentType: 'application/json',
-        data: JSON.stringify({ cartera: newState }),
+        url: "http://euspay.com/api/v1/cartera",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+            id_inmueble: id,
+            estado: estado,
+            acciones: acciones,
+            fecha_accion: new Date().toISOString().split('T')[0],
+            enlace: enlace,
+            fase: fase
+        }),
         success: function (response) {
-            if (response.status === 'success') {
-                alert(`Inmueble marcado como ${action}.`);
-                var inmueble = data.find(item => item.id === id);
-                if (inmueble) {
-                    inmueble.cartera = newState;
-                }
-                renderPage(currentPage);
-            } else {
-                alert(`No se pudo ${action.toLowerCase()}.`);
-            }
+            alert("Inmueble añadido a la cartera.");
             hideLoading();
         },
         error: function () {
-            alert(`Error al intentar ${action.toLowerCase()}.`);
+            alert("Error al intentar agregar a la cartera.");
             hideLoading();
         }
     });
 }
+
+// Función para eliminar de `cartera`
+function removeFromCartera(id) {
+    $.ajax({
+        url: `http://euspay.com/api/v1/cartera/${id}`,
+        type: "DELETE",
+        success: function (response) {
+            alert("Inmueble eliminado de la cartera.");
+            hideLoading();
+        },
+        error: function () {
+            alert("Error al intentar eliminar de la cartera.");
+            hideLoading();
+        }
+    });
+}
+
+function sendCarteraRequest(id, newState, estado, acciones, enlace, fase) {
+    showLoading();
+    // Actualizar la tabla `inmuebles`
+    $.ajax({
+        url: `http://euspay.com/api/v1/euspay.php/inmuebles/${id}/cartera`,
+        type: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify(newState ? {
+            cartera: newState
+        } : { cartera: false }),
+        success: function (response) {
+            if (response.status === 'success') {
+                var inmueble = data.find(item => item.id_inmueble === id);
+                if (inmueble) {
+                    inmueble.cartera = newState;
+                }
+                renderPage(currentPage);
+                // También crear/eliminar en `cartera`
+                if (newState) {
+                    addToCartera(id, estado, acciones, enlace, fase);
+                } else {
+                    removeFromCartera(id);
+                }
+            } else {
+                alert(`No se pudo ${newState ? "añadir a" : "quitar de"} la cartera.`);
+                hideLoading();
+            }
+        },
+        error: function () {
+            alert(`Error al intentar ${newState ? "añadir a" : "quitar de"} la cartera.`);
+            hideLoading();
+        }
+    });
+}
+
+function toggleCartera(id, newState, url) {
+    if (newState) {
+        showCarteraModal(id, url); // Abre el modal y deja que el usuario ingrese los datos
+    } else {
+        if (!confirm("¿Estás seguro de que deseas quitar este inmueble de la cartera?")) {
+            return;
+        }
+        sendCarteraRequest(id, false, null, null, null, null); // Eliminar de cartera sin datos extra
+    }
+}
+
 
 function openContactModal(idInmueble, idContacto) {
     $('#inmuebleId').val(idInmueble);
