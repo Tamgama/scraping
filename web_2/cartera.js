@@ -17,10 +17,6 @@ async function loaddata() {
 
         data = await response.json();
 
-        // Generar código alfanumérico basado en id_cartera
-        data.forEach((prop) => {
-            prop.codigo = `CAR${String(prop.id_cartera).padStart(3, '0')}`;
-        });
 
         document.getElementById("totaldata").textContent = data.length;
 
@@ -52,7 +48,6 @@ function renderPage(page) {
                 <td>${prop.titulo}</td>
                 <td>${prop.precio ? prop.precio + '€' : 'N/A'}</td>
                 <td><span class="badge ${getBadgeClass(prop.estado)}">${prop.estado}</span></td>
-                <td>${prop.fase || 'N/A'}</td>
                 <td>${prop.siguiente_accion || 'N/A'}</td>
                 <td>${prop.fecha_accion ? new Date(prop.fecha_accion).toLocaleDateString('es-ES') : 'N/A'}</td>
                 <td>
