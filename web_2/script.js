@@ -625,13 +625,13 @@ function renderPage(page) {
         // Botón para marcar como "En Cartera" o "No en Cartera"
         if (row.cartera) {
             cardContent += `
-                <button class="btn btn-warning mt-3" onclick="toggleCartera(${row.id}, false, '${row.url}')">
+                <button class="btn btn-warning mt-3" onclick="toggleCartera(${row.id}, false)">
                     Quitar de cartera
                 </button>
             `;
         } else {
             cardContent += `
-                <button class="btn btn-success mt-3" onclick="toggleCartera(${row.id}, true, '${row.url}')">
+                <button class="btn btn-success mt-3" onclick="toggleCartera(${row.id}, true)">
                     Poner en cartera
                 </button>
             `;
@@ -869,7 +869,7 @@ window.marcarNoDisponible = function(id) {
     });
 }
 
-function showCarteraModal(id, url) {
+function showCarteraModal(id) {
     let modal = document.getElementById("carteraModal");
     if (!modal) {
         // Si el modal no existe, lo creamos y lo insertamos en el body
@@ -892,24 +892,11 @@ function showCarteraModal(id, url) {
                         <form id="carteraForm">
                             <input type="hidden" id="modalInmuebleId">
                             <div class="mb-3">
-                                <label for="modalFase" class="form-label">Fase</label>
-                                <select id="modalFase" class="form-control">
-                                    <option value="Inicial">Inicial</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
                                 <label for="modalEstado" class="form-label">Estado</label>
                                 <select id="modalEstado" class="form-control">
-                                    <option value="Pendiente">Pendiente</option>
-                                    <option value="En Negociación">En Negociación</option>
-                                    <option value="Cerrado">Cerrado</option>
+                                    <option value="1">Pendiente</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
-                                <label for="modalAcciones" class="form-label">Acciones (Número)</label>
-                                <input type="number" id="modalAcciones" class="form-control" min="0" required>
-                            </div>
-                            <input type="hidden" id="modalEnlace">
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -923,8 +910,6 @@ function showCarteraModal(id, url) {
     }
     // Actualizamos los valores del modal con los datos del inmueble
     $("#modalInmuebleId").val(id);
-    $("#modalEnlace").val(url);
-    $("#modalAcciones").val(""); // Reseteamos acciones
     // Eliminar eventos previos para evitar duplicaciones
     $("#saveCartera").off("click").on("click", saveCarteraHandler);
     // Mostrar el modal en Bootstrap 4
@@ -932,46 +917,29 @@ function showCarteraModal(id, url) {
 }
 
 
-function toggleCartera(id, newState, url) {
-    if (newState) {
-        showCarteraModal(id, url); // Mostrar modal para ingresar datos
-    } else {
-        if (!confirm("¿Estás seguro de que deseas quitar este inmueble de la cartera?")) {
-            return;
-        }
-        sendCarteraRequest(id, false, null, null, null, null); // Actualizar `inmuebles` y eliminar de `cartera`
-    }
-}
-
 function saveCarteraHandler() {
     const id = $("#modalInmuebleId").val();
-    const fase = $("#modalFase").val();
     const estado = $("#modalEstado").val();
-    const acciones = $("#modalAcciones").val();
-    const enlace = $("#modalEnlace").val();
-    if (!acciones || acciones < 0) {
-        alert("Por favor, introduce un número válido en Acciones.");
-        return;
+    const carteraData = {
+        id: id,
+        id_estado: estado,
+        newState: true,
     }
-    sendCarteraRequest(id, true, estado, acciones, enlace, fase);
+    sendCarteraRequest(carteraData);
     // errar el modal en Bootstrap 4
     $("#carteraModal").modal("hide");
 }
 
 
 // Función para insertar en `cartera`
-function addToCartera(id, estado, acciones, enlace, fase) {
+function addToCartera(carteraData) {
     $.ajax({
         url: "http://euspay.com/api/v1/cartera",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
-            id_inmueble: id,
-            estado: estado,
-            acciones: acciones,
-            fecha_accion: new Date().toISOString().split('T')[0],
-            enlace: enlace,
-            fase: fase
+            id_inmueble: carteraData.id,
+            id_estado: carteraData.id_estado,
         }),
         success: function (response) {
             alert("Inmueble añadido a la cartera.");
@@ -1000,8 +968,10 @@ function removeFromCartera(id) {
     });
 }
 
-function sendCarteraRequest(id, newState, estado, acciones, enlace, fase) {
+function sendCarteraRequest(carteraData) {
     showLoading();
+    const id = carteraData.id
+    const newState = carteraData.newState
     // Actualizar la tabla `inmuebles`
     $.ajax({
         url: `http://euspay.com/api/v1/euspay.php/inmuebles/${id}/cartera`,
@@ -1019,7 +989,7 @@ function sendCarteraRequest(id, newState, estado, acciones, enlace, fase) {
                 renderPage(currentPage);
                 // También crear/eliminar en `cartera`
                 if (newState) {
-                    addToCartera(id, estado, acciones, enlace, fase);
+                    addToCartera(carteraData);
                 } else {
                     removeFromCartera(id);
                 }
@@ -1035,14 +1005,18 @@ function sendCarteraRequest(id, newState, estado, acciones, enlace, fase) {
     });
 }
 
-function toggleCartera(id, newState, url) {
+function toggleCartera(id, newState) {
     if (newState) {
-        showCarteraModal(id, url); // Abre el modal y deja que el usuario ingrese los datos
+        showCarteraModal(id); // Abre el modal y deja que el usuario ingrese los datos
     } else {
         if (!confirm("¿Estás seguro de que deseas quitar este inmueble de la cartera?")) {
             return;
         }
-        sendCarteraRequest(id, false, null, null, null, null); // Eliminar de cartera sin datos extra
+        const carteraData = {
+            id: id,
+            newState: newState,
+        }
+        sendCarteraRequest(carteraData); // Eliminar de cartera sin datos extra
     }
 }
 
