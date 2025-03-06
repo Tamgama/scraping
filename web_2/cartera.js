@@ -44,8 +44,7 @@ function renderPage(page) {
                 <td><a href="${prop.enlace}" target="_blank">Ver</a></td>
                 <td>${prop.titulo || 'N/A'}</td>
                 <td><span class="badge ${getBadgeClass(prop.estado)}">${prop.estado}</span></td>
-                <td>${prop.acciones || 'N/A'}</td>
-                <td>${prop.siguiente_accion || 'N/A'}</td>
+                <td>${prop.accion || 'N/A'}</td>
                 <td>
                     <button class="btn btn-sm btn-primary" onclick="editProperty(${prop.id_cartera})">✏️</button>
                     <button class="btn btn-sm btn-info" onclick="viewHistory(${prop.id_cartera})">📜</button>
