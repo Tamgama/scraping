@@ -37,14 +37,14 @@ try {
     switch ($method) {
         case 'GET':
             if ($id) {
-                // Obtener un registro específico
-                $stmt = $pdo->prepare("SELECT * FROM cartera WHERE id_cartera = :id");
+                // Obtener un registro específico con datos de inmuebles y estados
+                $stmt = $pdo->prepare("SELECT c.*, i.titulo, i.precio, e.estado FROM cartera c LEFT JOIN inmuebles i ON c.id_inmueble = i.id_inmueble LEFT JOIN estados e ON c.id_estado = e.id_estado WHERE c.id_cartera = :id");
                 $stmt->execute(['id' => $id]);
                 $data = $stmt->fetch(PDO::FETCH_ASSOC);
                 sendResponse("success", "Registro obtenido con éxito", $data ?: []);
             } else {
-                // Obtener todos los registros
-                $stmt = $pdo->query("SELECT * FROM cartera");
+                // Obtener todos los registros con datos de inmuebles y estados
+                $stmt = $pdo->query("SELECT c.*, i.titulo, i.precio, e.estado FROM cartera c LEFT JOIN inmuebles i ON c.id_inmueble = i.id_inmueble LEFT JOIN estados e ON c.id_estado = e.id_estado");
                 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 sendResponse("success", "Registros obtenidos con éxito", $data ?: []);
             }
@@ -53,25 +53,16 @@ try {
         case 'POST':
             // Crear un nuevo registro
             $input = json_decode(file_get_contents('php://input'), true);
-            if (!$input || !isset($input['estado'], $input['acciones'], $input['fecha_accion'], $input['enlace'], $input['id_inmueble'], $input['id_transaccion'])) {
-                sendResponse("error", "Campos requeridos: estado, acciones, fecha_accion, enlace, id_inmueble, id_transaccion.");
+            if (!$input) {
+                sendResponse("error", "Datos JSON inválidos o faltantes.");
             }
 
-            $stmt = $pdo->prepare("
-                INSERT INTO cartera (estado, acciones, fecha_accion, enlace, id_inmueble, id_transaccion) 
-                VALUES (:estado, :acciones, :fecha_accion, :enlace, :id_inmueble, :id_transaccion)
-            ");
-
+            $columns = implode(", ", array_keys($input));
+            $placeholders = ":" . implode(", :", array_keys($input));
+            $stmt = $pdo->prepare("INSERT INTO cartera ($columns) VALUES ($placeholders)");
+            
             try {
-                $stmt->execute([
-                    'estado' => $input['estado'],
-                    'acciones' => $input['acciones'],
-                    'fecha_accion' => $input['fecha_accion'],
-                    'enlace' => $input['enlace'],
-                    'id_inmueble' => $input['id_inmueble'],
-                    'id_transaccion' => $input['id_transaccion']
-                ]);
-
+                $stmt->execute($input);
                 sendResponse("success", "Registro creado con éxito.", ["id_cartera" => $pdo->lastInsertId()]);
             } catch (PDOException $e) {
                 sendResponse("error", "No se pudo crear el registro.", null, [$e->getMessage()]);
@@ -99,11 +90,7 @@ try {
             $stmt = $pdo->prepare($sql);
             try {
                 $stmt->execute($input);
-                if ($stmt->rowCount() > 0) {
-                    sendResponse("success", "Registro actualizado con éxito.");
-                } else {
-                    sendResponse("success", "No se realizaron cambios; el registro no existe o los datos son idénticos.");
-                }
+                sendResponse("success", "Registro actualizado con éxito.");
             } catch (PDOException $e) {
                 sendResponse("error", "No se pudo actualizar el registro.", null, [$e->getMessage()]);
             }
@@ -117,11 +104,7 @@ try {
             $stmt = $pdo->prepare("DELETE FROM cartera WHERE id_cartera = :id");
             try {
                 $stmt->execute(['id' => $id]);
-                if ($stmt->rowCount() > 0) {
-                    sendResponse("success", "Registro eliminado con éxito.");
-                } else {
-                    sendResponse("error", "No se encontró el registro para eliminar.");
-                }
+                sendResponse("success", "Registro eliminado con éxito.");
             } catch (PDOException $e) {
                 sendResponse("error", "No se pudo eliminar el registro.", null, [$e->getMessage()]);
             }

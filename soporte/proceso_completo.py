@@ -11,6 +11,7 @@ scripts = [
     'obtener_inmuebles_fotocasa.py',
     'obtencion_almeria.py',
     'obtencion_alicante.py',
+    'obtencion_albacete.py',
     'actualizar_web.py',
 ]
 

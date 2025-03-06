@@ -16,9 +16,8 @@ body {
 .btn-group {
     margin-bottom: 15px;
 }
-.badge-pendiente { background-color: #856507; }
-.badge-negociacion { background-color: #003e81; }
-.badge-cerrado { background-color: #006e1a6b; }
+.badge-proceso { background-color: #078566; }
+.badge-cerrado { background-color: #6e00006b; }
 .table th, .table td { text-align: center; }
 .action-buttons { display: flex; gap: 5px; justify-content: center; }
 
