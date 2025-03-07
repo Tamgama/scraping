@@ -67,6 +67,39 @@ function renderPage(page) {
     updatePaginationControls();
 }
 
+function viewHistory(idInmueble) {
+    const inmueble = data.find(prop => prop.id_cartera === idInmueble);
+    if (!inmueble) {
+        alert('No se encontró información para este inmueble.');
+        return;
+    }
+
+    const historial = [
+        { fecha: '25/2/2025', estado: 'Initial → Pendiente', descripcion: 'Propiedad añadida al sistema' },
+        { fecha: '25/2/2025', estado: 'Pendiente → En Negociación', descripcion: 'Inicio del proceso' },
+        { fecha: '25/2/2025', estado: 'En Negociación → Cerrado', descripcion: 'Transacción completada' }
+    ];
+
+    const documentos = [
+        { nombre: 'Contrato.pdf', url: 'https://ejemplo.com/contrato.pdf' },
+        { nombre: 'Tasación.pdf', url: 'https://ejemplo.com/tasacion.pdf' }
+    ];
+
+    let historialHTML = `
+        <div id="historialModal" class="modal" style="display:block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 9999;">
+            <div style="background: white; padding: 20px; border-radius: 10px; max-width: 500px; width: 90%; text-align: left; position: relative;">
+                <button onclick="document.getElementById('historialModal').remove()" style="position: absolute; top: 10px; right: 10px; border: none; background: transparent; font-size: 18px; cursor: pointer;">✖</button>
+                <h3>Historial del Inmueble</h3>
+                <ul>
+                    ${documentos.map(doc => `<li><a href="${doc.url}" target="_blank">${doc.nombre}</a></li>`).join('')}
+                </ul>
+                <button onclick="document.getElementById('historialModal').remove()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">Cerrar</button>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', historialHTML);
+}
+
 function updatePaginationControls() {
     let totalPages = Math.ceil(filteredData.length / pageSize);
     document.getElementById("pageInfo").textContent = `Página ${currentPage} de ${totalPages || 1}`;
@@ -91,7 +124,7 @@ function changePageSize(size) {
 }
 
 function getBadgeClass(status) {
-    return status === "En proceso" ? "badge-proceso" : status === "Finalizado" ? "badge-cerrado" : "badge-cerrado";
+    return status === "Pendiente" ? "badge-proceso" : status === "Finalizado" ? "badge-cerrado" : "badge-cerrado";
 }
 
 function showLoading() {
