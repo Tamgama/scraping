@@ -306,7 +306,8 @@ ciudades_albacete = {
 # Expresiones regulares para clasificación de ubicaciones
 barrio_regex = re.compile(r"^barrio\s+.+", re.IGNORECASE)
 distrito_regex = re.compile(r"^distrito\s+.+", re.IGNORECASE)
-zonas = ["Los Vélez", "Bajo Almanzora", "Valle de Almanzora", "Filabres", "Campo de Tabernas", "Levante", "Cabo de Gata", "Alpujarras", "Almería", "Poniente"]
+zonas = ["La Roda", "Yeste", "Alcaraz", "Tobarra", "Campo de Hellín", "Elche de la Sierra - Riopar", "Liétor", "Villarobledo", "Almansa", "Ossa de Pontiel", 
+         "Caudete", "Caudax", "La Mancha", "La Manchuela", "Albacete", "Barrax", "Chinchilla de Monte-Aragón"]
 direccion_regex = re.compile(
     r"^(Calle|Avda\.?|Avenida|Carril|Plaza|Camino|Carretera|C\.|Paseo|Pza\.?|de|Ronda|Senda|Donantes|Arroyo|Atlántico)\s+.+",
     re.IGNORECASE
