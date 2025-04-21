@@ -8,10 +8,10 @@ scripts = [
     # 'correccion-numeros.py',
     # 'limpieza.py',
     #'particulares/particulares.py',
-    'obtener_inmuebles_fotocasa.py',
     'obtencion_almeria.py',
     'obtencion_alicante.py',
     'obtencion_albacete.py',
+    'obtener_inmuebles_fotocasa.py',
     'actualizar_web.py',
 ]
 
