@@ -43,6 +43,7 @@ header {
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 
@@ -54,14 +55,24 @@ header {
     color: white;
     text-decoration: none;
     font-size: 1rem;
-    padding: 10px;
-    transition: background-color 0.3s ease;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3 ease;
 }
 
-.nav-list li a:hover {
-    background-color: #002c23;
+/* Estilo especial para el botón "En cartera" */
+.nav-list li a.cartera-btn {
+    background-color: white;
+    color: #004d3c;
     border-radius: 4px;
+    font-weight: bold;
 }
+
+/* Hover para el botón "En cartera" */
+.nav-list li a.cartera-btn:hover {
+    background-color: #e6f2ef;
+    color: #002c23;
+}
+
 
 /* Estilos del contador */
 #propertyCounters {

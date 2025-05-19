@@ -263,7 +263,7 @@ function loadDataFromAPI(view) {
                 
                 document.getElementById('totalProperties').textContent = totalInmuebles;
                 document.getElementById('privateProperties').textContent = inmueblesParticulares;
-                document.getElementById("privateSaleProperties").textContent = particularesVenta;
+                // document.getElementById("privateSaleProperties").textContent = particularesVenta;
                 document.getElementById("privateRentProperties").textContent = particularesAlquiler;
                 // console.log("Total de inmuebles:", totalInmuebles);
                 // console.log("Inmuebles de particulares:", inmueblesParticulares);
