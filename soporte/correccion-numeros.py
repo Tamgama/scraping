@@ -6,14 +6,14 @@ import json
 import sys
 
 # Cargar las cookies desde el archivo 'cookie.json'
-try:
-    with open('cookie.json', 'r') as cookie_file:
-        config = json.load(cookie_file)
-        cookie = config['cookie']
-    cookie = cookie.encode('utf-8')
-except FileNotFoundError:
-    print("Error: No se encontró el archivo 'cookie.json'.")
-    sys.exit(1)
+# try:
+#     with open('cd cookie.json', 'r') as cookie_file:
+#         config = json.load(cookie_file)
+#         cookie = config['cookie']
+#     cookie = cookie.encode('utf-8')
+# except FileNotFoundError:
+#     print("Error: No se encontró el archivo 'cookie.json'.")
+#     sys.exit(1)
 
 # Configurar la sesión de requests con los headers necesarios
 headers = {
@@ -25,7 +25,7 @@ headers = {
     "accept-encoding": "gzip, deflate, br, zstd",
     "accept-language": "es,en-US;q=0.9,en;q=0.8",
     "cache-control": "no-cache",
-    "cookie": cookie,
+    "cookie": "userUUID=354ebf7b-4a28-495f-badd-716c43f9e8a2; SESSION=733bddb87ea43a90~b331161f-0456-4eb1-86a1-9bd28074b218; utag_main__sn=1; utag_main_ses_id=1747737852267%3Bexp-session; utag_main__prevTsUrl=https%3A%2F%2Fwww.idealista.com%2F%3Bexp-1747741452281; utag_main__prevTsReferrer=%3Bexp-1747741452281; utag_main__prevTsSource=Direct traffic%3Bexp-1747741452281; utag_main__prevTsCampaign=organicTrafficByTm%3Bexp-1747741452281; utag_main__prevTsProvider=%3Bexp-1747741452281; utag_main__ss=0%3Bexp-session; utag_main__prevEventLink=; _pprv=eyJjb25zZW50Ijp7IjAiOnsibW9kZSI6Im9wdC1pbiJ9LCIxIjp7Im1vZGUiOiJvcHQtaW4ifSwiMiI6eyJtb2RlIjoib3B0LWluIn0sIjMiOnsibW9kZSI6Im9wdC1pbiJ9LCI0Ijp7Im1vZGUiOiJvcHQtaW4ifSwiNSI6eyJtb2RlIjoib3B0LWluIn0sIjYiOnsibW9kZSI6Im9wdC1pbiJ9LCI3Ijp7Im1vZGUiOiJvcHQtaW4ifX0sInB1cnBvc2VzIjpudWxsLCJfdCI6Im1xa3N4Nzl1fG1hd2R6cHh1In0%3D; _pcid=%7B%22browserId%22%3A%22mawdzpxax7479akr%22%2C%22_t%22%3A%22mqksx7fk%7Cmawdzq3k%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAI4BrCAA8A7ADN%2BAH36EA7qwBeggMz8QAXyA; didomi_token=eyJ1c2VyX2lkIjoiMTk2ZWQ0YjMtOGFiMS02MTExLTg0NjgtMWJhZGNkOTJiNzZhIiwiY3JlYXRlZCI6IjIwMjUtMDUtMjBUMTA6NDQ6MTIuMDc1WiIsInVwZGF0ZWQiOiIyMDI1LTA1LTIwVDEwOjQ0OjEzLjM2OVoiLCJ2ZW5kb3JzIjp7ImRpc2FibGVkIjpbImdvb2dsZSIsImM6bGlua2VkaW4tbWFya2V0aW5nLXNvbHV0aW9ucyIsImM6bWl4cGFuZWwiLCJjOmFidGFzdHktTExrRUNDajgiLCJjOmhvdGphciIsImM6YmVhbWVyLUg3dHI3SGl4IiwiYzp0ZWFsaXVtY28tRFZEQ2Q4WlAiLCJjOnRpa3Rvay1LWkFVUUxaOSIsImM6Z29vZ2xlYW5hLTRUWG5KaWdSIiwiYzppZGVhbGlzdGEtTHp0QmVxRTMiLCJjOmlkZWFsaXN0YS1mZVJFamUyYyIsImM6Y29udGVudHNxdWFyZSIsImM6bWljcm9zb2Z0Il19LCJwdXJwb3NlcyI6eyJkaXNhYmxlZCI6WyJnZW9sb2NhdGlvbl9kYXRhIiwiZGV2aWNlX2NoYXJhY3RlcmlzdGljcyJdfSwidmVyc2lvbiI6MiwiYWMiOiJBQUFBLkFBQUEifQ==; euconsent-v2=CQRtbwAQRtbwAAHABBENBrFgAAAAAAAAAAAAAAAAAACkoAMAAQWbKQAYAAgs2QgAwABBZsdABgACCzYSADAAEFmw.YAAAAAAAAAAA; utag_main__pn=2%3Bexp-session; utag_main__se=5%3Bexp-session; utag_main__st=1747739850233%3Bexp-session; utag_main__prevEventView=010-idealista/home > portal > > > > viewHome%3Bexp-1747741650243; utag_main__prevLevel2=010-idealista/home%3Bexp-1747741650243; __rtbh.uid=%7B%22eventType%22%3A%22uid%22%2C%22id%22%3A%22unknown%22%2C%22expiryDate%22%3A%222026-05-20T10%3A47%3A30.295Z%22%7D; __rtbh.lid=%7B%22eventType%22%3A%22lid%22%2C%22id%22%3A%22MSdZjYtqZNWgXOhJRdn5%22%2C%22expiryDate%22%3A%222026-05-20T10%3A47%3A30.296Z%22%7D; datadome=YPAzPkTiX7aiOHjsx_ubo~tvu23I_Xs1XBznDO5AJ~7EkFawl_KXkzF5O495Qhax87PG3Zkavi5Il_BNQ~lW~Gy0YiI3DGU7Nii2ERjgswudGiD02hDsFF7Xl1KW0stg",
     "pragma": "no-cache",
     "priority": "u=0, i",
     "sec-ch-device-memory": "8",
