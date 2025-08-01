@@ -236,6 +236,34 @@ function loadDataFromAPI(view) {
                     tipoTransaccion: row.tipo_transaccion,
                     fuente: row.fuente || 'Desconocida',
                 }));
+                // ✅ Enviar todos los inmuebles al webhook de n8n
+                data.forEach((inmueble) => {
+                    fetch('https://promurcia-n8n.cjpap8.easypanel.host/webhook/06604022-6eea-4656-8cb3-519fee668edb', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            id: inmueble.id,
+                            titulo: inmueble.titulo,
+                            precio: inmueble.precio,
+                            superficie: inmueble.superficie,
+                            ciudad: inmueble.ciudad,
+                            barrio: inmueble.barrio,
+                            calle: inmueble.calle,
+                            habitaciones: inmueble.habitaciones,
+                            banos: inmueble.banos,
+                            tipoTransaccion: inmueble.tipoTransaccion,
+                            tipoAnunciante: inmueble.tipoAnunciante,
+                            nombre: inmueble.anunciante,
+                            telefono: inmueble.tlf,
+                            url: inmueble.url,
+                            fuente: inmueble.fuente,
+                            comentarios: inmueble.comentarios,
+                        })
+                    }).catch(err => console.warn("Webhook error:", err));
+                });
+
                 if (view == 'scraping') {
                     data = data.filter(row => !row.cartera && row.tipoTransaccion !== 'Habitación');
                 } else if (view == 'cartera') {

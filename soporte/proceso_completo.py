@@ -2,16 +2,16 @@ import subprocess
 
 # Lista de scripts a ejecutar en orden
 scripts = [
-    #'obtencion_inmuebles.py',
+    'obtencion_inmuebles.py',
     # 'alquileres.py',
     # 'ventas.py',
-    # 'correccion-numeros.py',
+    'correccion-numeros.py',
     # 'limpieza.py',
     #'particulares/particulares.py',
     'obtencion_almeria.py',
     'obtencion_alicante.py',
     'obtencion_albacete.py',
-    'obtener_inmuebles_fotocasa.py',
+    #'obtener_inmuebles_fotocasa.py',
     'actualizar_web.py',
 ]
 
